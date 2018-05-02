@@ -1,18 +1,20 @@
+package Controlador;
+
 import java.sql.Connection;
 import java.sql.DriverManager;
 
 public class Conectarse {
     private Connection conn = null;
-    private String host = "danielbenito.com";
-    private String db = "itlac_genesysmi";
-    private String user = "itlac_kevin";
-    private String pass = "1,FWwSff;}%0";
+    private final String host = "danielbenito.com";
+    private final String db = "itlac_genesysmi";
+    private final String user = "itlac_kevin";
+    private final String pass = "1,FWwSff;}%0";
 
     public Conectarse() {
         MySQLAccess();
     }
     
-    public void MySQLAccess() {
+    private void MySQLAccess() {
         try {
             // This will load the MySQL driver, each DB has its own driver
             Class.forName("com.mysql.jdbc.Driver");
