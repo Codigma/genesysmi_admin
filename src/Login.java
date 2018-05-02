@@ -53,7 +53,7 @@ public class Login extends javax.swing.JFrame {
 
         txtUser.setToolTipText("");
 
-        btnGo.setText("Ingresar");
+        btnGo.setText("Aceptar");
 
         btnCancel.setText("Cancelar");
 

@@ -99,7 +99,7 @@
     </Component>
     <Component class="javax.swing.JButton" name="btnGo">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Ingresar"/>
+        <Property name="text" type="java.lang.String" value="Aceptar"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JButton" name="btnCancel">
