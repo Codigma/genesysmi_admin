@@ -9,25 +9,25 @@
             <Property name="text" type="java.lang.String" value="Productos"/>
           </Properties>
           <SubComponents>
-            <MenuItem class="javax.swing.JMenuItem" name="jMenuItem1">
+            <MenuItem class="javax.swing.JMenuItem" name="itemNewProduct">
               <Properties>
                 <Property name="text" type="java.lang.String" value="A&#xf1;adir nuevo"/>
               </Properties>
             </MenuItem>
-            <MenuItem class="javax.swing.JMenuItem" name="jMenuItem2">
+            <MenuItem class="javax.swing.JMenuItem" name="itemSearchProduct">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Buscar producto"/>
               </Properties>
             </MenuItem>
-            <MenuItem class="javax.swing.JMenuItem" name="jMenuItem3">
+            <MenuItem class="javax.swing.JMenuItem" name="itemUpdateProduct">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Actulizar producto"/>
               </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jMenuItem3ActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="itemUpdateProductActionPerformed"/>
               </Events>
             </MenuItem>
-            <MenuItem class="javax.swing.JMenuItem" name="jMenuItem4">
+            <MenuItem class="javax.swing.JMenuItem" name="itemDeleteProduct">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Borrar producto"/>
               </Properties>
@@ -38,6 +38,18 @@
           <Properties>
             <Property name="text" type="java.lang.String" value="Colores"/>
           </Properties>
+          <SubComponents>
+            <MenuItem class="javax.swing.JMenuItem" name="itemViewColor">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Ver Lista"/>
+              </Properties>
+            </MenuItem>
+            <MenuItem class="javax.swing.JMenuItem" name="itemAddColor">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Agregar Color"/>
+              </Properties>
+            </MenuItem>
+          </SubComponents>
         </Menu>
         <Menu class="javax.swing.JMenu" name="jMenu3">
           <Properties>

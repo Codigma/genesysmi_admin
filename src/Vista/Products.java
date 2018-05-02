@@ -73,7 +73,7 @@ public class Products extends javax.swing.JFrame {
 
         jLabel2.setText("Nombre:");
 
-        jLabel3.setText("NUEVO PRODUCTO");
+        jLabel3.setText("EDITAR  PRODUCTO");
         jLabel3.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
 
         jLabel4.setText("Precio:");

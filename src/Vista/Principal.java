@@ -36,11 +36,13 @@ public class Principal extends javax.swing.JFrame {
 
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
-        jMenuItem1 = new javax.swing.JMenuItem();
-        jMenuItem2 = new javax.swing.JMenuItem();
-        jMenuItem3 = new javax.swing.JMenuItem();
-        jMenuItem4 = new javax.swing.JMenuItem();
+        itemNewProduct = new javax.swing.JMenuItem();
+        itemSearchProduct = new javax.swing.JMenuItem();
+        itemUpdateProduct = new javax.swing.JMenuItem();
+        itemDeleteProduct = new javax.swing.JMenuItem();
         jMenu2 = new javax.swing.JMenu();
+        itemViewColor = new javax.swing.JMenuItem();
+        itemAddColor = new javax.swing.JMenuItem();
         jMenu3 = new javax.swing.JMenu();
         jMenu4 = new javax.swing.JMenu();
 
@@ -48,26 +50,33 @@ public class Principal extends javax.swing.JFrame {
 
         jMenu1.setText("Productos");
 
-        jMenuItem1.setText("Añadir nuevo");
-        jMenu1.add(jMenuItem1);
+        itemNewProduct.setText("Añadir nuevo");
+        jMenu1.add(itemNewProduct);
 
-        jMenuItem2.setText("Buscar producto");
-        jMenu1.add(jMenuItem2);
+        itemSearchProduct.setText("Buscar producto");
+        jMenu1.add(itemSearchProduct);
 
-        jMenuItem3.setText("Actulizar producto");
-        jMenuItem3.addActionListener(new java.awt.event.ActionListener() {
+        itemUpdateProduct.setText("Actulizar producto");
+        itemUpdateProduct.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem3ActionPerformed(evt);
+                itemUpdateProductActionPerformed(evt);
             }
         });
-        jMenu1.add(jMenuItem3);
+        jMenu1.add(itemUpdateProduct);
 
-        jMenuItem4.setText("Borrar producto");
-        jMenu1.add(jMenuItem4);
+        itemDeleteProduct.setText("Borrar producto");
+        jMenu1.add(itemDeleteProduct);
 
         jMenuBar1.add(jMenu1);
 
         jMenu2.setText("Colores");
+
+        itemViewColor.setText("Ver Lista");
+        jMenu2.add(itemViewColor);
+
+        itemAddColor.setText("Agregar Color");
+        jMenu2.add(itemAddColor);
+
         jMenuBar1.add(jMenu2);
 
         jMenu3.setText("Categorías");
@@ -92,9 +101,9 @@ public class Principal extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jMenuItem3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem3ActionPerformed
+    private void itemUpdateProductActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itemUpdateProductActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jMenuItem3ActionPerformed
+    }//GEN-LAST:event_itemUpdateProductActionPerformed
 
     /**
      * @param args the command line arguments
@@ -136,14 +145,16 @@ System.out.println("Tu resolución es de " + screenSize.width + "x" + screenSize
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JMenuItem itemAddColor;
+    private javax.swing.JMenuItem itemDeleteProduct;
+    private javax.swing.JMenuItem itemNewProduct;
+    private javax.swing.JMenuItem itemSearchProduct;
+    private javax.swing.JMenuItem itemUpdateProduct;
+    private javax.swing.JMenuItem itemViewColor;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenu jMenu3;
     private javax.swing.JMenu jMenu4;
     private javax.swing.JMenuBar jMenuBar1;
-    private javax.swing.JMenuItem jMenuItem1;
-    private javax.swing.JMenuItem jMenuItem2;
-    private javax.swing.JMenuItem jMenuItem3;
-    private javax.swing.JMenuItem jMenuItem4;
     // End of variables declaration//GEN-END:variables
 }
