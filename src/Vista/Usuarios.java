@@ -28,7 +28,7 @@ public class Usuarios extends javax.swing.JFrame {
     private void initComponents() {
 
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        tbUsers = new javax.swing.JTable();
         btnGenerate = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         txtSearch = new javax.swing.JTextField();
@@ -36,7 +36,7 @@ public class Usuarios extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        tbUsers.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null, null, null, null, null, null, null, null, null},
                 {null, null, null, null, null, null, null, null, null, null, null, null},
@@ -58,7 +58,7 @@ public class Usuarios extends javax.swing.JFrame {
                 "ID Usuario", "Nombre(s)", "Apellidos", "Email", "País", "Estado", "Localidad", "Código Postal", "Dirección", "Teléfono", "RFC", "Fecha de registro"
             }
         ));
-        jScrollPane1.setViewportView(jTable1);
+        jScrollPane1.setViewportView(tbUsers);
 
         btnGenerate.setText("Generar");
 
@@ -154,7 +154,7 @@ public class Usuarios extends javax.swing.JFrame {
     private javax.swing.JButton btnSearch;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
+    private javax.swing.JTable tbUsers;
     private javax.swing.JTextField txtSearch;
     // End of variables declaration//GEN-END:variables
 }

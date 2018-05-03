@@ -75,7 +75,7 @@ public class Productos extends javax.swing.JFrame {
         txtCode1 = new javax.swing.JTextField();
         btnBuscar = new javax.swing.JButton();
         jScrollPane3 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        tbProduct = new javax.swing.JTable();
 
         jInternalFrame1.setVisible(true);
 
@@ -339,7 +339,7 @@ public class Productos extends javax.swing.JFrame {
             }
         });
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        tbProduct.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null, null, null},
                 {null, null, null, null, null, null},
@@ -358,7 +358,7 @@ public class Productos extends javax.swing.JFrame {
                 return canEdit [columnIndex];
             }
         });
-        jScrollPane3.setViewportView(jTable1);
+        jScrollPane3.setViewportView(tbProduct);
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -515,7 +515,7 @@ public class Productos extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
-    private javax.swing.JTable jTable1;
+    private javax.swing.JTable tbProduct;
     private javax.swing.JTextField txtCode;
     private javax.swing.JTextField txtCode1;
     private javax.swing.JTextArea txtCompo;

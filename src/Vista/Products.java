@@ -61,8 +61,8 @@ public class Products extends javax.swing.JFrame {
         comboColor = new javax.swing.JComboBox<>();
         jLabel16 = new javax.swing.JLabel();
         comboSize = new javax.swing.JComboBox<>();
-        btnAgregar = new javax.swing.JButton();
-        btnCancelar = new javax.swing.JButton();
+        btnEdit = new javax.swing.JButton();
+        btnCancel = new javax.swing.JButton();
         btnBuscar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -146,17 +146,17 @@ public class Products extends javax.swing.JFrame {
 
         comboSize.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
-        btnAgregar.setText("Editar");
-        btnAgregar.addActionListener(new java.awt.event.ActionListener() {
+        btnEdit.setText("Editar");
+        btnEdit.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnAgregarActionPerformed(evt);
+                btnEditActionPerformed(evt);
             }
         });
 
-        btnCancelar.setText("Cancelar");
-        btnCancelar.addActionListener(new java.awt.event.ActionListener() {
+        btnCancel.setText("Cancelar");
+        btnCancel.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnCancelarActionPerformed(evt);
+                btnCancelActionPerformed(evt);
             }
         });
 
@@ -246,10 +246,10 @@ public class Products extends javax.swing.JFrame {
                                         .addGap(23, 23, 23))
                                     .addGroup(jPanel1Layout.createSequentialGroup()
                                         .addGap(0, 0, Short.MAX_VALUE)
-                                        .addComponent(btnAgregar)
+                                        .addComponent(btnEdit)
                                         .addGap(59, 59, 59)))
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(btnCancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(btnCancel, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addGroup(jPanel1Layout.createSequentialGroup()
                                         .addComponent(btnImage4)
                                         .addGap(23, 23, 23)
@@ -319,8 +319,8 @@ public class Products extends javax.swing.JFrame {
                     .addComponent(btnImage5))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 45, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnAgregar)
-                    .addComponent(btnCancelar))
+                    .addComponent(btnEdit)
+                    .addComponent(btnCancel))
                 .addGap(22, 22, 22))
         );
 
@@ -344,13 +344,13 @@ public class Products extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btnCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelarActionPerformed
+    private void btnCancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_btnCancelarActionPerformed
+    }//GEN-LAST:event_btnCancelActionPerformed
 
-    private void btnAgregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgregarActionPerformed
+    private void btnEditActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_btnAgregarActionPerformed
+    }//GEN-LAST:event_btnEditActionPerformed
 
     private void btnImage5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnImage5ActionPerformed
         // TODO add your handling code here:
@@ -400,9 +400,9 @@ public class Products extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnAgregar;
     private javax.swing.JButton btnBuscar;
-    private javax.swing.JButton btnCancelar;
+    private javax.swing.JButton btnCancel;
+    private javax.swing.JButton btnEdit;
     private javax.swing.JButton btnImage1;
     private javax.swing.JButton btnImage2;
     private javax.swing.JButton btnImage3;
