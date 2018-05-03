@@ -35,26 +35,29 @@ public class Principal extends javax.swing.JFrame {
     private void initComponents() {
 
         jMenuBar1 = new javax.swing.JMenuBar();
-        jMenu1 = new javax.swing.JMenu();
+        menuProduct = new javax.swing.JMenu();
         itemNewProduct = new javax.swing.JMenuItem();
         itemSearchProduct = new javax.swing.JMenuItem();
         itemUpdateProduct = new javax.swing.JMenuItem();
         itemDeleteProduct = new javax.swing.JMenuItem();
-        jMenu2 = new javax.swing.JMenu();
+        menuColors = new javax.swing.JMenu();
         itemViewColor = new javax.swing.JMenuItem();
         itemAddColor = new javax.swing.JMenuItem();
-        jMenu3 = new javax.swing.JMenu();
-        jMenu4 = new javax.swing.JMenu();
+        menuUsers = new javax.swing.JMenu();
+        jMenu1 = new javax.swing.JMenu();
+        jMenuItem1 = new javax.swing.JMenuItem();
+        menuSale = new javax.swing.JMenu();
+        itemSale = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jMenu1.setText("Productos");
+        menuProduct.setText("Productos");
 
         itemNewProduct.setText("Añadir nuevo");
-        jMenu1.add(itemNewProduct);
+        menuProduct.add(itemNewProduct);
 
         itemSearchProduct.setText("Buscar producto");
-        jMenu1.add(itemSearchProduct);
+        menuProduct.add(itemSearchProduct);
 
         itemUpdateProduct.setText("Actulizar producto");
         itemUpdateProduct.addActionListener(new java.awt.event.ActionListener() {
@@ -62,28 +65,39 @@ public class Principal extends javax.swing.JFrame {
                 itemUpdateProductActionPerformed(evt);
             }
         });
-        jMenu1.add(itemUpdateProduct);
+        menuProduct.add(itemUpdateProduct);
 
         itemDeleteProduct.setText("Borrar producto");
-        jMenu1.add(itemDeleteProduct);
+        menuProduct.add(itemDeleteProduct);
 
-        jMenuBar1.add(jMenu1);
+        jMenuBar1.add(menuProduct);
 
-        jMenu2.setText("Colores");
+        menuColors.setText("Colores");
 
         itemViewColor.setText("Ver Lista");
-        jMenu2.add(itemViewColor);
+        menuColors.add(itemViewColor);
 
         itemAddColor.setText("Agregar Color");
-        jMenu2.add(itemAddColor);
+        menuColors.add(itemAddColor);
 
-        jMenuBar1.add(jMenu2);
+        jMenuBar1.add(menuColors);
 
-        jMenu3.setText("Categorías");
-        jMenuBar1.add(jMenu3);
+        menuUsers.setText("Usuarios");
 
-        jMenu4.setText("Usuarios");
-        jMenuBar1.add(jMenu4);
+        jMenu1.setText("Usuarios Sistema");
+        menuUsers.add(jMenu1);
+
+        jMenuItem1.setText("Usuarios Página");
+        menuUsers.add(jMenuItem1);
+
+        jMenuBar1.add(menuUsers);
+
+        menuSale.setText("Ventas");
+
+        itemSale.setText("Lista de Ventas");
+        menuSale.add(itemSale);
+
+        jMenuBar1.add(menuSale);
 
         setJMenuBar(jMenuBar1);
 
@@ -148,13 +162,16 @@ System.out.println("Tu resolución es de " + screenSize.width + "x" + screenSize
     private javax.swing.JMenuItem itemAddColor;
     private javax.swing.JMenuItem itemDeleteProduct;
     private javax.swing.JMenuItem itemNewProduct;
+    private javax.swing.JMenuItem itemSale;
     private javax.swing.JMenuItem itemSearchProduct;
     private javax.swing.JMenuItem itemUpdateProduct;
     private javax.swing.JMenuItem itemViewColor;
     private javax.swing.JMenu jMenu1;
-    private javax.swing.JMenu jMenu2;
-    private javax.swing.JMenu jMenu3;
-    private javax.swing.JMenu jMenu4;
     private javax.swing.JMenuBar jMenuBar1;
+    private javax.swing.JMenuItem jMenuItem1;
+    private javax.swing.JMenu menuColors;
+    private javax.swing.JMenu menuProduct;
+    private javax.swing.JMenu menuSale;
+    private javax.swing.JMenu menuUsers;
     // End of variables declaration//GEN-END:variables
 }
