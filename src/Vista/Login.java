@@ -80,7 +80,7 @@ public class Login extends javax.swing.JFrame {
         txtUser.setBackground(java.awt.Color.darkGray);
         txtUser.setForeground(new java.awt.Color(204, 204, 204));
         txtUser.setToolTipText("");
-        txtUser.setBorder(javax.swing.BorderFactory.createLineBorder(java.awt.Color.lightGray));
+        txtUser.setBorder(new javax.swing.border.LineBorder(java.awt.Color.lightGray, 1, true));
         txtUser.setCaretColor(new java.awt.Color(204, 204, 204));
         txtUser.setDisabledTextColor(new java.awt.Color(204, 204, 204));
         txtUser.setSelectedTextColor(new java.awt.Color(255, 255, 255));
@@ -92,7 +92,7 @@ public class Login extends javax.swing.JFrame {
         txtPass.setCaretColor(new java.awt.Color(204, 204, 204));
         txtPass.setDisabledTextColor(new java.awt.Color(204, 204, 204));
 
-        btnGo.setBackground(new java.awt.Color(79, 184, 159));
+        btnGo.setBackground(new java.awt.Color(39, 167, 134));
         btnGo.setFont(new java.awt.Font("Lucida Grande", 1, 13)); // NOI18N
         btnGo.setForeground(java.awt.Color.darkGray);
         btnGo.setText("Aceptar");

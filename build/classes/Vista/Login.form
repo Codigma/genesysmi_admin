@@ -205,7 +205,7 @@
                 <Property name="toolTipText" type="java.lang.String" value=""/>
                 <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
                   <Border info="org.netbeans.modules.form.compat2.border.LineBorderInfo">
-                    <LineBorder>
+                    <LineBorder roundedCorners="true">
                       <Color PropertyName="color" blue="c0" green="c0" id="lightGray" palette="1" red="c0" type="palette"/>
                     </LineBorder>
                   </Border>
@@ -250,7 +250,7 @@
             <Component class="javax.swing.JButton" name="btnGo">
               <Properties>
                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                  <Color blue="9f" green="b8" red="4f" type="rgb"/>
+                  <Color blue="86" green="a7" red="27" type="rgb"/>
                 </Property>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Lucida Grande" size="13" style="1"/>
