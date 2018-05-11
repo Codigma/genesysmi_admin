@@ -21,6 +21,7 @@ public class Login extends javax.swing.JFrame {
     PlaceHolder hol;
     public Login() {
         initComponents();
+        setLocationRelativeTo(null); 
         hol = new PlaceHolder(txtUser,"Ingresa tu Usuario");
         hol = new PlaceHolder(txtPass,"Ingresa tu Contraseña");
     }
