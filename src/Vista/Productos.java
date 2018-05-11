@@ -75,8 +75,8 @@ public class Productos extends javax.swing.JFrame {
         jPanel2 = new javax.swing.JPanel();
         jLabel17 = new javax.swing.JLabel();
         jLabel18 = new javax.swing.JLabel();
-        txtCode1 = new javax.swing.JTextField();
         btnBuscar = new javax.swing.JButton();
+        txtCode1 = new javax.swing.JTextField();
         jScrollPane3 = new javax.swing.JScrollPane();
         tbProduct = new javax.swing.JTable();
 
@@ -105,7 +105,7 @@ public class Productos extends javax.swing.JFrame {
         jLabel1.setText("Artículo:");
 
         txtCode.setBackground(new java.awt.Color(51, 51, 51));
-        txtCode.setFont(new java.awt.Font("Apple SD Gothic Neo", 0, 14)); // NOI18N
+        txtCode.setFont(new java.awt.Font("Apple SD Gothic Neo", 0, 15)); // NOI18N
         txtCode.setForeground(new java.awt.Color(255, 255, 255));
         txtCode.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 153, 153)));
         txtCode.setCaretColor(new java.awt.Color(153, 153, 153));
@@ -116,7 +116,7 @@ public class Productos extends javax.swing.JFrame {
         jLabel2.setText("Nombre:");
 
         txtName.setBackground(new java.awt.Color(51, 51, 51));
-        txtName.setFont(new java.awt.Font("Apple SD Gothic Neo", 0, 14)); // NOI18N
+        txtName.setFont(new java.awt.Font("Apple SD Gothic Neo", 0, 15)); // NOI18N
         txtName.setForeground(new java.awt.Color(255, 255, 255));
         txtName.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 153, 153)));
         txtName.setCaretColor(new java.awt.Color(153, 153, 153));
@@ -124,7 +124,7 @@ public class Productos extends javax.swing.JFrame {
 
         jLabel3.setBackground(new java.awt.Color(153, 153, 153));
         jLabel3.setFont(new java.awt.Font("Apple SD Gothic Neo", 1, 20)); // NOI18N
-        jLabel3.setForeground(new java.awt.Color(153, 153, 153));
+        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
         jLabel3.setText("Nuevo producto");
         jLabel3.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
 
@@ -133,7 +133,7 @@ public class Productos extends javax.swing.JFrame {
         jLabel4.setText("Precio:");
 
         txtPrice.setBackground(new java.awt.Color(51, 51, 51));
-        txtPrice.setFont(new java.awt.Font("Apple SD Gothic Neo", 0, 14)); // NOI18N
+        txtPrice.setFont(new java.awt.Font("Apple SD Gothic Neo", 0, 15)); // NOI18N
         txtPrice.setForeground(new java.awt.Color(255, 255, 255));
         txtPrice.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 153, 153)));
         txtPrice.setCaretColor(new java.awt.Color(153, 153, 153));
@@ -172,7 +172,7 @@ public class Productos extends javax.swing.JFrame {
 
         txtDescrip.setBackground(new java.awt.Color(51, 51, 51));
         txtDescrip.setColumns(20);
-        txtDescrip.setFont(new java.awt.Font("Apple SD Gothic Neo", 0, 14)); // NOI18N
+        txtDescrip.setFont(new java.awt.Font("Apple SD Gothic Neo", 0, 15)); // NOI18N
         txtDescrip.setForeground(new java.awt.Color(255, 255, 255));
         txtDescrip.setRows(5);
         txtDescrip.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 153, 153)));
@@ -186,7 +186,7 @@ public class Productos extends javax.swing.JFrame {
 
         txtCompo.setBackground(new java.awt.Color(51, 51, 51));
         txtCompo.setColumns(20);
-        txtCompo.setFont(new java.awt.Font("Apple SD Gothic Neo", 0, 14)); // NOI18N
+        txtCompo.setFont(new java.awt.Font("Apple SD Gothic Neo", 0, 15)); // NOI18N
         txtCompo.setForeground(new java.awt.Color(255, 255, 255));
         txtCompo.setRows(5);
         txtCompo.setAutoscrolls(false);
@@ -383,7 +383,7 @@ public class Productos extends javax.swing.JFrame {
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap(22, Short.MAX_VALUE)
+                .addContainerGap(21, Short.MAX_VALUE)
                 .addComponent(jLabel3)
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -454,20 +454,12 @@ public class Productos extends javax.swing.JFrame {
 
         jLabel17.setBackground(new java.awt.Color(153, 153, 153));
         jLabel17.setFont(new java.awt.Font("Apple SD Gothic Neo", 1, 20)); // NOI18N
-        jLabel17.setForeground(new java.awt.Color(153, 153, 153));
+        jLabel17.setForeground(new java.awt.Color(255, 255, 255));
         jLabel17.setText("Buscar producto");
 
         jLabel18.setFont(new java.awt.Font("Apple SD Gothic Neo", 0, 15)); // NOI18N
         jLabel18.setForeground(new java.awt.Color(204, 204, 204));
         jLabel18.setText("Artículo:");
-
-        txtCode1.setBackground(new java.awt.Color(51, 51, 51));
-        txtCode1.setFont(new java.awt.Font("Apple SD Gothic Neo", 0, 14)); // NOI18N
-        txtCode1.setForeground(new java.awt.Color(255, 255, 255));
-        txtCode1.setText(" ");
-        txtCode1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 153, 153)));
-        txtCode1.setCaretColor(new java.awt.Color(153, 153, 153));
-        txtCode1.setSelectionColor(new java.awt.Color(0, 168, 93));
 
         btnBuscar.setBackground(new java.awt.Color(0, 168, 93));
         btnBuscar.setFont(new java.awt.Font("Lucida Grande", 1, 13)); // NOI18N
@@ -479,8 +471,15 @@ public class Productos extends javax.swing.JFrame {
             }
         });
 
+        txtCode1.setBackground(new java.awt.Color(51, 51, 51));
+        txtCode1.setFont(new java.awt.Font("Apple SD Gothic Neo", 0, 15)); // NOI18N
+        txtCode1.setForeground(new java.awt.Color(255, 255, 255));
+        txtCode1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 153, 153)));
+        txtCode1.setCaretColor(new java.awt.Color(153, 153, 153));
+        txtCode1.setSelectionColor(new java.awt.Color(0, 168, 93));
+
         tbProduct.setBackground(new java.awt.Color(51, 51, 51));
-        tbProduct.setFont(new java.awt.Font("Apple SD Gothic Neo", 0, 14)); // NOI18N
+        tbProduct.setFont(new java.awt.Font("Apple SD Gothic Neo", 0, 15)); // NOI18N
         tbProduct.setForeground(new java.awt.Color(255, 255, 255));
         tbProduct.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -577,17 +576,17 @@ public class Productos extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_btnBuscarActionPerformed
 
-    private void btnCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelarActionPerformed
+    private void btnImage4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnImage4ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_btnCancelarActionPerformed
+    }//GEN-LAST:event_btnImage4ActionPerformed
 
     private void btnImage5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnImage5ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_btnImage5ActionPerformed
 
-    private void btnImage4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnImage4ActionPerformed
+    private void btnCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelarActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_btnImage4ActionPerformed
+    }//GEN-LAST:event_btnCancelarActionPerformed
 
     private void btnImage3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnImage3ActionPerformed
         // TODO add your handling code here:
