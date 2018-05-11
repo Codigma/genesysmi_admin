@@ -63,10 +63,10 @@ public class Login extends javax.swing.JFrame {
         setName("login"); // NOI18N
         setResizable(false);
 
-        jpTrasero.setBackground(new java.awt.Color(102, 102, 102));
+        jpTrasero.setBackground(java.awt.Color.darkGray);
         jpTrasero.setForeground(java.awt.Color.gray);
 
-        jpDelantero.setBackground(java.awt.Color.darkGray);
+        jpDelantero.setBackground(new java.awt.Color(51, 51, 51));
 
         jLabel1.setBackground(new java.awt.Color(204, 204, 204));
         jLabel1.setFont(new java.awt.Font("Apple SD Gothic Neo", 0, 14)); // NOI18N
@@ -77,28 +77,29 @@ public class Login extends javax.swing.JFrame {
         jLabel3.setForeground(new java.awt.Color(204, 204, 204));
         jLabel3.setText("Contraseña");
 
-        txtUser.setBackground(java.awt.Color.darkGray);
-        txtUser.setForeground(new java.awt.Color(204, 204, 204));
+        txtUser.setBackground(new java.awt.Color(51, 51, 51));
+        txtUser.setFont(new java.awt.Font("Apple SD Gothic Neo", 0, 14)); // NOI18N
+        txtUser.setForeground(new java.awt.Color(255, 255, 255));
         txtUser.setToolTipText("");
-        txtUser.setBorder(new javax.swing.border.LineBorder(java.awt.Color.lightGray, 1, true));
+        txtUser.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 153, 153)));
         txtUser.setCaretColor(new java.awt.Color(204, 204, 204));
         txtUser.setDisabledTextColor(new java.awt.Color(204, 204, 204));
         txtUser.setSelectedTextColor(new java.awt.Color(255, 255, 255));
 
-        txtPass.setBackground(java.awt.Color.darkGray);
-        txtPass.setFont(new java.awt.Font("Apple SD Gothic Neo", 0, 13)); // NOI18N
-        txtPass.setForeground(new java.awt.Color(204, 204, 204));
-        txtPass.setBorder(javax.swing.BorderFactory.createLineBorder(java.awt.Color.lightGray));
+        txtPass.setBackground(new java.awt.Color(51, 51, 51));
+        txtPass.setFont(new java.awt.Font("Apple SD Gothic Neo", 0, 14)); // NOI18N
+        txtPass.setForeground(new java.awt.Color(255, 255, 255));
+        txtPass.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 153, 153)));
         txtPass.setCaretColor(new java.awt.Color(204, 204, 204));
         txtPass.setDisabledTextColor(new java.awt.Color(204, 204, 204));
 
-        btnGo.setBackground(new java.awt.Color(39, 167, 134));
+        btnGo.setBackground(new java.awt.Color(0, 168, 93));
         btnGo.setFont(new java.awt.Font("Lucida Grande", 1, 13)); // NOI18N
-        btnGo.setForeground(java.awt.Color.darkGray);
+        btnGo.setForeground(new java.awt.Color(51, 51, 51));
         btnGo.setText("Aceptar");
 
-        btnCancel.setBackground(new java.awt.Color(0, 0, 0));
-        btnCancel.setForeground(new java.awt.Color(79, 184, 159));
+        btnCancel.setBackground(java.awt.Color.darkGray);
+        btnCancel.setForeground(new java.awt.Color(0, 168, 93));
         btnCancel.setText("Cancelar");
 
         jLabel2.setFont(new java.awt.Font("Lucida Grande", 0, 18)); // NOI18N
@@ -176,7 +177,7 @@ public class Login extends javax.swing.JFrame {
         jpTraseroLayout.setVerticalGroup(
             jpTraseroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jpTraseroLayout.createSequentialGroup()
-                .addContainerGap(32, Short.MAX_VALUE)
+                .addContainerGap(29, Short.MAX_VALUE)
                 .addComponent(jpDelantero, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(29, 29, 29))
         );
