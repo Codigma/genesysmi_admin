@@ -41,13 +41,12 @@ public class Usuarios extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jPanel1.setBackground(java.awt.Color.darkGray);
+        jPanel1.setBackground(new java.awt.Color(237, 237, 237));
 
-        jPanel2.setBackground(new java.awt.Color(51, 51, 51));
+        jPanel2.setBackground(new java.awt.Color(242, 242, 242));
 
-        tbUsers.setBackground(new java.awt.Color(51, 51, 51));
+        tbUsers.setBackground(new java.awt.Color(237, 237, 237));
         tbUsers.setFont(new java.awt.Font("Apple SD Gothic Neo", 0, 15)); // NOI18N
-        tbUsers.setForeground(new java.awt.Color(255, 255, 255));
         tbUsers.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null, null, null, null, null, null, null, null, null},
@@ -70,36 +69,35 @@ public class Usuarios extends javax.swing.JFrame {
                 "ID Usuario", "Nombre(s)", "Apellidos", "Email", "País", "Estado", "Localidad", "Código Postal", "Dirección", "Teléfono", "RFC", "Fecha de registro"
             }
         ));
+        tbUsers.setSelectionBackground(new java.awt.Color(253, 175, 200));
         jScrollPane1.setViewportView(tbUsers);
 
         jLabel1.setFont(new java.awt.Font("Apple SD Gothic Neo", 0, 15)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(204, 204, 204));
+        jLabel1.setForeground(new java.awt.Color(51, 51, 51));
         jLabel1.setText("Buscar por ID:");
 
-        txtSearch.setBackground(new java.awt.Color(51, 51, 51));
+        txtSearch.setBackground(new java.awt.Color(242, 242, 242));
         txtSearch.setFont(new java.awt.Font("Apple SD Gothic Neo", 0, 15)); // NOI18N
-        txtSearch.setForeground(new java.awt.Color(255, 255, 255));
-        txtSearch.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 153, 153)));
-        txtSearch.setCaretColor(new java.awt.Color(255, 255, 255));
-        txtSearch.setSelectionColor(new java.awt.Color(0, 168, 93));
+        txtSearch.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        txtSearch.setCaretColor(new java.awt.Color(51, 51, 51));
+        txtSearch.setDisabledTextColor(new java.awt.Color(51, 51, 51));
         txtSearch.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtSearchActionPerformed(evt);
             }
         });
 
-        btnGenerate.setBackground(new java.awt.Color(0, 168, 93));
+        btnGenerate.setBackground(new java.awt.Color(0, 37, 145));
         btnGenerate.setFont(new java.awt.Font("Lucida Grande", 1, 13)); // NOI18N
-        btnGenerate.setForeground(new java.awt.Color(51, 51, 51));
+        btnGenerate.setForeground(new java.awt.Color(255, 255, 255));
         btnGenerate.setText("Generar");
 
-        btnSearch.setBackground(new java.awt.Color(0, 168, 93));
+        btnSearch.setBackground(new java.awt.Color(0, 37, 145));
         btnSearch.setFont(new java.awt.Font("Lucida Grande", 1, 13)); // NOI18N
-        btnSearch.setForeground(new java.awt.Color(51, 51, 51));
+        btnSearch.setForeground(new java.awt.Color(255, 255, 255));
         btnSearch.setText("Buscar");
 
         jLabel2.setFont(new java.awt.Font("Avenir", 1, 22)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("Usuarios registrados");
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
@@ -136,9 +134,9 @@ public class Usuarios extends javax.swing.JFrame {
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel1)
                             .addComponent(txtSearch, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btnSearch, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(btnSearch, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel1))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED))
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGap(24, 24, 24)

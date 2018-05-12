@@ -95,131 +95,125 @@ public class Productos extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jPanel3.setBackground(java.awt.Color.darkGray);
+        jPanel3.setBackground(new java.awt.Color(237, 237, 237));
 
-        jPanel1.setBackground(new java.awt.Color(51, 51, 51));
+        jPanel1.setBackground(new java.awt.Color(242, 242, 242));
 
         jLabel1.setBackground(new java.awt.Color(153, 153, 153));
         jLabel1.setFont(new java.awt.Font("Apple SD Gothic Neo", 0, 15)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(204, 204, 204));
+        jLabel1.setForeground(new java.awt.Color(51, 51, 51));
         jLabel1.setText("Artículo:");
 
-        txtCode.setBackground(new java.awt.Color(51, 51, 51));
+        txtCode.setBackground(new java.awt.Color(242, 242, 242));
         txtCode.setFont(new java.awt.Font("Apple SD Gothic Neo", 0, 15)); // NOI18N
-        txtCode.setForeground(new java.awt.Color(255, 255, 255));
-        txtCode.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 153, 153)));
-        txtCode.setCaretColor(new java.awt.Color(153, 153, 153));
-        txtCode.setSelectionColor(new java.awt.Color(0, 168, 93));
+        txtCode.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        txtCode.setCaretColor(new java.awt.Color(51, 51, 51));
+        txtCode.setDisabledTextColor(new java.awt.Color(51, 51, 51));
 
         jLabel2.setFont(new java.awt.Font("Apple SD Gothic Neo", 0, 15)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(204, 204, 204));
+        jLabel2.setForeground(new java.awt.Color(51, 51, 51));
         jLabel2.setText("Nombre:");
 
-        txtName.setBackground(new java.awt.Color(51, 51, 51));
+        txtName.setBackground(new java.awt.Color(242, 242, 242));
         txtName.setFont(new java.awt.Font("Apple SD Gothic Neo", 0, 15)); // NOI18N
-        txtName.setForeground(new java.awt.Color(255, 255, 255));
-        txtName.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 153, 153)));
-        txtName.setCaretColor(new java.awt.Color(153, 153, 153));
-        txtName.setSelectionColor(new java.awt.Color(0, 168, 93));
+        txtName.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        txtName.setCaretColor(new java.awt.Color(51, 51, 51));
+        txtName.setDisabledTextColor(new java.awt.Color(51, 51, 51));
 
         jLabel3.setBackground(new java.awt.Color(153, 153, 153));
         jLabel3.setFont(new java.awt.Font("Avenir", 1, 22)); // NOI18N
-        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
         jLabel3.setText("Nuevo producto");
         jLabel3.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
 
         jLabel4.setFont(new java.awt.Font("Apple SD Gothic Neo", 0, 15)); // NOI18N
-        jLabel4.setForeground(new java.awt.Color(204, 204, 204));
+        jLabel4.setForeground(new java.awt.Color(51, 51, 51));
         jLabel4.setText("Precio:");
 
-        txtPrice.setBackground(new java.awt.Color(51, 51, 51));
+        txtPrice.setBackground(new java.awt.Color(242, 242, 242));
         txtPrice.setFont(new java.awt.Font("Apple SD Gothic Neo", 0, 15)); // NOI18N
-        txtPrice.setForeground(new java.awt.Color(255, 255, 255));
-        txtPrice.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 153, 153)));
-        txtPrice.setCaretColor(new java.awt.Color(153, 153, 153));
-        txtPrice.setSelectionColor(new java.awt.Color(0, 168, 93));
+        txtPrice.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        txtPrice.setCaretColor(new java.awt.Color(51, 51, 51));
+        txtPrice.setDisabledTextColor(new java.awt.Color(51, 51, 51));
 
         jLabel5.setFont(new java.awt.Font("Apple SD Gothic Neo", 0, 15)); // NOI18N
-        jLabel5.setForeground(new java.awt.Color(204, 204, 204));
+        jLabel5.setForeground(new java.awt.Color(51, 51, 51));
         jLabel5.setText("Categoría:");
 
-        comboCategory.setBackground(new java.awt.Color(153, 153, 153));
+        comboCategory.setBackground(new java.awt.Color(242, 242, 242));
         comboCategory.setFont(new java.awt.Font("Apple SD Gothic Neo", 0, 14)); // NOI18N
-        comboCategory.setForeground(new java.awt.Color(255, 255, 255));
+        comboCategory.setForeground(new java.awt.Color(51, 51, 51));
         comboCategory.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Recién Nacido - Ellas", "Recién Nacido - Ellos", "Baby - Ellas", "Baby - Ellos", "Mini - Ellas", "Mini - Ellos", "Junior - Ellas", "Junior - Ellos", "Accesorios y Regalos", " " }));
 
         jLabel6.setFont(new java.awt.Font("Apple SD Gothic Neo", 0, 15)); // NOI18N
-        jLabel6.setForeground(new java.awt.Color(204, 204, 204));
+        jLabel6.setForeground(new java.awt.Color(51, 51, 51));
         jLabel6.setText("Subcategoría:");
 
-        comboSub.setBackground(new java.awt.Color(153, 153, 153));
+        comboSub.setBackground(new java.awt.Color(242, 242, 242));
         comboSub.setFont(new java.awt.Font("Apple SD Gothic Neo", 0, 14)); // NOI18N
-        comboSub.setForeground(new java.awt.Color(255, 255, 255));
+        comboSub.setForeground(new java.awt.Color(51, 51, 51));
         comboSub.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
         jLabel7.setFont(new java.awt.Font("Apple SD Gothic Neo", 0, 15)); // NOI18N
-        jLabel7.setForeground(new java.awt.Color(204, 204, 204));
+        jLabel7.setForeground(new java.awt.Color(51, 51, 51));
         jLabel7.setText("Tipo de producto:");
 
-        comboType.setBackground(new java.awt.Color(153, 153, 153));
+        comboType.setBackground(new java.awt.Color(242, 242, 242));
         comboType.setFont(new java.awt.Font("Apple SD Gothic Neo", 0, 14)); // NOI18N
-        comboType.setForeground(new java.awt.Color(255, 255, 255));
+        comboType.setForeground(new java.awt.Color(51, 51, 51));
         comboType.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Ropa", "Calzado", "Otro" }));
 
         jLabel8.setFont(new java.awt.Font("Apple SD Gothic Neo", 0, 15)); // NOI18N
-        jLabel8.setForeground(new java.awt.Color(204, 204, 204));
+        jLabel8.setForeground(new java.awt.Color(51, 51, 51));
         jLabel8.setText("Descripción:");
 
-        txtDescrip.setBackground(new java.awt.Color(51, 51, 51));
+        txtDescrip.setBackground(new java.awt.Color(242, 242, 242));
         txtDescrip.setColumns(20);
         txtDescrip.setFont(new java.awt.Font("Apple SD Gothic Neo", 0, 15)); // NOI18N
-        txtDescrip.setForeground(new java.awt.Color(255, 255, 255));
         txtDescrip.setRows(5);
-        txtDescrip.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 153, 153)));
-        txtDescrip.setCaretColor(new java.awt.Color(153, 153, 153));
-        txtDescrip.setSelectionColor(new java.awt.Color(0, 168, 93));
+        txtDescrip.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        txtDescrip.setCaretColor(new java.awt.Color(51, 51, 51));
+        txtDescrip.setDisabledTextColor(new java.awt.Color(51, 51, 51));
         jScrollPane1.setViewportView(txtDescrip);
 
         jLabel9.setFont(new java.awt.Font("Apple SD Gothic Neo", 0, 15)); // NOI18N
-        jLabel9.setForeground(new java.awt.Color(204, 204, 204));
+        jLabel9.setForeground(new java.awt.Color(51, 51, 51));
         jLabel9.setText("Composición:");
 
-        txtCompo.setBackground(new java.awt.Color(51, 51, 51));
+        txtCompo.setBackground(new java.awt.Color(242, 242, 242));
         txtCompo.setColumns(20);
         txtCompo.setFont(new java.awt.Font("Apple SD Gothic Neo", 0, 15)); // NOI18N
-        txtCompo.setForeground(new java.awt.Color(255, 255, 255));
         txtCompo.setRows(5);
         txtCompo.setAutoscrolls(false);
-        txtCompo.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 153, 153)));
-        txtCompo.setCaretColor(new java.awt.Color(153, 153, 153));
-        txtCompo.setSelectionColor(new java.awt.Color(0, 168, 93));
+        txtCompo.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        txtCompo.setCaretColor(new java.awt.Color(51, 51, 51));
+        txtCompo.setDisabledTextColor(new java.awt.Color(51, 51, 51));
         jScrollPane2.setViewportView(txtCompo);
 
         jLabel10.setFont(new java.awt.Font("Apple SD Gothic Neo", 0, 15)); // NOI18N
-        jLabel10.setForeground(new java.awt.Color(204, 204, 204));
+        jLabel10.setForeground(new java.awt.Color(51, 51, 51));
         jLabel10.setText("Imagen #1");
 
-        btnImage1.setBackground(java.awt.Color.darkGray);
+        btnImage1.setBackground(new java.awt.Color(242, 242, 242));
         btnImage1.setFont(new java.awt.Font("Lucida Grande", 1, 13)); // NOI18N
-        btnImage1.setForeground(new java.awt.Color(255, 255, 255));
+        btnImage1.setForeground(new java.awt.Color(51, 51, 51));
         btnImage1.setText("Examinar");
 
         jLabel11.setFont(new java.awt.Font("Apple SD Gothic Neo", 0, 15)); // NOI18N
-        jLabel11.setForeground(new java.awt.Color(204, 204, 204));
+        jLabel11.setForeground(new java.awt.Color(51, 51, 51));
         jLabel11.setText("Imagen #2");
 
-        btnImage2.setBackground(java.awt.Color.darkGray);
+        btnImage2.setBackground(new java.awt.Color(242, 242, 242));
         btnImage2.setFont(new java.awt.Font("Lucida Grande", 1, 13)); // NOI18N
-        btnImage2.setForeground(new java.awt.Color(255, 255, 255));
+        btnImage2.setForeground(new java.awt.Color(51, 51, 51));
         btnImage2.setText("Examinar");
 
         jLabel12.setFont(new java.awt.Font("Apple SD Gothic Neo", 0, 15)); // NOI18N
-        jLabel12.setForeground(new java.awt.Color(204, 204, 204));
+        jLabel12.setForeground(new java.awt.Color(51, 51, 51));
         jLabel12.setText("Imagen #3");
 
-        btnImage3.setBackground(java.awt.Color.darkGray);
+        btnImage3.setBackground(new java.awt.Color(242, 242, 242));
         btnImage3.setFont(new java.awt.Font("Lucida Grande", 1, 13)); // NOI18N
-        btnImage3.setForeground(new java.awt.Color(255, 255, 255));
+        btnImage3.setForeground(new java.awt.Color(51, 51, 51));
         btnImage3.setText("Examinar");
         btnImage3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -228,12 +222,12 @@ public class Productos extends javax.swing.JFrame {
         });
 
         jLabel13.setFont(new java.awt.Font("Apple SD Gothic Neo", 0, 15)); // NOI18N
-        jLabel13.setForeground(new java.awt.Color(204, 204, 204));
+        jLabel13.setForeground(new java.awt.Color(51, 51, 51));
         jLabel13.setText("Imagen #4");
 
-        btnImage4.setBackground(java.awt.Color.darkGray);
+        btnImage4.setBackground(new java.awt.Color(242, 242, 242));
         btnImage4.setFont(new java.awt.Font("Lucida Grande", 1, 13)); // NOI18N
-        btnImage4.setForeground(new java.awt.Color(255, 255, 255));
+        btnImage4.setForeground(new java.awt.Color(51, 51, 51));
         btnImage4.setText("Examinar");
         btnImage4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -242,12 +236,12 @@ public class Productos extends javax.swing.JFrame {
         });
 
         jLabel14.setFont(new java.awt.Font("Apple SD Gothic Neo", 0, 15)); // NOI18N
-        jLabel14.setForeground(new java.awt.Color(204, 204, 204));
+        jLabel14.setForeground(new java.awt.Color(51, 51, 51));
         jLabel14.setText("Imagen #5");
 
-        btnImage5.setBackground(java.awt.Color.darkGray);
+        btnImage5.setBackground(new java.awt.Color(242, 242, 242));
         btnImage5.setFont(new java.awt.Font("Lucida Grande", 1, 13)); // NOI18N
-        btnImage5.setForeground(new java.awt.Color(255, 255, 255));
+        btnImage5.setForeground(new java.awt.Color(51, 51, 51));
         btnImage5.setText("Examinar");
         btnImage5.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -256,31 +250,31 @@ public class Productos extends javax.swing.JFrame {
         });
 
         jLabel15.setFont(new java.awt.Font("Apple SD Gothic Neo", 0, 15)); // NOI18N
-        jLabel15.setForeground(new java.awt.Color(204, 204, 204));
+        jLabel15.setForeground(new java.awt.Color(51, 51, 51));
         jLabel15.setText("Color:");
 
-        comboColor.setBackground(new java.awt.Color(153, 153, 153));
+        comboColor.setBackground(new java.awt.Color(242, 242, 242));
         comboColor.setFont(new java.awt.Font("Apple SD Gothic Neo", 0, 14)); // NOI18N
-        comboColor.setForeground(new java.awt.Color(255, 255, 255));
+        comboColor.setForeground(new java.awt.Color(51, 51, 51));
         comboColor.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
         jLabel16.setFont(new java.awt.Font("Apple SD Gothic Neo", 0, 15)); // NOI18N
-        jLabel16.setForeground(new java.awt.Color(204, 204, 204));
+        jLabel16.setForeground(new java.awt.Color(51, 51, 51));
         jLabel16.setText("Talla:");
 
-        comboSize.setBackground(new java.awt.Color(153, 153, 153));
+        comboSize.setBackground(new java.awt.Color(242, 242, 242));
         comboSize.setFont(new java.awt.Font("Apple SD Gothic Neo", 0, 14)); // NOI18N
-        comboSize.setForeground(new java.awt.Color(255, 255, 255));
+        comboSize.setForeground(new java.awt.Color(51, 51, 51));
         comboSize.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
-        btnAgregar.setBackground(new java.awt.Color(0, 168, 93));
+        btnAgregar.setBackground(new java.awt.Color(0, 37, 145));
         btnAgregar.setFont(new java.awt.Font("Lucida Grande", 1, 13)); // NOI18N
-        btnAgregar.setForeground(new java.awt.Color(51, 51, 51));
+        btnAgregar.setForeground(new java.awt.Color(255, 255, 255));
         btnAgregar.setText("Agregar");
 
-        btnCancelar.setBackground(java.awt.Color.darkGray);
+        btnCancelar.setBackground(new java.awt.Color(242, 242, 242));
         btnCancelar.setFont(new java.awt.Font("Lucida Grande", 1, 13)); // NOI18N
-        btnCancelar.setForeground(new java.awt.Color(0, 168, 93));
+        btnCancelar.setForeground(new java.awt.Color(0, 37, 145));
         btnCancelar.setText("Cancelar");
         btnCancelar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -450,20 +444,19 @@ public class Productos extends javax.swing.JFrame {
                 .addGap(24, 24, 24))
         );
 
-        jPanel2.setBackground(new java.awt.Color(51, 51, 51));
+        jPanel2.setBackground(new java.awt.Color(242, 242, 242));
 
         jLabel17.setBackground(new java.awt.Color(153, 153, 153));
         jLabel17.setFont(new java.awt.Font("Avenir", 1, 22)); // NOI18N
-        jLabel17.setForeground(new java.awt.Color(255, 255, 255));
         jLabel17.setText("Buscar producto");
 
         jLabel18.setFont(new java.awt.Font("Apple SD Gothic Neo", 0, 15)); // NOI18N
-        jLabel18.setForeground(new java.awt.Color(204, 204, 204));
+        jLabel18.setForeground(new java.awt.Color(51, 51, 51));
         jLabel18.setText("Artículo:");
 
-        btnBuscar.setBackground(new java.awt.Color(0, 168, 93));
+        btnBuscar.setBackground(new java.awt.Color(0, 37, 145));
         btnBuscar.setFont(new java.awt.Font("Lucida Grande", 1, 13)); // NOI18N
-        btnBuscar.setForeground(new java.awt.Color(51, 51, 51));
+        btnBuscar.setForeground(new java.awt.Color(255, 255, 255));
         btnBuscar.setText("Buscar");
         btnBuscar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -471,14 +464,14 @@ public class Productos extends javax.swing.JFrame {
             }
         });
 
-        txtCode1.setBackground(new java.awt.Color(51, 51, 51));
+        txtCode1.setBackground(new java.awt.Color(242, 242, 242));
         txtCode1.setFont(new java.awt.Font("Apple SD Gothic Neo", 0, 15)); // NOI18N
-        txtCode1.setForeground(new java.awt.Color(255, 255, 255));
-        txtCode1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 153, 153)));
-        txtCode1.setCaretColor(new java.awt.Color(153, 153, 153));
-        txtCode1.setSelectionColor(new java.awt.Color(0, 168, 93));
+        txtCode1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        txtCode1.setCaretColor(new java.awt.Color(51, 51, 51));
+        txtCode1.setDisabledTextColor(new java.awt.Color(51, 51, 51));
 
-        tbProduct.setBackground(new java.awt.Color(51, 51, 51));
+        tbProduct.setAutoCreateRowSorter(true);
+        tbProduct.setBackground(new java.awt.Color(237, 237, 237));
         tbProduct.setFont(new java.awt.Font("Apple SD Gothic Neo", 0, 15)); // NOI18N
         tbProduct.setForeground(new java.awt.Color(255, 255, 255));
         tbProduct.setModel(new javax.swing.table.DefaultTableModel(

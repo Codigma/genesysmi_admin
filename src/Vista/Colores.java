@@ -56,18 +56,17 @@ public class Colores extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(51, 51, 51));
 
-        jPanel3.setBackground(java.awt.Color.darkGray);
+        jPanel3.setBackground(new java.awt.Color(237, 237, 237));
 
-        jPanel2.setBackground(new java.awt.Color(51, 51, 51));
+        jPanel2.setBackground(new java.awt.Color(242, 242, 242));
 
-        jButton2.setBackground(new java.awt.Color(0, 168, 93));
+        jButton2.setBackground(new java.awt.Color(0, 37, 145));
         jButton2.setFont(new java.awt.Font("Lucida Grande", 1, 13)); // NOI18N
-        jButton2.setForeground(new java.awt.Color(51, 51, 51));
+        jButton2.setForeground(new java.awt.Color(255, 255, 255));
         jButton2.setText("Generar");
 
-        jTable2.setBackground(new java.awt.Color(51, 51, 51));
+        jTable2.setBackground(new java.awt.Color(237, 237, 237));
         jTable2.setFont(new java.awt.Font("Apple SD Gothic Neo", 0, 15)); // NOI18N
-        jTable2.setForeground(new java.awt.Color(255, 255, 255));
         jTable2.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null},
@@ -94,21 +93,20 @@ public class Colores extends javax.swing.JFrame {
             }
         });
         jTable2.setGridColor(new java.awt.Color(204, 204, 204));
-        jTable2.setSelectionBackground(new java.awt.Color(0, 168, 93));
-        jTable2.setSelectionForeground(new java.awt.Color(51, 51, 51));
+        jTable2.setSelectionBackground(new java.awt.Color(253, 175, 200));
+        jTable2.setSelectionForeground(new java.awt.Color(0, 0, 0));
         jScrollPane2.setViewportView(jTable2);
 
         jLabel2.setFont(new java.awt.Font("Avenir", 1, 22)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("Buscar colores");
 
         jLabel6.setFont(new java.awt.Font("Apple SD Gothic Neo", 0, 16)); // NOI18N
-        jLabel6.setForeground(new java.awt.Color(204, 204, 204));
+        jLabel6.setForeground(new java.awt.Color(51, 51, 51));
         jLabel6.setText("Color de muesta:");
 
         txtMuestra.setEditable(false);
         txtMuestra.setText(" ");
-        txtMuestra.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        txtMuestra.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 2));
         txtMuestra.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtMuestraActionPerformed(evt);
@@ -152,25 +150,23 @@ public class Colores extends javax.swing.JFrame {
                 .addGap(31, 31, 31))
         );
 
-        jPanel1.setBackground(new java.awt.Color(51, 51, 51));
+        jPanel1.setBackground(new java.awt.Color(242, 242, 242));
 
         jLabel1.setFont(new java.awt.Font("Avenir", 1, 22)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("Agregar color");
 
-        jPanel4.setBackground(new java.awt.Color(51, 51, 51));
+        jPanel4.setBackground(new java.awt.Color(242, 242, 242));
         jPanel4.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
         jLabel3.setFont(new java.awt.Font("Apple SD Gothic Neo", 0, 16)); // NOI18N
-        jLabel3.setForeground(new java.awt.Color(204, 204, 204));
+        jLabel3.setForeground(new java.awt.Color(51, 51, 51));
         jLabel3.setText("Código:");
 
-        txtCod.setBackground(new java.awt.Color(51, 51, 51));
+        txtCod.setBackground(new java.awt.Color(242, 242, 242));
         txtCod.setFont(new java.awt.Font("Apple SD Gothic Neo", 0, 15)); // NOI18N
-        txtCod.setForeground(new java.awt.Color(255, 255, 255));
-        txtCod.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 153, 153)));
-        txtCod.setCaretColor(new java.awt.Color(153, 153, 153));
-        txtCod.setSelectionColor(new java.awt.Color(0, 168, 93));
+        txtCod.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        txtCod.setCaretColor(new java.awt.Color(51, 51, 51));
+        txtCod.setDisabledTextColor(new java.awt.Color(51, 51, 51));
         txtCod.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtCodActionPerformed(evt);
@@ -178,30 +174,28 @@ public class Colores extends javax.swing.JFrame {
         });
 
         jLabel4.setFont(new java.awt.Font("Apple SD Gothic Neo", 0, 16)); // NOI18N
-        jLabel4.setForeground(new java.awt.Color(204, 204, 204));
+        jLabel4.setForeground(new java.awt.Color(51, 51, 51));
         jLabel4.setText("Nombre:");
 
-        txtName.setBackground(new java.awt.Color(51, 51, 51));
+        txtName.setBackground(new java.awt.Color(242, 242, 242));
         txtName.setFont(new java.awt.Font("Apple SD Gothic Neo", 0, 15)); // NOI18N
-        txtName.setForeground(new java.awt.Color(255, 255, 255));
-        txtName.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 153, 153)));
-        txtName.setCaretColor(new java.awt.Color(153, 153, 153));
-        txtName.setSelectionColor(new java.awt.Color(0, 168, 93));
+        txtName.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        txtName.setCaretColor(new java.awt.Color(51, 51, 51));
+        txtName.setDisabledTextColor(new java.awt.Color(51, 51, 51));
 
         jLabel5.setFont(new java.awt.Font("Apple SD Gothic Neo", 0, 16)); // NOI18N
-        jLabel5.setForeground(new java.awt.Color(204, 204, 204));
+        jLabel5.setForeground(new java.awt.Color(51, 51, 51));
         jLabel5.setText("Hexadecimal:");
 
-        txtHex.setBackground(new java.awt.Color(51, 51, 51));
+        txtHex.setBackground(new java.awt.Color(242, 242, 242));
         txtHex.setFont(new java.awt.Font("Apple SD Gothic Neo", 0, 15)); // NOI18N
-        txtHex.setForeground(new java.awt.Color(255, 255, 255));
-        txtHex.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 153, 153)));
-        txtHex.setCaretColor(new java.awt.Color(153, 153, 153));
-        txtHex.setSelectionColor(new java.awt.Color(0, 168, 93));
+        txtHex.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        txtHex.setCaretColor(new java.awt.Color(51, 51, 51));
+        txtHex.setDisabledTextColor(new java.awt.Color(51, 51, 51));
 
-        jButton1.setBackground(new java.awt.Color(0, 168, 93));
+        jButton1.setBackground(new java.awt.Color(0, 37, 145));
         jButton1.setFont(new java.awt.Font("Lucida Grande", 1, 13)); // NOI18N
-        jButton1.setForeground(new java.awt.Color(51, 51, 51));
+        jButton1.setForeground(new java.awt.Color(255, 255, 255));
         jButton1.setText("Seleccionar");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

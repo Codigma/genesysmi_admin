@@ -64,50 +64,49 @@ public class Login extends javax.swing.JFrame {
         setName("login"); // NOI18N
         setResizable(false);
 
-        jpTrasero.setBackground(java.awt.Color.darkGray);
+        jpTrasero.setBackground(new java.awt.Color(237, 237, 237));
         jpTrasero.setForeground(java.awt.Color.gray);
 
-        jpDelantero.setBackground(new java.awt.Color(51, 51, 51));
+        jpDelantero.setBackground(new java.awt.Color(242, 242, 242));
 
         jLabel1.setBackground(new java.awt.Color(204, 204, 204));
         jLabel1.setFont(new java.awt.Font("Apple SD Gothic Neo", 0, 14)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(204, 204, 204));
+        jLabel1.setForeground(new java.awt.Color(51, 51, 51));
         jLabel1.setText("Usuario");
 
         jLabel3.setFont(new java.awt.Font("Apple SD Gothic Neo", 0, 14)); // NOI18N
-        jLabel3.setForeground(new java.awt.Color(204, 204, 204));
+        jLabel3.setForeground(new java.awt.Color(51, 51, 51));
         jLabel3.setText("Contraseña");
 
-        txtUser.setBackground(new java.awt.Color(51, 51, 51));
-        txtUser.setFont(new java.awt.Font("Apple SD Gothic Neo", 0, 14)); // NOI18N
-        txtUser.setForeground(new java.awt.Color(255, 255, 255));
+        txtUser.setBackground(new java.awt.Color(242, 242, 242));
+        txtUser.setFont(new java.awt.Font("Apple SD Gothic Neo", 0, 15)); // NOI18N
         txtUser.setToolTipText("");
-        txtUser.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 153, 153)));
-        txtUser.setCaretColor(new java.awt.Color(204, 204, 204));
+        txtUser.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(51, 51, 51)));
+        txtUser.setCaretColor(new java.awt.Color(51, 51, 51));
         txtUser.setDisabledTextColor(new java.awt.Color(204, 204, 204));
         txtUser.setSelectedTextColor(new java.awt.Color(255, 255, 255));
 
-        txtPass.setBackground(new java.awt.Color(51, 51, 51));
+        txtPass.setBackground(new java.awt.Color(242, 242, 242));
         txtPass.setFont(new java.awt.Font("Apple SD Gothic Neo", 0, 14)); // NOI18N
-        txtPass.setForeground(new java.awt.Color(255, 255, 255));
-        txtPass.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 153, 153)));
-        txtPass.setCaretColor(new java.awt.Color(204, 204, 204));
+        txtPass.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(51, 51, 51)));
+        txtPass.setCaretColor(new java.awt.Color(51, 51, 51));
         txtPass.setDisabledTextColor(new java.awt.Color(204, 204, 204));
 
-        btnGo.setBackground(new java.awt.Color(0, 168, 93));
+        btnGo.setBackground(new java.awt.Color(0, 37, 145));
         btnGo.setFont(new java.awt.Font("Lucida Grande", 1, 13)); // NOI18N
-        btnGo.setForeground(new java.awt.Color(51, 51, 51));
+        btnGo.setForeground(new java.awt.Color(255, 255, 255));
         btnGo.setText("Aceptar");
 
-        btnCancel.setBackground(java.awt.Color.darkGray);
-        btnCancel.setForeground(new java.awt.Color(0, 168, 93));
+        btnCancel.setBackground(new java.awt.Color(204, 204, 204));
+        btnCancel.setForeground(new java.awt.Color(0, 37, 145));
         btnCancel.setText("Cancelar");
 
         jLabel2.setFont(new java.awt.Font("Lucida Grande", 0, 18)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel2.setForeground(new java.awt.Color(51, 51, 51));
         jLabel2.setText("Bienvenido al SPV");
 
-        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/ICONO2.png"))); // NOI18N
+        jLabel4.setBackground(new java.awt.Color(0, 0, 0));
+        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/ICONO3.png"))); // NOI18N
 
         javax.swing.GroupLayout jpDelanteroLayout = new javax.swing.GroupLayout(jpDelantero);
         jpDelantero.setLayout(jpDelanteroLayout);
@@ -136,13 +135,12 @@ public class Login extends javax.swing.JFrame {
                 .addGap(24, 24, 24))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jpDelanteroLayout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
-                .addGroup(jpDelanteroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jpDelanteroLayout.createSequentialGroup()
-                        .addComponent(jLabel2)
-                        .addGap(84, 84, 84))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jpDelanteroLayout.createSequentialGroup()
-                        .addComponent(jLabel4)
-                        .addGap(115, 115, 115))))
+                .addComponent(jLabel2)
+                .addGap(84, 84, 84))
+            .addGroup(jpDelanteroLayout.createSequentialGroup()
+                .addGap(118, 118, 118)
+                .addComponent(jLabel4)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jpDelanteroLayout.setVerticalGroup(
             jpDelanteroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -163,7 +161,7 @@ public class Login extends javax.swing.JFrame {
                 .addComponent(btnGo, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(40, 40, 40)
                 .addComponent(btnCancel)
-                .addContainerGap(23, Short.MAX_VALUE))
+                .addContainerGap(24, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout jpTraseroLayout = new javax.swing.GroupLayout(jpTrasero);
@@ -178,7 +176,7 @@ public class Login extends javax.swing.JFrame {
         jpTraseroLayout.setVerticalGroup(
             jpTraseroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jpTraseroLayout.createSequentialGroup()
-                .addContainerGap(29, Short.MAX_VALUE)
+                .addContainerGap(27, Short.MAX_VALUE)
                 .addComponent(jpDelantero, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(29, 29, 29))
         );

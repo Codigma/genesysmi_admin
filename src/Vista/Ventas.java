@@ -42,13 +42,12 @@ public class Ventas extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jPanel3.setBackground(java.awt.Color.darkGray);
+        jPanel3.setBackground(new java.awt.Color(237, 237, 237));
 
-        jPanel2.setBackground(new java.awt.Color(51, 51, 51));
+        jPanel2.setBackground(new java.awt.Color(242, 242, 242));
 
-        tbProducts.setBackground(new java.awt.Color(51, 51, 51));
+        tbProducts.setBackground(new java.awt.Color(237, 237, 237));
         tbProducts.setFont(new java.awt.Font("Apple SD Gothic Neo", 0, 15)); // NOI18N
-        tbProducts.setForeground(new java.awt.Color(255, 255, 255));
         tbProducts.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null, null, null, null, null},
@@ -79,11 +78,12 @@ public class Ventas extends javax.swing.JFrame {
                 return canEdit [columnIndex];
             }
         });
-        tbProducts.setSelectionBackground(new java.awt.Color(0, 168, 93));
+        tbProducts.setGridColor(new java.awt.Color(204, 204, 204));
+        tbProducts.setSelectionBackground(new java.awt.Color(253, 175, 200));
+        tbProducts.setSelectionForeground(new java.awt.Color(0, 0, 0));
         jScrollPane2.setViewportView(tbProducts);
 
         jLabel2.setFont(new java.awt.Font("Avenir", 1, 22)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("Productos");
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
@@ -109,16 +109,14 @@ public class Ventas extends javax.swing.JFrame {
                 .addContainerGap(13, Short.MAX_VALUE))
         );
 
-        jPanel4.setBackground(new java.awt.Color(51, 51, 51));
+        jPanel4.setBackground(new java.awt.Color(242, 242, 242));
 
         jLabel1.setFont(new java.awt.Font("Avenir", 1, 22)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("Ventas");
         jLabel1.setAlignmentX(0.5F);
 
-        tbSale.setBackground(new java.awt.Color(51, 51, 51));
+        tbSale.setBackground(new java.awt.Color(237, 237, 237));
         tbSale.setFont(new java.awt.Font("Apple SD Gothic Neo", 0, 15)); // NOI18N
-        tbSale.setForeground(new java.awt.Color(255, 255, 255));
         tbSale.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null, null},
@@ -144,12 +142,14 @@ public class Ventas extends javax.swing.JFrame {
                 return canEdit [columnIndex];
             }
         });
-        tbSale.setSelectionBackground(new java.awt.Color(0, 168, 93));
+        tbSale.setGridColor(new java.awt.Color(204, 204, 204));
+        tbSale.setSelectionBackground(new java.awt.Color(253, 175, 200));
+        tbSale.setSelectionForeground(new java.awt.Color(0, 0, 0));
         jScrollPane1.setViewportView(tbSale);
 
-        btnGenerate.setBackground(new java.awt.Color(0, 168, 93));
+        btnGenerate.setBackground(new java.awt.Color(0, 37, 145));
         btnGenerate.setFont(new java.awt.Font("Lucida Grande", 1, 13)); // NOI18N
-        btnGenerate.setForeground(new java.awt.Color(51, 51, 51));
+        btnGenerate.setForeground(new java.awt.Color(255, 255, 255));
         btnGenerate.setText("Generar");
 
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
