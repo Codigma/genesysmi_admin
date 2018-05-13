@@ -14,7 +14,7 @@ public class UsuarioDao {
         UsuarioVo usuario = new UsuarioVo();
         try {
             PreparedStatement preparedStatement = conn.getConn().prepareStatement(
-                    "SELECT id_user, first_name, last_name, email, "
+                    "SELECT id_user, firstname, lastname, email, "
                     + "id_country, id_state, id_location, cp, "
                     + "direction, phone, rfc, register_date "
                     + "FROM users "
