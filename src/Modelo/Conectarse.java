@@ -2,6 +2,8 @@ package Modelo;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.SQLException;
+import javax.swing.JOptionPane;
 
 public class Conectarse {
     private Connection conn = null;
@@ -22,11 +24,15 @@ public class Conectarse {
             conn = DriverManager.getConnection("jdbc:mysql://"+host+"/"+db,user,pass);
             // Check the state of connection
             if (conn!=null){
-            System.out.println("Conexión a la base de datos "+db+" OK");
+            System.out.println("Conexión exitosa");
             }
-        } catch (Exception e) {
-            System.out.println("error en la conexión a la base de datos\n");
+        } catch (ClassNotFoundException | SQLException e) {
+            JOptionPane.showMessageDialog(null,"Error en al conexión","ERROR",JOptionPane.INFORMATION_MESSAGE);
             System.out.println(e);  
         }
+    }
+
+    public Connection getConn() {
+        return conn;
     }
 }

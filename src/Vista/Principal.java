@@ -23,6 +23,7 @@ public class Principal extends javax.swing.JFrame {
      */
     public Principal() {
         initComponents();
+        setLocationRelativeTo(null); 
     }
 
     /**
@@ -34,6 +35,7 @@ public class Principal extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jLabel2 = new javax.swing.JLabel();
         jMenuBar1 = new javax.swing.JMenuBar();
         menuProduct = new javax.swing.JMenu();
         itemNewProduct = new javax.swing.JMenuItem();
@@ -50,6 +52,13 @@ public class Principal extends javax.swing.JFrame {
         itemSale = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/int-tarjetacredito6.jpg"))); // NOI18N
+
+        jMenuBar1.setBackground(new java.awt.Color(51, 51, 51));
+        jMenuBar1.setBorder(null);
+        jMenuBar1.setForeground(new java.awt.Color(153, 153, 153));
+        jMenuBar1.setFont(new java.awt.Font("Apple SD Gothic Neo", 0, 14)); // NOI18N
 
         menuProduct.setText("Productos");
 
@@ -105,11 +114,11 @@ public class Principal extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 670, Short.MAX_VALUE)
+            .addComponent(jLabel2, javax.swing.GroupLayout.Alignment.TRAILING)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 375, Short.MAX_VALUE)
+            .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 445, Short.MAX_VALUE)
         );
 
         pack();
@@ -166,6 +175,7 @@ System.out.println("Tu resolución es de " + screenSize.width + "x" + screenSize
     private javax.swing.JMenuItem itemSearchProduct;
     private javax.swing.JMenuItem itemUpdateProduct;
     private javax.swing.JMenuItem itemViewColor;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuItem jMenuItem1;
