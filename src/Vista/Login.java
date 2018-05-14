@@ -1,29 +1,35 @@
 package Vista;
 
-
+import Controlador.Coordinador;
+import Modelo.UsuarioVo;
 import com.placeholder.PlaceHolder;
 
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-
-/**
- *
- * @author luism
- */
 public class Login extends javax.swing.JFrame {
+    
+    private Coordinador miCoordinador;
 
-    /**
-     * Creates new form Login
-     */
     PlaceHolder hol;
     public Login() {
         initComponents();
         setLocationRelativeTo(null); 
         hol = new PlaceHolder(txtUser,"Ingresa tu Usuario");
         hol = new PlaceHolder(txtPass,"Ingresa tu Contraseña");
+    }
+    
+    public void setCoordinador(Coordinador miCoordinador) {
+        this.miCoordinador=miCoordinador;
+        this.getUsuario(1);
+    }
+    
+    public void getUsuario(Integer id_user){
+        UsuarioVo usuario = miCoordinador.buscarUsuario(id_user);
+        this.imprimirUsuario(usuario);
+    }
+    
+    public void imprimirUsuario(UsuarioVo usuario){
+        System.out.println(usuario.getFirstname());
+        System.out.println(usuario.getLastname());
+        System.out.println(usuario.getDirection());
     }
 
     /**
@@ -198,37 +204,6 @@ public class Login extends javax.swing.JFrame {
     /**
      * @param args the command line arguments
      */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Login.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Login.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Login.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Login.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new Login().setVisible(true);
-            }
-        });
-    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnCancel;

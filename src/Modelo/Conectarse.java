@@ -7,10 +7,10 @@ import javax.swing.JOptionPane;
 
 public class Conectarse {
     private Connection conn = null;
-    private final String host = "danielbenito.com";
-    private final String db = "itlac_genesysmi";
-    private final String user = "itlac_kevin";
-    private final String pass = "1,FWwSff;}%0";
+    private final String host = "localhost";
+    private final String db = "genesysmi";
+    private final String user = "root";
+    private final String pass = "";
 
     public Conectarse() {
         MySQLAccess();
