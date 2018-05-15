@@ -10,6 +10,7 @@ import Modelo.ColorVo;
 import java.awt.Color;
 import java.util.ArrayList;
 import javax.swing.JColorChooser;
+import javax.swing.JOptionPane;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 
@@ -58,6 +59,12 @@ modelo.setColumnIdentifiers(columnas);
     
    
  }
+ 
+ public void limpiarCampos(){
+ txtCod.setText("");
+txtName.setText("");
+txtHex.setText("");
+ }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -83,8 +90,8 @@ modelo.setColumnIdentifiers(columnas);
         txtName = new javax.swing.JTextField();
         jLabel5 = new javax.swing.JLabel();
         txtHex = new javax.swing.JTextField();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
+        btnSelect = new javax.swing.JButton();
+        btnGuardar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(51, 51, 51));
@@ -218,25 +225,25 @@ modelo.setColumnIdentifiers(columnas);
         txtHex.setCaretColor(new java.awt.Color(51, 51, 51));
         txtHex.setDisabledTextColor(new java.awt.Color(51, 51, 51));
 
-        jButton1.setBackground(new java.awt.Color(0, 37, 145));
-        jButton1.setFont(new java.awt.Font("Lucida Grande", 1, 13)); // NOI18N
-        jButton1.setForeground(new java.awt.Color(255, 255, 255));
-        jButton1.setText("Seleccionar");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        btnSelect.setBackground(new java.awt.Color(0, 37, 145));
+        btnSelect.setFont(new java.awt.Font("Lucida Grande", 1, 13)); // NOI18N
+        btnSelect.setForeground(new java.awt.Color(255, 255, 255));
+        btnSelect.setText("Seleccionar");
+        btnSelect.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                btnSelectActionPerformed(evt);
             }
         });
 
-        jButton2.setBackground(new java.awt.Color(0, 37, 145));
-        jButton2.setFont(new java.awt.Font("Lucida Grande", 1, 13)); // NOI18N
-        jButton2.setForeground(new java.awt.Color(255, 255, 255));
-        jButton2.setText("Guardar");
-        jButton2.setMaximumSize(new java.awt.Dimension(109, 27));
-        jButton2.setMinimumSize(new java.awt.Dimension(109, 27));
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
+        btnGuardar.setBackground(new java.awt.Color(0, 37, 145));
+        btnGuardar.setFont(new java.awt.Font("Lucida Grande", 1, 13)); // NOI18N
+        btnGuardar.setForeground(new java.awt.Color(255, 255, 255));
+        btnGuardar.setText("Guardar");
+        btnGuardar.setMaximumSize(new java.awt.Dimension(109, 27));
+        btnGuardar.setMinimumSize(new java.awt.Dimension(109, 27));
+        btnGuardar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                btnGuardarActionPerformed(evt);
             }
         });
 
@@ -255,12 +262,12 @@ modelo.setColumnIdentifiers(columnas);
                         .addComponent(jLabel4)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(txtName, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(btnGuardar, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(41, 41, 41)
                 .addComponent(jLabel5)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnSelect, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(txtHex, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(36, Short.MAX_VALUE))
         );
@@ -277,8 +284,8 @@ modelo.setColumnIdentifiers(columnas);
                     .addComponent(txtCod, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(btnSelect, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnGuardar, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(13, 13, 13))
         );
 
@@ -340,12 +347,12 @@ modelo.setColumnIdentifiers(columnas);
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void btnSelectActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSelectActionPerformed
  JColorChooser selector=new JColorChooser();
     Color c=selector.showDialog(null, "Seleccione el color", Color.CYAN);     
     String t = String.valueOf(c);
    txtHex.setText("#"+Integer.toHexString( c.getRGB() & 0x00ffffff ));
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_btnSelectActionPerformed
 
     private void txtMuestraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtMuestraActionPerformed
         // TODO add your handling code here:
@@ -355,15 +362,30 @@ modelo.setColumnIdentifiers(columnas);
         // TODO add your handling code here:
     }//GEN-LAST:event_txtCodActionPerformed
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-      // TODO add your handling code here:
-    }//GEN-LAST:event_jButton2ActionPerformed
+    private void btnGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarActionPerformed
+ColorVo color = new ColorVo();
+color.setColor_art(txtCod.getText());
+color.setColor_name(txtName.getText());
+color.setColor_hex_code(txtHex.getText());
+
+
+if(txtCod.getText().equals("")|| txtName.getText().equals("") || txtHex.getText().equals("")){
+JOptionPane.showMessageDialog(null, "Llene todos los campos");
+}
+else{
+    miCoordinador.agregarColor(color);
+JOptionPane.showMessageDialog(null, "Se ha registrado Exitosamente","Informacion",JOptionPane.INFORMATION_MESSAGE);
+limpiarCampos();
+
+}
+// TODO add your handling code here:
+    }//GEN-LAST:event_btnGuardarActionPerformed
 
  
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
+    private javax.swing.JButton btnGuardar;
+    private javax.swing.JButton btnSelect;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;

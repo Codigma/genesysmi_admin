@@ -45,7 +45,7 @@ public class Principal {
         miCoordinador.setVenta(venta);
         
         login.setVisible(true);
-       // color.setVisible(true);
+       color.setVisible(true);
     }
     
     public static void main(String args[]) {

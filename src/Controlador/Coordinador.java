@@ -94,6 +94,11 @@ public class Coordinador {
     getInicio().setVisible(true);
     getLogin().dispose();
     }
+    
+    public void agregarColor(ColorVo color){
+    ColorDao cool = new ColorDao();
+    cool.registrarColor(color);
+    }
 
     public Usuarios getUsuario() {
         return usuario;
