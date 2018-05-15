@@ -13,26 +13,22 @@ public class Principal {
         Login login = new Login();
         Productos productos = new Productos();
         
-        
-<<<<<<< HEAD
         miCoordinador= new Coordinador();
-=======
         Colores color = new Colores();
-Inicio inicio = new Inicio();        
->>>>>>> fe44f12e9afc602f3a728d462431762e700846a1
+        Inicio inicio = new Inicio();        
+
         
         /**Se establecen las relaciones entre clases*/
         
         login.setCoordinador(miCoordinador);
-<<<<<<< HEAD
         productos.setCoordinador(miCoordinador);
         
         /*Se establecen relaciones con la clase coordinador*/
         miCoordinador.setLogin(login);
+        miCoordinador.setColor(color);
         miCoordinador.setProductos(productos);
         
         productos.setVisible(true);
-=======
         color.setCoordinador(miCoordinador);
         inicio.setCoordinador(miCoordinador);
         
@@ -42,11 +38,7 @@ Inicio inicio = new Inicio();
         miCoordinador.setInicio(inicio);
         
         login.setVisible(true);
-       // inicio.setVisible(false);
-       color.setVisible(true);
-        
-        
->>>>>>> fe44f12e9afc602f3a728d462431762e700846a1
+        color.setVisible(true);
     }
     
     public static void main(String args[]) {
