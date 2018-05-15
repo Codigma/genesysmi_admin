@@ -216,7 +216,7 @@ public class Login extends javax.swing.JFrame {
        
 			if (miPersona.getUser()!=null && miPersona.getPassword()!=null)
 			{
-                            miCoordinador.getInicio();
+                            miCoordinador.mostrarPrincipal();
 			}
 			else{
 		JOptionPane.showMessageDialog(null, "La persona no Existe","Advertencia",JOptionPane.WARNING_MESSAGE);

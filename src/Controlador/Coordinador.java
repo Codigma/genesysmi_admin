@@ -66,5 +66,6 @@ public class Coordinador {
     
     public void mostrarPrincipal(){
     getInicio().setVisible(true);
+    getLogin().dispose();
     }
 }

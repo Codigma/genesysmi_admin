@@ -27,6 +27,7 @@ Inicio inicio = new Inicio();
         miCoordinador.setInicio(inicio);
         
         login.setVisible(true);
+       // inicio.setVisible(false);
         
         
     }
