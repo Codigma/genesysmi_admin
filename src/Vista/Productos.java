@@ -493,8 +493,10 @@ public class Productos extends javax.swing.JFrame {
                 return canEdit [columnIndex];
             }
         });
-        tbProduct.setSelectionBackground(new java.awt.Color(0, 168, 93));
-        tbProduct.setSelectionForeground(new java.awt.Color(51, 51, 51));
+        tbProduct.setGridColor(new java.awt.Color(204, 204, 204));
+        tbProduct.setSelectionBackground(new java.awt.Color(253, 175, 200));
+        tbProduct.setSelectionForeground(new java.awt.Color(0, 0, 0));
+        tbProduct.setShowVerticalLines(false);
         jScrollPane3.setViewportView(tbProduct);
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);

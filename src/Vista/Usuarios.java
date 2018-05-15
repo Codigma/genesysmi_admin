@@ -69,7 +69,9 @@ public class Usuarios extends javax.swing.JFrame {
                 "ID Usuario", "Nombre(s)", "Apellidos", "Email", "País", "Estado", "Localidad", "Código Postal", "Dirección", "Teléfono", "RFC", "Fecha de registro"
             }
         ));
+        tbUsers.setGridColor(new java.awt.Color(204, 204, 204));
         tbUsers.setSelectionBackground(new java.awt.Color(253, 175, 200));
+        tbUsers.setSelectionForeground(new java.awt.Color(0, 0, 0));
         jScrollPane1.setViewportView(tbUsers);
 
         jLabel1.setFont(new java.awt.Font("Apple SD Gothic Neo", 0, 15)); // NOI18N
