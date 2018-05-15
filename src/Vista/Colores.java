@@ -21,6 +21,9 @@ import javax.swing.table.DefaultTableModel;
 public class Colores extends javax.swing.JFrame {
 
     private Coordinador miCoordinador;
+  DefaultTableModel modelo = new DefaultTableModel();
+      String[] columnas = {"Codigo Color","Nombre","Codigo Hex"};
+      
 
     public void setCoordinador(Coordinador miCoordinador) {
         this.miCoordinador = miCoordinador;
@@ -43,20 +46,18 @@ imprimirColores();
    
  public void imprimirColores(){
      //Modelo de la tabla a llenar
-      DefaultTableModel modelo = new DefaultTableModel();
-      String[] columnas = {"Codigo Color","Nombre","Codigo Hex"};
-      
-modelo.setColumnIdentifiers(columnas);
+    
       
       ArrayList<ColorVo> color = miCoordinador.buscarColores();
-      
+      modelo.setColumnIdentifiers(columnas);
+
       //Ciclo para llenar tabla de colores
       for (int i =0; i<color.size();i++){
        modelo.addRow(new Object[] {color.get(i).getColor_art(), color.get(i).getColor_name(), color.get(i).getColor_hex_code()});
       }
       //Asignamos los datos del Modelo a la tabla
       tbColors.setModel(modelo);
-    
+    //txtMuestra.setBackground(Color.decode("#6365ff"));
    
  }
  
@@ -128,8 +129,14 @@ txtHex.setText("");
             }
         });
         tbColors.setGridColor(new java.awt.Color(204, 204, 204));
-        tbColors.setSelectionBackground(new java.awt.Color(253, 175, 200));
+        tbColors.setRowHeight(20);
+        tbColors.setSelectionBackground(new java.awt.Color(204, 204, 204));
         tbColors.setSelectionForeground(new java.awt.Color(0, 0, 0));
+        tbColors.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tbColorsMouseClicked(evt);
+            }
+        });
         jScrollPane2.setViewportView(tbColors);
 
         jLabel2.setFont(new java.awt.Font("Avenir", 1, 22)); // NOI18N
@@ -376,10 +383,21 @@ else{
     miCoordinador.agregarColor(color);
 JOptionPane.showMessageDialog(null, "Se ha registrado Exitosamente","Informacion",JOptionPane.INFORMATION_MESSAGE);
 limpiarCampos();
-
+imprimirColores();
 }
 // TODO add your handling code here:
     }//GEN-LAST:event_btnGuardarActionPerformed
+
+    private void tbColorsMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tbColorsMouseClicked
+        // int fila = tbColors.rowAtPoint(evt.getPoint());
+         int fila = tbColors.getSelectedRow();
+         
+         if ((fila > -1)){
+             
+          txtMuestra.setBackground(Color.decode((String) modelo.getValueAt(fila, 2)));
+           // System.out.println(modelo.getValueAt(fila,2));
+         }
+    }//GEN-LAST:event_tbColorsMouseClicked
 
  
 
