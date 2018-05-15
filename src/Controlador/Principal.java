@@ -1,6 +1,7 @@
 package Controlador;
 
 import Vista.Login;
+import Vista.Productos;
 
 public class Principal {
     Coordinador miCoordinador;
@@ -8,16 +9,20 @@ public class Principal {
     private void Iniciar(){
         /**Se instancian las clases*/
         Login login = new Login();
-        miCoordinador= new Coordinador();
+        Productos productos = new Productos();
         
+        
+        miCoordinador= new Coordinador();
         
         /**Se establecen las relaciones entre clases*/
         login.setCoordinador(miCoordinador);
+        productos.setCoordinador(miCoordinador);
         
         /*Se establecen relaciones con la clase coordinador*/
         miCoordinador.setLogin(login);
+        miCoordinador.setProductos(productos);
         
-        login.setVisible(true);
+        productos.setVisible(true);
     }
     
     public static void main(String args[]) {
