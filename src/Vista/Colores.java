@@ -41,6 +41,7 @@ imprimirColores();
     }
    
  public void imprimirColores(){
+     //Modelo de la tabla a llenar
       DefaultTableModel modelo = new DefaultTableModel();
       String[] columnas = {"Codigo Color","Nombre","Codigo Hex"};
       
@@ -48,20 +49,14 @@ modelo.setColumnIdentifiers(columnas);
       
       ArrayList<ColorVo> color = miCoordinador.buscarColores();
       
+      //Ciclo para llenar tabla de colores
       for (int i =0; i<color.size();i++){
        modelo.addRow(new Object[] {color.get(i).getColor_art(), color.get(i).getColor_name(), color.get(i).getColor_hex_code()});
       }
+      //Asignamos los datos del Modelo a la tabla
       tbColors.setModel(modelo);
     
-    /* 
-      for(int i = 0; i < color.size();i++){
-          modelo.setValueAt(color.get(i).getColor_art(), i, 0);
-          modelo.setValueAt(color.get(i).getColor_name(), i, 1);
-          modelo.setValueAt(color.get(i).getColor_hex_code(), i, 2);
-          
-          
- }
-      */
+   
  }
     /**
      * This method is called from within the constructor to initialize the form.
