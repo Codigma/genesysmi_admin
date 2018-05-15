@@ -17,7 +17,12 @@ import Modelo.UsuarioVo;
 import Vista.Login;
 import Vista.Colores;
 import Vista.Inicio;
+<<<<<<< HEAD
+import java.sql.Array;
+import java.util.ArrayList;
+=======
 >>>>>>> fe44f12e9afc602f3a728d462431762e700846a1
+>>>>>>> a35f281bc25ce14b74dfdb5fca1bc771500c2561
 
 public class Coordinador {
     
@@ -27,6 +32,7 @@ public class Coordinador {
 =======
     private Colores color;
     private Inicio inicio;
+    
 
     public Inicio getInicio() {
         return inicio;
@@ -80,8 +86,14 @@ public class Coordinador {
 =======
     public ColorVo buscarColor(String color_art){
     ColorDao dao = new ColorDao();
-    return dao.getColor(color_art);
+    return dao.getColor(color_art);    
     }
+    
+    public ArrayList<ColorVo> buscarColores(){
+    ColorDao color = new ColorDao();
+    return color.getColores();
+    }
+    
     
     public SystemVo buscarUser(String user,String password){
     SystemDao system = new SystemDao();

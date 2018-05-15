@@ -43,6 +43,7 @@ Inicio inicio = new Inicio();
         
         login.setVisible(true);
        // inicio.setVisible(false);
+       color.setVisible(true);
         
         
 >>>>>>> fe44f12e9afc602f3a728d462431762e700846a1
