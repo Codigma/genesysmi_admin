@@ -1,6 +1,7 @@
 package Vista;
 
 
+import Controlador.Coordinador;
 import java.awt.Dimension;
 import java.awt.Toolkit;
 
@@ -14,18 +15,25 @@ import java.awt.Toolkit;
  *
  * @author luism
  */
-public class Principal extends javax.swing.JFrame {
+public class Inicio extends javax.swing.JFrame {
 
-    
+      private Coordinador miCoordinador;
+      
+   public void setCoordinador(Coordinador miCoordinador) {
+        this.miCoordinador=miCoordinador;
+        //this.getUsuario(1);
+    }
+ 
 
     /**
      * Creates new form Principal
      */
-    public Principal() {
+    public Inicio() {
         initComponents();
         setLocationRelativeTo(null); 
     }
 
+  
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -145,13 +153,13 @@ public class Principal extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Principal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Inicio.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Principal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Inicio.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Principal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Inicio.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Principal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Inicio.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
         Toolkit t = Toolkit.getDefaultToolkit();
@@ -161,7 +169,7 @@ System.out.println("Tu resolución es de " + screenSize.width + "x" + screenSize
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Principal().setVisible(true);
+                new Inicio().setVisible(true);
                 
             }
         });
@@ -184,4 +192,6 @@ System.out.println("Tu resolución es de " + screenSize.width + "x" + screenSize
     private javax.swing.JMenu menuSale;
     private javax.swing.JMenu menuUsers;
     // End of variables declaration//GEN-END:variables
+
+  
 }

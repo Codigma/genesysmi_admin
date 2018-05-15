@@ -1,8 +1,10 @@
 package Vista;
 
 import Controlador.Coordinador;
+import Modelo.SystemVo;
 import Modelo.UsuarioVo;
 import com.placeholder.PlaceHolder;
+import javax.swing.JOptionPane;
 
 public class Login extends javax.swing.JFrame {
     
@@ -18,13 +20,14 @@ public class Login extends javax.swing.JFrame {
     
     public void setCoordinador(Coordinador miCoordinador) {
         this.miCoordinador=miCoordinador;
-        this.getUsuario(1);
+        //this.getUsuario(1);
     }
     
     public void getUsuario(Integer id_user){
         UsuarioVo usuario = miCoordinador.buscarUsuario(id_user);
         this.imprimirUsuario(usuario);
     }
+    
     
     public void imprimirUsuario(UsuarioVo usuario){
         System.out.println(usuario.getFirstname());
@@ -90,18 +93,23 @@ public class Login extends javax.swing.JFrame {
         txtUser.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(51, 51, 51)));
         txtUser.setCaretColor(new java.awt.Color(51, 51, 51));
         txtUser.setDisabledTextColor(new java.awt.Color(204, 204, 204));
-        txtUser.setSelectedTextColor(new java.awt.Color(255, 255, 255));
 
         txtPass.setBackground(new java.awt.Color(242, 242, 242));
         txtPass.setFont(new java.awt.Font("Apple SD Gothic Neo", 0, 14)); // NOI18N
         txtPass.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(51, 51, 51)));
         txtPass.setCaretColor(new java.awt.Color(51, 51, 51));
+        txtPass.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
         txtPass.setDisabledTextColor(new java.awt.Color(204, 204, 204));
 
         btnGo.setBackground(new java.awt.Color(0, 37, 145));
         btnGo.setFont(new java.awt.Font("Lucida Grande", 1, 13)); // NOI18N
         btnGo.setForeground(new java.awt.Color(255, 255, 255));
         btnGo.setText("Aceptar");
+        btnGo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnGoActionPerformed(evt);
+            }
+        });
 
         btnCancel.setBackground(new java.awt.Color(204, 204, 204));
         btnCancel.setForeground(new java.awt.Color(0, 37, 145));
@@ -200,6 +208,21 @@ public class Login extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btnGoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGoActionPerformed
+
+
+      SystemVo  miPersona = miCoordinador.buscarUser(txtUser.getText(),txtPass.getText());
+       
+			if (miPersona.getUser()!=null && miPersona.getPassword()!=null)
+			{
+                            miCoordinador.getInicio();
+			}
+			else{
+		JOptionPane.showMessageDialog(null, "La persona no Existe","Advertencia",JOptionPane.WARNING_MESSAGE);
+			}
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnGoActionPerformed
 
     /**
      * @param args the command line arguments

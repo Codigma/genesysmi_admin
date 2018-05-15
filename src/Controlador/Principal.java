@@ -1,5 +1,7 @@
 package Controlador;
 
+import Vista.Colores;
+import Vista.Inicio;
 import Vista.Login;
 
 public class Principal {
@@ -10,14 +12,23 @@ public class Principal {
         Login login = new Login();
         miCoordinador= new Coordinador();
         
+        Colores color = new Colores();
+Inicio inicio = new Inicio();        
         
         /**Se establecen las relaciones entre clases*/
+        
         login.setCoordinador(miCoordinador);
+        color.setCoordinador(miCoordinador);
+        inicio.setCoordinador(miCoordinador);
         
         /*Se establecen relaciones con la clase coordinador*/
         miCoordinador.setLogin(login);
+        miCoordinador.setColor(color);
+        miCoordinador.setInicio(inicio);
         
         login.setVisible(true);
+        
+        
     }
     
     public static void main(String args[]) {
