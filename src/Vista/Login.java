@@ -219,7 +219,7 @@ public class Login extends javax.swing.JFrame {
                             miCoordinador.mostrarPrincipal();
 			}
 			else{
-		JOptionPane.showMessageDialog(null, "La persona no Existe","Advertencia",JOptionPane.WARNING_MESSAGE);
+		JOptionPane.showMessageDialog(null, "El usuario no Existe","Advertencia",JOptionPane.WARNING_MESSAGE);
 			}
         // TODO add your handling code here:
     }//GEN-LAST:event_btnGoActionPerformed
