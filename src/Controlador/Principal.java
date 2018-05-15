@@ -28,6 +28,7 @@ Inicio inicio = new Inicio();
         
         login.setVisible(true);
        // inicio.setVisible(false);
+       color.setVisible(true);
         
         
     }

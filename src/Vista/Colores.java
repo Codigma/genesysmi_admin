@@ -8,7 +8,10 @@ package Vista;
 import Controlador.Coordinador;
 import Modelo.ColorVo;
 import java.awt.Color;
+import java.util.ArrayList;
 import javax.swing.JColorChooser;
+import javax.swing.JTable;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -20,6 +23,7 @@ public class Colores extends javax.swing.JFrame {
 
     public void setCoordinador(Coordinador miCoordinador) {
         this.miCoordinador = miCoordinador;
+imprimirColores();
         
     }
 
@@ -36,6 +40,29 @@ public class Colores extends javax.swing.JFrame {
         
     }
    
+ public void imprimirColores(){
+      DefaultTableModel modelo = new DefaultTableModel();
+      String[] columnas = {"Codigo Color","Nombre","Codigo Hex"};
+      
+modelo.setColumnIdentifiers(columnas);
+      
+      ArrayList<ColorVo> color = miCoordinador.buscarColores();
+      
+      for (int i =0; i<color.size();i++){
+       modelo.addRow(new Object[] {color.get(i).getColor_art(), color.get(i).getColor_name(), color.get(i).getColor_hex_code()});
+      }
+      tbColors.setModel(modelo);
+    
+    /* 
+      for(int i = 0; i < color.size();i++){
+          modelo.setValueAt(color.get(i).getColor_art(), i, 0);
+          modelo.setValueAt(color.get(i).getColor_name(), i, 1);
+          modelo.setValueAt(color.get(i).getColor_hex_code(), i, 2);
+          
+          
+ }
+      */
+ }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -49,7 +76,7 @@ public class Colores extends javax.swing.JFrame {
         jPanel2 = new javax.swing.JPanel();
         jButton2 = new javax.swing.JButton();
         jScrollPane2 = new javax.swing.JScrollPane();
-        jTable2 = new javax.swing.JTable();
+        tbColors = new javax.swing.JTable();
         jLabel2 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
         txtMuestra = new javax.swing.JTextField();
@@ -75,10 +102,15 @@ public class Colores extends javax.swing.JFrame {
         jButton2.setFont(new java.awt.Font("Lucida Grande", 1, 13)); // NOI18N
         jButton2.setForeground(new java.awt.Color(255, 255, 255));
         jButton2.setText("Generar");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
 
-        jTable2.setBackground(new java.awt.Color(237, 237, 237));
-        jTable2.setFont(new java.awt.Font("Apple SD Gothic Neo", 0, 15)); // NOI18N
-        jTable2.setModel(new javax.swing.table.DefaultTableModel(
+        tbColors.setBackground(new java.awt.Color(237, 237, 237));
+        tbColors.setFont(new java.awt.Font("Apple SD Gothic Neo", 0, 15)); // NOI18N
+        tbColors.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null},
                 {null, null, null},
@@ -103,10 +135,10 @@ public class Colores extends javax.swing.JFrame {
                 return canEdit [columnIndex];
             }
         });
-        jTable2.setGridColor(new java.awt.Color(204, 204, 204));
-        jTable2.setSelectionBackground(new java.awt.Color(253, 175, 200));
-        jTable2.setSelectionForeground(new java.awt.Color(0, 0, 0));
-        jScrollPane2.setViewportView(jTable2);
+        tbColors.setGridColor(new java.awt.Color(204, 204, 204));
+        tbColors.setSelectionBackground(new java.awt.Color(253, 175, 200));
+        tbColors.setSelectionForeground(new java.awt.Color(0, 0, 0));
+        jScrollPane2.setViewportView(tbColors);
 
         jLabel2.setFont(new java.awt.Font("Avenir", 1, 22)); // NOI18N
         jLabel2.setText("Buscar colores");
@@ -324,6 +356,10 @@ public class Colores extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtCodActionPerformed
 
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+      // TODO add your handling code here:
+    }//GEN-LAST:event_jButton2ActionPerformed
+
  
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -340,7 +376,7 @@ public class Colores extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JTable jTable2;
+    private javax.swing.JTable tbColors;
     private javax.swing.JTextField txtCod;
     private javax.swing.JTextField txtHex;
     private javax.swing.JTextField txtMuestra;
