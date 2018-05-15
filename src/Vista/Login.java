@@ -1,29 +1,38 @@
 package Vista;
 
-
+import Controlador.Coordinador;
+import Modelo.SystemVo;
+import Modelo.UsuarioVo;
 import com.placeholder.PlaceHolder;
+import javax.swing.JOptionPane;
 
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-
-/**
- *
- * @author luism
- */
 public class Login extends javax.swing.JFrame {
+    
+    private Coordinador miCoordinador;
 
-    /**
-     * Creates new form Login
-     */
     PlaceHolder hol;
     public Login() {
         initComponents();
         setLocationRelativeTo(null); 
         hol = new PlaceHolder(txtUser,"Ingresa tu Usuario");
         hol = new PlaceHolder(txtPass,"Ingresa tu Contraseña");
+    }
+    
+    public void setCoordinador(Coordinador miCoordinador) {
+        this.miCoordinador=miCoordinador;
+        //this.getUsuario(1);
+    }
+    
+    public void getUsuario(Integer id_user){
+        UsuarioVo usuario = miCoordinador.buscarUsuario(id_user);
+        this.imprimirUsuario(usuario);
+    }
+    
+    
+    public void imprimirUsuario(UsuarioVo usuario){
+        System.out.println(usuario.getFirstname());
+        System.out.println(usuario.getLastname());
+        System.out.println(usuario.getDirection());
     }
 
     /**
@@ -84,18 +93,23 @@ public class Login extends javax.swing.JFrame {
         txtUser.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(51, 51, 51)));
         txtUser.setCaretColor(new java.awt.Color(51, 51, 51));
         txtUser.setDisabledTextColor(new java.awt.Color(204, 204, 204));
-        txtUser.setSelectedTextColor(new java.awt.Color(255, 255, 255));
 
         txtPass.setBackground(new java.awt.Color(242, 242, 242));
         txtPass.setFont(new java.awt.Font("Apple SD Gothic Neo", 0, 14)); // NOI18N
         txtPass.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(51, 51, 51)));
         txtPass.setCaretColor(new java.awt.Color(51, 51, 51));
+        txtPass.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
         txtPass.setDisabledTextColor(new java.awt.Color(204, 204, 204));
 
         btnGo.setBackground(new java.awt.Color(0, 37, 145));
         btnGo.setFont(new java.awt.Font("Lucida Grande", 1, 13)); // NOI18N
         btnGo.setForeground(new java.awt.Color(255, 255, 255));
         btnGo.setText("Aceptar");
+        btnGo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnGoActionPerformed(evt);
+            }
+        });
 
         btnCancel.setBackground(new java.awt.Color(204, 204, 204));
         btnCancel.setForeground(new java.awt.Color(0, 37, 145));
@@ -195,40 +209,24 @@ public class Login extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void btnGoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGoActionPerformed
+
+
+      SystemVo  miPersona = miCoordinador.buscarUser(txtUser.getText(),txtPass.getText());
+       
+			if (miPersona.getUser()!=null && miPersona.getPassword()!=null)
+			{
+                            miCoordinador.mostrarPrincipal();
+			}
+			else{
+		JOptionPane.showMessageDialog(null, "La persona no Existe","Advertencia",JOptionPane.WARNING_MESSAGE);
+			}
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnGoActionPerformed
+
     /**
      * @param args the command line arguments
      */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Login.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Login.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Login.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Login.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new Login().setVisible(true);
-            }
-        });
-    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnCancel;

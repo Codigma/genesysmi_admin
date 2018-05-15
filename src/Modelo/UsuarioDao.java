@@ -34,7 +34,7 @@ public class UsuarioDao {
                 usuario.setId_location(resultSet.getInt(7));
                 usuario.setCp(resultSet.getInt(8));
                 usuario.setDirection(resultSet.getString(9));
-                usuario.setPhone(resultSet.getInt(10));
+                usuario.setPhone(resultSet.getString(10));
                 usuario.setRfc(resultSet.getString(11));
                 usuario.setRegister_date(resultSet.getString(12));
             }
@@ -55,7 +55,7 @@ public class UsuarioDao {
         ArrayList<UsuarioVo> usuarios = new ArrayList();
         try {
             PreparedStatement preparedStatement = conn.getConn().prepareStatement(
-                    "SELECT id_user, first_name, last_name, email, "
+                    "SELECT id_user, firstname, lastname, email, "
                     + "id_country, id_state, id_location, cp, "
                     + "direction, phone, rfc, register_date "
                     + "FROM users");
@@ -76,7 +76,7 @@ public class UsuarioDao {
                 usuario.setId_location(resultSet.getInt(7));
                 usuario.setCp(resultSet.getInt(8));
                 usuario.setDirection(resultSet.getString(9));
-                usuario.setPhone(resultSet.getInt(10));
+                usuario.setPhone(resultSet.getString(10));
                 usuario.setRfc(resultSet.getString(11));
                 usuario.setRegister_date(resultSet.getString(12));
                 
@@ -93,4 +93,6 @@ public class UsuarioDao {
         //Retorna los usuarios
         return usuarios;
     }
+    
+    
 }

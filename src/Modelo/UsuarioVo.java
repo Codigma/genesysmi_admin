@@ -10,7 +10,7 @@ public class UsuarioVo {
     private Integer id_location;
     private Integer cp;
     private String direction;
-    private Integer phone;
+    private String phone;
     private String rfc;
     private String register_date;
 
@@ -86,11 +86,11 @@ public class UsuarioVo {
         this.direction = direction;
     }
 
-    public Integer getPhone() {
+    public String getPhone() {
         return phone;
     }
 
-    public void setPhone(Integer phone) {
+    public void setPhone(String phone) {
         this.phone = phone;
     }
 
