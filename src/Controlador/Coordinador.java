@@ -12,6 +12,8 @@ import Modelo.UsuarioVo;
 import Vista.Login;
 import Vista.Colores;
 import Vista.Inicio;
+import Vista.Usuarios;
+import Vista.Ventas;
 import java.util.ArrayList;
 
 public class Coordinador {
@@ -20,6 +22,8 @@ public class Coordinador {
     private Productos productos;
     private Colores color;
     private Inicio inicio;
+    private Usuarios usuario;
+    private Ventas venta;
     
 
     public Inicio getInicio() {
@@ -89,5 +93,21 @@ public class Coordinador {
     public void mostrarPrincipal(){
     getInicio().setVisible(true);
     getLogin().dispose();
+    }
+
+    public Usuarios getUsuario() {
+        return usuario;
+    }
+
+    public void setUsuario(Usuarios usuario) {
+        this.usuario = usuario;
+    }
+
+    public Ventas getVenta() {
+        return venta;
+    }
+
+    public void setVenta(Ventas venta) {
+        this.venta = venta;
     }
 }

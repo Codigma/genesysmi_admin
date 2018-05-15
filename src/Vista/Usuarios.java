@@ -5,12 +5,20 @@
  */
 package Vista;
 
+import Controlador.Coordinador;
+
 /**
  *
  * @author luism
  */
 public class Usuarios extends javax.swing.JFrame {
+  private Coordinador miCoordinador;
 
+    public void setCoordinador(Coordinador miCoordinador) {
+        this.miCoordinador = miCoordinador;
+
+        
+    }
     /**
      * Creates new form Usuarios
      */
