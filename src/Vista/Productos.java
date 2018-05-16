@@ -6,8 +6,6 @@ import Modelo.ProductoVo;
 import Modelo.SubcategoryVo;
 import java.awt.Color;
 import java.awt.Component;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import java.util.ArrayList;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.JLabel;
@@ -39,14 +37,6 @@ public class Productos extends javax.swing.JFrame {
         is_art = false;
         is_color = false;
         is_size = false;
-    }
-    
-    public void ActivarColor(){
-        comboColor.addActionListener (new ActionListener () {
-            public void actionPerformed(ActionEvent e) {
-                  
-            }
-        });
     }
     
     public void setCoordinador(Coordinador miCoordinador) {
@@ -272,6 +262,11 @@ public class Productos extends javax.swing.JFrame {
         comboType.setFont(new java.awt.Font("Apple SD Gothic Neo", 0, 14)); // NOI18N
         comboType.setForeground(new java.awt.Color(51, 51, 51));
         comboType.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccionar...", "Ropa", "Zapatos", "Otro" }));
+        comboType.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                comboTypeActionPerformed(evt);
+            }
+        });
 
         txtDescrip.setBackground(new java.awt.Color(242, 242, 242));
         txtDescrip.setColumns(20);
@@ -682,7 +677,6 @@ public class Productos extends javax.swing.JFrame {
             txtBackColor.setBackground(Color.WHITE);
             
             this.getColores();
-            this.ActivarColor();  
             
             comboCategory.setSelectedIndex(0);
             comboType.setSelectedIndex(0);
@@ -774,6 +768,13 @@ public class Productos extends javax.swing.JFrame {
                     }   
                 }
     }//GEN-LAST:event_comboColorActionPerformed
+
+    private void comboTypeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comboTypeActionPerformed
+        // TODO add your handling code here:
+        if(comboCategory.getSelectedIndex() > 0 && comboType.getSelectedIndex() > 0){
+            miCoordinador.getTallas(producto.getId_category(), producto.getId_type_product());
+        }
+    }//GEN-LAST:event_comboTypeActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
