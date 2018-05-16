@@ -6,13 +6,12 @@ import Modelo.ProductoVo;
 import Modelo.SubcategoryVo;
 import java.awt.Color;
 import java.awt.Component;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import java.util.ArrayList;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.JLabel;
 import javax.swing.JList;
 import javax.swing.ListCellRenderer;
+import static javax.swing.text.html.HTML.Tag.HEAD;
 
 public class Productos extends javax.swing.JFrame {
     private Coordinador miCoordinador;
@@ -39,14 +38,6 @@ public class Productos extends javax.swing.JFrame {
         is_art = false;
         is_color = false;
         is_size = false;
-    }
-    
-    public void ActivarColor(){
-        comboColor.addActionListener (new ActionListener () {
-            public void actionPerformed(ActionEvent e) {
-                  
-            }
-        });
     }
     
     public void setCoordinador(Coordinador miCoordinador) {
@@ -698,7 +689,6 @@ public class Productos extends javax.swing.JFrame {
             txtBackColor.setBackground(Color.WHITE);
             
             this.getColores();
-            this.ActivarColor();  
             
             comboCategory.setSelectedIndex(0);
             comboType.setSelectedIndex(0);
