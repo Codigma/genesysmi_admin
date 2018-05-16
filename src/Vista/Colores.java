@@ -46,8 +46,6 @@ imprimirColores();
    
  public void imprimirColores(){
      //Modelo de la tabla a llenar
-    
-      
       ArrayList<ColorVo> color = miCoordinador.buscarColores();
       modelo.setColumnIdentifiers(columnas);
 
