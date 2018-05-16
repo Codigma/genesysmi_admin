@@ -3,19 +3,20 @@ package Vista;
 import Controlador.Coordinador;
 import Modelo.ColorVo;
 import Modelo.ProductoVo;
+import Modelo.SubcategoryVo;
 import java.awt.Color;
 import java.awt.Component;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import java.util.ArrayList;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.JLabel;
 import javax.swing.JList;
 import javax.swing.ListCellRenderer;
+import static javax.swing.text.html.HTML.Tag.HEAD;
 
 public class Productos extends javax.swing.JFrame {
     private Coordinador miCoordinador;
-    DefaultComboBoxModel modeloColor = new DefaultComboBoxModel();
+    DefaultComboBoxModel modeloColor;
+    DefaultComboBoxModel modeloSubcategory;
     private ArrayList<ColorVo> colores;
     private ProductoVo producto;
     
@@ -27,6 +28,8 @@ public class Productos extends javax.swing.JFrame {
         initComponents();
         setLocationRelativeTo(null);
         setSize(1280, 800);
+        
+        modeloColor = new DefaultComboBoxModel();
         comboColor.setModel(modeloColor);
         
         colores = new ArrayList<>();
@@ -35,38 +38,6 @@ public class Productos extends javax.swing.JFrame {
         is_art = false;
         is_color = false;
         is_size = false;
-    }
-    
-    public void ActivarColor(){
-        comboColor.addActionListener (new ActionListener () {
-            public void actionPerformed(ActionEvent e) {
-                int Index = comboColor.getSelectedIndex();
-                if(Index != 0){
-                    producto.setColor_art(colores.get(Index-1).getColor_art());
-                    ProductoVo product = miCoordinador.getSrcProducto(producto.getArt(), producto.getColor_art());
-                    
-                    producto.setSrc1(product.getSrc1());
-                    producto.setSrc2(product.getSrc2());
-                    producto.setSrc3(product.getSrc3());
-                    
-                    if(producto.getSrc1() != null){
-                        checkSrc1.setSelected(true);                       
-                    }else{
-                        checkSrc1.setSelected(false);
-                    }
-                    if(producto.getSrc2() != null){
-                        checkSrc2.setSelected(true);
-                    }else{
-                        checkSrc2.setSelected(false);
-                    }
-                    if(producto.getSrc3() != null){
-                        checkSrc3.setSelected(true);
-                    }else{
-                        checkSrc3.setSelected(false);
-                    }   
-                }  
-            }
-        });
     }
     
     public void setCoordinador(Coordinador miCoordinador) {
@@ -96,7 +67,6 @@ public class Productos extends javax.swing.JFrame {
         }
     }
     
-
     class Coloriar<String> extends JLabel implements ListCellRenderer {
         
         public Coloriar() {
@@ -142,6 +112,9 @@ public class Productos extends javax.swing.JFrame {
         txtPrice.setText(producto.getPrice().toString());
         txtDescrip.setText(producto.getDescription());
         txtCompo.setText(producto.getComposition());
+        comboCategory.setSelectedIndex(producto.getId_category());
+        
+        comboType.setSelectedIndex(producto.getId_type_product());
     }
 
     @SuppressWarnings("unchecked")
@@ -168,17 +141,16 @@ public class Productos extends javax.swing.JFrame {
         jScrollPane2 = new javax.swing.JScrollPane();
         txtCompo = new javax.swing.JTextArea();
         jLabel9 = new javax.swing.JLabel();
-        btnEdit = new javax.swing.JButton();
+        btnAdd = new javax.swing.JButton();
         btnCancel = new javax.swing.JButton();
         jLabel16 = new javax.swing.JLabel();
         comboSize = new javax.swing.JComboBox<>();
-        jTextField1 = new javax.swing.JTextField();
+        txtCant = new javax.swing.JTextField();
         jLabel13 = new javax.swing.JLabel();
         txtName = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         txtPrice = new javax.swing.JTextField();
-        comboColor = new javax.swing.JComboBox<>();
         jLabel15 = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
         btnImage1 = new javax.swing.JButton();
@@ -190,6 +162,7 @@ public class Productos extends javax.swing.JFrame {
         btnImage3 = new javax.swing.JButton();
         checkSrc3 = new javax.swing.JCheckBox();
         txtBackColor = new javax.swing.JTextField();
+        comboColor = new javax.swing.JComboBox<>();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -264,7 +237,12 @@ public class Productos extends javax.swing.JFrame {
         comboCategory.setBackground(new java.awt.Color(237, 237, 237));
         comboCategory.setFont(new java.awt.Font("Apple SD Gothic Neo", 0, 14)); // NOI18N
         comboCategory.setForeground(new java.awt.Color(51, 51, 51));
-        comboCategory.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Recién Nacido - Ellas", "Recién Nacido - Ellos", "Baby - Ellas", "Baby - Ellos", "Mini - Ellas", "Mini - Ellos", "Junior - Ellas", "Junior - Ellos", "Accesorios y Regalos", " " }));
+        comboCategory.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccionar...", "Recién Nacido/Ellas", "Recién Nacido/Ellos", "Baby/Ellas", "Baby/Ellos", "Mini/Ellas", "Mini/Ellos", "Junior/Ellas", "Junior/Ellos", "Accesorios y Regalos" }));
+        comboCategory.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                comboCategoryActionPerformed(evt);
+            }
+        });
 
         jLabel6.setBackground(new java.awt.Color(153, 153, 153));
         jLabel6.setFont(new java.awt.Font("Apple SD Gothic Neo", 0, 15)); // NOI18N
@@ -274,12 +252,7 @@ public class Productos extends javax.swing.JFrame {
         comboSub.setBackground(new java.awt.Color(237, 237, 237));
         comboSub.setFont(new java.awt.Font("Apple SD Gothic Neo", 0, 14)); // NOI18N
         comboSub.setForeground(new java.awt.Color(51, 51, 51));
-        comboSub.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        comboSub.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                comboSubActionPerformed(evt);
-            }
-        });
+        comboSub.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccionar..." }));
 
         jLabel7.setBackground(new java.awt.Color(153, 153, 153));
         jLabel7.setFont(new java.awt.Font("Apple SD Gothic Neo", 0, 15)); // NOI18N
@@ -289,7 +262,7 @@ public class Productos extends javax.swing.JFrame {
         comboType.setBackground(new java.awt.Color(237, 237, 237));
         comboType.setFont(new java.awt.Font("Apple SD Gothic Neo", 0, 14)); // NOI18N
         comboType.setForeground(new java.awt.Color(51, 51, 51));
-        comboType.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Ropa", "Calzado", "Otro" }));
+        comboType.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccionar...", "Ropa", "Zapatos", "Otro" }));
 
         txtDescrip.setBackground(new java.awt.Color(242, 242, 242));
         txtDescrip.setColumns(20);
@@ -324,13 +297,14 @@ public class Productos extends javax.swing.JFrame {
         jLabel9.setForeground(new java.awt.Color(51, 51, 51));
         jLabel9.setText("Composición:");
 
-        btnEdit.setBackground(new java.awt.Color(0, 37, 145));
-        btnEdit.setFont(new java.awt.Font("Lucida Grande", 1, 13)); // NOI18N
-        btnEdit.setForeground(new java.awt.Color(255, 255, 255));
-        btnEdit.setText("Agregar");
-        btnEdit.addActionListener(new java.awt.event.ActionListener() {
+        btnAdd.setBackground(new java.awt.Color(0, 37, 145));
+        btnAdd.setFont(new java.awt.Font("Lucida Grande", 1, 13)); // NOI18N
+        btnAdd.setForeground(new java.awt.Color(255, 255, 255));
+        btnAdd.setText("Agregar");
+        btnAdd.setEnabled(false);
+        btnAdd.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnEditActionPerformed(evt);
+                btnAddActionPerformed(evt);
             }
         });
 
@@ -352,10 +326,10 @@ public class Productos extends javax.swing.JFrame {
         comboSize.setBackground(new java.awt.Color(237, 237, 237));
         comboSize.setFont(new java.awt.Font("Apple SD Gothic Neo", 0, 14)); // NOI18N
         comboSize.setForeground(new java.awt.Color(51, 51, 51));
-        comboSize.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        comboSize.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccionar..." }));
 
-        jTextField1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jTextField1.setText("0");
+        txtCant.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        txtCant.setText("1");
 
         jLabel13.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel13.setText("Cantidad:");
@@ -387,18 +361,11 @@ public class Productos extends javax.swing.JFrame {
         jPanel4Layout.setHorizontalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel4Layout.createSequentialGroup()
+                .addContainerGap()
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(jPanel4Layout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
                         .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addGroup(jPanel4Layout.createSequentialGroup()
-                                .addComponent(jLabel2)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(txtName, javax.swing.GroupLayout.PREFERRED_SIZE, 430, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(25, 25, 25)
-                                .addComponent(jLabel4)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(txtPrice, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(jPanel4Layout.createSequentialGroup()
                                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                     .addGroup(jPanel4Layout.createSequentialGroup()
@@ -414,15 +381,24 @@ public class Productos extends javax.swing.JFrame {
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                         .addComponent(jLabel13)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(txtCant, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addGap(21, 21, 21))
                                     .addGroup(jPanel4Layout.createSequentialGroup()
                                         .addGap(65, 65, 65)
-                                        .addComponent(btnEdit, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(btnAdd, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)))
-                                .addComponent(btnCancel, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                .addComponent(btnCancel, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(390, 390, 390))
+                            .addGroup(jPanel4Layout.createSequentialGroup()
+                                .addComponent(jLabel2)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(txtName, javax.swing.GroupLayout.PREFERRED_SIZE, 430, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(25, 25, 25)
+                                .addComponent(jLabel4)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(txtPrice, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(383, 383, 383))))
                     .addGroup(jPanel4Layout.createSequentialGroup()
-                        .addGap(103, 103, 103)
                         .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel4Layout.createSequentialGroup()
                                 .addComponent(jLabel7)
@@ -437,12 +413,12 @@ public class Productos extends javax.swing.JFrame {
                             .addGroup(jPanel4Layout.createSequentialGroup()
                                 .addComponent(jLabel6)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(comboSub, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                .addComponent(comboSub, javax.swing.GroupLayout.PREFERRED_SIZE, 232, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(jPanel4Layout.createSequentialGroup()
                                 .addComponent(jLabel16)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(comboSize, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))))
-                .addGap(390, 390, 390))
+                                .addComponent(comboSize, javax.swing.GroupLayout.PREFERRED_SIZE, 182, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
         );
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -455,35 +431,35 @@ public class Productos extends javax.swing.JFrame {
                     .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(jLabel4)
                         .addComponent(txtPrice, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(63, 63, 63)
+                .addGap(26, 26, 26)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(comboCategory, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel5)
                     .addComponent(jLabel6)
                     .addComponent(comboSub, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(29, 29, 29)
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jLabel16)
+                        .addComponent(comboSize, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(comboType, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jLabel7)))
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel4Layout.createSequentialGroup()
-                        .addGap(116, 116, 116)
-                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel13, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(jPanel4Layout.createSequentialGroup()
-                        .addGap(29, 29, 29)
-                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                .addComponent(jLabel16)
-                                .addComponent(comboSize, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                .addComponent(comboType, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(jLabel7)))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(jPanel4Layout.createSequentialGroup()
                                 .addGap(28, 28, 28)
                                 .addComponent(jLabel8)))
-                        .addGap(36, 36, 36)))
-                .addGap(1, 1, 1)
+                        .addGap(37, 37, 37))
+                    .addGroup(jPanel4Layout.createSequentialGroup()
+                        .addGap(99, 99, 99)
+                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(txtCant, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel13, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(1, 1, 1)))
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                         .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -494,15 +470,17 @@ public class Productos extends javax.swing.JFrame {
                         .addGap(33, 33, 33)
                         .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(btnCancel, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btnEdit, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addComponent(btnAdd, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addGap(39, 39, 39))
         );
 
+<<<<<<< HEAD
+=======
         comboColor.setBackground(new java.awt.Color(255, 250, 247));
         comboColor.setFont(new java.awt.Font("Apple SD Gothic Neo", 3, 18)); // NOI18N
         comboColor.setMaximumRowCount(12);
-        comboColor.setBorder(null);
 
+>>>>>>> 2af4b9f86b67bc01bb4cacae05910e1bfc13a6f5
         jLabel15.setBackground(new java.awt.Color(153, 153, 153));
         jLabel15.setFont(new java.awt.Font("Apple SD Gothic Neo", 0, 15)); // NOI18N
         jLabel15.setForeground(new java.awt.Color(51, 51, 51));
@@ -516,13 +494,14 @@ public class Productos extends javax.swing.JFrame {
         btnImage1.setBackground(new java.awt.Color(237, 237, 237));
         btnImage1.setForeground(new java.awt.Color(51, 51, 51));
         btnImage1.setText("Examinar");
+        btnImage1.setEnabled(false);
 
-        checkSrc1.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        checkSrc1.setRequestFocusEnabled(false);
+        checkSrc1.setEnabled(false);
 
         btnImage2.setBackground(new java.awt.Color(237, 237, 237));
         btnImage2.setForeground(new java.awt.Color(51, 51, 51));
         btnImage2.setText("Examinar");
+        btnImage2.setEnabled(false);
 
         jLabel11.setBackground(new java.awt.Color(153, 153, 153));
         jLabel11.setFont(new java.awt.Font("Apple SD Gothic Neo", 0, 15)); // NOI18N
@@ -539,6 +518,7 @@ public class Productos extends javax.swing.JFrame {
         btnImage3.setBackground(new java.awt.Color(237, 237, 237));
         btnImage3.setForeground(new java.awt.Color(51, 51, 51));
         btnImage3.setText("Examinar");
+        btnImage3.setEnabled(false);
         btnImage3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnImage3ActionPerformed(evt);
@@ -550,6 +530,16 @@ public class Productos extends javax.swing.JFrame {
         txtBackColor.setEditable(false);
         txtBackColor.setAutoscrolls(false);
         txtBackColor.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+
+        comboColor.setBackground(new java.awt.Color(237, 237, 237));
+        comboColor.setFont(new java.awt.Font("Apple SD Gothic Neo", 0, 14)); // NOI18N
+        comboColor.setForeground(new java.awt.Color(51, 51, 51));
+        comboColor.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccionar...", "Recién Nacido/Ellas", "Recién Nacido/Ellos", "Baby/Ellas", "Baby/Ellos", "Mini/Ellas", "Mini/Ellos", "Junior/Ellas", "Junior/Ellos", "Accesorios y Regalos" }));
+        comboColor.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                comboColorActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -568,12 +558,12 @@ public class Productos extends javax.swing.JFrame {
                                 .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, 264, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(34, 34, 34)
                                 .addComponent(jLabel15)
-                                .addGap(18, 18, 18)
-                                .addComponent(comboColor, javax.swing.GroupLayout.PREFERRED_SIZE, 218, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(30, 30, 30)
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel10, javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                                .addGap(12, 12, 12)
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(jLabel10)
+                                    .addGroup(jPanel1Layout.createSequentialGroup()
+                                        .addComponent(comboColor, javax.swing.GroupLayout.PREFERRED_SIZE, 217, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                         .addComponent(txtBackColor, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                             .addGroup(jPanel1Layout.createSequentialGroup()
@@ -609,11 +599,11 @@ public class Productos extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(23, 23, 23)
+                        .addGap(25, 25, 25)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel15)
-                            .addComponent(comboColor, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtBackColor, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(txtBackColor, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(comboColor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel12)
@@ -624,12 +614,21 @@ public class Productos extends javax.swing.JFrame {
                             .addComponent(btnImage3)
                             .addComponent(btnImage2)
                             .addComponent(btnImage1))
+<<<<<<< HEAD
+                        .addGap(18, 18, 18)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jCheckBox2)
+                            .addComponent(jCheckBox3)
+                            .addComponent(jCheckBox1))))
+                .addGap(25, 25, 25)
+=======
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(checkSrc1)
                             .addComponent(checkSrc2)
                             .addComponent(checkSrc3))))
                 .addGap(22, 22, 22)
+>>>>>>> 046d60a737fcac4ee33dee5f61127f24af3bfa04
                 .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addContainerGap())
         );
@@ -669,9 +668,9 @@ public class Productos extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_btnCancelActionPerformed
 
-    private void btnEditActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditActionPerformed
+    private void btnAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_btnEditActionPerformed
+    }//GEN-LAST:event_btnAddActionPerformed
 
     private void btnImage3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnImage3ActionPerformed
         // TODO add your handling code here:
@@ -680,22 +679,113 @@ public class Productos extends javax.swing.JFrame {
     private void btnBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarActionPerformed
         // TODO add your handling code here:
         String art = txtCode.getText();
+        
         if(!art.equals("")){
+            
+            modeloColor = new DefaultComboBoxModel();
+            comboColor.setModel(modeloColor);
+            modeloColor.addElement("Seleccionar...");
+            comboColor.setSelectedIndex(0);
+            txtBackColor.setBackground(Color.WHITE);
+            
+            this.getColores();
+            
+            comboCategory.setSelectedIndex(0);
+            comboType.setSelectedIndex(0);
+            
+            txtName.setText("");
+            txtPrice.setText("");
+            txtDescrip.setText("");
+            txtCompo.setText("");
+            txtCant.setText("");
+            
             this.getDetallesProducto(art);
-        }
-        this.getColores();
-        this.ActivarColor();
+        }else{
+            txtName.setText("");
+            txtPrice.setText("");
+            txtDescrip.setText("");
+            txtCompo.setText("");
+            txtCant.setText("");
+            
+            modeloColor = new DefaultComboBoxModel();
+            comboColor.setModel(modeloColor);
+            modeloColor.addElement("Seleccionar...");
+            comboColor.setSelectedIndex(0);
+            txtBackColor.setBackground(Color.WHITE);
+            
+            comboCategory.setSelectedIndex(0);
+            comboType.setSelectedIndex(0);
+        } 
     }//GEN-LAST:event_btnBuscarActionPerformed
 
-    private void comboSubActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comboSubActionPerformed
+    private void comboCategoryActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comboCategoryActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_comboSubActionPerformed
+        Integer cat_index = comboCategory.getSelectedIndex();
+        
+        modeloSubcategory = new DefaultComboBoxModel();
+        modeloSubcategory.addElement("Seleccionar...");
+        
+        Integer index = 0;
+        
+        if(cat_index > 0){
+            ArrayList<SubcategoryVo> subcategories = miCoordinador.getSubcategories(cat_index);
+            
+            for(int i=0; i<subcategories.size();i++){
+             modeloSubcategory.addElement(subcategories.get(i).getSucategory_name());
+             if(subcategories.get(i).getId_subcategory().equals(producto.getId_subcategory()))
+                 index = i;
+            }
+        }
+        comboSub.setModel(modeloSubcategory); 
+        if(index > 0){
+            comboSub.setSelectedIndex(index+1);
+        }
+        else{
+            comboSub.setSelectedIndex(0);
+        }
+            
+    }//GEN-LAST:event_comboCategoryActionPerformed
+
+    private void comboColorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comboColorActionPerformed
+        // TODO add your handling code here:
+        int Index = comboColor.getSelectedIndex();
+                if(Index != 0){
+                    producto.setColor_art(colores.get(Index-1).getColor_art());
+                    ProductoVo product = miCoordinador.getSrcProducto(producto.getArt(), producto.getColor_art());
+                    
+                    producto.setSrc1(product.getSrc1());
+                    producto.setSrc2(product.getSrc2());
+                    producto.setSrc3(product.getSrc3());
+                    
+                    if(producto.getSrc1() != null){
+                        checkSrc1.setSelected(true);
+                        btnImage1.setEnabled(false);
+                    }else{
+                        checkSrc1.setSelected(false);
+                        btnImage1.setEnabled(true);
+                    }
+                    if(producto.getSrc2() != null){
+                        checkSrc2.setSelected(true);
+                        btnImage2.setEnabled(false);
+                    }else{
+                        checkSrc2.setSelected(false);
+                        btnImage2.setEnabled(true);
+                    }
+                    if(producto.getSrc3() != null){
+                        checkSrc3.setSelected(true);
+                        btnImage3.setEnabled(false);
+                    }else{
+                        checkSrc3.setSelected(false);
+                        btnImage3.setEnabled(true);
+                    }   
+                }
+    }//GEN-LAST:event_comboColorActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnAdd;
     private javax.swing.JButton btnBuscar;
     private javax.swing.JButton btnCancel;
-    private javax.swing.JButton btnEdit;
     private javax.swing.JButton btnImage1;
     private javax.swing.JButton btnImage2;
     private javax.swing.JButton btnImage3;
@@ -728,8 +818,8 @@ public class Productos extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel4;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField txtBackColor;
+    private javax.swing.JTextField txtCant;
     private javax.swing.JTextField txtCode;
     private javax.swing.JTextArea txtCompo;
     private javax.swing.JTextArea txtDescrip;
