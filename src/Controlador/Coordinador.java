@@ -5,6 +5,8 @@ import Modelo.ProductoVo;
 import Vista.Productos;
 import Modelo.ColorDao;
 import Modelo.ColorVo;
+import Modelo.SubcategoryDao;
+import Modelo.SubcategoryVo;
 import Modelo.SystemDao;
 import Modelo.SystemVo;
 import Modelo.UsuarioDao;
@@ -119,5 +121,10 @@ public class Coordinador {
     public ProductoVo getSrcProducto(String art, String color_art){
         ProductoDao producto = new ProductoDao();
         return producto.getProducto(art, color_art);
+    }
+    
+    public ArrayList<SubcategoryVo> getSubcategories(Integer id_category){
+        SubcategoryDao subcategories = new SubcategoryDao();
+        return subcategories.getSubcategories(id_category);
     }
 }
