@@ -483,6 +483,13 @@ public class Productos extends javax.swing.JFrame {
                 .addGap(39, 39, 39))
         );
 
+<<<<<<< HEAD
+=======
+        comboColor.setBackground(new java.awt.Color(255, 250, 247));
+        comboColor.setFont(new java.awt.Font("Apple SD Gothic Neo", 3, 18)); // NOI18N
+        comboColor.setMaximumRowCount(12);
+
+>>>>>>> 2af4b9f86b67bc01bb4cacae05910e1bfc13a6f5
         jLabel15.setBackground(new java.awt.Color(153, 153, 153));
         jLabel15.setFont(new java.awt.Font("Apple SD Gothic Neo", 0, 15)); // NOI18N
         jLabel15.setForeground(new java.awt.Color(51, 51, 51));
@@ -616,12 +623,21 @@ public class Productos extends javax.swing.JFrame {
                             .addComponent(btnImage3)
                             .addComponent(btnImage2)
                             .addComponent(btnImage1))
+<<<<<<< HEAD
+                        .addGap(18, 18, 18)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jCheckBox2)
+                            .addComponent(jCheckBox3)
+                            .addComponent(jCheckBox1))))
+                .addGap(25, 25, 25)
+=======
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(checkSrc1)
                             .addComponent(checkSrc2)
                             .addComponent(checkSrc3))))
                 .addGap(22, 22, 22)
+>>>>>>> 046d60a737fcac4ee33dee5f61127f24af3bfa04
                 .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addContainerGap())
         );
