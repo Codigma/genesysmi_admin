@@ -115,4 +115,9 @@ public class Coordinador {
     public void setVenta(Ventas venta) {
         this.venta = venta;
     }
+    
+    public ProductoVo getSrcProducto(String art, String color_art){
+        ProductoDao producto = new ProductoDao();
+        return producto.getProducto(art, color_art);
+    }
 }

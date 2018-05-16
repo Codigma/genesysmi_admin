@@ -49,4 +49,36 @@ public class ProductoDao {
         //Retorna el usuario
         return producto;
     }
+    
+    public ProductoVo getProducto(String art, String color_art) {
+        Conectarse conn = new Conectarse();
+
+        //Objeto de tipo Usuario 
+        ProductoVo producto = new ProductoVo();
+        try {
+            PreparedStatement preparedStatement = conn.getConn().prepareStatement(
+                    "SELECT src1, src2, src3 "
+                    + "FROM products "
+                    + "WHERE art = ? AND color_art = ?");
+
+            preparedStatement.setString(1, art);
+            preparedStatement.setString(2, color_art);
+            ResultSet resultSet = preparedStatement.executeQuery();
+
+            //Muestra resultados de la consulta SQL
+            while (resultSet.next()) {
+                producto.setSrc1(resultSet.getString(1));
+                producto.setSrc2(resultSet.getString(2));
+                producto.setSrc3(resultSet.getString(3));
+            }
+            //Cierra todo
+            conn.getConn().close();
+            resultSet.close();
+            preparedStatement.close();
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
+        //Retorna el usuario
+        return producto;
+    }
 }
