@@ -11,6 +11,7 @@ import Modelo.UsuarioDao;
 import Modelo.UsuarioVo;
 import Vista.Login;
 import Vista.Colores;
+import Vista.DetalleVenta;
 import Vista.Inicio;
 import Vista.Usuarios;
 import Vista.Ventas;
@@ -24,6 +25,7 @@ public class Coordinador {
     private Inicio inicio;
     private Usuarios usuario;
     private Ventas venta;
+    private DetalleVenta detalle;
     
 
     public Inicio getInicio() {
@@ -119,5 +121,13 @@ public class Coordinador {
     public ProductoVo getSrcProducto(String art, String color_art){
         ProductoDao producto = new ProductoDao();
         return producto.getProducto(art, color_art);
+    }
+
+    public DetalleVenta getDetalle() {
+        return detalle;
+    }
+
+    public void setDetalle(DetalleVenta detalle) {
+        this.detalle = detalle;
     }
 }
