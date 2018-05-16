@@ -901,9 +901,9 @@
               </Properties>
             </Component>
             <Component class="javax.swing.JCheckBox" name="checkSrc1">
-              <Events>
-                <EventHandler event="propertyChange" listener="java.beans.PropertyChangeListener" parameters="java.beans.PropertyChangeEvent" handler="checkSrc1PropertyChange"/>
-              </Events>
+              <Properties>
+                <Property name="enabled" type="boolean" value="false"/>
+              </Properties>
             </Component>
             <Component class="javax.swing.JButton" name="btnImage2">
               <Properties>

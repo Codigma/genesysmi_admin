@@ -15,7 +15,7 @@ import javax.swing.ListCellRenderer;
 
 public class Productos extends javax.swing.JFrame {
     private Coordinador miCoordinador;
-    DefaultComboBoxModel modeloColor = new DefaultComboBoxModel();
+    DefaultComboBoxModel modeloColor;
     private ArrayList<ColorVo> colores;
     private ProductoVo producto;
     
@@ -27,6 +27,8 @@ public class Productos extends javax.swing.JFrame {
         initComponents();
         setLocationRelativeTo(null);
         setSize(1280, 800);
+        
+        modeloColor = new DefaultComboBoxModel();
         comboColor.setModel(modeloColor);
         
         colores = new ArrayList<>();
@@ -517,11 +519,7 @@ public class Productos extends javax.swing.JFrame {
         btnImage1.setForeground(new java.awt.Color(51, 51, 51));
         btnImage1.setText("Examinar");
 
-        checkSrc1.addPropertyChangeListener(new java.beans.PropertyChangeListener() {
-            public void propertyChange(java.beans.PropertyChangeEvent evt) {
-                checkSrc1PropertyChange(evt);
-            }
-        });
+        checkSrc1.setEnabled(false);
 
         btnImage2.setBackground(new java.awt.Color(237, 237, 237));
         btnImage2.setForeground(new java.awt.Color(51, 51, 51));
@@ -686,6 +684,10 @@ public class Productos extends javax.swing.JFrame {
         if(!art.equals("")){
             this.getDetallesProducto(art);
         }
+        modeloColor = new DefaultComboBoxModel();
+        comboColor.setModel(modeloColor);
+        modeloColor.addElement("Seleccionar...");
+        comboColor.setSelectedIndex(0);
         this.getColores();
         this.ActivarColor();
     }//GEN-LAST:event_btnBuscarActionPerformed
@@ -693,11 +695,6 @@ public class Productos extends javax.swing.JFrame {
     private void comboSubActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comboSubActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_comboSubActionPerformed
-
-    private void checkSrc1PropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_checkSrc1PropertyChange
-        // TODO add your handling code here:
-        System.out.println("cambieeee");
-    }//GEN-LAST:event_checkSrc1PropertyChange
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
