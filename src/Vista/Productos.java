@@ -5,7 +5,6 @@ import Modelo.ColorVo;
 import Modelo.ProductoVo;
 import java.awt.Color;
 import java.awt.Component;
-import java.awt.Dimension;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
@@ -16,28 +15,66 @@ import javax.swing.ListCellRenderer;
 
 public class Productos extends javax.swing.JFrame {
     private Coordinador miCoordinador;
-    DefaultComboBoxModel modeloColor = new DefaultComboBoxModel();
-    ArrayList<ColorVo> colores = new ArrayList<>();
+    DefaultComboBoxModel modeloColor;
+    private ArrayList<ColorVo> colores;
+    private ProductoVo producto;
+    
+    private boolean is_art;
+    private boolean is_color;
+    private boolean is_size;
 
     public Productos() {
         initComponents();
         setLocationRelativeTo(null);
         setSize(1280, 800);
+        
+        modeloColor = new DefaultComboBoxModel();
         comboColor.setModel(modeloColor);
+        
+        colores = new ArrayList<>();
+        producto = new ProductoVo();
+        
+        is_art = false;
+        is_color = false;
+        is_size = false;
     }
     
     public void ActivarColor(){
         comboColor.addActionListener (new ActionListener () {
             public void actionPerformed(ActionEvent e) {
-                System.out.println(comboColor.getSelectedIndex());
+                int Index = comboColor.getSelectedIndex();
+                if(Index != 0){
+                    producto.setColor_art(colores.get(Index-1).getColor_art());
+                    ProductoVo product = miCoordinador.getSrcProducto(producto.getArt(), producto.getColor_art());
+                    
+                    producto.setSrc1(product.getSrc1());
+                    producto.setSrc2(product.getSrc2());
+                    producto.setSrc3(product.getSrc3());
+                    
+                    if(producto.getSrc1() != null){
+                        checkSrc1.setSelected(true);
+                    }else{
+                        checkSrc1.setSelected(false);
+                    }
+                    if(producto.getSrc2() != null){
+                        checkSrc2.setSelected(true);
+                    }else{
+                        checkSrc2.setSelected(false);
+                    }
+                    if(producto.getSrc3() != null){
+                        checkSrc3.setSelected(true);
+                    }else{
+                        checkSrc3.setSelected(false);
+                    }   
+                }  
             }
         });
     }
     
     public void setCoordinador(Coordinador miCoordinador) {
-        this.miCoordinador=miCoordinador; 
-        this.getColores();
-        this.ActivarColor();
+        this.miCoordinador=miCoordinador;
+        modeloColor.addElement("Seleccionar...");
+        comboColor.setSelectedIndex(0);
     }
     
     public void getColores(){
@@ -46,8 +83,6 @@ public class Productos extends javax.swing.JFrame {
     }
     
     public void SetColores(ArrayList<ColorVo> colors){
-        modeloColor.addElement("Seleccionar...");
-        comboColor.setSelectedIndex(0);
          for(int i=0; i<colors.size();i++){
              modeloColor.addElement(colors.get(i).getColor_art()+" - "+colors.get(i).getColor_name());
          }
@@ -95,7 +130,7 @@ public class Productos extends javax.swing.JFrame {
     }
     
     public void getDetallesProducto(String art){
-        ProductoVo producto = miCoordinador.getDetallesProducto(art);
+         producto = miCoordinador.getDetallesProducto(art);
         if(producto.getArt() != null){
             this.SetDetallesProducto(producto);
         }
@@ -149,13 +184,13 @@ public class Productos extends javax.swing.JFrame {
         jLabel15 = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
         btnImage1 = new javax.swing.JButton();
-        jCheckBox1 = new javax.swing.JCheckBox();
+        checkSrc1 = new javax.swing.JCheckBox();
         btnImage2 = new javax.swing.JButton();
         jLabel11 = new javax.swing.JLabel();
-        jCheckBox2 = new javax.swing.JCheckBox();
+        checkSrc2 = new javax.swing.JCheckBox();
         jLabel12 = new javax.swing.JLabel();
         btnImage3 = new javax.swing.JButton();
-        jCheckBox3 = new javax.swing.JCheckBox();
+        checkSrc3 = new javax.swing.JCheckBox();
         txtBackColor = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -483,7 +518,7 @@ public class Productos extends javax.swing.JFrame {
         btnImage1.setForeground(new java.awt.Color(51, 51, 51));
         btnImage1.setText("Examinar");
 
-        jCheckBox1.setEnabled(false);
+        checkSrc1.setEnabled(false);
 
         btnImage2.setBackground(new java.awt.Color(237, 237, 237));
         btnImage2.setForeground(new java.awt.Color(51, 51, 51));
@@ -494,7 +529,7 @@ public class Productos extends javax.swing.JFrame {
         jLabel11.setForeground(new java.awt.Color(51, 51, 51));
         jLabel11.setText("Imagen #2");
 
-        jCheckBox2.setEnabled(false);
+        checkSrc2.setEnabled(false);
 
         jLabel12.setBackground(new java.awt.Color(153, 153, 153));
         jLabel12.setFont(new java.awt.Font("Apple SD Gothic Neo", 0, 15)); // NOI18N
@@ -510,7 +545,7 @@ public class Productos extends javax.swing.JFrame {
             }
         });
 
-        jCheckBox3.setEnabled(false);
+        checkSrc3.setEnabled(false);
 
         txtBackColor.setEditable(false);
         txtBackColor.setAutoscrolls(false);
@@ -537,28 +572,32 @@ public class Productos extends javax.swing.JFrame {
                                 .addComponent(comboColor, javax.swing.GroupLayout.PREFERRED_SIZE, 218, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(30, 30, 30)
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel10, javax.swing.GroupLayout.Alignment.TRAILING)
                                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                                        .addComponent(jCheckBox1)
-                                        .addGap(70, 70, 70)
-                                        .addComponent(jCheckBox2)
-                                        .addGap(66, 66, 66)
-                                        .addComponent(jCheckBox3)
-                                        .addGap(28, 28, 28))
-                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                            .addComponent(jLabel10)
+                                        .addComponent(txtBackColor, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                             .addGroup(jPanel1Layout.createSequentialGroup()
-                                                .addComponent(txtBackColor, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)
                                                 .addGap(34, 34, 34)
-                                                .addComponent(btnImage1)))
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                .addComponent(btnImage1))
+                                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                                .addGap(62, 62, 62)
+                                                .addComponent(checkSrc1)))))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(jPanel1Layout.createSequentialGroup()
                                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                             .addComponent(btnImage2, javax.swing.GroupLayout.Alignment.TRAILING)
                                             .addComponent(jLabel11, javax.swing.GroupLayout.Alignment.TRAILING))
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(btnImage3, javax.swing.GroupLayout.Alignment.TRAILING)
-                                            .addComponent(jLabel12, javax.swing.GroupLayout.Alignment.TRAILING))))))))
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED))
+                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                                        .addComponent(checkSrc2)
+                                        .addGap(33, 33, 33)))
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(btnImage3, javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(jLabel12, javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                                        .addComponent(checkSrc3)
+                                        .addGap(25, 25, 25)))))))
                 .addContainerGap(283, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
@@ -585,12 +624,21 @@ public class Productos extends javax.swing.JFrame {
                             .addComponent(btnImage3)
                             .addComponent(btnImage2)
                             .addComponent(btnImage1))
+<<<<<<< HEAD
                         .addGap(18, 18, 18)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jCheckBox2)
                             .addComponent(jCheckBox3)
                             .addComponent(jCheckBox1))))
                 .addGap(25, 25, 25)
+=======
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(checkSrc1)
+                            .addComponent(checkSrc2)
+                            .addComponent(checkSrc3))))
+                .addGap(22, 22, 22)
+>>>>>>> 046d60a737fcac4ee33dee5f61127f24af3bfa04
                 .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addContainerGap())
         );
@@ -644,6 +692,12 @@ public class Productos extends javax.swing.JFrame {
         if(!art.equals("")){
             this.getDetallesProducto(art);
         }
+        modeloColor = new DefaultComboBoxModel();
+        comboColor.setModel(modeloColor);
+        modeloColor.addElement("Seleccionar...");
+        comboColor.setSelectedIndex(0);
+        this.getColores();
+        this.ActivarColor();
     }//GEN-LAST:event_btnBuscarActionPerformed
 
     private void comboSubActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comboSubActionPerformed
@@ -658,14 +712,14 @@ public class Productos extends javax.swing.JFrame {
     private javax.swing.JButton btnImage1;
     private javax.swing.JButton btnImage2;
     private javax.swing.JButton btnImage3;
+    private javax.swing.JCheckBox checkSrc1;
+    private javax.swing.JCheckBox checkSrc2;
+    private javax.swing.JCheckBox checkSrc3;
     private javax.swing.JComboBox<String> comboCategory;
     private javax.swing.JComboBox<String> comboColor;
     private javax.swing.JComboBox<String> comboSize;
     private javax.swing.JComboBox<String> comboSub;
     private javax.swing.JComboBox<String> comboType;
-    private javax.swing.JCheckBox jCheckBox1;
-    private javax.swing.JCheckBox jCheckBox2;
-    private javax.swing.JCheckBox jCheckBox3;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
