@@ -50,7 +50,7 @@ public class Productos extends javax.swing.JFrame {
                     producto.setSrc3(product.getSrc3());
                     
                     if(producto.getSrc1() != null){
-                        checkSrc1.setSelected(true);                       
+                        checkSrc1.setSelected(true);
                     }else{
                         checkSrc1.setSelected(false);
                     }
@@ -517,8 +517,11 @@ public class Productos extends javax.swing.JFrame {
         btnImage1.setForeground(new java.awt.Color(51, 51, 51));
         btnImage1.setText("Examinar");
 
-        checkSrc1.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        checkSrc1.setRequestFocusEnabled(false);
+        checkSrc1.addPropertyChangeListener(new java.beans.PropertyChangeListener() {
+            public void propertyChange(java.beans.PropertyChangeEvent evt) {
+                checkSrc1PropertyChange(evt);
+            }
+        });
 
         btnImage2.setBackground(new java.awt.Color(237, 237, 237));
         btnImage2.setForeground(new java.awt.Color(51, 51, 51));
@@ -690,6 +693,11 @@ public class Productos extends javax.swing.JFrame {
     private void comboSubActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comboSubActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_comboSubActionPerformed
+
+    private void checkSrc1PropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_checkSrc1PropertyChange
+        // TODO add your handling code here:
+        System.out.println("cambieeee");
+    }//GEN-LAST:event_checkSrc1PropertyChange
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
