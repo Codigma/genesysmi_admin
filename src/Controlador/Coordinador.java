@@ -13,6 +13,7 @@ import Modelo.UsuarioDao;
 import Modelo.UsuarioVo;
 import Vista.Login;
 import Vista.Colores;
+import Vista.DetalleVenta;
 import Vista.Inicio;
 import Vista.Usuarios;
 import Vista.Ventas;
@@ -26,6 +27,7 @@ public class Coordinador {
     private Inicio inicio;
     private Usuarios usuario;
     private Ventas venta;
+    private DetalleVenta detalle;
     
 
     public Inicio getInicio() {
@@ -122,9 +124,19 @@ public class Coordinador {
         ProductoDao producto = new ProductoDao();
         return producto.getProducto(art, color_art);
     }
+<<<<<<< HEAD
+
+    public DetalleVenta getDetalle() {
+        return detalle;
+    }
+
+    public void setDetalle(DetalleVenta detalle) {
+        this.detalle = detalle;
+=======
     
     public ArrayList<SubcategoryVo> getSubcategories(Integer id_category){
         SubcategoryDao subcategories = new SubcategoryDao();
         return subcategories.getSubcategories(id_category);
+>>>>>>> a9aa7bed18ab42c90ef29baa662c11f387040c07
     }
 }

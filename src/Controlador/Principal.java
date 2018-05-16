@@ -1,6 +1,7 @@
 package Controlador;
 
 import Vista.Colores;
+import Vista.DetalleVenta;
 import Vista.Inicio;
 import Vista.Login;
 import Vista.Productos;
@@ -16,6 +17,7 @@ public class Principal {
         Productos productos = new Productos();
         Usuarios usuario = new Usuarios();
         Ventas venta = new Ventas();
+        DetalleVenta detalle = new DetalleVenta();
         
         miCoordinador= new Coordinador();
         Colores color = new Colores();
@@ -28,11 +30,14 @@ public class Principal {
         productos.setCoordinador(miCoordinador);
         usuario.setCoordinador(miCoordinador);
         venta.setCoordinador(miCoordinador);
+        detalle.setCoordinador(miCoordinador);
         /*Se establecen relaciones con la clase coordinador*/
         miCoordinador.setLogin(login);
         miCoordinador.setColor(color);
         miCoordinador.setProductos(productos);
+        miCoordinador.setDetalle(detalle);
         
+        detalle.setVisible(true);
         productos.setVisible(true);
         color.setCoordinador(miCoordinador);
         inicio.setCoordinador(miCoordinador);
