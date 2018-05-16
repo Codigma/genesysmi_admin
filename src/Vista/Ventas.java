@@ -5,12 +5,21 @@
  */
 package Vista;
 
+import Controlador.Coordinador;
+
 /**
  *
  * @author luism
  */
 public class Ventas extends javax.swing.JFrame {
 
+      private Coordinador miCoordinador;
+
+    public void setCoordinador(Coordinador miCoordinador) {
+        this.miCoordinador = miCoordinador;
+
+        
+    }
     /**
      * Creates new form Ventas
      */

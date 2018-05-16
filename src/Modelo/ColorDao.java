@@ -8,7 +8,9 @@ package Modelo;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.ArrayList;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -81,4 +83,27 @@ public class ColorDao {
         //Retorna los usuarios
         return colores;
     }
+       
+       
+       public void registrarColor(ColorVo color)
+	{
+		Conectarse conex= new Conectarse();
+		
+			   try {
+                                String query = " insert into colors (color_art, color_name, color_hex_code)"
+        + " values (?, ?, ?)";
+            PreparedStatement preparedStatement = conex.getConn().prepareStatement(query);
+            preparedStatement.setString(1, color.getColor_art());
+            preparedStatement.setString(2, color.getColor_name());
+            preparedStatement.setString(3, color.getColor_hex_code());
+            preparedStatement.execute();
+          
+          //JOptionPane.showMessageDialog(null, "Se ha registrado Exitosamente","Informacion",JOptionPane.INFORMATION_MESSAGE);
+			
+          conex.getConn().close();
+		} catch (SQLException e) {
+            System.out.println(e.getMessage());
+			JOptionPane.showMessageDialog(null, "No se Registro");
+		}
+	}
 }
