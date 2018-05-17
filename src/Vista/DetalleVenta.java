@@ -83,7 +83,6 @@ DefaultTableModel modelo = new DefaultTableModel();
         jButton3 = new javax.swing.JButton();
         jButton1 = new javax.swing.JButton();
         jButton4 = new javax.swing.JButton();
-        jButton5 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -316,13 +315,6 @@ DefaultTableModel modelo = new DefaultTableModel();
         jButton4.setForeground(new java.awt.Color(255, 255, 255));
         jButton4.setText("Pagar");
 
-        jButton5.setText("jButton5");
-        jButton5.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton5ActionPerformed(evt);
-            }
-        });
-
         javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
         jPanel6.setLayout(jPanel6Layout);
         jPanel6Layout.setHorizontalGroup(
@@ -344,9 +336,7 @@ DefaultTableModel modelo = new DefaultTableModel();
                             .addGroup(jPanel6Layout.createSequentialGroup()
                                 .addComponent(txtCode, javax.swing.GroupLayout.PREFERRED_SIZE, 174, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(lblBuscar)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(jButton5))
+                                .addComponent(lblBuscar))
                             .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 303, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel13, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(jPanel6Layout.createSequentialGroup()
@@ -364,8 +354,7 @@ DefaultTableModel modelo = new DefaultTableModel();
                 .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(txtCode, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lblBuscar)
-                    .addComponent(jButton5))
+                    .addComponent(lblBuscar))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 37, Short.MAX_VALUE)
                 .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -458,26 +447,6 @@ DefaultTableModel modelo = new DefaultTableModel();
     private void lblBuscarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblBuscarMouseClicked
  
     }//GEN-LAST:event_lblBuscarMouseClicked
-
-    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
-//  modelo.setColumnIdentifiers(columnas);
-  
-        ProductoVo miProducto  = miCoordinador.getDetallesProducto("00036");
-  
-        System.out.print(miProducto.getArt());
-	
-        if (miProducto.getArt() != null)
-			{
-                           
-
-       modelo.addRow(new Object[] {miProducto.getArt(),miProducto.getArt_name(),miProducto.getPrice()});
-      tbVenta.setModel(modelo);
-   
-			}
-			else{
-		JOptionPane.showMessageDialog(null, "El producto no Existe","Advertencia",JOptionPane.WARNING_MESSAGE);
-			        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton5ActionPerformed
     }
 
 
@@ -486,7 +455,6 @@ DefaultTableModel modelo = new DefaultTableModel();
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
-    private javax.swing.JButton jButton5;
     private javax.swing.JComboBox jComboBox1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
