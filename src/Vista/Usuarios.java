@@ -6,6 +6,10 @@
 package Vista;
 
 import Controlador.Coordinador;
+import Modelo.ProductoVo;
+import Modelo.UsuarioVo;
+import java.util.ArrayList;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -13,7 +17,9 @@ import Controlador.Coordinador;
  */
 public class Usuarios extends javax.swing.JFrame {
   private Coordinador miCoordinador;
-
+  DefaultTableModel modelo = new DefaultTableModel();
+      String[] columnas = {"ID Usuario","Nombre(s)","Apellidos","Email","Pais","Estado","Localidad","Codigo Postal","Direccion","Telefono","RFC","Registro"};
+     
     public void setCoordinador(Coordinador miCoordinador) {
         this.miCoordinador = miCoordinador;
 
@@ -28,6 +34,9 @@ public class Usuarios extends javax.swing.JFrame {
         setSize(1280, 800); 
     }
 
+    public void imprimirUsuarios(){
+    
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -106,6 +115,11 @@ public class Usuarios extends javax.swing.JFrame {
         btnSearch.setFont(new java.awt.Font("Lucida Grande", 1, 13)); // NOI18N
         btnSearch.setForeground(new java.awt.Color(255, 255, 255));
         btnSearch.setText("Buscar");
+        btnSearch.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSearchActionPerformed(evt);
+            }
+        });
 
         jLabel2.setFont(new java.awt.Font("Avenir", 1, 22)); // NOI18N
         jLabel2.setText("Usuarios registrados");
@@ -170,7 +184,7 @@ public class Usuarios extends javax.swing.JFrame {
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(8, Short.MAX_VALUE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(15, 15, 15))
         );
@@ -193,40 +207,27 @@ public class Usuarios extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtSearchActionPerformed
 
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Usuarios.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Usuarios.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Usuarios.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Usuarios.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+    private void btnSearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSearchActionPerformed
+  int aux = Integer.parseInt(txtSearch.getText());
+        UsuarioVo user = miCoordinador.buscarUsuario(aux);
+        
+        modelo.setColumnIdentifiers(columnas);
+        
+        
+        if(user == null){
+        System.out.print("Vacío");
         }
-        //</editor-fold>
+        else{
+          modelo.addRow(new Object[] {user.getId_user(),user.getFirstname(),user.getLastname(),user.getEmail(),user.getId_country(),
+          user.getId_state(),user.getId_location(),user.getCp(),user.getDirection(),user.getPhone(),user.getRfc(),user.getRegister_date()});
+      
+      tbUsers.setModel(modelo);
+      
+        }
+      
 
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new Usuarios().setVisible(true);
-            }
-        });
-    }
+    }//GEN-LAST:event_btnSearchActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnGenerate;
