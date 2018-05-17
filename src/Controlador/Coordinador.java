@@ -9,6 +9,8 @@ import Modelo.SubcategoryDao;
 import Modelo.SubcategoryVo;
 import Modelo.SystemDao;
 import Modelo.SystemVo;
+import Modelo.TallaDao;
+import Modelo.TallaVo;
 import Modelo.UsuarioDao;
 import Modelo.UsuarioVo;
 import Vista.Login;
@@ -138,4 +140,8 @@ public class Coordinador {
         return subcategories.getSubcategories(id_category);
     }
     
+    public ArrayList<TallaVo> getTallas(Integer id_category, Integer id_type_product){
+        TallaDao tallas = new TallaDao();
+        return tallas.getTallas(id_category, id_type_product);
+    }
 }
