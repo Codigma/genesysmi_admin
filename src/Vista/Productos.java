@@ -771,6 +771,10 @@ public class Productos extends javax.swing.JFrame {
         txtDescrip.setText("");
         txtCompo.setText("");
         
+        isArt = false;
+        isColor = false;
+        isSize = false;
+        
         if(!art.equals("")){
             producto.setArt(art);
     
@@ -816,6 +820,7 @@ public class Productos extends javax.swing.JFrame {
 
     private void comboColorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comboColorActionPerformed
         // TODO add your handling code here:
+        isColor = false;
         int color_index = comboColor.getSelectedIndex();
                 if(color_index > 0){
                     producto.setColor_art(colores.get(color_index-1).getColor_art());
@@ -880,6 +885,7 @@ public class Productos extends javax.swing.JFrame {
                 producto.setAmount(amount);
                 isSize = true;
             }else{
+                isSize = false;
                 producto.setAmount(null);
             }
         }else{
