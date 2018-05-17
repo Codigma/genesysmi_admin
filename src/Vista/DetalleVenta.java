@@ -287,6 +287,9 @@ DefaultTableModel modelo = new DefaultTableModel();
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 lblBuscarMouseClicked(evt);
             }
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                lblBuscarMousePressed(evt);
+            }
         });
 
         jLabel10.setFont(new java.awt.Font("GT Walsheim Regular", 0, 14)); // NOI18N
@@ -447,7 +450,11 @@ DefaultTableModel modelo = new DefaultTableModel();
     private void lblBuscarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblBuscarMouseClicked
  
     }//GEN-LAST:event_lblBuscarMouseClicked
-    }
+
+    private void lblBuscarMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblBuscarMousePressed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_lblBuscarMousePressed
+    
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
