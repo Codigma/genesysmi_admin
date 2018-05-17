@@ -8,6 +8,7 @@ package Vista;
 import Controlador.Coordinador;
 import Modelo.ProductoVo;
 import Modelo.UsuarioVo;
+import java.awt.Color;
 import java.util.ArrayList;
 import javax.swing.table.DefaultTableModel;
 
@@ -22,7 +23,7 @@ public class Usuarios extends javax.swing.JFrame {
      
     public void setCoordinador(Coordinador miCoordinador) {
         this.miCoordinador = miCoordinador;
-
+imprimirUsuarios();
         
     }
     /**
@@ -35,7 +36,17 @@ public class Usuarios extends javax.swing.JFrame {
     }
 
     public void imprimirUsuarios(){
-    
+       ArrayList<UsuarioVo> user = miCoordinador.buscarUsuarios();
+      modelo.setColumnIdentifiers(columnas);
+
+      //Ciclo para llenar tabla de colores
+      for (int i =0; i<user.size();i++){
+       modelo.addRow(new Object[] {user.get(i).getId_user(),user.get(i).getFirstname(),user.get(i).getLastname(),user.get(i).getEmail(),
+       user.get(i).getId_country(),user.get(i).getId_state(),user.get(i).getId_location(),user.get(i).getCp(),user.get(i).getDirection(),
+       user.get(i).getPhone(),user.get(i).getRfc(),user.get(i).getRegister_date()});
+      }
+      //Asignamos los datos del Modelo a la tabla
+      tbUsers.setModel(modelo);
     }
     /**
      * This method is called from within the constructor to initialize the form.
@@ -89,6 +100,11 @@ public class Usuarios extends javax.swing.JFrame {
         tbUsers.setGridColor(new java.awt.Color(204, 204, 204));
         tbUsers.setSelectionBackground(new java.awt.Color(253, 175, 200));
         tbUsers.setSelectionForeground(new java.awt.Color(0, 0, 0));
+        tbUsers.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tbUsersMouseClicked(evt);
+            }
+        });
         jScrollPane1.setViewportView(tbUsers);
 
         jLabel1.setFont(new java.awt.Font("Apple SD Gothic Neo", 0, 15)); // NOI18N
@@ -227,6 +243,18 @@ public class Usuarios extends javax.swing.JFrame {
       
 
     }//GEN-LAST:event_btnSearchActionPerformed
+
+    private void tbUsersMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tbUsersMouseClicked
+     int fila = tbUsers.getSelectedRow();
+      DetalleVenta venta = new DetalleVenta(); 
+               if ((fila > -1)){
+          String cliente = (String) modelo.getValueAt(fila, 1) + " " + (String)(String) modelo.getValueAt(fila, 2) ;
+             miCoordinador.getDetalle().txtCliente.setText(cliente);
+            
+          
+           // System.out.println(modelo.getValueAt(fila,2));
+         }        // TODO add your handling code here:
+    }//GEN-LAST:event_tbUsersMouseClicked
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
