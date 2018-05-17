@@ -543,6 +543,11 @@ public class Productos extends javax.swing.JFrame {
         btnImage2.setBackground(new java.awt.Color(237, 237, 237));
         btnImage2.setForeground(new java.awt.Color(51, 51, 51));
         btnImage2.setText("Examinar");
+        btnImage2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnImage2ActionPerformed(evt);
+            }
+        });
 
         jLabel11.setBackground(new java.awt.Color(153, 153, 153));
         jLabel11.setFont(new java.awt.Font("Apple SD Gothic Neo", 0, 15)); // NOI18N
@@ -559,6 +564,11 @@ public class Productos extends javax.swing.JFrame {
         btnImage3.setBackground(new java.awt.Color(237, 237, 237));
         btnImage3.setForeground(new java.awt.Color(51, 51, 51));
         btnImage3.setText("Examinar");
+        btnImage3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnImage3ActionPerformed(evt);
+            }
+        });
 
         checkSrc3.setEnabled(false);
 
@@ -715,6 +725,8 @@ public class Productos extends javax.swing.JFrame {
         if(!textCant.equals("")){
             amount = Integer.parseInt(textCant);
         }
+        
+        //Rutas para el src
         String category = comboCategory.getItemAt(comboCategory.getSelectedIndex());
         String subcategory = comboSub.getItemAt(comboSub.getSelectedIndex());
         String color = colores.get(comboColor.getSelectedIndex()-1).getColor_name();
@@ -723,31 +735,43 @@ public class Productos extends javax.swing.JFrame {
             src1 = category+"/"+subcategory+"/"+producto.getArt_name()+"/"+color+"/"+src1;
             producto.setSrc1(src1);
         }
+        if(!src2.equals("")){
+            src2 = category+"/"+subcategory+"/"+producto.getArt_name()+"/"+color+"/"+src2;
+            producto.setSrc1(src2);
+        }
+        if(!src3.equals("")){
+            src3 = category+"/"+subcategory+"/"+producto.getArt_name()+"/"+color+"/"+src3;
+            producto.setSrc1(src3);
+        }
         
-        System.out.println(producto.getArt());
-        System.out.println(producto.getArt_name());
-        System.out.println(producto.getColor_art());
-        System.out.println(producto.getComposition());
-        System.out.println(producto.getDescription());
-        System.out.println(producto.getId_category());
-        System.out.println(producto.getId_size());
-        System.out.println(producto.getId_subcategory());
-        System.out.println(producto.getId_type_product());
-        System.out.println(producto.getPrice());
-        System.out.println(producto.getSrc1());
-        System.out.println(producto.getSrc2());
-        System.out.println(producto.getSrc3());
-        System.out.println(producto.getAmount());
-        
+        //Aquí ocurre la magia
         if(producto.getArt() != null && !producto.getArt_name().equals("") 
                 && producto.getColor_art() != null && !producto.getComposition().equals("")  
                 && !producto.getDescription().equals("") && producto.getId_category() != null 
                 && producto.getId_size() != null && producto.getId_subcategory() != null 
                 && producto.getId_type_product() != null && producto.getPrice() != null 
-                && producto.getSrc1() != null && amount > 0){
+                && producto.getSrc1() != null && amount >= 0){
             
-//Aquí van los insert o updates
-            System.out.println("Ya pasa");
+            if(isArt){
+                miCoordinador.UpdateProductDetails(producto);
+                if(isColor){
+                    miCoordinador.UpdateProduct(producto);
+                    if(isSize){
+                        producto.setAmount(producto.getAmount()+amount);
+                        miCoordinador.UpdateProductSizes(producto);
+                    }else{
+                        producto.setAmount(amount);
+                        miCoordinador.InsertProductSizes(producto);
+                    }
+                }else{
+                    miCoordinador.InsertProduct(producto);
+                    miCoordinador.InsertProductSizes(producto);
+                }
+            }else{
+                miCoordinador.InsertProductDetails(producto);
+                miCoordinador.InsertProduct(producto);
+                miCoordinador.InsertProductSizes(producto);
+            }
         }
     }//GEN-LAST:event_btnAddActionPerformed
 
@@ -917,6 +941,36 @@ public class Productos extends javax.swing.JFrame {
             checkSrc1.setSelected(false);
         }
     }//GEN-LAST:event_btnImage1ActionPerformed
+
+    private void btnImage2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnImage2ActionPerformed
+        // TODO add your handling code here:
+        JFileChooser dir = new JFileChooser();
+        int option = dir.showOpenDialog(this);
+        if(option == JFileChooser.APPROVE_OPTION){
+            String file = dir.getSelectedFile().getPath();
+            String fileName = dir.getName(dir.getSelectedFile());
+            
+            src2 = fileName;
+            checkSrc2.setSelected(true);
+        }else{
+            checkSrc2.setSelected(false);
+        }
+    }//GEN-LAST:event_btnImage2ActionPerformed
+
+    private void btnImage3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnImage3ActionPerformed
+        // TODO add your handling code here:
+        JFileChooser dir = new JFileChooser();
+        int option = dir.showOpenDialog(this);
+        if(option == JFileChooser.APPROVE_OPTION){
+            String file = dir.getSelectedFile().getPath();
+            String fileName = dir.getName(dir.getSelectedFile());
+            
+            src3 = fileName;
+            checkSrc3.setSelected(true);
+        }else{
+            checkSrc3.setSelected(false);
+        }
+    }//GEN-LAST:event_btnImage3ActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
