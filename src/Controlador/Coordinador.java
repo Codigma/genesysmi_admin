@@ -149,4 +149,34 @@ public class Coordinador {
         ProductoDao producto = new ProductoDao();
         return producto.getAmountProducto(art, color_art, id_size);
     }
+    
+    public void InsertProductDetails(ProductoVo producto){
+        ProductoDao dao = new ProductoDao();
+        dao.InsertProductDetails(producto);
+    }
+    
+    public void UpdateProductDetails(ProductoVo producto){
+        ProductoDao dao = new ProductoDao();
+        dao.UpdateProductDetails(producto);
+    }
+    
+    public void InsertProduct(ProductoVo producto){
+        ProductoDao dao = new ProductoDao();
+        dao.InsertProduct(producto);
+    }
+    
+    public void UpdateProduct(ProductoVo producto){
+        ProductoDao dao = new ProductoDao();
+        dao.UpdateProduct(producto);
+    }
+    
+    public void InsertProductSizes(ProductoVo producto){
+        ProductoDao dao = new ProductoDao();
+        dao.InsertProductSizes(producto);
+    }
+    
+    public void UpdateProductSizes(ProductoVo producto){
+        ProductoDao dao = new ProductoDao();
+        dao.UpdateProductSizes(producto);
+    }
 }

@@ -118,15 +118,159 @@ public class ProductoDao {
         
         try {
             PreparedStatement preparedStatement = conn.getConn().prepareStatement(
-                    "SELECT art, color_art, id_size, amount "
-                    + "FROM product_sizes "
-                    + "WHERE art = ? AND color_art = ? AND id_size = ?");
-
-            //preparedStatement.setString(1, art);
-            //preparedStatement.setString(2, color_art);
-            //preparedStatement.setInt(3, id_size);
+                    "INSERT INTO product_details (art, name, price, id_category, id_subcategory, "
+                            + "description, composition, id_type_product) "
+                    + "VALUES (?, ?, ?, ?, ?, ?, ?, ?)");
+            
+            preparedStatement.setString(1, producto.getArt());
+            preparedStatement.setString(2, producto.getArt_name());
+            preparedStatement.setDouble(3, producto.getPrice());
+            preparedStatement.setInt(4, producto.getId_category());
+            preparedStatement.setInt(5, producto.getId_subcategory());
+            preparedStatement.setString(6, producto.getDescription());
+            preparedStatement.setString(7, producto.getComposition());
+            preparedStatement.setInt(8, producto.getId_type_product());
             
             preparedStatement.executeQuery();
+            
+            //Cierra todo
+            conn.getConn().close();
+            //resultSet.close();
+            preparedStatement.close();
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
+    }
+    
+    public void UpdateProductDetails(ProductoVo producto){
+        Conectarse conn = new Conectarse();
+        
+        try {
+            PreparedStatement preparedStatement = conn.getConn().prepareStatement(
+                    "UPDATE product_details SET art = ?, name = ?, price = ?, "
+                            + "id_category = ?, id_subcategory = ?, "
+                            + "description = ?, composition = ?, id_type_product = ? "
+                    + "WHERE art = ?");
+            
+            preparedStatement.setString(1, producto.getArt());
+            preparedStatement.setString(2, producto.getArt_name());
+            preparedStatement.setDouble(3, producto.getPrice());
+            preparedStatement.setInt(4, producto.getId_category());
+            preparedStatement.setInt(5, producto.getId_subcategory());
+            preparedStatement.setString(6, producto.getDescription());
+            preparedStatement.setString(7, producto.getComposition());
+            preparedStatement.setInt(8, producto.getId_type_product());
+            preparedStatement.setString(9, producto.getArt());
+            
+            preparedStatement.executeUpdate();
+            
+            //Cierra todo
+            conn.getConn().close();
+            //resultSet.close();
+            preparedStatement.close();
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
+    }
+    
+    public void InsertProduct(ProductoVo producto){
+        Conectarse conn = new Conectarse();
+        
+        try {
+            PreparedStatement preparedStatement = conn.getConn().prepareStatement(
+                    "INSERT INTO products (art, color_art, src1, src2, src3, src4, src5) "
+                    + "VALUES (?, ?, ?, ?, ?, ?, ?)");
+            
+            preparedStatement.setString(1, producto.getArt());
+            preparedStatement.setString(2, producto.getColor_art());
+            preparedStatement.setString(3, producto.getSrc1());
+            preparedStatement.setString(4, producto.getSrc2());
+            preparedStatement.setString(5, producto.getSrc3());
+            preparedStatement.setString(6, null);
+            preparedStatement.setString(7, null);
+            
+            preparedStatement.executeQuery();
+            
+            //Cierra todo
+            conn.getConn().close();
+            //resultSet.close();
+            preparedStatement.close();
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
+    }
+    
+    public void UpdateProduct(ProductoVo producto){
+        Conectarse conn = new Conectarse();
+        
+        try {
+            PreparedStatement preparedStatement = conn.getConn().prepareStatement(
+                    "UPDATE products SET art = ?, color_art = ?, src1 = ?, "
+                            + "src2 = ?, src3 = ? "
+                    + "WHERE art = ? AND color_art = ?");
+            
+            preparedStatement.setString(1, producto.getArt());
+            preparedStatement.setString(2, producto.getColor_art());
+            preparedStatement.setString(3, producto.getSrc1());
+            preparedStatement.setString(4, producto.getSrc2());
+            preparedStatement.setString(5, producto.getSrc3());
+            preparedStatement.setString(6, producto.getArt());
+            preparedStatement.setString(7, producto.getColor_art());
+            
+            preparedStatement.executeUpdate();
+            
+            //Cierra todo
+            conn.getConn().close();
+            //resultSet.close();
+            preparedStatement.close();
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
+    }
+    
+    public void InsertProductSizes(ProductoVo producto){
+        Conectarse conn = new Conectarse();
+        
+        try {
+            PreparedStatement preparedStatement = conn.getConn().prepareStatement(
+                    "INSERT INTO product_sizes (art, color_art, id_size, amount) "
+                    + "VALUES (?, ?, ?, ?)");
+            
+            preparedStatement.setString(1, producto.getArt());
+            preparedStatement.setString(2, producto.getColor_art());
+            preparedStatement.setInt(3, producto.getId_size());
+            preparedStatement.setInt(4, producto.getAmount());
+            
+            preparedStatement.executeQuery();
+            
+            //Cierra todo
+            conn.getConn().close();
+            //resultSet.close();
+            preparedStatement.close();
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
+    }
+    
+    public void UpdateProductSizes(ProductoVo producto){
+        Conectarse conn = new Conectarse();
+        
+        try {
+            PreparedStatement preparedStatement = conn.getConn().prepareStatement(
+                    "UPDATE product_sizes SET art = ?, color_art = ?, "
+                            + "id_size = ?, amount= ? "
+                    + "WHERE art = ? AND color_art = ? AND id_size = ?");
+            
+            preparedStatement.setString(1, producto.getArt());
+            preparedStatement.setString(2, producto.getColor_art());
+            preparedStatement.setInt(3, producto.getId_size());
+            preparedStatement.setInt(4, producto.getAmount());
+            
+            preparedStatement.setString(5, producto.getArt());
+            preparedStatement.setString(6, producto.getColor_art());
+            preparedStatement.setInt(7, producto.getId_size());
+            
+            preparedStatement.executeUpdate();
             
             //Cierra todo
             conn.getConn().close();
