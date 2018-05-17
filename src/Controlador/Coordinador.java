@@ -144,4 +144,9 @@ public class Coordinador {
         TallaDao tallas = new TallaDao();
         return tallas.getTallas(id_category, id_type_product);
     }
+    
+    public ProductoVo getAmountProducto(String art, String color_art, Integer id_size){
+        ProductoDao producto = new ProductoDao();
+        return producto.getAmountProducto(art, color_art, id_size);
+    }
 }
