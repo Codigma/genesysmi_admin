@@ -252,7 +252,7 @@ imprimirUsuarios();
              miCoordinador.getDetalle().txtCliente.setText(cliente);
             
           
-           // System.out.println(modelo.getValueAt(fila,2));
+          
          }        // TODO add your handling code here:
     }//GEN-LAST:event_tbUsersMouseClicked
 
