@@ -1,9 +1,34 @@
+<<<<<<< HEAD
 <?xml version="1.0" encoding="UTF-8"?>
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/angelbryan/Documents/SistemaAdmin/genesysmi_admin-master/genesysmi_admin/src/Modelo/Conectarse.java</file>
+            <file>file:/Users/erickhernandeztoledo/Documents/GitHub/genesysmi_admin/src/Vista/Graficas.java</file>
+            <file>file:/Users/erickhernandeztoledo/Documents/GitHub/genesysmi_admin/src/Vista/Productos.java</file>
+            <file>file:/Users/erickhernandeztoledo/Documents/GitHub/genesysmi_admin/src/Vista/DetalleVenta.java</file>
+            <file>file:/Users/erickhernandeztoledo/Documents/GitHub/genesysmi_admin/src/Vista/Login.java</file>
+            <file>file:/Users/erickhernandeztoledo/Documents/GitHub/genesysmi_admin/src/Vista/Usuarios.java</file>
+            <file>file:/Users/erickhernandeztoledo/Documents/GitHub/genesysmi_admin/src/Vista/Colores.java</file>
+            <file>file:/Users/erickhernandeztoledo/Documents/GitHub/genesysmi_admin/src/Vista/Ventas.java</file>
         </group>
     </open-files>
 </project-private>
+=======
+<?xml version="1.0" encoding="UTF-8"?>
+<project-private xmlns="http://www.netbeans.org/ns/project-private/1">
+    <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
+    <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
+        <group>
+<<<<<<< HEAD
+            <file>file:/C:/Users/angelbryan/Documents/SistemaAdmin/genesysmi_admin-master/genesysmi_admin/src/Modelo/Conectarse.java</file>
+=======
+            <file>file:/C:/Users/luism/Documents/GitHub/genesysmi_admin/src/Controlador/Coordinador.java</file>
+            <file>file:/C:/Users/luism/Documents/GitHub/genesysmi_admin/src/Vista/Productos.java</file>
+            <file>file:/C:/Users/luism/Documents/GitHub/genesysmi_admin/src/Modelo/ColorDao.java</file>
+            <file>file:/C:/Users/luism/Documents/GitHub/genesysmi_admin/src/Vista/DetalleVenta.java</file>
+>>>>>>> 9c271739f64e70aec23b6057ca6ff903665b7065
+        </group>
+    </open-files>
+</project-private>
+>>>>>>> 02764fc51c27f9befc519f9dfb33a27b959a96c2

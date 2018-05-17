@@ -5,12 +5,17 @@ import Modelo.ProductoVo;
 import Vista.Productos;
 import Modelo.ColorDao;
 import Modelo.ColorVo;
+import Modelo.SubcategoryDao;
+import Modelo.SubcategoryVo;
 import Modelo.SystemDao;
 import Modelo.SystemVo;
+import Modelo.TallaDao;
+import Modelo.TallaVo;
 import Modelo.UsuarioDao;
 import Modelo.UsuarioVo;
 import Vista.Login;
 import Vista.Colores;
+import Vista.DetalleVenta;
 import Vista.Inicio;
 import Vista.Usuarios;
 import Vista.Ventas;
@@ -24,6 +29,7 @@ public class Coordinador {
     private Inicio inicio;
     private Usuarios usuario;
     private Ventas venta;
+    private DetalleVenta detalle;
     
 
     public Inicio getInicio() {
@@ -114,5 +120,33 @@ public class Coordinador {
 
     public void setVenta(Ventas venta) {
         this.venta = venta;
+    }
+    
+    public ProductoVo getSrcProducto(String art, String color_art){
+        ProductoDao producto = new ProductoDao();
+        return producto.getProducto(art, color_art);
+    }
+
+    public DetalleVenta getDetalle() {
+        return detalle;
+    }
+
+    public void setDetalle(DetalleVenta detalle) {
+        this.detalle = detalle;
+    }
+    
+    public ArrayList<SubcategoryVo> getSubcategories(Integer id_category){
+        SubcategoryDao subcategories = new SubcategoryDao();
+        return subcategories.getSubcategories(id_category);
+    }
+    
+    public ArrayList<TallaVo> getTallas(Integer id_category, Integer id_type_product){
+        TallaDao tallas = new TallaDao();
+        return tallas.getTallas(id_category, id_type_product);
+    }
+    
+    public ProductoVo getAmountProducto(String art, String color_art, Integer id_size){
+        ProductoDao producto = new ProductoDao();
+        return producto.getAmountProducto(art, color_art, id_size);
     }
 }
