@@ -112,4 +112,28 @@ public class ProductoDao {
         //Retorna el usuario
         return producto;
     }
+    
+    public void InsertProductDetails(ProductoVo producto){
+        Conectarse conn = new Conectarse();
+        
+        try {
+            PreparedStatement preparedStatement = conn.getConn().prepareStatement(
+                    "SELECT art, color_art, id_size, amount "
+                    + "FROM product_sizes "
+                    + "WHERE art = ? AND color_art = ? AND id_size = ?");
+
+            //preparedStatement.setString(1, art);
+            //preparedStatement.setString(2, color_art);
+            //preparedStatement.setInt(3, id_size);
+            
+            preparedStatement.executeQuery();
+            
+            //Cierra todo
+            conn.getConn().close();
+            //resultSet.close();
+            preparedStatement.close();
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
+    }
 }
