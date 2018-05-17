@@ -35,7 +35,7 @@ DefaultTableModel modelo = new DefaultTableModel();
      */
     public DetalleVenta() {
         initComponents();
-        txtFecha.setText(hourdateFormat.format(date));
+        
     }
 
     /**
