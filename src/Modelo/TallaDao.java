@@ -27,7 +27,7 @@ public class TallaDao {
                 talla.setId_size(resultSet.getInt(1));
                 talla.setId_category(resultSet.getInt(2));
                 talla.setId_type_product(resultSet.getInt(3));
-                talla.setId_size(resultSet.getInt(4));
+                talla.setSize_name(resultSet.getString(4));
                 
                 tallas.add(talla);
             }

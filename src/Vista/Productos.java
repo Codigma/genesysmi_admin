@@ -4,10 +4,12 @@ import Controlador.Coordinador;
 import Modelo.ColorVo;
 import Modelo.ProductoVo;
 import Modelo.SubcategoryVo;
+import Modelo.TallaVo;
 import java.awt.Color;
 import java.awt.Component;
 import java.util.ArrayList;
 import javax.swing.DefaultComboBoxModel;
+import javax.swing.JFileChooser;
 import javax.swing.JLabel;
 import javax.swing.JList;
 import javax.swing.ListCellRenderer;
@@ -16,33 +18,42 @@ public class Productos extends javax.swing.JFrame {
     private Coordinador miCoordinador;
     DefaultComboBoxModel modeloColor;
     DefaultComboBoxModel modeloSubcategory;
+    DefaultComboBoxModel modeloTalla;
+    
     private ArrayList<ColorVo> colores;
     private ProductoVo producto;
+    private ArrayList<SubcategoryVo> subcategories;
+    private ArrayList<TallaVo>tallas;
     
-    private boolean is_art;
-    private boolean is_color;
-    private boolean is_size;
+    private boolean isArt;
+    private boolean isColor;
+    private boolean isSize;
+    
+    private String src1;
+    private String src2;
+    private String src3;
 
     public Productos() {
         initComponents();
         setLocationRelativeTo(null);
         setSize(1280, 800);
         
-        modeloColor = new DefaultComboBoxModel();
-        comboColor.setModel(modeloColor);
-        
         colores = new ArrayList<>();
         producto = new ProductoVo();
+        subcategories = new ArrayList<>();
+        tallas = new ArrayList<>();
         
-        is_art = false;
-        is_color = false;
-        is_size = false;
+        isArt = false;
+        isColor = false;
+        isSize = false;
+        
+        src1 = "";
+        src2 = "";
+        src3 = "";
     }
     
     public void setCoordinador(Coordinador miCoordinador) {
         this.miCoordinador=miCoordinador;
-        modeloColor.addElement("Seleccionar...");
-        comboColor.setSelectedIndex(0);
     }
     
     public void getColores(){
@@ -97,9 +108,11 @@ public class Productos extends javax.swing.JFrame {
     }
     
     public void getDetallesProducto(String art){
-         producto = miCoordinador.getDetallesProducto(art);
-        if(producto.getArt() != null){
+        ProductoVo product = miCoordinador.getDetallesProducto(art);
+        if(product.getArt() != null){
+            producto = product;
             this.SetDetallesProducto(producto);
+            isArt = true;
         }
         else{
             System.out.println("producto no encontrado");
@@ -112,8 +125,27 @@ public class Productos extends javax.swing.JFrame {
         txtDescrip.setText(producto.getDescription());
         txtCompo.setText(producto.getComposition());
         comboCategory.setSelectedIndex(producto.getId_category());
-        
         comboType.setSelectedIndex(producto.getId_type_product());
+    }
+    
+    public void SetTallas(){
+        Integer id_cat = producto.getId_category();
+        Integer id_type = producto.getId_type_product();
+        String color_art = producto.getColor_art();
+        
+        modeloTalla = new DefaultComboBoxModel();
+        modeloTalla.addElement("Seleccionar...");
+        
+        producto.setId_size(null);
+        
+        if(id_cat != null && id_type != null && color_art != null){
+            tallas = miCoordinador.getTallas(id_cat, id_type);
+            
+            for(int i=0; i<tallas.size(); i++){
+                modeloTalla.addElement(tallas.get(i).getSize_name());
+            }
+        }
+        comboSize.setModel(modeloTalla);
     }
 
     @SuppressWarnings("unchecked")
@@ -171,7 +203,7 @@ public class Productos extends javax.swing.JFrame {
 
         jLabel3.setBackground(new java.awt.Color(153, 153, 153));
         jLabel3.setFont(new java.awt.Font("Avenir", 1, 22)); // NOI18N
-        jLabel3.setText("Agregar producto");
+        jLabel3.setText("Agregar/Editar producto");
         jLabel3.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
 
         jPanel3.setBackground(new java.awt.Color(242, 242, 242));
@@ -236,7 +268,7 @@ public class Productos extends javax.swing.JFrame {
         comboCategory.setBackground(new java.awt.Color(237, 237, 237));
         comboCategory.setFont(new java.awt.Font("Apple SD Gothic Neo", 0, 14)); // NOI18N
         comboCategory.setForeground(new java.awt.Color(51, 51, 51));
-        comboCategory.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccionar...", "Recién Nacido/Ellas", "Recién Nacido/Ellos", "Baby/Ellas", "Baby/Ellos", "Mini/Ellas", "Mini/Ellos", "Junior/Ellas", "Junior/Ellos", "Accesorios y Regalos" }));
+        comboCategory.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccionar...", "Recién nacido/Ellas", "Recién nacido/Ellos", "Baby/Ellas", "Baby/Ellos", "Mini/Ellas", "Mini/Ellos", "Junior/Ellas", "Junior/Ellos", "Accesorios y regalos" }));
         comboCategory.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 comboCategoryActionPerformed(evt);
@@ -252,6 +284,11 @@ public class Productos extends javax.swing.JFrame {
         comboSub.setFont(new java.awt.Font("Apple SD Gothic Neo", 0, 14)); // NOI18N
         comboSub.setForeground(new java.awt.Color(51, 51, 51));
         comboSub.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccionar..." }));
+        comboSub.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                comboSubActionPerformed(evt);
+            }
+        });
 
         jLabel7.setBackground(new java.awt.Color(153, 153, 153));
         jLabel7.setFont(new java.awt.Font("Apple SD Gothic Neo", 0, 15)); // NOI18N
@@ -305,7 +342,6 @@ public class Productos extends javax.swing.JFrame {
         btnAdd.setFont(new java.awt.Font("Lucida Grande", 1, 13)); // NOI18N
         btnAdd.setForeground(new java.awt.Color(255, 255, 255));
         btnAdd.setText("Agregar");
-        btnAdd.setEnabled(false);
         btnAdd.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnAddActionPerformed(evt);
@@ -331,6 +367,11 @@ public class Productos extends javax.swing.JFrame {
         comboSize.setFont(new java.awt.Font("Apple SD Gothic Neo", 0, 14)); // NOI18N
         comboSize.setForeground(new java.awt.Color(51, 51, 51));
         comboSize.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccionar..." }));
+        comboSize.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                comboSizeActionPerformed(evt);
+            }
+        });
 
         txtCant.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         txtCant.setText("1");
@@ -491,14 +532,17 @@ public class Productos extends javax.swing.JFrame {
         btnImage1.setBackground(new java.awt.Color(237, 237, 237));
         btnImage1.setForeground(new java.awt.Color(51, 51, 51));
         btnImage1.setText("Examinar");
-        btnImage1.setEnabled(false);
+        btnImage1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnImage1ActionPerformed(evt);
+            }
+        });
 
         checkSrc1.setEnabled(false);
 
         btnImage2.setBackground(new java.awt.Color(237, 237, 237));
         btnImage2.setForeground(new java.awt.Color(51, 51, 51));
         btnImage2.setText("Examinar");
-        btnImage2.setEnabled(false);
 
         jLabel11.setBackground(new java.awt.Color(153, 153, 153));
         jLabel11.setFont(new java.awt.Font("Apple SD Gothic Neo", 0, 15)); // NOI18N
@@ -515,12 +559,6 @@ public class Productos extends javax.swing.JFrame {
         btnImage3.setBackground(new java.awt.Color(237, 237, 237));
         btnImage3.setForeground(new java.awt.Color(51, 51, 51));
         btnImage3.setText("Examinar");
-        btnImage3.setEnabled(false);
-        btnImage3.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnImage3ActionPerformed(evt);
-            }
-        });
 
         checkSrc3.setEnabled(false);
 
@@ -531,7 +569,7 @@ public class Productos extends javax.swing.JFrame {
         comboColor.setBackground(new java.awt.Color(237, 237, 237));
         comboColor.setFont(new java.awt.Font("Apple SD Gothic Neo", 0, 14)); // NOI18N
         comboColor.setForeground(new java.awt.Color(51, 51, 51));
-        comboColor.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccionar...", "Recién Nacido/Ellas", "Recién Nacido/Ellos", "Baby/Ellas", "Baby/Ellos", "Mini/Ellas", "Mini/Ellos", "Junior/Ellas", "Junior/Ellos", "Accesorios y Regalos" }));
+        comboColor.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccionar..." }));
         comboColor.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 comboColorActionPerformed(evt);
@@ -654,55 +692,92 @@ public class Productos extends javax.swing.JFrame {
 
     private void btnCancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelActionPerformed
         // TODO add your handling code here:
+        this.setVisible(false);
     }//GEN-LAST:event_btnCancelActionPerformed
 
     private void btnAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddActionPerformed
         // TODO add your handling code here:
+        txtCode.setText(producto.getArt());
+        
+        producto.setArt_name(txtName.getText());
+        producto.setComposition(txtCompo.getText());
+        producto.setDescription(txtDescrip.getText());
+        
+        String textPrice = txtPrice.getText();
+        if(!textPrice.equals("")){
+            producto.setPrice(Double.parseDouble(textPrice));
+        }else{
+            producto.setPrice(null);
+        }
+        
+        String textCant = txtCant.getText();
+        Integer amount = 0;
+        if(!textCant.equals("")){
+            amount = Integer.parseInt(textCant);
+        }
+        String category = comboCategory.getItemAt(comboCategory.getSelectedIndex());
+        String subcategory = comboSub.getItemAt(comboSub.getSelectedIndex());
+        String color = colores.get(comboColor.getSelectedIndex()-1).getColor_name();
+        
+        if(!src1.equals("")){
+            src1 = category+"/"+subcategory+"/"+producto.getArt_name()+"/"+color+"/"+src1;
+            producto.setSrc1(src1);
+        }
+        
+        System.out.println(producto.getArt());
+        System.out.println(producto.getArt_name());
+        System.out.println(producto.getColor_art());
+        System.out.println(producto.getComposition());
+        System.out.println(producto.getDescription());
+        System.out.println(producto.getId_category());
+        System.out.println(producto.getId_size());
+        System.out.println(producto.getId_subcategory());
+        System.out.println(producto.getId_type_product());
+        System.out.println(producto.getPrice());
+        System.out.println(producto.getSrc1());
+        System.out.println(producto.getSrc2());
+        System.out.println(producto.getSrc3());
+        System.out.println(producto.getAmount());
+        
+        if(producto.getArt() != null && !producto.getArt_name().equals("") 
+                && producto.getColor_art() != null && !producto.getComposition().equals("")  
+                && !producto.getDescription().equals("") && producto.getId_category() != null 
+                && producto.getId_size() != null && producto.getId_subcategory() != null 
+                && producto.getId_type_product() != null && producto.getPrice() != null 
+                && producto.getSrc1() != null && amount > 0){
+            
+//Aquí van los insert o updates
+            System.out.println("Ya pasa");
+        }
     }//GEN-LAST:event_btnAddActionPerformed
-
-    private void btnImage3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnImage3ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnImage3ActionPerformed
 
     private void btnBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarActionPerformed
         // TODO add your handling code here:
         String art = txtCode.getText();
+        producto = new ProductoVo();
+        
+        modeloColor = new DefaultComboBoxModel();
+        comboColor.setModel(modeloColor);
+        modeloColor.addElement("Seleccionar...");
+        
+        txtBackColor.setBackground(Color.WHITE);
+        
+        comboColor.setSelectedIndex(0);
+        comboCategory.setSelectedIndex(0);
+        comboType.setSelectedIndex(0);
+        
+        txtName.setText("");
+        txtPrice.setText("");
+        txtDescrip.setText("");
+        txtCompo.setText("");
         
         if(!art.equals("")){
-            
-            modeloColor = new DefaultComboBoxModel();
-            comboColor.setModel(modeloColor);
-            modeloColor.addElement("Seleccionar...");
-            comboColor.setSelectedIndex(0);
-            txtBackColor.setBackground(Color.WHITE);
-            
+            producto.setArt(art);
+    
             this.getColores();
-            
-            comboCategory.setSelectedIndex(0);
-            comboType.setSelectedIndex(0);
-            
-            txtName.setText("");
-            txtPrice.setText("");
-            txtDescrip.setText("");
-            txtCompo.setText("");
-            txtCant.setText("");
-            
             this.getDetallesProducto(art);
         }else{
-            txtName.setText("");
-            txtPrice.setText("");
-            txtDescrip.setText("");
-            txtCompo.setText("");
-            txtCant.setText("");
-            
-            modeloColor = new DefaultComboBoxModel();
-            comboColor.setModel(modeloColor);
-            modeloColor.addElement("Seleccionar...");
-            comboColor.setSelectedIndex(0);
-            txtBackColor.setBackground(Color.WHITE);
-            
-            comboCategory.setSelectedIndex(0);
-            comboType.setSelectedIndex(0);
+            producto.setArt(null);
         } 
     }//GEN-LAST:event_btnBuscarActionPerformed
 
@@ -713,32 +788,38 @@ public class Productos extends javax.swing.JFrame {
         modeloSubcategory = new DefaultComboBoxModel();
         modeloSubcategory.addElement("Seleccionar...");
         
-        Integer index = 0;
+        Integer sub_index = 0;
         
         if(cat_index > 0){
-            ArrayList<SubcategoryVo> subcategories = miCoordinador.getSubcategories(cat_index);
+            producto.setId_category(cat_index);
+            
+            subcategories = miCoordinador.getSubcategories(cat_index);
             
             for(int i=0; i<subcategories.size();i++){
              modeloSubcategory.addElement(subcategories.get(i).getSucategory_name());
              if(subcategories.get(i).getId_subcategory().equals(producto.getId_subcategory()))
-                 index = i;
+                 sub_index = i;
             }
+        }else{
+            producto.setId_category(null);
         }
+        SetTallas();
+        
         comboSub.setModel(modeloSubcategory); 
-        if(index > 0){
-            comboSub.setSelectedIndex(index+1);
+        if(sub_index > 0){
+            comboSub.setSelectedIndex(sub_index+1);
         }
         else{
             comboSub.setSelectedIndex(0);
         }
-            
     }//GEN-LAST:event_comboCategoryActionPerformed
 
     private void comboColorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comboColorActionPerformed
         // TODO add your handling code here:
-        int Index = comboColor.getSelectedIndex();
-                if(Index != 0){
-                    producto.setColor_art(colores.get(Index-1).getColor_art());
+        int color_index = comboColor.getSelectedIndex();
+                if(color_index > 0){
+                    producto.setColor_art(colores.get(color_index-1).getColor_art());
+                    
                     ProductoVo product = miCoordinador.getSrcProducto(producto.getArt(), producto.getColor_art());
                     
                     producto.setSrc1(product.getSrc1());
@@ -746,35 +827,90 @@ public class Productos extends javax.swing.JFrame {
                     producto.setSrc3(product.getSrc3());
                     
                     if(producto.getSrc1() != null){
+                        
+                        isColor = true;
+                        
                         checkSrc1.setSelected(true);
-                        btnImage1.setEnabled(false);
                     }else{
                         checkSrc1.setSelected(false);
-                        btnImage1.setEnabled(true);
                     }
                     if(producto.getSrc2() != null){
                         checkSrc2.setSelected(true);
-                        btnImage2.setEnabled(false);
                     }else{
                         checkSrc2.setSelected(false);
-                        btnImage2.setEnabled(true);
                     }
                     if(producto.getSrc3() != null){
                         checkSrc3.setSelected(true);
-                        btnImage3.setEnabled(false);
                     }else{
                         checkSrc3.setSelected(false);
-                        btnImage3.setEnabled(true);
-                    }   
+                    }
+                }else{
+                    producto.setColor_art(null);
+                    producto.setSrc1(null);
+                    producto.setSrc2(null);
+                    producto.setSrc3(null);
+                    checkSrc1.setSelected(false);
+                    checkSrc2.setSelected(false);
+                    checkSrc3.setSelected(false);
                 }
+                SetTallas();
     }//GEN-LAST:event_comboColorActionPerformed
 
     private void comboTypeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comboTypeActionPerformed
         // TODO add your handling code here:
-        if(comboCategory.getSelectedIndex() > 0 && comboType.getSelectedIndex() > 0){
-            miCoordinador.getTallas(producto.getId_category(), producto.getId_type_product());
+        Integer type_index = comboType.getSelectedIndex();
+        
+        if(type_index > 0){
+            producto.setId_type_product(type_index);
+            SetTallas();
+        }else{
+            producto.setId_type_product(null);
         }
     }//GEN-LAST:event_comboTypeActionPerformed
+
+    private void comboSizeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comboSizeActionPerformed
+        // TODO add your handling code here:
+        Integer size_index = comboSize.getSelectedIndex();
+        if(size_index > 0){
+            producto.setId_size(tallas.get(size_index-1).getId_size());
+            
+            ProductoVo product = miCoordinador.getAmountProducto(producto.getArt(), producto.getColor_art(), producto.getId_size());
+            Integer amount = product.getAmount();
+            if(amount != null){
+                producto.setAmount(amount);
+                isSize = true;
+            }else{
+                producto.setAmount(null);
+            }
+        }else{
+            producto.setId_size(null);
+        }
+    }//GEN-LAST:event_comboSizeActionPerformed
+
+    private void comboSubActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comboSubActionPerformed
+        // TODO add your handling code here:
+        Integer sub_index = comboSub.getSelectedIndex();
+        if(sub_index > 0){
+            producto.setId_subcategory(subcategories.get(sub_index-1).getId_subcategory());
+        }else{
+            producto.setId_subcategory(null);
+        }
+    }//GEN-LAST:event_comboSubActionPerformed
+
+    private void btnImage1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnImage1ActionPerformed
+        // TODO add your handling code here:
+        JFileChooser dir = new JFileChooser();
+        int option = dir.showOpenDialog(this);
+        if(option == JFileChooser.APPROVE_OPTION){
+            String file = dir.getSelectedFile().getPath();
+            String fileName = dir.getName(dir.getSelectedFile());
+            
+            src1 = fileName;
+            checkSrc1.setSelected(true);
+        }else{
+            checkSrc1.setSelected(false);
+        }
+    }//GEN-LAST:event_btnImage1ActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
