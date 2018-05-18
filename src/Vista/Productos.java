@@ -33,9 +33,11 @@ public class Productos extends javax.swing.JFrame {
     private boolean isSize;
 
     private String src1File;
+    private String src1Name;
     private String src2File;
-    ;
+    private String src2Name;
     private String src3File;
+    private String src3Name;
 
     public Productos() {
         initComponents();
@@ -740,26 +742,23 @@ public class Productos extends javax.swing.JFrame {
             String subcategory = comboSub.getItemAt(comboSub.getSelectedIndex());
             String color = colores.get(comboColor.getSelectedIndex() - 1).getColor_name();
 
-            if (!src1File.equals("")) {
-                String src = producto.getArt_name() + "-" + color + "-";
-                String path = "/public_html/img/products/" + category + "/" + subcategory;
-                producto.setSrc1(path);
+            String path = category + "/" + subcategory;
+            String src = producto.getArt_name() + "-" + color + "-";
 
-                FTPClient cliente = new FTPClient(path, new File(src1File), src, true);
+            if (!src1File.equals("")) {
+                producto.setSrc1(path + src + src1Name);
+
+                FTPClient cliente = new FTPClient("/public_html/img/products/" + path, new File(src1File), src, true);
             }
             if (!src2File.equals("")) {
-                String src = producto.getArt_name() + "-" + color + "-";
-                String path = "/public_html/img/products/" + category + "/" + subcategory;
-                producto.setSrc1(path);
+                producto.setSrc2(path + src + src2Name);
 
-                FTPClient cliente = new FTPClient(path, new File(src2File), src, true);
+                FTPClient cliente = new FTPClient("/public_html/img/products/" + path, new File(src2File), src, true);
             }
             if (!src3File.equals("")) {
-                String src = producto.getArt_name() + "-" + color + "-";
-                String path = "/public_html/img/products/" + category + "/" + subcategory;
-                producto.setSrc1(path);
+                producto.setSrc3(path + src + src3Name);
 
-                FTPClient cliente = new FTPClient(path, new File(src3File), src, true);
+                FTPClient cliente = new FTPClient("/public_html/img/products/" + path, new File(src3File), src, true);
             }
 
             if (isArt) {
@@ -951,6 +950,7 @@ public class Productos extends javax.swing.JFrame {
             String fileName = dir.getName(dir.getSelectedFile());
 
             src1File = file;
+            src1Name = fileName;
             checkSrc1.setSelected(true);
         } else {
             checkSrc1.setSelected(false);
@@ -966,6 +966,7 @@ public class Productos extends javax.swing.JFrame {
             String fileName = dir.getName(dir.getSelectedFile());
 
             src2File = file;
+            src2Name = fileName;
             checkSrc2.setSelected(true);
         } else {
             checkSrc2.setSelected(false);
@@ -981,6 +982,7 @@ public class Productos extends javax.swing.JFrame {
             String fileName = dir.getName(dir.getSelectedFile());
 
             src3File = file;
+            src3Name = fileName;
             checkSrc3.setSelected(true);
         } else {
             checkSrc3.setSelected(false);
