@@ -27,7 +27,7 @@ imprimirUsuarios();
         
     }
     /**
-     * Creates new form Usuarios
+     * Create new form Usuarios
      */
     public Usuarios() {
         initComponents();
@@ -249,8 +249,11 @@ imprimirUsuarios();
       DetalleVenta venta = new DetalleVenta(); 
                if ((fila > -1)){
           String cliente = (String) modelo.getValueAt(fila, 1) + " " + (String)(String) modelo.getValueAt(fila, 2) ;
+          String direccion = (String)modelo.getValueAt(fila, 8);
              miCoordinador.getDetalle().txtCliente.setText(cliente);
+             miCoordinador.getDetalle().txtDireccion.setText(direccion);
             
+             
           
           
          }        // TODO add your handling code here:

@@ -184,4 +184,10 @@ public class Coordinador {
     UsuarioDao usuario = new UsuarioDao();
     return usuario.getUsuarios();
     }
+      
+      public ArrayList<TallaVo> obtenerTallasProducto (int talla){
+      TallaDao tall = new TallaDao();
+      return tall.obtener_tallas(talla);
+      
+      }
 }
