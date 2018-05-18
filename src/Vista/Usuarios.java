@@ -6,6 +6,11 @@
 package Vista;
 
 import Controlador.Coordinador;
+import Modelo.ProductoVo;
+import Modelo.UsuarioVo;
+import java.awt.Color;
+import java.util.ArrayList;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -13,14 +18,16 @@ import Controlador.Coordinador;
  */
 public class Usuarios extends javax.swing.JFrame {
   private Coordinador miCoordinador;
-
+  DefaultTableModel modelo = new DefaultTableModel();
+      String[] columnas = {"ID Usuario","Nombre(s)","Apellidos","Email","Pais","Estado","Localidad","Codigo Postal","Direccion","Telefono","RFC","Registro"};
+     
     public void setCoordinador(Coordinador miCoordinador) {
         this.miCoordinador = miCoordinador;
-
+imprimirUsuarios();
         
     }
     /**
-     * Creates new form Usuarios
+     * Create new form Usuarios
      */
     public Usuarios() {
         initComponents();
@@ -28,6 +35,19 @@ public class Usuarios extends javax.swing.JFrame {
         setSize(1280, 800); 
     }
 
+    public void imprimirUsuarios(){
+       ArrayList<UsuarioVo> user = miCoordinador.buscarUsuarios();
+      modelo.setColumnIdentifiers(columnas);
+
+      //Ciclo para llenar tabla de colores
+      for (int i =0; i<user.size();i++){
+       modelo.addRow(new Object[] {user.get(i).getId_user(),user.get(i).getFirstname(),user.get(i).getLastname(),user.get(i).getEmail(),
+       user.get(i).getId_country(),user.get(i).getId_state(),user.get(i).getId_location(),user.get(i).getCp(),user.get(i).getDirection(),
+       user.get(i).getPhone(),user.get(i).getRfc(),user.get(i).getRegister_date()});
+      }
+      //Asignamos los datos del Modelo a la tabla
+      tbUsers.setModel(modelo);
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -80,6 +100,11 @@ public class Usuarios extends javax.swing.JFrame {
         tbUsers.setGridColor(new java.awt.Color(204, 204, 204));
         tbUsers.setSelectionBackground(new java.awt.Color(253, 175, 200));
         tbUsers.setSelectionForeground(new java.awt.Color(0, 0, 0));
+        tbUsers.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tbUsersMouseClicked(evt);
+            }
+        });
         jScrollPane1.setViewportView(tbUsers);
 
         jLabel1.setFont(new java.awt.Font("Apple SD Gothic Neo", 0, 15)); // NOI18N
@@ -106,6 +131,11 @@ public class Usuarios extends javax.swing.JFrame {
         btnSearch.setFont(new java.awt.Font("Lucida Grande", 1, 13)); // NOI18N
         btnSearch.setForeground(new java.awt.Color(255, 255, 255));
         btnSearch.setText("Buscar");
+        btnSearch.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSearchActionPerformed(evt);
+            }
+        });
 
         jLabel2.setFont(new java.awt.Font("Avenir", 1, 22)); // NOI18N
         jLabel2.setText("Usuarios registrados");
@@ -170,7 +200,7 @@ public class Usuarios extends javax.swing.JFrame {
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(8, Short.MAX_VALUE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(15, 15, 15))
         );
@@ -193,40 +223,42 @@ public class Usuarios extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtSearchActionPerformed
 
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Usuarios.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Usuarios.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Usuarios.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Usuarios.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+    private void btnSearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSearchActionPerformed
+  int aux = Integer.parseInt(txtSearch.getText());
+        UsuarioVo user = miCoordinador.buscarUsuario(aux);
+        
+        modelo.setColumnIdentifiers(columnas);
+        
+        
+        if(user == null){
+        System.out.print("Vacío");
         }
-        //</editor-fold>
+        else{
+          modelo.addRow(new Object[] {user.getId_user(),user.getFirstname(),user.getLastname(),user.getEmail(),user.getId_country(),
+          user.getId_state(),user.getId_location(),user.getCp(),user.getDirection(),user.getPhone(),user.getRfc(),user.getRegister_date()});
+      
+      tbUsers.setModel(modelo);
+      
+        }
+      
 
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new Usuarios().setVisible(true);
-            }
-        });
-    }
+    }//GEN-LAST:event_btnSearchActionPerformed
+
+    private void tbUsersMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tbUsersMouseClicked
+     int fila = tbUsers.getSelectedRow();
+      DetalleVenta venta = new DetalleVenta(); 
+               if ((fila > -1)){
+          String cliente = (String) modelo.getValueAt(fila, 1) + " " + (String)(String) modelo.getValueAt(fila, 2) ;
+          String direccion = (String)modelo.getValueAt(fila, 8);
+             miCoordinador.getDetalle().txtCliente.setText(cliente);
+             miCoordinador.getDetalle().txtDireccion.setText(direccion);
+            
+             
+          
+          
+         }        // TODO add your handling code here:
+    }//GEN-LAST:event_tbUsersMouseClicked
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnGenerate;

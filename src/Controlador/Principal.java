@@ -49,8 +49,9 @@ public class Principal {
         miCoordinador.setUsuario(usuario);
         miCoordinador.setVenta(venta);
         
-        login.setVisible(true);
-       color.setVisible(true);
+      //  login.setVisible(true);
+      //  color.setVisible(true);
+    // usuario.setVisible(true);
     }
     
     public static void main(String args[]) {

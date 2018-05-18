@@ -179,4 +179,15 @@ public class Coordinador {
         ProductoDao dao = new ProductoDao();
         dao.UpdateProductSizes(producto);
     }
+    
+      public ArrayList<UsuarioVo> buscarUsuarios(){
+    UsuarioDao usuario = new UsuarioDao();
+    return usuario.getUsuarios();
+    }
+      
+      public ArrayList<TallaVo> obtenerTallasProducto (int talla){
+      TallaDao tall = new TallaDao();
+      return tall.obtener_tallas(talla);
+      
+      }
 }
