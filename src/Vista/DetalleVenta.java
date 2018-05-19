@@ -6,6 +6,7 @@
 package Vista;
 
 import Controlador.Coordinador;
+import Modelo.BagVo;
 import Modelo.ColorVo;
 import Modelo.ProductoVo;
 import Modelo.TallaVo;
@@ -30,6 +31,7 @@ DefaultTableModel modelo = new DefaultTableModel();
   String[] columnas = {"Codigo","Articulo","Precio Unitario","Cantidad","Importe"};
 
     private Coordinador miCoordinador;
+    public static ArrayList<BagVo> bag = new ArrayList<BagVo>();
 
     public void setCoordinador(Coordinador miCoordinador) {
         this.miCoordinador = miCoordinador;}
@@ -100,7 +102,7 @@ DefaultTableModel modelo = new DefaultTableModel();
         lblTalla = new javax.swing.JLabel();
         jLabel21 = new javax.swing.JLabel();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         tbVenta.setFont(new java.awt.Font("GT Walsheim Regular", 0, 11)); // NOI18N
         tbVenta.setModel(new javax.swing.table.DefaultTableModel(
@@ -497,7 +499,7 @@ limpiarCamposProducto();
     }//GEN-LAST:event_txtDireccionActionPerformed
 
     private void lblBuscarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblBuscarMouseClicked
-
+       
         ArrayList<TallaVo> medida = miCoordinador.obtenerTallasProducto(Integer.parseInt(txtCode.getText()));
        String [] medidas = new String[medida.size()];
        
