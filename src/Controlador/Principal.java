@@ -37,8 +37,7 @@ public class Principal {
         miCoordinador.setProductos(productos);
         miCoordinador.setDetalle(detalle);
         
-        detalle.setVisible(true);
-        productos.setVisible(true);
+     
         color.setCoordinador(miCoordinador);
         inicio.setCoordinador(miCoordinador);
         
@@ -52,6 +51,8 @@ public class Principal {
       //  login.setVisible(true);
       //  color.setVisible(true);
     // usuario.setVisible(true);
+       detalle.setVisible(true);
+        productos.setVisible(true);
     }
     
     public static void main(String args[]) {

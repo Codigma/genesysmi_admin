@@ -51,7 +51,7 @@ public class TallaDao {
                     "SELECT pd.id_size,sz.name "
                     + "from product_sizes as pd "
                     + "INNER JOIN sizes as sz on sz.id_size = pd.id_size "
-                    + "WHERE art =?");
+                    + "WHERE art =? and amount >0");
 
             preparedStatement.setInt(1, art);
             

@@ -190,4 +190,9 @@ public class Coordinador {
       return tall.obtener_tallas(talla);
       
       }
+      
+      public ArrayList<ColorVo> obtenerColorProducto (String art, int talla){
+ColorDao color = new ColorDao();
+return color.getColorArt(art, talla);
+      }
 }

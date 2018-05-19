@@ -6,6 +6,7 @@
 package Vista;
 
 import Controlador.Coordinador;
+import Modelo.ColorVo;
 import Modelo.ProductoVo;
 import Modelo.TallaVo;
 
@@ -41,7 +42,13 @@ DefaultTableModel modelo = new DefaultTableModel();
         
     }
 
-   
+   public void limpiarCamposProducto(){
+   txtCode.setText("");
+   lblArt.setText("");
+   lblColor.setText("");
+   lblTalla.setText("");
+   lblPrecio.setText("");
+   }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -477,7 +484,8 @@ DefaultTableModel modelo = new DefaultTableModel();
     }//GEN-LAST:event_txtFechaActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        // TODO add your handling code here:
+limpiarCamposProducto();
+
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
@@ -498,12 +506,32 @@ DefaultTableModel modelo = new DefaultTableModel();
        }
        
      String resp = (String) JOptionPane.showInputDialog(null, "Seleccione la talla disponible", "Talla", JOptionPane.DEFAULT_OPTION, null, medidas, "Selecciona");
+     int auxtalla=0;
+     for(int i =0 ; i<medida.size();i++){
+       if(medidas[i]==resp){
+       auxtalla= medida.get(i).getId_size();
+       }
+         
+       }
      
      ProductoVo product = miCoordinador.getDetallesProducto(txtCode.getText());
+     ArrayList <ColorVo> color = miCoordinador.obtenerColorProducto(txtCode.getText(), auxtalla);
+     String [] colores = new String[color.size()];
+     
+      for(int i =0 ; i<color.size();i++){
+       colores[i]=(color.get(i).getColor_name());
+       }
+       
+     String resp1 = (String) JOptionPane.showInputDialog(null, "Seleccione un color disponible", "Color", JOptionPane.DEFAULT_OPTION, null, colores, "Selecciona");
+     
+     
+     
      lblArt.setText(product.getArt_name());
-     lblColor.setText(product.getColor_name());
-     lblTalla.setText(product.getSize_name());
+     lblColor.setText(resp1);
+     lblTalla.setText(resp);
      lblPrecio.setText(Double.toString(product.getPrice()));
+     
+     
      
     }//GEN-LAST:event_lblBuscarMouseClicked
 

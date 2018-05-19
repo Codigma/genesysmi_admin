@@ -106,4 +106,40 @@ public class ColorDao {
 			JOptionPane.showMessageDialog(null, "No se Registro");
 		}
 	}
+       
+       
+       public ArrayList<ColorVo> getColorArt(String art, int talla){
+     Conectarse conn = new Conectarse();
+            
+           ArrayList<ColorVo> colores = new ArrayList<ColorVo>();
+        try {
+            PreparedStatement preparedStatement = conn.getConn().prepareStatement(
+                    "SELECT ps.color_art, c.color_name  "
+                    + "from product_sizes as ps "
+                    + "INNER JOIN colors as c on c.color_art = ps.color_art "
+                    + "WHERE ps.art = ? AND ps.id_size = ? AND ps.amount >0");
+
+            preparedStatement.setString(1, art);
+            preparedStatement.setInt(2, talla);
+            
+            ResultSet resultSet = preparedStatement.executeQuery();
+
+            //Muestra resultados de la consulta SQL
+            while (resultSet.next()) {
+                
+                ColorVo color = new ColorVo();
+                color.setColor_art(resultSet.getString(1));
+                color.setColor_name(resultSet.getString(2));
+                colores.add(color);
+            }
+            //Cierra todo
+            conn.getConn().close();
+            resultSet.close();
+            preparedStatement.close();
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
+        //Retorna el color
+     return colores;
+    }
 }
