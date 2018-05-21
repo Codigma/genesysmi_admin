@@ -248,8 +248,10 @@ imprimirUsuarios();
      int fila = tbUsers.getSelectedRow();
       DetalleVenta venta = new DetalleVenta(); 
                if ((fila > -1)){
-          String cliente = (String) modelo.getValueAt(fila, 1) + " " + (String)(String) modelo.getValueAt(fila, 2) ;
+          int id = (int) modelo.getValueAt(fila, 0);
+                   String cliente = (String) modelo.getValueAt(fila, 1) + " " + (String)(String) modelo.getValueAt(fila, 2) ;
           String direccion = (String)modelo.getValueAt(fila, 8);
+             miCoordinador.getDetalle().id_usuario = id;
              miCoordinador.getDetalle().txtCliente.setText(cliente);
              miCoordinador.getDetalle().txtDireccion.setText(direccion);
             

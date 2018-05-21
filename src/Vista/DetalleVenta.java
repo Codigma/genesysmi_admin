@@ -6,6 +6,7 @@
 package Vista;
 
 import Controlador.Coordinador;
+import Modelo.BagDao;
 import Modelo.BagVo;
 import Modelo.ColorVo;
 import Modelo.ProductoVo;
@@ -31,7 +32,10 @@ DefaultTableModel modelo = new DefaultTableModel();
   String[] columnas = {"Codigo","Articulo","Precio Unitario","Cantidad","Importe"};
 
     private Coordinador miCoordinador;
+    
     public static ArrayList<BagVo> bag = new ArrayList<BagVo>();
+    
+    public int id_usuario;
 
     public void setCoordinador(Coordinador miCoordinador) {
         this.miCoordinador = miCoordinador;}
@@ -499,8 +503,8 @@ limpiarCamposProducto();
     }//GEN-LAST:event_txtDireccionActionPerformed
 
     private void lblBuscarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblBuscarMouseClicked
-       
-        ArrayList<TallaVo> medida = miCoordinador.obtenerTallasProducto(Integer.parseInt(txtCode.getText()));
+       BagVo bagg = new BagVo();
+       ArrayList<TallaVo> medida = miCoordinador.obtenerTallasProducto(Integer.parseInt(txtCode.getText()));
        String [] medidas = new String[medida.size()];
        
        for(int i =0 ; i<medida.size();i++){
@@ -533,6 +537,13 @@ limpiarCamposProducto();
      lblTalla.setText(resp);
      lblPrecio.setText(Double.toString(product.getPrice()));
      
+     bagg.setId_user(id_usuario);
+     bagg.setArt(txtCode.getText());
+     bagg.setArt_name(product.getArt_name());
+     
+     
+     
+     bag.add(bagg);
      
      
     }//GEN-LAST:event_lblBuscarMouseClicked

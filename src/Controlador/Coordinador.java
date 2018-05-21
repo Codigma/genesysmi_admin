@@ -20,6 +20,7 @@ import Vista.Inicio;
 import Vista.Usuarios;
 import Vista.Ventas;
 import java.util.ArrayList;
+import Modelo.VentaDao;
 
 public class Coordinador {
     
@@ -194,5 +195,10 @@ public class Coordinador {
       public ArrayList<ColorVo> obtenerColorProducto (String art, int talla){
 ColorDao color = new ColorDao();
 return color.getColorArt(art, talla);
+      }
+      
+      public int obtenerSiguienteId(){
+      VentaDao venta = new VentaDao();
+      return venta.getLastId();
       }
 }
