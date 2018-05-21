@@ -529,7 +529,13 @@ limpiarCamposProducto();
        }
        
      String resp1 = (String) JOptionPane.showInputDialog(null, "Seleccione un color disponible", "Color", JOptionPane.DEFAULT_OPTION, null, colores, "Selecciona");
-     
+     String auxcolor=""; 
+     for(int i =0 ; i<color.size();i++){
+       if(colores[i]==resp1){
+       auxcolor= color.get(i).getColor_art();
+       }
+         
+       }
      
      
      lblArt.setText(product.getArt_name());
@@ -540,6 +546,13 @@ limpiarCamposProducto();
      bagg.setId_user(id_usuario);
      bagg.setArt(txtCode.getText());
      bagg.setArt_name(product.getArt_name());
+     bagg.setColor_art(auxcolor);
+     bagg.setColor_name(resp1);
+     bagg.setId_size(auxtalla);
+     bagg.setSize_name(resp);
+     bagg.setPrice(product.getPrice());
+     bagg.setQuantity(1);
+     bagg.setId_sale(miCoordinador.obtenerSiguienteId());
      
      
      
