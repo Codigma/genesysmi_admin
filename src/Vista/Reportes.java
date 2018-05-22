@@ -16,6 +16,7 @@ import net.sf.jasperreports.engine.JasperReport;
 import net.sf.jasperreports.engine.util.JRLoader;
 import net.sf.jasperreports.view.JasperViewer;
 
+
 /**
  *
  * @author bryan
@@ -96,7 +97,7 @@ public class Reportes extends javax.swing.JFrame {
             Connection conn = (Connection) con.getConn();
             
             JasperReport reporte = null;
-            String path = "src\\Reportes\\ReporteInventario.jasper";
+            String path = "src/Reportes/ReporteInventario.jasper";
             
             //Filtro de parametros
             
