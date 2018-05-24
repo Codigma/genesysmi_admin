@@ -5,6 +5,7 @@ import Vista.DetalleVenta;
 import Vista.Inicio;
 import Vista.Login;
 import Vista.Productos;
+import Vista.Total;
 import Vista.Usuarios;
 import Vista.Ventas;
 
@@ -18,6 +19,7 @@ public class Principal {
         Usuarios usuario = new Usuarios();
         Ventas venta = new Ventas();
         DetalleVenta detalle = new DetalleVenta();
+        Total total = new Total();
         
         miCoordinador= new Coordinador();
         Colores color = new Colores();
@@ -31,11 +33,14 @@ public class Principal {
         usuario.setCoordinador(miCoordinador);
         venta.setCoordinador(miCoordinador);
         detalle.setCoordinador(miCoordinador);
+        total.setCoordinador(miCoordinador);
+        
         /*Se establecen relaciones con la clase coordinador*/
         miCoordinador.setLogin(login);
         miCoordinador.setColor(color);
         miCoordinador.setProductos(productos);
         miCoordinador.setDetalle(detalle);
+        
         
      
         color.setCoordinador(miCoordinador);
@@ -47,12 +52,14 @@ public class Principal {
         miCoordinador.setInicio(inicio);
         miCoordinador.setUsuario(usuario);
         miCoordinador.setVenta(venta);
+        miCoordinador.setTotal(total);
         
       //  login.setVisible(true);
       //  color.setVisible(true);
     // usuario.setVisible(true);
        detalle.setVisible(true);
         productos.setVisible(true);
+        total.setVisible(true);
     }
     
     public static void main(String args[]) {

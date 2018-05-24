@@ -14,9 +14,11 @@ import java.sql.SQLException;
  * @author luism
  */
 public class VentaDao {
+int aux=0;
+
     public int getLastId() {
         Conectarse conn = new Conectarse();
-int aux=0;
+
         //Objeto de tipo Usuario 
         VentaVo venta = new VentaVo();
         try {
@@ -30,7 +32,7 @@ int aux=0;
             while (resultSet.next()) {
                 venta.setId_sale(resultSet.getInt(1));
             }
-            aux = venta.getId_sale();
+            //aux = venta.getId_sale();
             //Cierra todo
             conn.getConn().close();
             resultSet.close();
@@ -39,7 +41,7 @@ int aux=0;
             System.out.println(e.getMessage());
         }
         //Retorna el usuario
-        return aux;
+        return venta.getId_sale();
     }
     
 }

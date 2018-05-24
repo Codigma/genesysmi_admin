@@ -19,7 +19,7 @@ import javax.swing.table.DefaultTableModel;
 public class Usuarios extends javax.swing.JFrame {
   private Coordinador miCoordinador;
   DefaultTableModel modelo = new DefaultTableModel();
-      String[] columnas = {"ID Usuario","Nombre(s)","Apellidos","Email","Pais","Estado","Localidad","Codigo Postal","Direccion","Telefono","RFC","Registro"};
+      String[] columnas = {"ID Usuario","Nombre(s)","Apellidos","Email","Pais","Estado","Localidad","Codigo Postal","Direccion","Telefono","RFC","Registro","Dinero"};
      
     public void setCoordinador(Coordinador miCoordinador) {
         this.miCoordinador = miCoordinador;
@@ -43,7 +43,7 @@ imprimirUsuarios();
       for (int i =0; i<user.size();i++){
        modelo.addRow(new Object[] {user.get(i).getId_user(),user.get(i).getFirstname(),user.get(i).getLastname(),user.get(i).getEmail(),
        user.get(i).getId_country(),user.get(i).getId_state(),user.get(i).getId_location(),user.get(i).getCp(),user.get(i).getDirection(),
-       user.get(i).getPhone(),user.get(i).getRfc(),user.get(i).getRegister_date()});
+       user.get(i).getPhone(),user.get(i).getRfc(),user.get(i).getRegister_date(),user.get(i).getMoney()});
       }
       //Asignamos los datos del Modelo a la tabla
       tbUsers.setModel(modelo);
@@ -235,7 +235,7 @@ imprimirUsuarios();
         }
         else{
           modelo.addRow(new Object[] {user.getId_user(),user.getFirstname(),user.getLastname(),user.getEmail(),user.getId_country(),
-          user.getId_state(),user.getId_location(),user.getCp(),user.getDirection(),user.getPhone(),user.getRfc(),user.getRegister_date()});
+          user.getId_state(),user.getId_location(),user.getCp(),user.getDirection(),user.getPhone(),user.getRfc(),user.getRegister_date(),user.getMoney()});
       
       tbUsers.setModel(modelo);
       
@@ -251,9 +251,11 @@ imprimirUsuarios();
           int id = (int) modelo.getValueAt(fila, 0);
                    String cliente = (String) modelo.getValueAt(fila, 1) + " " + (String)(String) modelo.getValueAt(fila, 2) ;
           String direccion = (String)modelo.getValueAt(fila, 8);
+          double electronico = (double)modelo.getValueAt(fila, 12);
              miCoordinador.getDetalle().id_usuario = id;
              miCoordinador.getDetalle().txtCliente.setText(cliente);
              miCoordinador.getDetalle().txtDireccion.setText(direccion);
+             miCoordinador.getDetalle().txtMonedero.setText(Double.toString(electronico));
             
              
           
