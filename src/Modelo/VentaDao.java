@@ -44,4 +44,29 @@ int aux=0;
         return venta.getId_sale();
     }
     
+    
+     public void InsertCompra(VentaVo venta){
+        Conectarse conn = new Conectarse();
+        
+        try {
+            PreparedStatement preparedStatement = conn.getConn().prepareStatement(
+                    "INSERT INTO sales (subtotal, ship, total ) "                         
+                    + "VALUES (?, ?, ?)");
+            
+            
+            
+            preparedStatement.setDouble(1, venta.getSubtotal());
+            preparedStatement.setDouble(2, venta.getShip());
+            preparedStatement.setDouble(3, venta.getTotal());
+            
+            preparedStatement.executeUpdate();
+            
+            //Cierra todo
+            conn.getConn().close();
+            //resultSet.close();
+            preparedStatement.close();
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
+    }
 }

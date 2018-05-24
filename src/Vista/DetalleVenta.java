@@ -76,6 +76,14 @@ DefaultTableModel modelo = new DefaultTableModel();
    lblPrecio.setText("");
    }
    
+       
+   public void limpiarCamposVenta(){
+ txtVendedor.setText("");
+ txtCliente.setText("");
+ txtDireccion.setText("");
+ txtMonedero.setText("");
+   }
+   
    public void agregarProducto(){
     
 
@@ -587,12 +595,18 @@ modelo.removeRow(0);
     }//GEN-LAST:event_txtFechaActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-limpiarCamposProducto();
+String codigo = txtCode.getText();
+codigo = codigo.replaceAll(" ", "");
+        if(codigo.length()==0){
+         JOptionPane.showMessageDialog(null, "Ingrese un articulo valido", "Venta", JOptionPane.WARNING_MESSAGE);
+        }
+        else{
+        limpiarCamposProducto();
 limpiarTable();
 agregarProducto();
 calcularTotal();
 //calcularImporte();
-
+        }
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
@@ -645,7 +659,7 @@ calcularTotal();
    
     
    String cantidades = (String) JOptionPane.showInputDialog(null, "Seleccione la cantidad del articulo",
-           "Cantidad", JOptionPane.YES_NO_CANCEL_OPTION, null, new String [] {"1","2","3"}, "1");
+  "Cantidad", JOptionPane.YES_NO_CANCEL_OPTION, null, new String [] {"1","2","3","4","5","6","7","8","9","10"}, "1");
 
   
   
@@ -735,15 +749,45 @@ BagVo aux = new BagVo();
         aux.setId_sale(bag.get(t).getId_sale());
         miCoordinador.InsertBag(aux);
         }
-        
-        
-        miCoordinador.getTotal().setVisible(true);     
 
+        
+ArrayList<ProductoVo> registro = new ArrayList<>();  
+
+
+for(int c = 0; c <bag.size();c++){
+ProductoVo aux1 = new ProductoVo();
+
+aux1.setAmount(bag.get(c).getQuantity());
+aux1.setArt(bag.get(c).getArt());
+aux1.setColor_art(bag.get(c).getColor_art());
+aux1.setId_size(bag.get(c).getId_size());
+
+registro.add(aux1);
+ 
+}
+        
+ 
+ 
+  
+        
+        
+miCoordinador.getTotal().product =  (ArrayList) registro.clone();
 miCoordinador.getTotal().lblCliente.setText(txtCliente.getText());
 miCoordinador.getTotal().lblVendedor.setText(txtVendedor.getText());
 miCoordinador.getTotal().lblPagar.setText(lblTotal.getText());
 miCoordinador.getTotal().lblDinero.setText(txtMonedero.getText());
+miCoordinador.getTotal().comprador.setId_user(id_usuario);
 
+ 
+
+
+        miCoordinador.getTotal().setVisible(true);     
+miCoordinador.getTotal().venta.setSubtotal(Double.parseDouble(lblTotal.getText()));
+
+
+limpiarTable();
+limpiarCamposVenta();
+lblTotal.setText("0.00");
     }//GEN-LAST:event_btnPagarActionPerformed
    
    

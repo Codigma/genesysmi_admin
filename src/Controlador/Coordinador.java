@@ -23,6 +23,7 @@ import Vista.Usuarios;
 import Vista.Ventas;
 import java.util.ArrayList;
 import Modelo.VentaDao;
+import Modelo.VentaVo;
 import Vista.Total;
 
 public class Coordinador {
@@ -216,4 +217,21 @@ return color.getColorArt(art, talla);
          public void InsertBag(BagVo bag){
         BagDao dao = new BagDao();
         dao.InsertBag(bag); }
+         
+         public void InsertVenta(VentaVo venta){
+         VentaDao dao = new VentaDao();
+         dao.InsertCompra(venta);
+         }
+         
+         
+           public void UpdateProductSizesSales(ProductoVo producto){
+        ProductoDao dao = new ProductoDao();
+        dao.UpdateProductSizesSale(producto);
+    }
+           
+           
+                 public void ActualizarMonedero(UsuarioVo usuario){
+        UsuarioDao dao = new UsuarioDao();
+        dao.UpdateMonedero(usuario);
+    }
 }

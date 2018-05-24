@@ -3,14 +3,12 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/luism/Documents/GitHub/genesysmi_admin/src/Modelo/BagVo.java</file>
+            <file>file:/C:/Users/luism/Documents/GitHub/genesysmi_admin/src/Modelo/BagDao.java</file>
             <file>file:/C:/Users/luism/Documents/GitHub/genesysmi_admin/src/Controlador/Principal.java</file>
             <file>file:/C:/Users/luism/Documents/GitHub/genesysmi_admin/src/Controlador/Coordinador.java</file>
             <file>file:/C:/Users/luism/Documents/GitHub/genesysmi_admin/src/Modelo/VentaDao.java</file>
-            <file>file:/C:/Users/luism/Documents/GitHub/genesysmi_admin/src/Vista/Colores.java</file>
-            <file>file:/C:/Users/luism/Documents/GitHub/genesysmi_admin/src/Modelo/VentaVo.java</file>
+            <file>file:/C:/Users/luism/Documents/GitHub/genesysmi_admin/src/Vista/Total.java</file>
             <file>file:/C:/Users/luism/Documents/GitHub/genesysmi_admin/src/Vista/DetalleVenta.java</file>
-            <file>file:/C:/Users/luism/Documents/GitHub/genesysmi_admin/src/Vista/Reportes.java</file>
         </group>
     </open-files>
 </project-private>

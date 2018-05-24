@@ -96,5 +96,27 @@ public class UsuarioDao {
         return usuarios;
     }
     
-    
+     public void UpdateMonedero(UsuarioVo usuario){
+        Conectarse conn = new Conectarse();
+        
+        try {
+            PreparedStatement preparedStatement = conn.getConn().prepareStatement(
+                    "UPDATE users SET money=? "
+                    + "WHERE id_user = ?");
+            
+            preparedStatement.setDouble(1, usuario.getMoney());
+            preparedStatement.setInt(2, usuario.getId_user());
+            
+            
+            
+            preparedStatement.executeUpdate();
+            
+            //Cierra todo
+            conn.getConn().close();
+            //resultSet.close();
+            preparedStatement.close();
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
+    }
 }

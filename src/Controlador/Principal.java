@@ -59,7 +59,7 @@ public class Principal {
     // usuario.setVisible(true);
        detalle.setVisible(true);
         productos.setVisible(true);
-        total.setVisible(true);
+       // total.setVisible(true);
     }
     
     public static void main(String args[]) {
