@@ -285,8 +285,8 @@ limpiarTable();
                if ((fila > -1)){
           int id = (int) modelo.getValueAt(fila, 0);
                    String cliente = (String) modelo.getValueAt(fila, 1) + " " + (String)(String) modelo.getValueAt(fila, 2) ;
-          String direccion = (String)modelo.getValueAt(fila, 8);
-          double electronico = (double)modelo.getValueAt(fila, 12);
+          String direccion = (String)modelo.getValueAt(fila, 7);
+          double electronico = (double)modelo.getValueAt(fila, 11);
              miCoordinador.getDetalle().id_usuario = id;
              miCoordinador.getDetalle().txtCliente.setText(cliente);
              miCoordinador.getDetalle().txtDireccion.setText(direccion);
