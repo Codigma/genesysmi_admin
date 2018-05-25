@@ -206,13 +206,10 @@ public class Reportes extends javax.swing.JFrame {
         
         if(cat_index > 0){
             
-<<<<<<< HEAD
+
              try {
-=======
-            JasperReport reporte = null;
-            String path = "src/Reportes/ReporteInventario.jasper";
->>>>>>> 3bf59cb778bb26d8ebb251c946d980c9f9609acc
-            
+
+     
             Integer subcat_index = subcategory_index - 1;
             Integer sub_index = subcategories.get(subcat_index).getId_subcategory();
             JasperReport reporte = null;
