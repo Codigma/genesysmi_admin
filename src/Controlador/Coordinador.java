@@ -1,5 +1,7 @@
 package Controlador;
 
+import Modelo.BagDao;
+import Modelo.BagVo;
 import Modelo.ProductoDao;
 import Modelo.ProductoVo;
 import Vista.Productos;
@@ -21,6 +23,8 @@ import Vista.Usuarios;
 import Vista.Ventas;
 import java.util.ArrayList;
 import Modelo.VentaDao;
+import Modelo.VentaVo;
+import Vista.Total;
 
 public class Coordinador {
     
@@ -31,7 +35,15 @@ public class Coordinador {
     private Usuarios usuario;
     private Ventas venta;
     private DetalleVenta detalle;
-    
+    private Total total;
+
+    public Total getTotal() {
+        return total;
+    }
+
+    public void setTotal(Total total) {
+        this.total = total;
+    }
 
     public Inicio getInicio() {
         return inicio;
@@ -201,4 +213,25 @@ return color.getColorArt(art, talla);
       VentaDao venta = new VentaDao();
       return venta.getLastId();
       }
+      
+         public void InsertBag(BagVo bag){
+        BagDao dao = new BagDao();
+        dao.InsertBag(bag); }
+         
+         public void InsertVenta(VentaVo venta){
+         VentaDao dao = new VentaDao();
+         dao.InsertCompra(venta);
+         }
+         
+         
+           public void UpdateProductSizesSales(ProductoVo producto){
+        ProductoDao dao = new ProductoDao();
+        dao.UpdateProductSizesSale(producto);
+    }
+           
+           
+                 public void ActualizarMonedero(UsuarioVo usuario){
+        UsuarioDao dao = new UsuarioDao();
+        dao.UpdateMonedero(usuario);
+    }
 }

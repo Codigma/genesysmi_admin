@@ -13,6 +13,15 @@ public class UsuarioVo {
     private String phone;
     private String rfc;
     private String register_date;
+    private double money;
+
+    public double getMoney() {
+        return money;
+    }
+
+    public void setMoney(double money) {
+        this.money = money;
+    }
 
     public Integer getId_user() {
         return id_user;

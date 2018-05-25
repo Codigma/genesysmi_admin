@@ -22,6 +22,7 @@ public class BagVo {
     private Double price;
     private int quantity;
     private int id_sale;
+    private double importe;
 
     public int getId_bag() {
         return id_bag;
@@ -117,6 +118,14 @@ public class BagVo {
 
     public void setId_sale(int id_sale) {
         this.id_sale = id_sale;
+    }
+
+    public double getImporte() {
+        return importe;
+    }
+
+    public void setImporte(double importe) {
+        this.importe = importe;
     }
     
 }

@@ -21,8 +21,8 @@ public class BagDao {
         try {
             PreparedStatement preparedStatement = conn.getConn().prepareStatement(
                     "INSERT INTO bag (id_user, art, art_name, color_art, color_name, "
-                            + "id_size, size_name, price, quantity) "
-                    + "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)");
+                            + "id_size, size_name, price, quantity, id_sale) "
+                    + "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
             
             
             preparedStatement.setInt(1, bag.getId_user());
@@ -32,9 +32,12 @@ public class BagDao {
             preparedStatement.setString(5, bag.getColor_name());
             preparedStatement.setInt(6, bag.getId_size());
             preparedStatement.setString(7, bag.getSize_name());
+            preparedStatement.setDouble(8, bag.getPrice());
+            preparedStatement.setInt(9, bag.getQuantity());
+            preparedStatement.setInt(10, bag.getId_sale());
             
             
-            preparedStatement.executeQuery();
+            preparedStatement.executeUpdate();
             
             //Cierra todo
             conn.getConn().close();

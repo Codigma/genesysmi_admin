@@ -16,7 +16,7 @@ public class UsuarioDao {
             PreparedStatement preparedStatement = conn.getConn().prepareStatement(
                     "SELECT id_user, firstname, lastname, email, "
                     + "id_country, id_state, id_location, cp, "
-                    + "direction, phone, rfc, register_date "
+                    + "direction, phone, rfc, register_date, money  "
                     + "FROM users "
                     + "WHERE id_user = ?");
 
@@ -37,6 +37,7 @@ public class UsuarioDao {
                 usuario.setPhone(resultSet.getString(10));
                 usuario.setRfc(resultSet.getString(11));
                 usuario.setRegister_date(resultSet.getString(12));
+                usuario.setMoney(resultSet.getDouble(13));
             }
             //Cierra todo
             conn.getConn().close();
@@ -57,7 +58,7 @@ public class UsuarioDao {
             PreparedStatement preparedStatement = conn.getConn().prepareStatement(
                     "SELECT id_user, firstname, lastname, email, "
                     + "id_country, id_state, id_location, cp, "
-                    + "direction, phone, rfc, register_date "
+                    + "direction, phone, rfc, register_date, money "
                     + "FROM users");
 
             ResultSet resultSet = preparedStatement.executeQuery();
@@ -79,6 +80,7 @@ public class UsuarioDao {
                 usuario.setPhone(resultSet.getString(10));
                 usuario.setRfc(resultSet.getString(11));
                 usuario.setRegister_date(resultSet.getString(12));
+                usuario.setMoney(resultSet.getDouble(13));
                 
                 //Agregado del usuario al arreglo
                 usuarios.add(usuario);
@@ -94,5 +96,27 @@ public class UsuarioDao {
         return usuarios;
     }
     
-    
+     public void UpdateMonedero(UsuarioVo usuario){
+        Conectarse conn = new Conectarse();
+        
+        try {
+            PreparedStatement preparedStatement = conn.getConn().prepareStatement(
+                    "UPDATE users SET money=? "
+                    + "WHERE id_user = ?");
+            
+            preparedStatement.setDouble(1, usuario.getMoney());
+            preparedStatement.setInt(2, usuario.getId_user());
+            
+            
+            
+            preparedStatement.executeUpdate();
+            
+            //Cierra todo
+            conn.getConn().close();
+            //resultSet.close();
+            preparedStatement.close();
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
+    }
 }

@@ -280,4 +280,30 @@ public class ProductoDao {
             System.out.println(e.getMessage());
         }
     }
+    
+     public void UpdateProductSizesSale(ProductoVo producto){
+        Conectarse conn = new Conectarse();
+        
+        try {
+            PreparedStatement preparedStatement = conn.getConn().prepareStatement(
+                    "UPDATE product_sizes SET amount=amount-? "
+                    + "WHERE art = ? AND color_art = ? AND id_size = ?");
+            
+            preparedStatement.setInt(1, producto.getAmount());
+            preparedStatement.setString(2, producto.getArt());
+            preparedStatement.setString(3, producto.getColor_art());
+            preparedStatement.setInt(4, producto.getId_size());
+            
+            
+            
+            preparedStatement.executeUpdate();
+            
+            //Cierra todo
+            conn.getConn().close();
+            //resultSet.close();
+            preparedStatement.close();
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
+    }
 }

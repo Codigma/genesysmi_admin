@@ -14,9 +14,11 @@ import java.sql.SQLException;
  * @author luism
  */
 public class VentaDao {
+int aux=0;
+
     public int getLastId() {
         Conectarse conn = new Conectarse();
-int aux=0;
+
         //Objeto de tipo Usuario 
         VentaVo venta = new VentaVo();
         try {
@@ -30,7 +32,7 @@ int aux=0;
             while (resultSet.next()) {
                 venta.setId_sale(resultSet.getInt(1));
             }
-            aux = venta.getId_sale();
+            //aux = venta.getId_sale();
             //Cierra todo
             conn.getConn().close();
             resultSet.close();
@@ -39,7 +41,32 @@ int aux=0;
             System.out.println(e.getMessage());
         }
         //Retorna el usuario
-        return aux;
+        return venta.getId_sale();
     }
     
+    
+     public void InsertCompra(VentaVo venta){
+        Conectarse conn = new Conectarse();
+        
+        try {
+            PreparedStatement preparedStatement = conn.getConn().prepareStatement(
+                    "INSERT INTO sales (subtotal, ship, total ) "                         
+                    + "VALUES (?, ?, ?)");
+            
+            
+            
+            preparedStatement.setDouble(1, venta.getSubtotal());
+            preparedStatement.setDouble(2, venta.getShip());
+            preparedStatement.setDouble(3, venta.getTotal());
+            
+            preparedStatement.executeUpdate();
+            
+            //Cierra todo
+            conn.getConn().close();
+            //resultSet.close();
+            preparedStatement.close();
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
+    }
 }
