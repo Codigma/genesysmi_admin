@@ -3,6 +3,9 @@
 	<property name="ireport.zoom" value="1.0"/>
 	<property name="ireport.x" value="0"/>
 	<property name="ireport.y" value="0"/>
+	<parameter name="id_category" class="java.lang.Integer">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
 	<queryString>
 		<![CDATA[SELECT 
 	product_details.name AS product_name,
@@ -14,6 +17,7 @@
 FROM
 	product_sizes INNER JOIN product_details ON
 product_sizes.art = product_details.art
+WHERE product_details.id_category = $P!{id_category}
 ]]>
 	</queryString>
 	<field name="product_name" class="java.lang.String"/>

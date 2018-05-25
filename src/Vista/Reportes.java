@@ -5,10 +5,20 @@
  */
 package Vista;
 
+import Controlador.Coordinador;
 import Modelo.Conectarse;
+import Modelo.ProductoVo;
+import Modelo.SubcategoryVo;
 import com.mysql.jdbc.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.DefaultComboBoxModel;
 import net.sf.jasperreports.engine.JRException;
 import net.sf.jasperreports.engine.JasperFillManager;
 import net.sf.jasperreports.engine.JasperPrint;
@@ -21,13 +31,32 @@ import net.sf.jasperreports.view.JasperViewer;
  * @author bryan
  */
 public class Reportes extends javax.swing.JFrame {
-
+   private Coordinador miCoordinador;
+   DefaultComboBoxModel modeloSubcategory;
+   private ProductoVo producto;
+   private ArrayList<SubcategoryVo> subcategories;
+   
+  
     /**
      * Creates new form Reportes
      */
     public Reportes() {
         initComponents();
+        
+        producto = new ProductoVo();
+        subcategories = new ArrayList<>();
+        
+ 
     }
+    
+    
+     public void setCoordinador(Coordinador miCoordinador) {
+        this.miCoordinador = miCoordinador;
+    }
+    
+  
+    
+    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -39,41 +68,116 @@ public class Reportes extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        jButton1 = new javax.swing.JButton();
+        btnreporte = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        cbxCategoria = new javax.swing.JComboBox<>();
+        cbxSubcategoria = new javax.swing.JComboBox<>();
+        jRadioButton1 = new javax.swing.JRadioButton();
+        jRadioButton2 = new javax.swing.JRadioButton();
+        txtp1 = new javax.swing.JLabel();
+        txtp2 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jButton1.setText("Generar Reporte");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        btnreporte.setText("Generar Reporte");
+        btnreporte.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                btnreporteActionPerformed(evt);
             }
         });
 
-        jLabel1.setText("Prueba");
+        jLabel1.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
+        jLabel1.setText("Reportes");
+
+        jLabel2.setText("Tipo de Reporte");
+
+        jLabel3.setText("Categoria");
+
+        jLabel4.setText("Subcategoria");
+
+        cbxCategoria.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccionar...", "Recién nacido/Ellas", "Recién nacido/Ellos", "Baby/Ellas", "Baby/Ellos", "Mini/Ellas", "Mini/Ellos", "Junior/Ellas", "Junior/Ellos", "Accesorios y regalos" }));
+        cbxCategoria.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cbxCategoriaActionPerformed(evt);
+            }
+        });
+
+        cbxSubcategoria.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccionar..." }));
+        cbxSubcategoria.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cbxSubcategoriaActionPerformed(evt);
+            }
+        });
+
+        jRadioButton1.setText("Inventario");
+        jRadioButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jRadioButton1ActionPerformed(evt);
+            }
+        });
+
+        jRadioButton2.setText("Ventas");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(223, Short.MAX_VALUE)
-                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(209, 209, 209))
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(256, 256, 256)
-                .addComponent(jLabel1)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(139, Short.MAX_VALUE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(228, 228, 228))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jLabel2)
+                            .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(cbxSubcategoria, javax.swing.GroupLayout.PREFERRED_SIZE, 185, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(txtp2, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(jRadioButton1)
+                                .addGap(18, 18, 18)
+                                .addComponent(jRadioButton2))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(cbxCategoria, javax.swing.GroupLayout.PREFERRED_SIZE, 185, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(txtp1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                        .addGap(81, 81, 81))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addComponent(btnreporte, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(209, 209, 209))))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(126, 126, 126)
-                .addComponent(jLabel1)
-                .addGap(47, 47, 47)
-                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(197, Short.MAX_VALUE))
+                .addGap(19, 19, 19)
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(69, 69, 69)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel2)
+                    .addComponent(jRadioButton1)
+                    .addComponent(jRadioButton2))
+                .addGap(21, 21, 21)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(txtp1, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(cbxCategoria))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(cbxSubcategoria, javax.swing.GroupLayout.DEFAULT_SIZE, 36, Short.MAX_VALUE)
+                    .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(txtp2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(57, 57, 57)
+                .addComponent(btnreporte, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(55, 55, 55))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -84,30 +188,43 @@ public class Reportes extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        try {
-            Conectarse con = new Conectarse();
-            Connection conn = (Connection) con.getConn();
+    private void btnreporteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnreporteActionPerformed
+        
+        Conectarse con = new Conectarse();
+        Connection conn = (Connection) con.getConn();
+        
+        Integer cat_index = cbxCategoria.getSelectedIndex();
+        Integer subcategory_index = cbxSubcategoria.getSelectedIndex();
+        
+        
+        if(cat_index > 0){
             
+             try {
+            
+            Integer subcat_index = subcategory_index - 1;
+            Integer sub_index = subcategories.get(subcat_index).getId_subcategory();
             JasperReport reporte = null;
-            String path = "src\\Reportes\\ReporteInventario.jasper";
-            
+            String path = "src/Reportes/ReporteInventarioSub.jasper";
+            String cat_nombre = cbxCategoria.getSelectedItem().toString();
+            String sub_nombre = cbxSubcategoria.getSelectedItem().toString();
             //Filtro de parametros
-            
-            /*Map parametro = new HashMap();
+            Map parametro = new HashMap();
             //nombre del parametro
-            parametro.put("id_estado",2);*/
+            parametro.put("id_category",cat_index);
+            parametro.put("id_subcategory",sub_index);
+            parametro.put("category_name",cat_nombre);
+            parametro.put("subcategory_name", sub_nombre);
+           
             
             reporte = (JasperReport) JRLoader.loadObjectFromFile(path);
             
-            //cambiar null por parametro
-            JasperPrint jprint = JasperFillManager.fillReport(reporte,null,conn);
+            JasperPrint jprint = JasperFillManager.fillReport(reporte,parametro,conn);
             
             JasperViewer view = new JasperViewer(jprint,false);
             
@@ -118,46 +235,101 @@ public class Reportes extends javax.swing.JFrame {
         } catch (JRException ex) {
             Logger.getLogger(Reportes.class.getName()).log(Level.SEVERE, null, ex);
         }
-    }//GEN-LAST:event_jButton1ActionPerformed
+            
+        }else if(cat_index == 0){
+            
+            try {
+           
+            JasperReport reporte2 = null;
+            String path = "src/Reportes/ReporteInventario.jasper";
+            
+           
+            reporte2 = (JasperReport) JRLoader.loadObjectFromFile(path);
+            
+            JasperPrint jprint = JasperFillManager.fillReport(reporte2,null,conn);
+            
+            JasperViewer view2 = new JasperViewer(jprint,false);
+            
+            view2.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
+            
+            view2.setVisible(true);
+            
+        } catch (JRException ex) {
+            Logger.getLogger(Reportes.class.getName()).log(Level.SEVERE, null, ex);
+        }
+            
+        }
+    
+        
+       
+    }//GEN-LAST:event_btnreporteActionPerformed
+
+    private void jRadioButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jRadioButton1ActionPerformed
+
+    private void cbxCategoriaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbxCategoriaActionPerformed
+        
+   
+        
+        Integer cat_index = cbxCategoria.getSelectedIndex();
+
+        modeloSubcategory = new DefaultComboBoxModel();
+        modeloSubcategory.addElement("Seleccionar...");
+
+        Integer sub_index = 0;
+
+        if (cat_index > 0) {
+            producto.setId_category(cat_index);
+            //txtp1.setText(producto.getId_category().toString());
+            
+
+            subcategories = miCoordinador.getSubcategories(cat_index);
+
+            for (int i = 0; i < subcategories.size(); i++) {
+                modeloSubcategory.addElement(subcategories.get(i).getSucategory_name());
+                if (subcategories.get(i).getId_subcategory().equals(producto.getId_subcategory())) {
+                    sub_index = i;
+                }
+            }
+        } else {
+            producto.setId_category(null);
+        }
+       
+        cbxSubcategoria.setModel(modeloSubcategory);
+        if (sub_index > 0) {
+            cbxSubcategoria.setSelectedIndex(sub_index + 1);
+        } else {
+            cbxSubcategoria.setSelectedIndex(0);
+        }
+    }//GEN-LAST:event_cbxCategoriaActionPerformed
+
+    private void cbxSubcategoriaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbxSubcategoriaActionPerformed
+        /* Integer sub_index = cbxSubcategoria.getSelectedIndex();
+        if (sub_index > 0) {
+            producto.setId_subcategory(subcategories.get(sub_index - 1).getId_subcategory());
+        } else {
+            producto.setId_subcategory(null);
+        }*/
+    }//GEN-LAST:event_cbxSubcategoriaActionPerformed
 
     /**
      * @param args the command line arguments
      */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Reportes.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Reportes.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Reportes.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Reportes.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new Reportes().setVisible(true);
-            }
-        });
-    }
+   
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
+    private javax.swing.JButton btnreporte;
+    private javax.swing.JComboBox<String> cbxCategoria;
+    private javax.swing.JComboBox<String> cbxSubcategoria;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JRadioButton jRadioButton1;
+    private javax.swing.JRadioButton jRadioButton2;
+    private javax.swing.JLabel txtp1;
+    private javax.swing.JLabel txtp2;
     // End of variables declaration//GEN-END:variables
 }

@@ -3,6 +3,18 @@
 	<property name="ireport.zoom" value="1.0"/>
 	<property name="ireport.x" value="0"/>
 	<property name="ireport.y" value="0"/>
+	<parameter name="id_category" class="java.lang.Integer">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="id_subcategory" class="java.lang.Integer">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="category_name" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="subcategory_name" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
 	<queryString>
 		<![CDATA[SELECT 
 	product_details.name AS product_name,
@@ -14,7 +26,7 @@
 FROM
 	product_sizes INNER JOIN product_details ON
 product_sizes.art = product_details.art
-]]>
+WHERE product_details.id_category = $P!{id_category} AND product_details.id_subcategory =$P!{id_subcategory}]]>
 	</queryString>
 	<field name="product_name" class="java.lang.String"/>
 	<field name="product_price" class="java.lang.Double"/>
@@ -49,6 +61,14 @@ product_sizes.art = product_details.art
 				<reportElement x="189" y="66" width="73" height="20" uuid="2f3e0a93-08d3-40eb-9dbf-b6de321e3e8b"/>
 				<text><![CDATA[Subcategoria:]]></text>
 			</staticText>
+			<textField>
+				<reportElement x="57" y="66" width="100" height="20" uuid="c8dbe36b-1250-4a01-972e-f9bd46543b79"/>
+				<textFieldExpression><![CDATA[$P{category_name}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="262" y="66" width="111" height="20" uuid="4533c446-21c3-4adb-b680-acb1632e9681"/>
+				<textFieldExpression><![CDATA[$P{subcategory_name}]]></textFieldExpression>
+			</textField>
 		</band>
 	</pageHeader>
 	<columnHeader>
