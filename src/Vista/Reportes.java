@@ -54,10 +54,6 @@ public class Reportes extends javax.swing.JFrame {
      public void setCoordinador(Coordinador miCoordinador) {
         this.miCoordinador = miCoordinador;
     }
-    
-  
-    
-    
 
     /**
      * This method is called from within the constructor to initialize the form.
