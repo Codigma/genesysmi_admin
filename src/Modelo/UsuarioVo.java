@@ -14,6 +14,24 @@ public class UsuarioVo {
     private String rfc;
     private String register_date;
     private double money;
+    private String estado;
+    private String localidad;
+
+    public String getEstado() {
+        return estado;
+    }
+
+    public void setEstado(String estado) {
+        this.estado = estado;
+    }
+
+    public String getLocalidad() {
+        return localidad;
+    }
+
+    public void setLocalidad(String localidad) {
+        this.localidad = localidad;
+    }
 
     public double getMoney() {
         return money;
