@@ -16,8 +16,10 @@ public class UsuarioDao {
             PreparedStatement preparedStatement = conn.getConn().prepareStatement(
                     "SELECT id_user, firstname, lastname, email, "
                     + "id_country, id_state, id_location, cp, "
-                    + "direction, phone, rfc, register_date, money  "
-                    + "FROM users "
+                    + "direction, phone, rfc, register_date, money, sta.state, loc.location  "
+                    + "FROM users as u "
+                             + "INNER JOIN states as sta on sta.id = u.id_state "
+                    +"INNER JOIN locations as loc on loc.id = u.id_location "
                     + "WHERE id_user = ?");
 
             preparedStatement.setInt(1, id);
@@ -38,6 +40,8 @@ public class UsuarioDao {
                 usuario.setRfc(resultSet.getString(11));
                 usuario.setRegister_date(resultSet.getString(12));
                 usuario.setMoney(resultSet.getDouble(13));
+                usuario.setEstado(resultSet.getString(14));
+                usuario.setLocalidad(resultSet.getString(15));
             }
             //Cierra todo
             conn.getConn().close();
@@ -58,8 +62,10 @@ public class UsuarioDao {
             PreparedStatement preparedStatement = conn.getConn().prepareStatement(
                     "SELECT id_user, firstname, lastname, email, "
                     + "id_country, id_state, id_location, cp, "
-                    + "direction, phone, rfc, register_date, money "
-                    + "FROM users");
+                    + "direction, phone, rfc, register_date, money, sta.state, loc.location "
+                    + "FROM users as u "
+                    + "INNER JOIN states as sta on sta.id = u.id_state "
+                    +"INNER JOIN locations as loc on loc.id = u.id_location");
 
             ResultSet resultSet = preparedStatement.executeQuery();
 
@@ -81,6 +87,8 @@ public class UsuarioDao {
                 usuario.setRfc(resultSet.getString(11));
                 usuario.setRegister_date(resultSet.getString(12));
                 usuario.setMoney(resultSet.getDouble(13));
+                usuario.setEstado(resultSet.getString(14));
+                usuario.setLocalidad(resultSet.getString(15));
                 
                 //Agregado del usuario al arreglo
                 usuarios.add(usuario);

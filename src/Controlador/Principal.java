@@ -68,7 +68,7 @@ public class Principal {
         
       //  login.setVisible(true);
       //  color.setVisible(true);
-    // usuario.setVisible(true);
+    usuario.setVisible(true);
        detalle.setVisible(true);
         productos.setVisible(true);
 <<<<<<< HEAD
