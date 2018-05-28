@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="report name" pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="6f5fe840-e396-4fa8-9c1f-d2fbe0687c74">
-	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.zoom" value="1.5"/>
 	<property name="ireport.x" value="0"/>
 	<property name="ireport.y" value="0"/>
 	<parameter name="id_category" class="java.lang.Integer">
@@ -20,12 +20,14 @@
 	product_details.name AS product_name,
 	product_details.price AS product_price,
 	product_sizes.art AS product_art,
-	product_sizes.color_art AS product_color_art,
+	colors.color_name AS product_color_art,
 	product_sizes.amount AS product_amount,
-	product_sizes.id_size AS product_size
+	sizes.name AS product_size
 FROM
-	product_sizes INNER JOIN product_details ON
-product_sizes.art = product_details.art
+	(((product_sizes INNER JOIN product_details ON
+product_sizes.art = product_details.art)
+INNER JOIN colors ON product_sizes.color_art = colors.color_art)
+INNER JOIN sizes ON product_sizes.id_size = sizes.id_size)
 WHERE product_details.id_category = $P!{id_category} AND product_details.id_subcategory =$P!{id_subcategory}]]>
 	</queryString>
 	<field name="product_name" class="java.lang.String"/>
@@ -33,7 +35,7 @@ WHERE product_details.id_category = $P!{id_category} AND product_details.id_subc
 	<field name="product_art" class="java.lang.String"/>
 	<field name="product_color_art" class="java.lang.String"/>
 	<field name="product_amount" class="java.lang.Integer"/>
-	<field name="product_size" class="java.lang.Integer"/>
+	<field name="product_size" class="java.lang.String"/>
 	<background>
 		<band splitType="Stretch"/>
 	</background>
@@ -88,7 +90,7 @@ WHERE product_details.id_category = $P!{id_category} AND product_details.id_subc
 				<textElement>
 					<font size="8" isBold="true"/>
 				</textElement>
-				<text><![CDATA[Código Color]]></text>
+				<text><![CDATA[Color]]></text>
 			</staticText>
 			<staticText>
 				<reportElement x="201" y="2" width="211" height="20" forecolor="#FFFFFF" uuid="2fbfcf52-6e0f-4ff1-9b4e-719d8deadf72"/>
@@ -112,7 +114,7 @@ WHERE product_details.id_category = $P!{id_category} AND product_details.id_subc
 				<text><![CDATA[Existencia]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="128" y="2" width="61" height="20" forecolor="#FFFFFF" uuid="6d1b9a2c-21f4-421f-ada2-c5a6584f407e"/>
+				<reportElement x="140" y="2" width="61" height="20" forecolor="#FFFFFF" uuid="6d1b9a2c-21f4-421f-ada2-c5a6584f407e"/>
 				<textElement>
 					<font size="8" isBold="true"/>
 				</textElement>
@@ -161,7 +163,7 @@ WHERE product_details.id_category = $P!{id_category} AND product_details.id_subc
 				<textFieldExpression><![CDATA[$F{product_price}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="128" y="0" width="61" height="20" uuid="251ec4c4-816d-420b-a79c-43460ddb61ed"/>
+				<reportElement x="140" y="0" width="61" height="20" uuid="251ec4c4-816d-420b-a79c-43460ddb61ed"/>
 				<textElement>
 					<font size="8"/>
 				</textElement>
