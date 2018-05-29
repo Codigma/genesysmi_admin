@@ -439,7 +439,7 @@ public class Reportes extends javax.swing.JFrame {
        
             Map parametrov = new HashMap();
             
-            parametrov.put("sale_year",an);
+            parametrov.put("sale_year","2018");
             
             reportev = (JasperReport) JRLoader.loadObjectFromFile(path);
             
