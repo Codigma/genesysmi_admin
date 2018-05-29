@@ -32,7 +32,7 @@ ProductoVo registro = new ProductoVo();
     public Total() {
         initComponents();
         
-        venta.setShip(0.0);
+        venta.setShip(0.00);
     }
 
    public VentaVo venta = new VentaVo();
