@@ -8,6 +8,7 @@ package Modelo;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 
 /**
  *
@@ -68,5 +69,40 @@ int aux=0;
         } catch (SQLException e) {
             System.out.println(e.getMessage());
         }
+    }
+     
+
+        public ArrayList<VentaVo> getYears() {
+        Conectarse conn = new Conectarse();
+        ArrayList<VentaVo> years = new ArrayList<>();
+        
+        
+        try{
+            PreparedStatement preparedStatement = conn.getConn().prepareStatement(
+              "SELECT DISTINCT YEAR(date_sale_test) AS sales_year FROM sales_test");
+
+        
+            ResultSet resultSet = preparedStatement.executeQuery();
+            while (resultSet.next()) {
+                //Objeto de tipo sucategory
+                VentaVo year = new VentaVo();
+                year.setSales_years(resultSet.getString(1));
+                
+                years.add(year);
+                
+
+            }
+
+           
+            conn.getConn().close();
+            resultSet.close();
+            preparedStatement.close();
+            
+        }catch(SQLException e){
+            System.out.println(e.getMessage());
+            
+        }
+        return years;
+        
     }
 }
