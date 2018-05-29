@@ -777,6 +777,7 @@ miCoordinador.getTotal().lblVendedor.setText(txtVendedor.getText());
 miCoordinador.getTotal().lblPagar.setText(lblTotal.getText());
 miCoordinador.getTotal().lblDinero.setText(txtMonedero.getText());
 miCoordinador.getTotal().comprador.setId_user(id_usuario);
+miCoordinador.getTotal().venta.setId_user(id_usuario);
 
  
 

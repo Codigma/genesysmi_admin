@@ -50,14 +50,14 @@ int aux=0;
         
         try {
             PreparedStatement preparedStatement = conn.getConn().prepareStatement(
-                    "INSERT INTO sales (subtotal, ship, total ) "                         
-                    + "VALUES (?, ?, ?)");
+                    "INSERT INTO sales (id_user, subtotal, ship, total ) "                         
+                    + "VALUES (?, ?, ?, ?)");
             
             
-            
-            preparedStatement.setDouble(1, venta.getSubtotal());
-            preparedStatement.setDouble(2, venta.getShip());
-            preparedStatement.setDouble(3, venta.getTotal());
+            preparedStatement.setInt(1, venta.getId_user());
+            preparedStatement.setDouble(2, venta.getSubtotal());
+            preparedStatement.setDouble(3, venta.getShip());
+            preparedStatement.setDouble(4, venta.getTotal());
             
             preparedStatement.executeUpdate();
             

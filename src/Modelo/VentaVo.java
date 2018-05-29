@@ -11,6 +11,7 @@ package Modelo;
  */
 public class VentaVo {
     private int id_sale;
+    private int id_user;
     private double subtotal;
     private double ship;
     private double total;
@@ -45,5 +46,13 @@ public class VentaVo {
 
     public void setTotal(double total) {
         this.total = total;
+    }
+
+    public int getId_user() {
+        return id_user;
+    }
+
+    public void setId_user(int id_user) {
+        this.id_user = id_user;
     }
 }
