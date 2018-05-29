@@ -622,8 +622,12 @@ calcularTotal();
     }//GEN-LAST:event_txtDireccionActionPerformed
 
     private void lblBuscarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblBuscarMouseClicked
-       BagVo bagg = new BagVo();
-       ArrayList<TallaVo> medida = miCoordinador.obtenerTallasProducto(Integer.parseInt(txtCode.getText()));
+      if(txtCode.getText().trim().equals("")){
+      JOptionPane.showMessageDialog(null,"Ingrese un codigo válido","ERROR",JOptionPane.INFORMATION_MESSAGE);
+      }
+      else{ 
+        BagVo bagg = new BagVo();
+       ArrayList<TallaVo> medida = miCoordinador.obtenerTallasProducto(Integer.parseInt(txtCode.getText().trim()));
        String [] medidas = new String[medida.size()];
        
        for(int i =0 ; i<medida.size();i++){
@@ -686,7 +690,7 @@ calcularTotal();
      
      bag.add(bagg);
      
-     
+      }
     }//GEN-LAST:event_lblBuscarMouseClicked
 
     private void lblBuscarMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblBuscarMousePressed
