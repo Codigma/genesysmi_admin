@@ -376,7 +376,7 @@ public class Productos extends javax.swing.JFrame {
         });
 
         txtCant.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        txtCant.setText("1");
+        txtCant.setText("0");
 
         jLabel13.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel13.setText("Cantidad:");
@@ -748,17 +748,17 @@ public class Productos extends javax.swing.JFrame {
             if (!src1File.equals("")) {
                 producto.setSrc1(path + src + src1Name);
 
-                FTPClient cliente = new FTPClient("/public_html/img/products/" + path, new File(src1File), src, true);
+                FTPClient cliente = new FTPClient("genesysmi.com/img/products/" + path, new File(src1File), src, true);
             }
             if (!src2File.equals("")) {
                 producto.setSrc2(path + src + src2Name);
 
-                FTPClient cliente = new FTPClient("/public_html/img/products/" + path, new File(src2File), src, true);
+                FTPClient cliente = new FTPClient("genesysmi.com/img/products/" + path, new File(src2File), src, true);
             }
             if (!src3File.equals("")) {
                 producto.setSrc3(path + src + src3Name);
 
-                FTPClient cliente = new FTPClient("/public_html/img/products/" + path, new File(src3File), src, true);
+                FTPClient cliente = new FTPClient("genesysmi.com/img/products/" + path, new File(src3File), src, true);
             }
 
             if (isArt) {
@@ -766,7 +766,7 @@ public class Productos extends javax.swing.JFrame {
                 if (isColor) {
                     miCoordinador.UpdateProduct(producto);
                     if (isSize) {
-                        producto.setAmount(producto.getAmount() + amount);
+                        producto.setAmount(amount);
                         miCoordinador.UpdateProductSizes(producto);
                     } else {
                         producto.setAmount(amount);
@@ -921,9 +921,11 @@ public class Productos extends javax.swing.JFrame {
             Integer amount = product.getAmount();
             if (amount != null) {
                 producto.setAmount(amount);
+                txtCant.setText(amount.toString());
                 isSize = true;
             } else {
                 isSize = false;
+                txtCant.setText("0");
                 producto.setAmount(null);
             }
         } else {
