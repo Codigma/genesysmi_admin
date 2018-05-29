@@ -20,8 +20,8 @@ public class FTPClient {
 
     public FTPClient(String location, File file, String src, boolean debug) {
         this.ftpServer = "www.genesysmi.com";
-        this.user = "genesysm";
-        this.password = "97fGw7dmXZOH";
+        this.user = "genesysmi@genesysmi.com";
+        this.password = "65i1r3WqQd";
 
         UploadFileToFTP(ftpServer, user, password, location, file, src, debug);
     }
