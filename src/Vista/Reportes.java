@@ -9,6 +9,7 @@ import Controlador.Coordinador;
 import Modelo.Conectarse;
 import Modelo.ProductoVo;
 import Modelo.SubcategoryVo;
+import Modelo.VentaVo;
 import com.mysql.jdbc.Connection;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -17,6 +18,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.DefaultComboBoxModel;
 import net.sf.jasperreports.engine.JRException;
+import net.sf.jasperreports.engine.JasperCompileManager;
 import net.sf.jasperreports.engine.JasperFillManager;
 import net.sf.jasperreports.engine.JasperPrint;
 import net.sf.jasperreports.engine.JasperReport;
@@ -30,10 +32,11 @@ import net.sf.jasperreports.view.JasperViewer;
  */
 public class Reportes extends javax.swing.JFrame {
    private Coordinador miCoordinador;
-   DefaultComboBoxModel modeloSubcategory;
+   DefaultComboBoxModel modeloSubcategory, modeloYears;
    private ProductoVo producto;
    private ArrayList<SubcategoryVo> subcategories;
-   
+   private ArrayList<VentaVo> years;
+
   
     /**
      * Creates new form Reportes
@@ -43,11 +46,9 @@ public class Reportes extends javax.swing.JFrame {
         lbCat.setEnabled(false);
         lbSub.setEnabled(false);
         lbano.setEnabled(false);
-        lbmes.setEnabled(false);
         cbxCategoria.setEnabled(false);
         cbxSubcategoria.setEnabled(false);
-        cbxmes.setEnabled(false);
-        cbxano.setEnabled(false);
+        cbxan.setEnabled(false);
         btnreporte.setEnabled(false);
         btnreporteventa.setEnabled(false);
         
@@ -73,9 +74,7 @@ public class Reportes extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         jPanel3 = new javax.swing.JPanel();
         lbano = new javax.swing.JLabel();
-        cbxano = new javax.swing.JComboBox<>();
-        cbxmes = new javax.swing.JComboBox<>();
-        lbmes = new javax.swing.JLabel();
+        cbxan = new javax.swing.JComboBox<>();
         btnreporteventa = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         rbVentas = new javax.swing.JRadioButton();
@@ -92,11 +91,12 @@ public class Reportes extends javax.swing.JFrame {
 
         lbano.setText("Año");
 
-        cbxano.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccionar...", "Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre" }));
-
-        cbxmes.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccionar...", "2018" }));
-
-        lbmes.setText("Mes");
+        cbxan.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccionar..." }));
+        cbxan.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cbxanActionPerformed(evt);
+            }
+        });
 
         btnreporteventa.setText("Generar Reporte");
         btnreporteventa.addActionListener(new java.awt.event.ActionListener() {
@@ -113,15 +113,10 @@ public class Reportes extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(btnreporteventa, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel3Layout.createSequentialGroup()
-                            .addComponent(lbmes)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                            .addComponent(cbxano, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel3Layout.createSequentialGroup()
-                            .addComponent(lbano)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                            .addComponent(cbxmes, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addComponent(lbano)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(cbxan, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(32, 32, Short.MAX_VALUE))
         );
         jPanel3Layout.setVerticalGroup(
@@ -130,12 +125,8 @@ public class Reportes extends javax.swing.JFrame {
                 .addGap(40, 40, 40)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lbano, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(cbxmes, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(cbxano, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lbmes, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(33, 33, 33)
+                    .addComponent(cbxan, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(82, 82, 82)
                 .addComponent(btnreporteventa, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(11, 11, 11))
         );
@@ -285,10 +276,8 @@ public class Reportes extends javax.swing.JFrame {
         
         if(cat_index > 0){
             
-
              try {
 
-     
             Integer subcat_index = subcategory_index - 1;
             Integer sub_index = subcategories.get(subcat_index).getId_subcategory();
             JasperReport reporte = null;
@@ -349,7 +338,6 @@ public class Reportes extends javax.swing.JFrame {
     private void cbxCategoriaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbxCategoriaActionPerformed
         
    
-        
         Integer cat_index = cbxCategoria.getSelectedIndex();
 
         modeloSubcategory = new DefaultComboBoxModel();
@@ -394,9 +382,7 @@ public class Reportes extends javax.swing.JFrame {
     private void rbInventarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rbInventarioActionPerformed
         
         lbano.setEnabled(false);
-        lbmes.setEnabled(false);
-        cbxmes.setEnabled(false);
-        cbxano.setEnabled(false);
+        cbxan.setEnabled(false);
         btnreporteventa.setEnabled(false);
         lbCat.setEnabled(true);
         lbSub.setEnabled(true);
@@ -416,19 +402,26 @@ public class Reportes extends javax.swing.JFrame {
         cbxSubcategoria.setEnabled(false);
         btnreporte.setEnabled(false);
         lbano.setEnabled(true);
-        lbmes.setEnabled(true);
-        cbxmes.setEnabled(true);
-        cbxano.setEnabled(true);
+        cbxan.setEnabled(true);
         btnreporteventa.setEnabled(true);
+        
+         modeloYears = new DefaultComboBoxModel();
+        modeloYears.addElement("Seleccionar...");
+        
+        years = miCoordinador.selectYears();
+        
+         for (int i =0; i<years.size();i++){
+            modeloYears.addElement(years); 
+       
+      }
+         
+        cbxan.setModel(modeloYears);
         
         
     }//GEN-LAST:event_rbVentasActionPerformed
 
     private void btnreporteventaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnreporteventaActionPerformed
         
-        
-  
-        String an = cbxano.getSelectedItem().toString();
         Conectarse con = new Conectarse();
         Connection conn = (Connection) con.getConn();
              try {
@@ -456,6 +449,11 @@ public class Reportes extends javax.swing.JFrame {
         }  
     }//GEN-LAST:event_btnreporteventaActionPerformed
 
+    private void cbxanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbxanActionPerformed
+      
+       
+    }//GEN-LAST:event_cbxanActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -467,8 +465,7 @@ public class Reportes extends javax.swing.JFrame {
     private javax.swing.JButton btnreporteventa;
     private javax.swing.JComboBox<String> cbxCategoria;
     private javax.swing.JComboBox<String> cbxSubcategoria;
-    private javax.swing.JComboBox<String> cbxano;
-    private javax.swing.JComboBox<String> cbxmes;
+    private javax.swing.JComboBox<String> cbxan;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;
@@ -477,7 +474,6 @@ public class Reportes extends javax.swing.JFrame {
     private javax.swing.JLabel lbCat;
     private javax.swing.JLabel lbSub;
     private javax.swing.JLabel lbano;
-    private javax.swing.JLabel lbmes;
     private javax.swing.JRadioButton rbInventario;
     private javax.swing.JRadioButton rbVentas;
     // End of variables declaration//GEN-END:variables

@@ -15,9 +15,18 @@ public class VentaVo {
     private double subtotal;
     private double ship;
     private double total;
+    private String sales_years;
 
     public int getId_sale() {
         return id_sale;
+    }
+
+    public String getSales_years() {
+        return sales_years;
+    }
+
+    public void setSales_years(String sales_years) {
+        this.sales_years = sales_years;
     }
 
     public void setId_sale(int id_sale) {
@@ -48,6 +57,10 @@ public class VentaVo {
         this.total = total;
     }
 
+<<<<<<< HEAD
+
+    
+=======
     public int getId_user() {
         return id_user;
     }
@@ -55,4 +68,5 @@ public class VentaVo {
     public void setId_user(int id_user) {
         this.id_user = id_user;
     }
+>>>>>>> c73930c7fe62a76177a1f8737c26c233a485907b
 }

@@ -234,4 +234,9 @@ return color.getColorArt(art, talla);
         UsuarioDao dao = new UsuarioDao();
         dao.UpdateMonedero(usuario);
     }
+         public ArrayList<VentaVo> selectYears(){
+                 VentaDao year = new VentaDao();
+                 return year.getYears();
+                     
+                 }
 }
