@@ -57,10 +57,7 @@ public class VentaVo {
         this.total = total;
     }
 
-<<<<<<< HEAD
 
-    
-=======
     public int getId_user() {
         return id_user;
     }
@@ -68,5 +65,4 @@ public class VentaVo {
     public void setId_user(int id_user) {
         this.id_user = id_user;
     }
->>>>>>> c73930c7fe62a76177a1f8737c26c233a485907b
 }

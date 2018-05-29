@@ -56,6 +56,7 @@ imprimirColores();
       //Asignamos los datos del Modelo a la tabla
       tbColors.setModel(modelo);
     //txtMuestra.setBackground(Color.decode("#6365ff"));
+    
    
  }
  
