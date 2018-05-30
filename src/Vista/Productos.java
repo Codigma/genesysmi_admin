@@ -32,7 +32,7 @@ public class Productos extends javax.swing.JFrame {
     private boolean isColor;
     private boolean isSize;
 
-    private String src1File;
+    private File src1File;
     private String src1Name;
     private String src2File;
     private String src2Name;
@@ -745,20 +745,17 @@ public class Productos extends javax.swing.JFrame {
             String path = category + "/" + subcategory;
             String src = producto.getArt_name() + "-" + color + "-";
 
-            if (!src1File.equals("")) {
-                producto.setSrc1(path + src + src1Name);
-
-                FTPClient cliente = new FTPClient("genesysmi.com/img/products/" + path, new File(src1File), src, true);
+            if (src1File != null) {
+                FTPClient cliente = new FTPClient("/img/products/" + path, src1File, src, true);
+                producto.setSrc1(path + "/" + src + src1Name);
             }
-            if (!src2File.equals("")) {
-                producto.setSrc2(path + src + src2Name);
-
-                FTPClient cliente = new FTPClient("genesysmi.com/img/products/" + path, new File(src2File), src, true);
+            if (src2File != null) {
+                FTPClient cliente = new FTPClient("/img/products/" + path, new File(src2File), src, true);
+                producto.setSrc2(path + "/" + src + src2Name);
             }
-            if (!src3File.equals("")) {
-                producto.setSrc3(path + src + src3Name);
-
-                FTPClient cliente = new FTPClient("genesysmi.com/img/products/" + path, new File(src3File), src, true);
+            if (src3File != null) {
+                FTPClient cliente = new FTPClient("/img/products/" + path, new File(src3File), src, true);
+                producto.setSrc3(path + "/" + src + src3Name);
             }
 
             if (isArt) {
@@ -948,10 +945,9 @@ public class Productos extends javax.swing.JFrame {
         JFileChooser dir = new JFileChooser();
         int option = dir.showOpenDialog(this);
         if (option == JFileChooser.APPROVE_OPTION) {
-            String file = dir.getSelectedFile().getPath();
+            src1File = dir.getSelectedFile();
             String fileName = dir.getName(dir.getSelectedFile());
 
-            src1File = file;
             src1Name = fileName;
             checkSrc1.setSelected(true);
         } else {
