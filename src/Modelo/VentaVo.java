@@ -65,5 +65,4 @@ public class VentaVo {
     public void setId_user(int id_user) {
         this.id_user = id_user;
     }
-
 }
