@@ -7,8 +7,17 @@ import Modelo.SubcategoryVo;
 import Modelo.TallaVo;
 import java.awt.Color;
 import java.awt.Component;
+import java.awt.image.BufferedImage;
+import java.io.ByteArrayOutputStream;
 import java.io.File;
+import java.io.IOException;
+import java.io.OutputStream;
+import java.net.Socket;
+import java.nio.ByteBuffer;
 import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.imageio.ImageIO;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.JFileChooser;
 import javax.swing.JLabel;
@@ -747,6 +756,7 @@ public class Productos extends javax.swing.JFrame {
 
             if (src1File != null) {
                 FTPClient cliente = new FTPClient("/img/products/" + path, src1File, src, true);
+                
                 producto.setSrc1(path + "/" + src + src1Name);
             }
             if (src2File != null) {
