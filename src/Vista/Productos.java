@@ -7,10 +7,20 @@ import Modelo.SubcategoryVo;
 import Modelo.TallaVo;
 import java.awt.Color;
 import java.awt.Component;
+import java.awt.image.BufferedImage;
+import java.io.ByteArrayOutputStream;
 import java.io.File;
+import java.io.IOException;
+import java.io.OutputStream;
+import java.net.Socket;
+import java.nio.ByteBuffer;
 import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+<<<<<<< HEAD
+=======
+import javax.imageio.ImageIO;
+>>>>>>> ec8fb6c62a6b522638d0ba472509b02bfbbceab5
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.JFileChooser;
 import javax.swing.JLabel;
@@ -751,6 +761,7 @@ public class Productos extends javax.swing.JFrame {
             
 
             if (src1File != null) {
+<<<<<<< HEAD
                 try {
                     ftpUploader = new FTPUploader("www.genesysmi.com", "genesysmi@genesysmi.com", "65i1r3WqQd",src1File.getPath(),src+src1File.getName(),"/img/products/" + path+"/");
                 } catch (Exception ex) {
@@ -758,6 +769,11 @@ public class Productos extends javax.swing.JFrame {
                 }
                // FTPClient cliente = new FTPClient("/img/products/" + path, src1File, src, true);
                 //producto.setSrc1(path + "/" + src + src1Name);
+=======
+                FTPClient cliente = new FTPClient("/img/products/" + path, src1File, src, true);
+                
+                producto.setSrc1(path + "/" + src + src1Name);
+>>>>>>> ec8fb6c62a6b522638d0ba472509b02bfbbceab5
             }
             if (src2File != null) {
                 FTPClient cliente = new FTPClient("/img/products/" + path+"/", new File(src2File), src, true);
