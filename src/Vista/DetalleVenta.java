@@ -44,7 +44,7 @@ DefaultTableModel modelo = new DefaultTableModel();
     public void setCoordinador(Coordinador miCoordinador) {
         this.miCoordinador = miCoordinador;
             asignarTamaño();
-
+txtCode.requestFocus();
     }
    
     public void asignarTamaño(){

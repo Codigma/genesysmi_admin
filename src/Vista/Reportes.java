@@ -412,7 +412,8 @@ public class Reportes extends javax.swing.JFrame {
         years = miCoordinador.selectYears();
         
          for (int i =0; i<years.size();i++){
-            modeloYears.addElement(years); 
+             
+            modeloYears.addElement(years.get(i).getSales_years()); 
        
       }
          
@@ -425,7 +426,9 @@ public class Reportes extends javax.swing.JFrame {
         
         Conectarse con = new Conectarse();
         Connection conn = (Connection) con.getConn();
-             try {
+
+        String aux =(String) cbxan.getSelectedItem();
+        try {
 
             JasperReport reportev = null;
             
@@ -433,7 +436,7 @@ public class Reportes extends javax.swing.JFrame {
        
             Map parametrov = new HashMap();
             
-            parametrov.put("sale_year","2018");
+            parametrov.put("sale_year",aux);
             
             reportev = (JasperReport) JRLoader.loadObjectFromFile(path);
             
