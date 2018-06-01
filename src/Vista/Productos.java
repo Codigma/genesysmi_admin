@@ -17,10 +17,8 @@ import java.nio.ByteBuffer;
 import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-<<<<<<< HEAD
-=======
 import javax.imageio.ImageIO;
->>>>>>> ec8fb6c62a6b522638d0ba472509b02bfbbceab5
+
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.JFileChooser;
 import javax.swing.JLabel;
@@ -46,9 +44,9 @@ public class Productos extends javax.swing.JFrame {
 
     private File src1File;
     private String src1Name;
-    private String src2File;
+    private File src2File;
     private String src2Name;
-    private String src3File;
+    private File src3File;
     private String src3Name;
 
     public Productos() {
@@ -196,6 +194,8 @@ public class Productos extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         txtPrice = new javax.swing.JTextField();
+        btnmas = new javax.swing.JButton();
+        btnmenos = new javax.swing.JButton();
         jLabel15 = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
         btnImage1 = new javax.swing.JButton();
@@ -415,6 +415,26 @@ public class Productos extends javax.swing.JFrame {
         txtPrice.setCaretColor(new java.awt.Color(51, 51, 51));
         txtPrice.setDisabledTextColor(new java.awt.Color(255, 255, 255));
 
+        btnmas.setBackground(new java.awt.Color(0, 37, 145));
+        btnmas.setFont(new java.awt.Font("Lucida Grande", 1, 13)); // NOI18N
+        btnmas.setForeground(new java.awt.Color(255, 255, 255));
+        btnmas.setText("+");
+        btnmas.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnmasActionPerformed(evt);
+            }
+        });
+
+        btnmenos.setBackground(new java.awt.Color(0, 37, 145));
+        btnmenos.setFont(new java.awt.Font("Lucida Grande", 1, 13)); // NOI18N
+        btnmenos.setForeground(new java.awt.Color(255, 255, 255));
+        btnmenos.setText("-");
+        btnmenos.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnmenosActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
         jPanel4Layout.setHorizontalGroup(
@@ -435,19 +455,21 @@ public class Productos extends javax.swing.JFrame {
                                         .addComponent(jLabel9)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                         .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 285, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addGap(33, 33, 33)
                                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                    .addGroup(jPanel4Layout.createSequentialGroup()
+                                        .addComponent(btnAdd, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                        .addComponent(btnCancel, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(jPanel4Layout.createSequentialGroup()
                                         .addComponent(jLabel13)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                         .addComponent(txtCant, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(21, 21, 21))
-                                    .addGroup(jPanel4Layout.createSequentialGroup()
-                                        .addGap(65, 65, 65)
-                                        .addComponent(btnAdd, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)))
-                                .addComponent(btnCancel, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(390, 390, 390))
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(btnmas, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(btnmenos, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                .addGap(384, 384, 384))
                             .addGroup(jPanel4Layout.createSequentialGroup()
                                 .addComponent(jLabel2)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -505,7 +527,7 @@ public class Productos extends javax.swing.JFrame {
                         .addComponent(comboType, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(jLabel7)))
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel4Layout.createSequentialGroup()
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -515,10 +537,14 @@ public class Productos extends javax.swing.JFrame {
                         .addGap(37, 37, 37))
                     .addGroup(jPanel4Layout.createSequentialGroup()
                         .addGap(99, 99, 99)
-                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(txtCant, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel13, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(1, 1, 1)))
+                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jLabel13, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(jPanel4Layout.createSequentialGroup()
+                                .addComponent(btnmas, javax.swing.GroupLayout.PREFERRED_SIZE, 15, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(btnmenos, javax.swing.GroupLayout.PREFERRED_SIZE, 15, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(txtCant))
+                        .addGap(1, 6, Short.MAX_VALUE)))
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                         .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -721,7 +747,7 @@ public class Productos extends javax.swing.JFrame {
     }//GEN-LAST:event_btnCancelActionPerformed
 
     private void btnAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddActionPerformed
-       FTPUploader ftpUploader;
+    //   FTPUploader ftpUploader;
         // TODO add your handling code here:
         txtCode.setText(producto.getArt());
 
@@ -756,32 +782,43 @@ public class Productos extends javax.swing.JFrame {
             String color = colores.get(comboColor.getSelectedIndex() - 1).getColor_name();
 
             String path = category + "/" + subcategory;
-            String src = producto.getArt_name() + "-" + color + "-";
+            String src = producto.getArt_name() + " " + color + " " ;
             
-            
-
+          
             if (src1File != null) {
-<<<<<<< HEAD
+
                 try {
-                    ftpUploader = new FTPUploader("www.genesysmi.com", "genesysmi@genesysmi.com", "65i1r3WqQd",src1File.getPath(),src+src1File.getName(),"/img/products/" + path+"/");
+            String value = new String(src.getBytes("UTF-8"), "ISO-8859-1");
+            String value2 = new String(path.getBytes("UTF-8"), "ISO-8859-1");
+            
+                  FTPUploader  ftpUploader = new FTPUploader("www.genesysmi.com", "genesysmi@genesysmi.com", "65i1r3WqQd",src1File.getPath(),value+src1Name,"/img/products/" + value2+"/");
                 } catch (Exception ex) {
                     Logger.getLogger(Productos.class.getName()).log(Level.SEVERE, null, ex);
                 }
-               // FTPClient cliente = new FTPClient("/img/products/" + path, src1File, src, true);
-                //producto.setSrc1(path + "/" + src + src1Name);
-=======
-                FTPClient cliente = new FTPClient("/img/products/" + path, src1File, src, true);
                 
                 producto.setSrc1(path + "/" + src + src1Name);
->>>>>>> ec8fb6c62a6b522638d0ba472509b02bfbbceab5
+
             }
             if (src2File != null) {
-                FTPClient cliente = new FTPClient("/img/products/" + path+"/", new File(src2File), src, true);
+                 try {
+            String value = new String(src.getBytes("UTF-8"), "ISO-8859-1");
+            String value2 = new String(path.getBytes("UTF-8"), "ISO-8859-1");
+            
+                  FTPUploader  ftpUploader = new FTPUploader("www.genesysmi.com", "genesysmi@genesysmi.com", "65i1r3WqQd",src2File.getPath(),value+src2Name,"/img/products/" + value2+"/");
+                } catch (Exception ex) {
+                    Logger.getLogger(Productos.class.getName()).log(Level.SEVERE, null, ex);
+                }
                 producto.setSrc2(path + "/" + src + src2Name);
             }
             if (src3File != null) {
-                FTPClient cliente = new FTPClient("/img/products/" + path, new File(src3File), src, true);
-                producto.setSrc3(path + "/" + src + src3Name);
+               try {
+            String value = new String(src.getBytes("UTF-8"), "ISO-8859-1");
+            String value2 = new String(path.getBytes("UTF-8"), "ISO-8859-1");
+            
+                  FTPUploader  ftpUploader = new FTPUploader("www.genesysmi.com", "genesysmi@genesysmi.com", "65i1r3WqQd",src3File.getPath(),value+src3Name,"/img/products/" + value2+"/");
+                } catch (Exception ex) {
+                    Logger.getLogger(Productos.class.getName()).log(Level.SEVERE, null, ex);
+                }    producto.setSrc3(path + "/" + src + src3Name);
             }
 
             if (isArt) {
@@ -986,10 +1023,9 @@ public class Productos extends javax.swing.JFrame {
         JFileChooser dir = new JFileChooser();
         int option = dir.showOpenDialog(this);
         if (option == JFileChooser.APPROVE_OPTION) {
-            String file = dir.getSelectedFile().getPath();
+             src2File = dir.getSelectedFile();
             String fileName = dir.getName(dir.getSelectedFile());
 
-            src2File = file;
             src2Name = fileName;
             checkSrc2.setSelected(true);
         } else {
@@ -1002,16 +1038,28 @@ public class Productos extends javax.swing.JFrame {
         JFileChooser dir = new JFileChooser();
         int option = dir.showOpenDialog(this);
         if (option == JFileChooser.APPROVE_OPTION) {
-            String file = dir.getSelectedFile().getPath();
+            src3File = dir.getSelectedFile();
             String fileName = dir.getName(dir.getSelectedFile());
 
-            src3File = file;
             src3Name = fileName;
             checkSrc3.setSelected(true);
         } else {
             checkSrc3.setSelected(false);
         }
     }//GEN-LAST:event_btnImage3ActionPerformed
+
+    private void btnmasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnmasActionPerformed
+int cantidad = Integer.parseInt(txtCant.getText());
+cantidad += 1;
+txtCant.setText(Integer.toString(cantidad));
+    }//GEN-LAST:event_btnmasActionPerformed
+
+    private void btnmenosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnmenosActionPerformed
+int cantidad = Integer.parseInt(txtCant.getText());
+cantidad -= 1;
+if(cantidad >= 0)
+txtCant.setText(Integer.toString(cantidad));
+    }//GEN-LAST:event_btnmenosActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -1021,6 +1069,8 @@ public class Productos extends javax.swing.JFrame {
     private javax.swing.JButton btnImage1;
     private javax.swing.JButton btnImage2;
     private javax.swing.JButton btnImage3;
+    private javax.swing.JButton btnmas;
+    private javax.swing.JButton btnmenos;
     private javax.swing.JCheckBox checkSrc1;
     private javax.swing.JCheckBox checkSrc2;
     private javax.swing.JCheckBox checkSrc3;

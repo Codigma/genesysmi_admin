@@ -33,6 +33,15 @@ public class FTPUploader {
 		ftp.setFileType(FTP.BINARY_FILE_TYPE);
 		ftp.enterLocalPassiveMode();
                 
+                byte[] bytes1 = localFileFullName.getBytes("UTF-8");
+                localFileFullName = new String(bytes1, "UTF-8");
+                
+                byte[] bytes2 = fileName.getBytes("UTF-8");
+                fileName = new String(bytes2, "UTF-8");
+                
+                byte[] bytes3 = hostDir.getBytes("UTF-8");
+                hostDir = new String(bytes3, "UTF-8");
+                
                 uploadFile( localFileFullName,  fileName,  hostDir);
                 disconnect();
 	}
