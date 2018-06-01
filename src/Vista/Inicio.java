@@ -22,6 +22,9 @@ public class Inicio extends javax.swing.JFrame {
    public void setCoordinador(Coordinador miCoordinador) {
         this.miCoordinador=miCoordinador;
         //this.getUsuario(1);
+        miCoordinador.getProductos().setExtendedState(MAXIMIZED_BOTH);
+        miCoordinador.getDetalle().setExtendedState(MAXIMIZED_BOTH);
+//        miCoordinador.getUsuario().setExtendedState(MAXIMIZED_BOTH);
     }
  
 
@@ -46,18 +49,19 @@ public class Inicio extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         jMenuBar1 = new javax.swing.JMenuBar();
         menuProduct = new javax.swing.JMenu();
-        itemNewProduct = new javax.swing.JMenuItem();
-        itemSearchProduct = new javax.swing.JMenuItem();
-        itemUpdateProduct = new javax.swing.JMenuItem();
-        itemDeleteProduct = new javax.swing.JMenuItem();
+        addProduct = new javax.swing.JMenuItem();
+        searchProduct = new javax.swing.JMenuItem();
+        updateProduct = new javax.swing.JMenuItem();
         menuColors = new javax.swing.JMenu();
         itemViewColor = new javax.swing.JMenuItem();
         itemAddColor = new javax.swing.JMenuItem();
         menuUsers = new javax.swing.JMenu();
-        jMenu1 = new javax.swing.JMenu();
         jMenuItem1 = new javax.swing.JMenuItem();
         menuSale = new javax.swing.JMenu();
+        jMenuItem2 = new javax.swing.JMenuItem();
         itemSale = new javax.swing.JMenuItem();
+        jMenu1 = new javax.swing.JMenu();
+        inventario = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -70,51 +74,110 @@ public class Inicio extends javax.swing.JFrame {
 
         menuProduct.setText("Productos");
 
-        itemNewProduct.setText("Añadir nuevo");
-        menuProduct.add(itemNewProduct);
-
-        itemSearchProduct.setText("Buscar producto");
-        menuProduct.add(itemSearchProduct);
-
-        itemUpdateProduct.setText("Actulizar producto");
-        itemUpdateProduct.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                itemUpdateProductActionPerformed(evt);
+        addProduct.setText("Añadir nuevo");
+        addProduct.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                addProductMouseClicked(evt);
             }
         });
-        menuProduct.add(itemUpdateProduct);
+        addProduct.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                addProductActionPerformed(evt);
+            }
+        });
+        menuProduct.add(addProduct);
 
-        itemDeleteProduct.setText("Borrar producto");
-        menuProduct.add(itemDeleteProduct);
+        searchProduct.setText("Buscar producto");
+        searchProduct.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                searchProductMouseClicked(evt);
+            }
+        });
+        searchProduct.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                searchProductActionPerformed(evt);
+            }
+        });
+        menuProduct.add(searchProduct);
+
+        updateProduct.setText("Actulizar producto");
+        updateProduct.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                updateProductMouseClicked(evt);
+            }
+        });
+        updateProduct.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                updateProductActionPerformed(evt);
+            }
+        });
+        menuProduct.add(updateProduct);
 
         jMenuBar1.add(menuProduct);
 
         menuColors.setText("Colores");
 
         itemViewColor.setText("Ver Lista");
+        itemViewColor.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                itemViewColorActionPerformed(evt);
+            }
+        });
         menuColors.add(itemViewColor);
 
         itemAddColor.setText("Agregar Color");
+        itemAddColor.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                itemAddColorActionPerformed(evt);
+            }
+        });
         menuColors.add(itemAddColor);
 
         jMenuBar1.add(menuColors);
 
         menuUsers.setText("Usuarios");
 
-        jMenu1.setText("Usuarios Sistema");
-        menuUsers.add(jMenu1);
-
-        jMenuItem1.setText("Usuarios Página");
+        jMenuItem1.setText("Lista Clientes");
+        jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem1ActionPerformed(evt);
+            }
+        });
         menuUsers.add(jMenuItem1);
 
         jMenuBar1.add(menuUsers);
 
         menuSale.setText("Ventas");
 
+        jMenuItem2.setText("Realizar Venta");
+        jMenuItem2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem2ActionPerformed(evt);
+            }
+        });
+        menuSale.add(jMenuItem2);
+
         itemSale.setText("Lista de Ventas");
+        itemSale.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                itemSaleActionPerformed(evt);
+            }
+        });
         menuSale.add(itemSale);
 
         jMenuBar1.add(menuSale);
+
+        jMenu1.setText("Reportes");
+
+        inventario.setText("Inventarios");
+        inventario.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                inventarioActionPerformed(evt);
+            }
+        });
+        jMenu1.add(inventario);
+
+        jMenuBar1.add(jMenu1);
 
         setJMenuBar(jMenuBar1);
 
@@ -132,9 +195,54 @@ public class Inicio extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void itemUpdateProductActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itemUpdateProductActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_itemUpdateProductActionPerformed
+    private void updateProductActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_updateProductActionPerformed
+
+miCoordinador.getProductos().setVisible(true); 
+    }//GEN-LAST:event_updateProductActionPerformed
+
+    private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
+miCoordinador.getDetalle().setVisible(true);
+    }//GEN-LAST:event_jMenuItem2ActionPerformed
+
+    private void inventarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_inventarioActionPerformed
+miCoordinador.getReporte().setVisible(true);        // TODO add your handling code here:
+    }//GEN-LAST:event_inventarioActionPerformed
+
+    private void addProductActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addProductActionPerformed
+miCoordinador.getProductos().setVisible(true); 
+    }//GEN-LAST:event_addProductActionPerformed
+
+    private void addProductMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_addProductMouseClicked
+     // TODO add your handling code here:
+    }//GEN-LAST:event_addProductMouseClicked
+
+    private void searchProductMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_searchProductMouseClicked
+
+    }//GEN-LAST:event_searchProductMouseClicked
+
+    private void updateProductMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_updateProductMouseClicked
+
+    }//GEN-LAST:event_updateProductMouseClicked
+
+    private void searchProductActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_searchProductActionPerformed
+miCoordinador.getProductos().setVisible(true);         // TODO add your handling code here:
+    }//GEN-LAST:event_searchProductActionPerformed
+
+    private void itemViewColorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itemViewColorActionPerformed
+miCoordinador.getColor().setVisible(true);
+    }//GEN-LAST:event_itemViewColorActionPerformed
+
+    private void itemAddColorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itemAddColorActionPerformed
+miCoordinador.getColor().setVisible(true);
+    }//GEN-LAST:event_itemAddColorActionPerformed
+
+    private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
+miCoordinador.getUsuario().setVisible(true);        // TODO add your handling code here:
+    }//GEN-LAST:event_jMenuItem1ActionPerformed
+
+    private void itemSaleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itemSaleActionPerformed
+miCoordinador.getVenta().setVisible(true);        // TODO add your handling code here:
+    }//GEN-LAST:event_itemSaleActionPerformed
 
     /**
      * @param args the command line arguments
@@ -176,21 +284,22 @@ System.out.println("Tu resolución es de " + screenSize.width + "x" + screenSize
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JMenuItem addProduct;
+    private javax.swing.JMenuItem inventario;
     private javax.swing.JMenuItem itemAddColor;
-    private javax.swing.JMenuItem itemDeleteProduct;
-    private javax.swing.JMenuItem itemNewProduct;
     private javax.swing.JMenuItem itemSale;
-    private javax.swing.JMenuItem itemSearchProduct;
-    private javax.swing.JMenuItem itemUpdateProduct;
     private javax.swing.JMenuItem itemViewColor;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuItem jMenuItem1;
+    private javax.swing.JMenuItem jMenuItem2;
     private javax.swing.JMenu menuColors;
     private javax.swing.JMenu menuProduct;
     private javax.swing.JMenu menuSale;
     private javax.swing.JMenu menuUsers;
+    private javax.swing.JMenuItem searchProduct;
+    private javax.swing.JMenuItem updateProduct;
     // End of variables declaration//GEN-END:variables
 
   

@@ -24,6 +24,7 @@ import Vista.Ventas;
 import java.util.ArrayList;
 import Modelo.VentaDao;
 import Modelo.VentaVo;
+import Vista.Reportes;
 import Vista.Total;
 
 public class Coordinador {
@@ -36,6 +37,15 @@ public class Coordinador {
     private Ventas venta;
     private DetalleVenta detalle;
     private Total total;
+    private Reportes reporte;
+
+    public Reportes getReporte() {
+        return reporte;
+    }
+
+    public void setReporte(Reportes reporte) {
+        this.reporte = reporte;
+    }
 
     public Total getTotal() {
         return total;

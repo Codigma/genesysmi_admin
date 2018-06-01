@@ -57,14 +57,16 @@ public class Principal {
         miCoordinador.setUsuario(usuario);
         miCoordinador.setVenta(venta);
         miCoordinador.setTotal(total);
+        miCoordinador.setReporte(reportes);
         
-      //  login.setVisible(true);
+       //login.setVisible(true);
       //  color.setVisible(true);
-    usuario.setVisible(true);
-       detalle.setVisible(true);
-        productos.setVisible(true);
-        reportes.setVisible(true);
+   // usuario.setVisible(true);
+     //  detalle.setVisible(true);
+       // productos.setVisible(true);
+       // reportes.setVisible(true);
        // total.setVisible(true);
+inicio.setVisible(true);
 
     }
     

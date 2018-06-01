@@ -131,7 +131,7 @@ public class ProductoDao {
             preparedStatement.setString(7, producto.getComposition());
             preparedStatement.setInt(8, producto.getId_type_product());
             
-            preparedStatement.executeQuery();
+            preparedStatement.executeUpdate();
             
             //Cierra todo
             conn.getConn().close();
@@ -189,7 +189,7 @@ public class ProductoDao {
             preparedStatement.setString(6, null);
             preparedStatement.setString(7, null);
             
-            preparedStatement.executeQuery();
+            preparedStatement.executeUpdate();
             
             //Cierra todo
             conn.getConn().close();
@@ -241,7 +241,7 @@ public class ProductoDao {
             preparedStatement.setInt(3, producto.getId_size());
             preparedStatement.setInt(4, producto.getAmount());
             
-            preparedStatement.executeQuery();
+            preparedStatement.executeUpdate();
             
             //Cierra todo
             conn.getConn().close();

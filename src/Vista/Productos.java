@@ -209,7 +209,7 @@ public class Productos extends javax.swing.JFrame {
         txtBackColor = new javax.swing.JTextField();
         comboColor = new javax.swing.JComboBox<>();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         jPanel2.setBackground(new java.awt.Color(237, 237, 237));
 
