@@ -18,7 +18,7 @@ import javax.swing.table.DefaultTableModel;
  *
  * @author luism
  */
-public class Ventas extends javax.swing.JFrame {
+public class VentasCredito extends javax.swing.JFrame {
     
     
  DefaultTableModel modelo = new DefaultTableModel();
@@ -47,7 +47,7 @@ public class Ventas extends javax.swing.JFrame {
     /**
      * Creates new form Ventas
      */
-    public Ventas() {
+    public VentasCredito() {
         initComponents();
         setLocationRelativeTo(null);        // Centering on screen...
         setSize(1280, 800); 
@@ -174,7 +174,7 @@ tbProducts.setModel(modelo2);
         jPanel4.setBackground(new java.awt.Color(242, 242, 242));
 
         jLabel1.setFont(new java.awt.Font("Avenir", 1, 22)); // NOI18N
-        jLabel1.setText("Ventas");
+        jLabel1.setText("Ventas a crédito");
         jLabel1.setAlignmentX(0.5F);
 
         tbSale.setBackground(new java.awt.Color(237, 237, 237));
@@ -226,14 +226,14 @@ tbProducts.setModel(modelo2);
             .addGroup(jPanel4Layout.createSequentialGroup()
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel4Layout.createSequentialGroup()
-                        .addGap(588, 588, 588)
-                        .addComponent(jLabel1))
-                    .addGroup(jPanel4Layout.createSequentialGroup()
                         .addContainerGap()
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 1223, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel4Layout.createSequentialGroup()
                         .addGap(564, 564, 564)
-                        .addComponent(btnGenerate, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(btnGenerate, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel4Layout.createSequentialGroup()
+                        .addGap(529, 529, 529)
+                        .addComponent(jLabel1)))
                 .addContainerGap(118, Short.MAX_VALUE))
         );
         jPanel4Layout.setVerticalGroup(
