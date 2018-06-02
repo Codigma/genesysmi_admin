@@ -56,6 +56,7 @@ imprimirColores();
       //Asignamos los datos del Modelo a la tabla
       tbColors.setModel(modelo);
     //txtMuestra.setBackground(Color.decode("#6365ff"));
+    
    
  }
  
@@ -92,7 +93,7 @@ txtHex.setText("");
         btnSelect = new javax.swing.JButton();
         btnGuardar = new javax.swing.JButton();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setBackground(new java.awt.Color(51, 51, 51));
 
         jPanel3.setBackground(new java.awt.Color(237, 237, 237));

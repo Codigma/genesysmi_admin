@@ -5,6 +5,8 @@ import Vista.DetalleVenta;
 import Vista.Inicio;
 import Vista.Login;
 import Vista.Productos;
+import Vista.Reportes;
+import Vista.Total;
 import Vista.Usuarios;
 import Vista.Ventas;
 
@@ -18,6 +20,9 @@ public class Principal {
         Usuarios usuario = new Usuarios();
         Ventas venta = new Ventas();
         DetalleVenta detalle = new DetalleVenta();
+        Reportes reportes = new Reportes();
+
+        Total total = new Total();
         
         miCoordinador= new Coordinador();
         Colores color = new Colores();
@@ -31,14 +36,22 @@ public class Principal {
         usuario.setCoordinador(miCoordinador);
         venta.setCoordinador(miCoordinador);
         detalle.setCoordinador(miCoordinador);
+        reportes.setCoordinador(miCoordinador);
+        total.setCoordinador(miCoordinador);
+        
         /*Se establecen relaciones con la clase coordinador*/
         miCoordinador.setLogin(login);
         miCoordinador.setColor(color);
         miCoordinador.setProductos(productos);
         miCoordinador.setDetalle(detalle);
         
+<<<<<<< HEAD
         detalle.setVisible(true);
         productos.setVisible(true);
+=======
+        
+     
+>>>>>>> a9818c1ed524366e78685032a1854215cffd4f26
         color.setCoordinador(miCoordinador);
         inicio.setCoordinador(miCoordinador);
         
@@ -48,10 +61,22 @@ public class Principal {
         miCoordinador.setInicio(inicio);
         miCoordinador.setUsuario(usuario);
         miCoordinador.setVenta(venta);
+        miCoordinador.setTotal(total);
+        miCoordinador.setReporte(reportes);
         
-      //  login.setVisible(true);
+       //login.setVisible(true);
       //  color.setVisible(true);
+<<<<<<< HEAD
     // usuario.setVisible(true);
+=======
+   // usuario.setVisible(true);
+     //  detalle.setVisible(true);
+       // productos.setVisible(true);
+       // reportes.setVisible(true);
+       // total.setVisible(true);
+inicio.setVisible(true);
+
+>>>>>>> a9818c1ed524366e78685032a1854215cffd4f26
     }
     
     public static void main(String args[]) {

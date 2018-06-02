@@ -1,5 +1,7 @@
 package Controlador;
 
+import Modelo.BagDao;
+import Modelo.BagVo;
 import Modelo.ProductoDao;
 import Modelo.ProductoVo;
 import Vista.Productos;
@@ -20,6 +22,10 @@ import Vista.Inicio;
 import Vista.Usuarios;
 import Vista.Ventas;
 import java.util.ArrayList;
+import Modelo.VentaDao;
+import Modelo.VentaVo;
+import Vista.Reportes;
+import Vista.Total;
 
 public class Coordinador {
     
@@ -30,7 +36,24 @@ public class Coordinador {
     private Usuarios usuario;
     private Ventas venta;
     private DetalleVenta detalle;
-    
+    private Total total;
+    private Reportes reporte;
+
+    public Reportes getReporte() {
+        return reporte;
+    }
+
+    public void setReporte(Reportes reporte) {
+        this.reporte = reporte;
+    }
+
+    public Total getTotal() {
+        return total;
+    }
+
+    public void setTotal(Total total) {
+        this.total = total;
+    }
 
     public Inicio getInicio() {
         return inicio;
@@ -184,4 +207,49 @@ public class Coordinador {
     UsuarioDao usuario = new UsuarioDao();
     return usuario.getUsuarios();
     }
+<<<<<<< HEAD
+=======
+      
+      public ArrayList<TallaVo> obtenerTallasProducto (int talla){
+      TallaDao tall = new TallaDao();
+      return tall.obtener_tallas(talla);
+      
+      }
+      
+      public ArrayList<ColorVo> obtenerColorProducto (String art, int talla){
+ColorDao color = new ColorDao();
+return color.getColorArt(art, talla);
+      }
+      
+      public int obtenerSiguienteId(){
+      VentaDao venta = new VentaDao();
+      return venta.getLastId();
+      }
+      
+         public void InsertBag(BagVo bag){
+        BagDao dao = new BagDao();
+        dao.InsertBag(bag); }
+         
+         public void InsertVenta(VentaVo venta){
+         VentaDao dao = new VentaDao();
+         dao.InsertCompra(venta);
+         }
+         
+         
+           public void UpdateProductSizesSales(ProductoVo producto){
+        ProductoDao dao = new ProductoDao();
+        dao.UpdateProductSizesSale(producto);
+    }
+           
+           
+                 public void ActualizarMonedero(UsuarioVo usuario){
+        UsuarioDao dao = new UsuarioDao();
+        dao.UpdateMonedero(usuario);
+    }
+         public ArrayList<VentaVo> selectYears(){
+                 VentaDao year = new VentaDao();
+                 return year.getYears();
+                     
+                 }
+>>>>>>> a9818c1ed524366e78685032a1854215cffd4f26
 }

@@ -131,7 +131,7 @@ public class ProductoDao {
             preparedStatement.setString(7, producto.getComposition());
             preparedStatement.setInt(8, producto.getId_type_product());
             
-            preparedStatement.executeQuery();
+            preparedStatement.executeUpdate();
             
             //Cierra todo
             conn.getConn().close();
@@ -189,7 +189,7 @@ public class ProductoDao {
             preparedStatement.setString(6, null);
             preparedStatement.setString(7, null);
             
-            preparedStatement.executeQuery();
+            preparedStatement.executeUpdate();
             
             //Cierra todo
             conn.getConn().close();
@@ -241,7 +241,7 @@ public class ProductoDao {
             preparedStatement.setInt(3, producto.getId_size());
             preparedStatement.setInt(4, producto.getAmount());
             
-            preparedStatement.executeQuery();
+            preparedStatement.executeUpdate();
             
             //Cierra todo
             conn.getConn().close();
@@ -269,6 +269,32 @@ public class ProductoDao {
             preparedStatement.setString(5, producto.getArt());
             preparedStatement.setString(6, producto.getColor_art());
             preparedStatement.setInt(7, producto.getId_size());
+            
+            preparedStatement.executeUpdate();
+            
+            //Cierra todo
+            conn.getConn().close();
+            //resultSet.close();
+            preparedStatement.close();
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
+    }
+    
+     public void UpdateProductSizesSale(ProductoVo producto){
+        Conectarse conn = new Conectarse();
+        
+        try {
+            PreparedStatement preparedStatement = conn.getConn().prepareStatement(
+                    "UPDATE product_sizes SET amount=amount-? "
+                    + "WHERE art = ? AND color_art = ? AND id_size = ?");
+            
+            preparedStatement.setInt(1, producto.getAmount());
+            preparedStatement.setString(2, producto.getArt());
+            preparedStatement.setString(3, producto.getColor_art());
+            preparedStatement.setInt(4, producto.getId_size());
+            
+            
             
             preparedStatement.executeUpdate();
             
