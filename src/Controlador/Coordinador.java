@@ -249,4 +249,14 @@ return color.getColorArt(art, talla);
                  return year.getYears();
                      
                  }
+         
+    public ArrayList<VentaVo> obtenerVentas (){
+VentaDao dao = new VentaDao();
+return dao.getSales();
+}
+
+    public ArrayList<BagVo> obtenerProductosVenta(int id){
+    BagDao dao = new BagDao();
+    return dao.getProductsSale(id);
+    }
 }

@@ -24,7 +24,8 @@ public class Inicio extends javax.swing.JFrame {
         //this.getUsuario(1);
         miCoordinador.getProductos().setExtendedState(MAXIMIZED_BOTH);
         miCoordinador.getDetalle().setExtendedState(MAXIMIZED_BOTH);
-//        miCoordinador.getUsuario().setExtendedState(MAXIMIZED_BOTH);
+    //    miCoordinador.getUsuario().setExtendedState(MAXIMIZED_BOTH);
+     //   
     }
  
 
@@ -241,7 +242,8 @@ miCoordinador.getUsuario().setVisible(true);        // TODO add your handling co
     }//GEN-LAST:event_jMenuItem1ActionPerformed
 
     private void itemSaleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itemSaleActionPerformed
-miCoordinador.getVenta().setVisible(true);        // TODO add your handling code here:
+miCoordinador.getVenta().setExtendedState(MAXIMIZED_BOTH);
+        miCoordinador.getVenta().setVisible(true);        // TODO add your handling code here:
     }//GEN-LAST:event_itemSaleActionPerformed
 
     /**
