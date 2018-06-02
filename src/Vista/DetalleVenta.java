@@ -20,7 +20,7 @@ import javax.swing.table.DefaultTableModel;
  * @author bryan
  */
 public class DetalleVenta extends javax.swing.JFrame {
-Date date = new Date();
+ Date date = new Date();
 DateFormat hourdateFormat = new SimpleDateFormat("dd/MM/yyyy HH:mm ");
     
 DefaultTableModel modelo = new DefaultTableModel();
