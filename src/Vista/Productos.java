@@ -128,6 +128,7 @@ public class Productos extends javax.swing.JFrame {
             isArt = true;
         } else {
             System.out.println("producto no encontrado");
+            JOptionPane.showMessageDialog(null,"Producto no encontrado");
         }
     }
 
