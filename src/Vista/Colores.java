@@ -138,7 +138,7 @@ txtHex.setText("");
         });
         jScrollPane2.setViewportView(tbColors);
 
-        jLabel2.setFont(new java.awt.Font("Avenir", 1, 22)); // NOI18N
+        jLabel2.setFont(new java.awt.Font("Baghdad", 1, 22)); // NOI18N
         jLabel2.setText("Buscar colores");
 
         jLabel6.setFont(new java.awt.Font("Apple SD Gothic Neo", 0, 16)); // NOI18N
@@ -190,7 +190,7 @@ txtHex.setText("");
 
         jPanel1.setBackground(new java.awt.Color(242, 242, 242));
 
-        jLabel1.setFont(new java.awt.Font("Avenir", 1, 22)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Baghdad", 1, 22)); // NOI18N
         jLabel1.setText("Agregar color");
 
         jPanel4.setBackground(new java.awt.Color(242, 242, 242));
@@ -290,7 +290,7 @@ txtHex.setText("");
                     .addComponent(txtCod, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnSelect, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnSelect, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnGuardar, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(13, 13, 13))
         );
