@@ -19,6 +19,7 @@ import javax.swing.JOptionPane;
 public class Total extends javax.swing.JFrame {
     private Coordinador miCoordinador;
 public ArrayList<ProductoVo> product = new ArrayList();
+public ArrayList<BagVo> bolsa = new ArrayList();
 public UsuarioVo comprador = new UsuarioVo();
 public double dineroelectronico;
 ProductoVo registro = new ProductoVo();

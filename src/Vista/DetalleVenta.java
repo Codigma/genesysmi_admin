@@ -923,7 +923,7 @@ BagVo aux = new BagVo();
         aux.setPrice(bag.get(t).getPrice());
         aux.setQuantity(bag.get(t).getQuantity());
         aux.setId_sale(bag.get(t).getId_sale());
-        miCoordinador.InsertBag(aux);
+      //   miCoordinador.InsertBag(aux);
         }
 
         
@@ -1161,11 +1161,11 @@ break;
     private javax.swing.JLabel lblTalla;
     private javax.swing.JLabel lblTotal;
     private javax.swing.JTable tbVenta;
-    private javax.swing.JTextField txtCliente;
+    public javax.swing.JTextField txtCliente;
     private javax.swing.JTextField txtCode;
-    private javax.swing.JTextField txtDireccion;
+    public javax.swing.JTextField txtDireccion;
     private javax.swing.JTextField txtFecha;
-    private javax.swing.JTextField txtMonedero;
+    public javax.swing.JTextField txtMonedero;
     private javax.swing.JTextField txtPorcen;
     private javax.swing.JTextField txtVendedor;
     // End of variables declaration//GEN-END:variables

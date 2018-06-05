@@ -6,10 +6,14 @@
 package Vista;
 
 import Controlador.Coordinador;
+import Modelo.BagVo;
+import Modelo.ColorVo;
 import Modelo.ProductoVo;
+import Modelo.TallaVo;
 import Modelo.UsuarioVo;
 import java.awt.Color;
 import java.util.ArrayList;
+import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -94,7 +98,6 @@ modelo.removeRow(0);
         btnGenerate = new javax.swing.JButton();
         btnSearch = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
-        lblBuscar = new javax.swing.JLabel();
 
         jPanel1.setBackground(new java.awt.Color(237, 237, 237));
 
@@ -173,16 +176,6 @@ modelo.removeRow(0);
         jLabel2.setFont(new java.awt.Font("Baghdad", 1, 22)); // NOI18N
         jLabel2.setText("Usuarios registrados");
 
-        lblBuscar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/IconSearch.png"))); // NOI18N
-        lblBuscar.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mousePressed(java.awt.event.MouseEvent evt) {
-                lblBuscarMousePressed(evt);
-            }
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                lblBuscarMouseClicked(evt);
-            }
-        });
-
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
@@ -203,9 +196,7 @@ modelo.removeRow(0);
                         .addComponent(jLabel1)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(txtSearch, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(lblBuscar)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGap(49, 49, 49)
                         .addComponent(btnSearch, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGap(522, 522, 522)
@@ -226,9 +217,7 @@ modelo.removeRow(0);
                         .addGap(23, 23, 23))
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(btnSearch, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(lblBuscar))
+                        .addComponent(btnSearch, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)))
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 462, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(28, 28, 28)
@@ -317,74 +306,6 @@ limpiarTable();
 imprimirUsuarios();
     }//GEN-LAST:event_btnGenerateActionPerformed
 
-    private void lblBuscarMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblBuscarMousePressed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_lblBuscarMousePressed
-
-    private void lblBuscarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblBuscarMouseClicked
-        if(txtCode.getText().trim().equals("")){
-            JOptionPane.showMessageDialog(null,"Ingrese un codigo válido","ERROR",JOptionPane.INFORMATION_MESSAGE);
-        }
-        else{
-            BagVo bagg = new BagVo();
-            ArrayList<TallaVo> medida = miCoordinador.obtenerTallasProducto(Integer.parseInt(txtCode.getText().trim()));
-            String [] medidas = new String[medida.size()];
-
-            for(int i =0 ; i<medida.size();i++){
-                medidas[i]=(medida.get(i).getSize_name());
-            }
-
-            String resp = (String) JOptionPane.showInputDialog(null, "Seleccione la talla disponible", "Talla", JOptionPane.DEFAULT_OPTION, null, medidas, "Selecciona");
-            int auxtalla=0;
-            for(int i =0 ; i<medida.size();i++){
-                if(medidas[i]==resp){
-                    auxtalla= medida.get(i).getId_size();
-                }
-
-            }
-
-            ProductoVo product = miCoordinador.getDetallesProducto(txtCode.getText());
-            ArrayList <ColorVo> color = miCoordinador.obtenerColorProducto(txtCode.getText(), auxtalla);
-            String [] colores = new String[color.size()];
-
-            for(int i =0 ; i<color.size();i++){
-                colores[i]=(color.get(i).getColor_name());
-            }
-
-            String resp1 = (String) JOptionPane.showInputDialog(null, "Seleccione un color disponible", "Color", JOptionPane.DEFAULT_OPTION, null, colores, "Selecciona");
-            String auxcolor="";
-            for(int i =0 ; i<color.size();i++){
-                if(colores[i]==resp1){
-                    auxcolor= color.get(i).getColor_art();
-                }
-
-            }
-
-            String cantidades = (String) JOptionPane.showInputDialog(null, "Seleccione la cantidad del articulo",
-                "Cantidad", JOptionPane.YES_NO_CANCEL_OPTION, null, new String [] {"1","2","3","4","5","6","7","8","9","10"}, "1");
-
-            lblArt.setText(product.getArt_name());
-            lblColor.setText(resp1);
-            lblTalla.setText(resp);
-            lblPrecio.setText(Double.toString(product.getPrice()));
-
-            bagg.setId_user(id_usuario);
-            bagg.setArt(txtCode.getText());
-            bagg.setArt_name(product.getArt_name());
-            bagg.setColor_art(auxcolor);
-            bagg.setColor_name(resp1);
-            bagg.setId_size(auxtalla);
-            bagg.setSize_name(resp);
-            bagg.setPrice(product.getPrice());
-            bagg.setQuantity(Integer.parseInt(cantidades.trim()));
-            bagg.setImporte(calcularImporte(Integer.parseInt(cantidades.trim()),product.getPrice()));
-            bagg.setId_sale(miCoordinador.obtenerSiguienteId());
-
-            bag.add(bagg);
-
-        }
-    }//GEN-LAST:event_lblBuscarMouseClicked
-
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnGenerate;
@@ -394,7 +315,6 @@ imprimirUsuarios();
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JLabel lblBuscar;
     private javax.swing.JTable tbUsers;
     private javax.swing.JTextField txtSearch;
     // End of variables declaration//GEN-END:variables
