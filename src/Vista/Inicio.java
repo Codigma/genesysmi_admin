@@ -168,6 +168,11 @@ public class Inicio extends javax.swing.JFrame {
         menuSale.add(itemSale);
 
         itemCredit.setText("Lista de Créditos");
+        itemCredit.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                itemCreditActionPerformed(evt);
+            }
+        });
         menuSale.add(itemCredit);
 
         jMenuBar1.add(menuSale);
@@ -249,6 +254,11 @@ miCoordinador.getUsuario().setVisible(true);        // TODO add your handling co
 miCoordinador.getVenta().setExtendedState(MAXIMIZED_BOTH);
         miCoordinador.getVenta().setVisible(true);        // TODO add your handling code here:
     }//GEN-LAST:event_itemSaleActionPerformed
+
+    private void itemCreditActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itemCreditActionPerformed
+miCoordinador.getCredito().setExtendedState(MAXIMIZED_BOTH);
+        miCoordinador.getCredito().setVisible(true);         // TODO add your handling code here:
+    }//GEN-LAST:event_itemCreditActionPerformed
 
     /**
      * @param args the command line arguments

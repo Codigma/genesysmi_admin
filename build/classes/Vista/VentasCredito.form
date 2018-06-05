@@ -39,6 +39,11 @@
           <Color blue="ed" green="ed" red="ed" type="rgb"/>
         </Property>
       </Properties>
+      <AccessibilityProperties>
+        <Property name="AccessibleContext.accessibleParent" type="javax.accessibility.Accessible" editor="org.netbeans.modules.form.ComponentChooserEditor">
+          <ComponentRef name="null"/>
+        </Property>
+      </AccessibilityProperties>
 
       <Layout>
         <DimensionLayout dim="0">
@@ -111,7 +116,7 @@
 
               <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
               <SubComponents>
-                <Component class="javax.swing.JTable" name="tbProducts">
+                <Component class="javax.swing.JTable" name="tbProductos">
                   <Properties>
                     <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                       <Color blue="ed" green="ed" red="ed" type="rgb"/>
@@ -177,7 +182,7 @@
                     </Property>
                   </Properties>
                   <Events>
-                    <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="tbProductsMouseClicked"/>
+                    <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="tbProductosMouseClicked"/>
                   </Events>
                 </Component>
               </SubComponents>
@@ -209,15 +214,23 @@
                               <Component id="jScrollPane1" min="-2" pref="1223" max="-2" attributes="0"/>
                           </Group>
                           <Group type="102" alignment="0" attributes="0">
-                              <EmptySpace min="-2" pref="564" max="-2" attributes="0"/>
-                              <Component id="btnGenerate" min="-2" pref="102" max="-2" attributes="0"/>
-                          </Group>
-                          <Group type="102" alignment="0" attributes="0">
                               <EmptySpace min="-2" pref="529" max="-2" attributes="0"/>
                               <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
                           </Group>
                       </Group>
                       <EmptySpace pref="118" max="32767" attributes="0"/>
+                  </Group>
+                  <Group type="102" alignment="1" attributes="0">
+                      <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                      <Component id="btnPagar" min="-2" pref="102" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="551" max="-2" attributes="0"/>
+                  </Group>
+                  <Group type="103" rootIndex="1" groupAlignment="0" attributes="0">
+                      <Group type="102" alignment="0" attributes="0">
+                          <EmptySpace min="-2" pref="457" max="-2" attributes="0"/>
+                          <Component id="btnGenerate1" min="-2" pref="102" max="-2" attributes="0"/>
+                          <EmptySpace pref="792" max="32767" attributes="0"/>
+                      </Group>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -228,9 +241,16 @@
                       <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Component id="jScrollPane1" min="-2" pref="231" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="29" max="-2" attributes="0"/>
-                      <Component id="btnGenerate" min="-2" pref="35" max="-2" attributes="0"/>
-                      <EmptySpace pref="19" max="32767" attributes="0"/>
+                      <EmptySpace pref="29" max="32767" attributes="0"/>
+                      <Component id="btnPagar" min="-2" pref="35" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="19" max="-2" attributes="0"/>
+                  </Group>
+                  <Group type="103" rootIndex="1" groupAlignment="0" attributes="0">
+                      <Group type="102" alignment="1" attributes="0">
+                          <EmptySpace pref="317" max="32767" attributes="0"/>
+                          <Component id="btnGenerate1" min="-2" pref="35" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
+                      </Group>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -252,7 +272,7 @@
 
               <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
               <SubComponents>
-                <Component class="javax.swing.JTable" name="tbSale">
+                <Component class="javax.swing.JTable" name="tbCredit">
                   <Properties>
                     <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                       <Color blue="ed" green="ed" red="ed" type="rgb"/>
@@ -280,12 +300,29 @@
                     </Property>
                   </Properties>
                   <Events>
-                    <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="tbSaleMouseClicked"/>
+                    <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="tbCreditMouseClicked"/>
                   </Events>
                 </Component>
               </SubComponents>
             </Container>
-            <Component class="javax.swing.JButton" name="btnGenerate">
+            <Component class="javax.swing.JButton" name="btnPagar">
+              <Properties>
+                <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                  <Color blue="91" green="25" red="0" type="rgb"/>
+                </Property>
+                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                  <Font name="Lucida Grande" size="13" style="1"/>
+                </Property>
+                <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                  <Color blue="ff" green="ff" red="ff" type="rgb"/>
+                </Property>
+                <Property name="text" type="java.lang.String" value="Pagar"/>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnPagarActionPerformed"/>
+              </Events>
+            </Component>
+            <Component class="javax.swing.JButton" name="btnGenerate1">
               <Properties>
                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="91" green="25" red="0" type="rgb"/>

@@ -28,6 +28,7 @@ import Modelo.VentaDao;
 import Modelo.VentaVo;
 import Vista.Reportes;
 import Vista.Total;
+import Vista.VentasCredito;
 
 public class Coordinador {
     
@@ -40,6 +41,15 @@ public class Coordinador {
     private DetalleVenta detalle;
     private Total total;
     private Reportes reporte;
+    private VentasCredito credito;
+
+    public VentasCredito getCredito() {
+        return credito;
+    }
+
+    public void setCredito(VentasCredito credito) {
+        this.credito = credito;
+    }
 
     public Reportes getReporte() {
         return reporte;
@@ -270,6 +280,13 @@ return dao.getSales();
     public ArrayList<VentaVo> ventasSinCliente(){
            VentaDao sincliente = new VentaDao();
            return sincliente.getSalesNoClient();
+                     
+                 }
+    
+    
+    public ArrayList<VentaVo> ventasCredito(){
+           VentaDao credito = new VentaDao();
+    return credito.getSalesCredit();
                      
                  }
 }

@@ -9,6 +9,8 @@ import Vista.Reportes;
 import Vista.Total;
 import Vista.Usuarios;
 import Vista.Ventas;
+import Vista.VentasCredito;
+
 
 public class Principal {
     Coordinador miCoordinador;
@@ -21,7 +23,7 @@ public class Principal {
         Ventas venta = new Ventas();
         DetalleVenta detalle = new DetalleVenta();
         Reportes reportes = new Reportes();
-
+        VentasCredito credito = new VentasCredito();
         Total total = new Total();
         
         miCoordinador= new Coordinador();
@@ -38,6 +40,7 @@ public class Principal {
         detalle.setCoordinador(miCoordinador);
         reportes.setCoordinador(miCoordinador);
         total.setCoordinador(miCoordinador);
+        credito.setCoordinador(miCoordinador);
         
         /*Se establecen relaciones con la clase coordinador*/
         miCoordinador.setLogin(login);
@@ -58,7 +61,7 @@ public class Principal {
         miCoordinador.setVenta(venta);
         miCoordinador.setTotal(total);
         miCoordinador.setReporte(reportes);
-        
+        miCoordinador.setCredito(credito);
        //login.setVisible(true);
       //  color.setVisible(true);
    // usuario.setVisible(true);

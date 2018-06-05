@@ -219,5 +219,55 @@ int aux=0;
         } catch (SQLException e) {
             System.out.println(e.getMessage());
         }
+ 
+        }
+         
+         
+          public ArrayList<VentaVo> getSalesCredit() {
+        Conectarse conn = new Conectarse();
+        ArrayList<VentaVo> sales = new ArrayList<>();
+        
+        
+        try{
+            PreparedStatement preparedStatement = conn.getConn().prepareStatement(
+              "SELECT sales.*,u.firstname,u.lastname "
+            +"FROM sales "
+            +"INNER JOIN users as u on u.id_user = sales.id_user "
+            +"where credito = 1 and total>0");
+
+        
+            ResultSet resultSet = preparedStatement.executeQuery();
+            while (resultSet.next()) {
+                //Objeto de tipo sucategory
+                VentaVo sale = new VentaVo();
+                sale.setId_sale(resultSet.getInt(1));
+                sale.setId_user(resultSet.getInt(2));
+                sale.setSubtotal(resultSet.getDouble(3));
+                sale.setShip(resultSet.getDouble(4));
+                sale.setTotal(resultSet.getDouble(5));
+                sale.setDate(resultSet.getString(6));
+                sale.setCredito(resultSet.getInt(7));
+                sale.setFirstname(resultSet.getString(8));
+                sale.setLastname(resultSet.getString(9));
+                
+                
+                
+                
+                sales.add(sale);
+                
+
+            }
+
+           
+            conn.getConn().close();
+            resultSet.close();
+            preparedStatement.close();
+            
+        }catch(SQLException e){
+            System.out.println(e.getMessage());
+            
+        }
+        return sales;
+        
     }
 }
