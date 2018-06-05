@@ -152,5 +152,28 @@ int aux=0;
         
     }
         
+         public void InsertCompraCredito(VentaVo venta){
+        Conectarse conn = new Conectarse();
         
+        try {
+            PreparedStatement preparedStatement = conn.getConn().prepareStatement(
+                    "INSERT INTO sales (id_user, subtotal, ship, total, credito ) "                         
+                    + "VALUES (?, ?, ?, ?, ?)");
+            
+            
+            preparedStatement.setInt(1, venta.getId_user());
+            preparedStatement.setDouble(2, venta.getSubtotal());
+            preparedStatement.setDouble(3, venta.getShip());
+            preparedStatement.setDouble(4, venta.getTotal());
+            preparedStatement.setInt(5, venta.getCredito());
+            preparedStatement.executeUpdate();
+            
+            //Cierra todo
+            conn.getConn().close();
+            //resultSet.close();
+            preparedStatement.close();
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
+    }
 }
