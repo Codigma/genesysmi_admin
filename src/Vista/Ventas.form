@@ -185,7 +185,7 @@
             <Component class="javax.swing.JLabel" name="jLabel2">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                  <Font name="Avenir" size="22" style="1"/>
+                  <Font name="Baghdad" size="22" style="1"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="Productos"/>
               </Properties>
@@ -239,7 +239,7 @@
             <Component class="javax.swing.JLabel" name="jLabel1">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                  <Font name="Avenir" size="22" style="1"/>
+                  <Font name="Baghdad" size="22" style="1"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="Ventas"/>
                 <Property name="alignmentX" type="float" value="0.5"/>

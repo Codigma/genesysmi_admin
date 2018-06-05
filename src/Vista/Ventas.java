@@ -144,7 +144,7 @@ tbProducts.setModel(modelo2);
         });
         jScrollPane2.setViewportView(tbProducts);
 
-        jLabel2.setFont(new java.awt.Font("Avenir", 1, 22)); // NOI18N
+        jLabel2.setFont(new java.awt.Font("Baghdad", 1, 22)); // NOI18N
         jLabel2.setText("Productos");
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
@@ -173,7 +173,7 @@ tbProducts.setModel(modelo2);
 
         jPanel4.setBackground(new java.awt.Color(242, 242, 242));
 
-        jLabel1.setFont(new java.awt.Font("Avenir", 1, 22)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Baghdad", 1, 22)); // NOI18N
         jLabel1.setText("Ventas");
         jLabel1.setAlignmentX(0.5F);
 
