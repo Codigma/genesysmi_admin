@@ -61,6 +61,7 @@ public class Inicio extends javax.swing.JFrame {
         menuSale = new javax.swing.JMenu();
         jMenuItem2 = new javax.swing.JMenuItem();
         itemSale = new javax.swing.JMenuItem();
+        itemCredit = new javax.swing.JMenuItem();
         jMenu1 = new javax.swing.JMenu();
         inventario = new javax.swing.JMenuItem();
 
@@ -165,6 +166,9 @@ public class Inicio extends javax.swing.JFrame {
             }
         });
         menuSale.add(itemSale);
+
+        itemCredit.setText("Lista de Créditos");
+        menuSale.add(itemCredit);
 
         jMenuBar1.add(menuSale);
 
@@ -289,6 +293,7 @@ System.out.println("Tu resolución es de " + screenSize.width + "x" + screenSize
     private javax.swing.JMenuItem addProduct;
     private javax.swing.JMenuItem inventario;
     private javax.swing.JMenuItem itemAddColor;
+    private javax.swing.JMenuItem itemCredit;
     private javax.swing.JMenuItem itemSale;
     private javax.swing.JMenuItem itemViewColor;
     private javax.swing.JLabel jLabel2;

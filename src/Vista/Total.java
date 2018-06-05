@@ -9,6 +9,7 @@ import Controlador.Coordinador;
 import Modelo.ProductoVo;
 import Modelo.UsuarioVo;
 import Modelo.VentaVo;
+import Modelo.BagVo;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
 
@@ -318,6 +319,10 @@ for(int v = 0; v < product.size(); v++){
 comprador.setMoney(comprador.getMoney()+ dineroelectronico);
   miCoordinador.ActualizarMonedero(comprador);
 
+for(int b = 0; b < bolsa.size(); b++){
+        miCoordinador.InsertBag(bolsa.get(b));
+        }
+  
 dispose();
 txtPago.setText("");
 

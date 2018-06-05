@@ -948,7 +948,7 @@ miCoordinador.getTotal().dineroelectronico = dineroElectronicoVenta();
 } 
   
         
-        
+miCoordinador.getTotal().bolsa = (ArrayList) bag.clone();
 miCoordinador.getTotal().product =  (ArrayList) registro.clone();
 miCoordinador.getTotal().lblCliente.setText(txtCliente.getText());
 miCoordinador.getTotal().lblVendedor.setText(txtVendedor.getText());

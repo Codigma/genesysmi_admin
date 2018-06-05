@@ -68,6 +68,19 @@ venta.get(i).getDate()});
       //Asignamos los datos del Modelo a la tabla
       tbSale.setModel(modelo);
 }
+
+public void llenarTablaVentaSinCliente(){
+    modelo.setColumnIdentifiers(columnas);
+     ArrayList<VentaVo> venta = miCoordinador.ventasSinCliente();
+      
+     for(int i = 0; i<venta.size();i++){
+modelo.addRow(new Object[] {venta.get(i).getId_sale(),"","",
+    venta.get(i).getSubtotal(),venta.get(i).getShip(),venta.get(i).getTotal(),
+venta.get(i).getDate()});
+}
+      //Asignamos los datos del Modelo a la tabla
+      tbSale.setModel(modelo);
+}
     
 public void llenarTablaProducto(int sale){
 modelo2.setColumnIdentifiers(columnas2);
@@ -95,6 +108,7 @@ tbProducts.setModel(modelo2);
         jScrollPane1 = new javax.swing.JScrollPane();
         tbSale = new javax.swing.JTable();
         btnGenerate = new javax.swing.JButton();
+        btnGenerate1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
@@ -217,6 +231,21 @@ tbProducts.setModel(modelo2);
         btnGenerate.setFont(new java.awt.Font("Lucida Grande", 1, 13)); // NOI18N
         btnGenerate.setForeground(new java.awt.Color(255, 255, 255));
         btnGenerate.setText("Generar");
+        btnGenerate.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnGenerateActionPerformed(evt);
+            }
+        });
+
+        btnGenerate1.setBackground(new java.awt.Color(0, 37, 145));
+        btnGenerate1.setFont(new java.awt.Font("Lucida Grande", 1, 13)); // NOI18N
+        btnGenerate1.setForeground(new java.awt.Color(255, 255, 255));
+        btnGenerate1.setText("Sin Registrar");
+        btnGenerate1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnGenerate1ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
@@ -226,15 +255,16 @@ tbProducts.setModel(modelo2);
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jScrollPane1)
                     .addGroup(jPanel4Layout.createSequentialGroup()
-                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel4Layout.createSequentialGroup()
-                                .addGap(595, 595, 595)
-                                .addComponent(jLabel1))
-                            .addGroup(jPanel4Layout.createSequentialGroup()
-                                .addGap(578, 578, 578)
-                                .addComponent(btnGenerate, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(0, 577, Short.MAX_VALUE)))
+                        .addGap(595, 595, 595)
+                        .addComponent(jLabel1)
+                        .addGap(0, 591, Short.MAX_VALUE)))
                 .addContainerGap())
+            .addGroup(jPanel4Layout.createSequentialGroup()
+                .addGap(448, 448, 448)
+                .addComponent(btnGenerate, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(154, 154, 154)
+                .addComponent(btnGenerate1)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -243,9 +273,11 @@ tbProducts.setModel(modelo2);
                 .addComponent(jLabel1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 231, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 28, Short.MAX_VALUE)
-                .addComponent(btnGenerate, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(20, 20, 20))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 29, Short.MAX_VALUE)
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnGenerate, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnGenerate1, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(19, 19, 19))
         );
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
@@ -301,9 +333,20 @@ int fila = tbSale.getSelectedRow();
          }        // TODO add your handling code here:
     }//GEN-LAST:event_tbSaleMouseClicked
 
+    private void btnGenerate1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGenerate1ActionPerformed
+limpiarTabla(tbSale);
+llenarTablaVentaSinCliente();
+    }//GEN-LAST:event_btnGenerate1ActionPerformed
+
+    private void btnGenerateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGenerateActionPerformed
+  limpiarTabla(tbSale);
+llenarTablaVenta();
+    }//GEN-LAST:event_btnGenerateActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnGenerate;
+    private javax.swing.JButton btnGenerate1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel2;

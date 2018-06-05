@@ -267,4 +267,9 @@ return dao.getSales();
     compra.InsertCompraCredito(credit);
     }
     
+    public ArrayList<VentaVo> ventasSinCliente(){
+           VentaDao sincliente = new VentaDao();
+           return sincliente.getSalesNoClient();
+                     
+                 }
 }
