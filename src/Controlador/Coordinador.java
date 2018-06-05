@@ -7,6 +7,8 @@ import Modelo.ProductoVo;
 import Vista.Productos;
 import Modelo.ColorDao;
 import Modelo.ColorVo;
+import Modelo.CreditoDao;
+import Modelo.CreditoVo;
 import Modelo.SubcategoryDao;
 import Modelo.SubcategoryVo;
 import Modelo.SystemDao;
@@ -259,4 +261,10 @@ return dao.getSales();
     BagDao dao = new BagDao();
     return dao.getProductsSale(id);
     }
+    
+    public void ingresarCredito(VentaVo credit){
+    VentaDao compra = new VentaDao();
+    compra.InsertCompraCredito(credit);
+    }
+    
 }

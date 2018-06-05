@@ -20,6 +20,7 @@ public class Total extends javax.swing.JFrame {
     private Coordinador miCoordinador;
 public ArrayList<ProductoVo> product = new ArrayList();
 public UsuarioVo comprador = new UsuarioVo();
+public double dineroelectronico;
 ProductoVo registro = new ProductoVo();
     
     
@@ -313,7 +314,7 @@ miCoordinador.InsertVenta(venta);
 for(int v = 0; v < product.size(); v++){
         miCoordinador.UpdateProductSizesSales(product.get(v));
         }
-
+comprador.setMoney(comprador.getMoney()+ dineroelectronico);
   miCoordinador.ActualizarMonedero(comprador);
 
 dispose();
