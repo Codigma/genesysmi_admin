@@ -28,7 +28,7 @@ import Modelo.VentaDao;
 import Modelo.VentaVo;
 import Vista.Reportes;
 import Vista.Total;
-import Vista.VentasCredito;
+import Vista.VentaCredito;
 
 public class Coordinador {
     
@@ -41,13 +41,13 @@ public class Coordinador {
     private DetalleVenta detalle;
     private Total total;
     private Reportes reporte;
-    private VentasCredito credito;
+    private VentaCredito credito;
 
-    public VentasCredito getCredito() {
+    public VentaCredito getCredito() {
         return credito;
     }
 
-    public void setCredito(VentasCredito credito) {
+    public void setCredito(VentaCredito credito) {
         this.credito = credito;
     }
 

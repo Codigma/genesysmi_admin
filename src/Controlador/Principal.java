@@ -9,7 +9,7 @@ import Vista.Reportes;
 import Vista.Total;
 import Vista.Usuarios;
 import Vista.Ventas;
-import Vista.VentasCredito;
+import Vista.VentaCredito;
 
 
 public class Principal {
@@ -23,7 +23,7 @@ public class Principal {
         Ventas venta = new Ventas();
         DetalleVenta detalle = new DetalleVenta();
         Reportes reportes = new Reportes();
-        VentasCredito credito = new VentasCredito();
+        VentaCredito credito = new VentaCredito();
         Total total = new Total();
         
         miCoordinador= new Coordinador();
