@@ -270,4 +270,29 @@ int aux=0;
         return sales;
         
     }
+          
+          public void UpdateDeuda(VentaVo venta){
+        Conectarse conn = new Conectarse();
+        
+        try {
+            PreparedStatement preparedStatement = conn.getConn().prepareStatement(
+                    "UPDATE sales SET total=? "
+                    + "WHERE id_user = ? AND  id_sale = ?");
+            
+            preparedStatement.setDouble(1, venta.getTotal());
+            preparedStatement.setInt(2, venta.getId_user());
+            preparedStatement.setInt(3, venta.getId_sale());
+            
+            
+            
+            preparedStatement.executeUpdate();
+            
+            //Cierra todo
+            conn.getConn().close();
+            //resultSet.close();
+            preparedStatement.close();
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
+    }
 }
