@@ -62,14 +62,14 @@ public class Principal {
         miCoordinador.setTotal(total);
         miCoordinador.setReporte(reportes);
         miCoordinador.setCredito(credito);
-       //login.setVisible(true);
+       login.setVisible(true);
       //  color.setVisible(true);
    // usuario.setVisible(true);
      //  detalle.setVisible(true);
        // productos.setVisible(true);
        // reportes.setVisible(true);
        // total.setVisible(true);
-inicio.setVisible(true);
+//inicio.setVisible(true);
 
     }
     

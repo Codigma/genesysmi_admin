@@ -313,7 +313,8 @@ tbProducts.setModel(modelo2);
     }//GEN-LAST:event_tbProductsMouseClicked
 
     private void tbSaleMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tbSaleMouseClicked
-int fila = tbSale.getSelectedRow();
+
+        int fila = tbSale.getSelectedRow();
          
          if ((fila > -1)){
             int aux = (int) modelo.getValueAt(fila, 0);
@@ -324,16 +325,28 @@ int fila = tbSale.getSelectedRow();
     }//GEN-LAST:event_tbSaleMouseClicked
 
     private void btnDeudaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeudaActionPerformed
-   int seleccion = tbSale.getSelectedRow();
+  ArrayList<VentaVo> venta = miCoordinador.ventasCredito();
+        int seleccion = tbSale.getSelectedRow();
         
         if(seleccion >=0 ){
-        double descuento;
+        VentaVo auxiliar = new VentaVo();
+            double descuento = 0.00;
     String valor = JOptionPane.showInputDialog(null, "Registre el pago");
     
-    //bag.get(seleccion).setImporte(Double.valueOf(descuento));
+    if(Double.parseDouble(valor) <= venta.get(seleccion).getTotal()){
+    descuento = venta.get(seleccion).getTotal() - Double.parseDouble(valor) ;
     
+    auxiliar.setTotal(descuento);
+    auxiliar.setId_user(venta.get(seleccion).getId_user());
+    auxiliar.setId_sale(venta.get(seleccion).getId_sale());
+    
+    miCoordinador.pagarDeuda(auxiliar);
     limpiarTabla(tbSale);
     llenarTablaVenta();
+        }
+    else{
+        JOptionPane.showMessageDialog(null, "Ingrese una cantidad válida");
+    }
         }
         else{
         JOptionPane.showMessageDialog(null, "Seleccione una cuenta pendiente");

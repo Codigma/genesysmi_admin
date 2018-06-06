@@ -289,4 +289,9 @@ return dao.getSales();
     return credito.getSalesCredit();
                      
                  }
+    
+    public void pagarDeuda(VentaVo venta){
+    VentaDao cred = new VentaDao();
+    cred.UpdateDeuda(venta);
+    }
 }
