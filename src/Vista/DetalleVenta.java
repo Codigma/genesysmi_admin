@@ -5,6 +5,8 @@
  */
 package Vista;
 
+import java.awt.Dimension;
+
 import Controlador.Coordinador;
 import Modelo.BagDao;
 import Modelo.BagVo;
@@ -31,6 +33,9 @@ import javax.swing.table.TableModel;
  * @author bryan
  */
 public class DetalleVenta extends javax.swing.JFrame {
+    
+    private Dimension dim;
+    
 Date date = new Date();
 DateFormat hourdateFormat = new SimpleDateFormat("dd/MM/yyyy HH:mm ");
     
@@ -62,14 +67,22 @@ txtCode.requestFocus();
     
     public DetalleVenta() {
         
-        initComponents();
-        setLocationRelativeTo(null);
-        setSize(1280, 800);
+        dim=super.getToolkit().getScreenSize();
+        super.setSize(dim);
+        super.setUndecorated(true);
+        super.setVisible(true);
         
         initComponents();
         txtFecha.setText(hourdateFormat.format(date));
         modelo.setColumnIdentifiers(columnas);
         tbVenta.setModel(modelo);
+        
+        }
+    
+    public static void main(String wil[]){
+        new DetalleVenta();
+    
+
        
 
     }
@@ -266,10 +279,10 @@ modelo.removeRow(0);
             }
         });
         tbVenta.addInputMethodListener(new java.awt.event.InputMethodListener() {
-            public void caretPositionChanged(java.awt.event.InputMethodEvent evt) {
-            }
             public void inputMethodTextChanged(java.awt.event.InputMethodEvent evt) {
                 tbVentaInputMethodTextChanged(evt);
+            }
+            public void caretPositionChanged(java.awt.event.InputMethodEvent evt) {
             }
         });
         tbVenta.addKeyListener(new java.awt.event.KeyAdapter() {
