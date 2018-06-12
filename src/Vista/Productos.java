@@ -1,5 +1,5 @@
 package Vista;
-import java.awt.Dimension;
+
 import Controlador.Coordinador;
 import Modelo.ColorVo;
 import Modelo.ProductoVo;
@@ -27,8 +27,6 @@ import javax.swing.JOptionPane;
 import javax.swing.ListCellRenderer;
 
 public class Productos extends javax.swing.JFrame {
-    
-    private Dimension dim;
 
     private Coordinador miCoordinador;
     DefaultComboBoxModel modeloColor;
@@ -52,11 +50,9 @@ public class Productos extends javax.swing.JFrame {
     private String src3Name;
 
     public Productos() {
-        
-        dim=super.getToolkit().getScreenSize();
-        super.setSize(dim);
-        super.setUndecorated(true);
-        super.setVisible(true);
+        initComponents();
+        setLocationRelativeTo(null);
+        setSize(1280, 800);
 
         colores = new ArrayList<>();
         producto = new ProductoVo();

@@ -5,6 +5,7 @@
  */
 package Vista;
 import java.awt.Dimension;
+import javax.swing.JFrame;
 import Controlador.Coordinador;
 import Modelo.BagVo;
 import Modelo.VentaVo;

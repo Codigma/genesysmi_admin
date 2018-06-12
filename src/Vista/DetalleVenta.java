@@ -4,7 +4,8 @@
  * and open the template in the editor.
  */
 package Vista;
-
+import java.awt.Dimension;
+import javax.swing.JFrame;
 import Controlador.Coordinador;
 import Modelo.BagDao;
 import Modelo.BagVo;
@@ -31,6 +32,9 @@ import javax.swing.table.TableModel;
  * @author bryan
  */
 public class DetalleVenta extends javax.swing.JFrame {
+    
+    private Dimension dim;
+    
 Date date = new Date();
 DateFormat hourdateFormat = new SimpleDateFormat("dd/MM/yyyy HH:mm ");
     
@@ -61,10 +65,18 @@ txtCode.requestFocus();
     }
     
     public DetalleVenta() {
+        
+        dim=super.getToolkit().getScreenSize();
+        super.setSize(dim);
+        super.setUndecorated(true);
+        super.setVisible(true);
+        
         initComponents();
         txtFecha.setText(hourdateFormat.format(date));
         modelo.setColumnIdentifiers(columnas);
         tbVenta.setModel(modelo);
+        
+        
        
 
     }

@@ -4,7 +4,8 @@
  * and open the template in the editor.
  */
 package Vista;
-
+import java.awt.Dimension;
+import javax.swing.JFrame;
 import Controlador.Coordinador;
 import Modelo.BagVo;
 import Modelo.ColorVo;
@@ -21,6 +22,9 @@ import javax.swing.table.DefaultTableModel;
  * @author luism
  */
 public class Usuarios extends javax.swing.JFrame {
+    
+    private Dimension dim;
+    
   private Coordinador miCoordinador;
   DefaultTableModel modelo = new DefaultTableModel();
       String[] columnas = {"ID","Nombre(s)","Apellidos","Email","Estado","Localidad","Codigo Postal","Direccion","Telefono","RFC","Registro","Dinero"};
@@ -36,9 +40,12 @@ asignarTamaño();
      * Create new form Usuarios
      */
     public Usuarios() {
-        initComponents();
-        setLocationRelativeTo(null);        // Centering on screen...
-        setSize(1300, 800); 
+        
+        dim=super.getToolkit().getScreenSize();
+        super.setSize(dim);
+        super.setUndecorated(true);
+        super.setVisible(true);
+        
           modelo.setColumnIdentifiers(columnas);
         tbUsers.setModel(modelo);
         

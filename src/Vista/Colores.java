@@ -4,7 +4,8 @@
  * and open the template in the editor.
  */
 package Vista;
-
+import java.awt.Dimension;
+import javax.swing.JFrame;
 import Controlador.Coordinador;
 import Modelo.ColorVo;
 import java.awt.Color;
@@ -19,6 +20,8 @@ import javax.swing.table.DefaultTableModel;
  * @author luism
  */
 public class Colores extends javax.swing.JFrame {
+    
+    private Dimension dim;
 
     private Coordinador miCoordinador;
   DefaultTableModel modelo = new DefaultTableModel();
@@ -32,9 +35,11 @@ imprimirColores();
     }
 
     public Colores() {
-        initComponents();
-       setLocationRelativeTo(null);        // Centering on screen...
-        setSize(1280, 800);                  // Setting dimensions...
+        
+       dim=super.getToolkit().getScreenSize();
+        super.setSize(dim);
+        super.setUndecorated(true);
+        super.setVisible(true);                // Setting dimensions...
         
         
         
@@ -187,10 +192,11 @@ txtHex.setText("");
                 .addGap(33, 33, 33)
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 247, Short.MAX_VALUE)
                 .addGap(28, 28, 28)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtMuestra, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel6)
-                    .addComponent(jLabel7))
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel7)
+                    .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(txtMuestra, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jLabel6)))
                 .addGap(40, 40, 40))
         );
 
