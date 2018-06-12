@@ -1,5 +1,5 @@
 package Vista;
-
+import java.awt.Dimension;
 import Controlador.Coordinador;
 import Modelo.ColorVo;
 import Modelo.ProductoVo;
@@ -27,6 +27,8 @@ import javax.swing.JOptionPane;
 import javax.swing.ListCellRenderer;
 
 public class Productos extends javax.swing.JFrame {
+    
+    private Dimension dim;
 
     private Coordinador miCoordinador;
     DefaultComboBoxModel modeloColor;
@@ -50,9 +52,11 @@ public class Productos extends javax.swing.JFrame {
     private String src3Name;
 
     public Productos() {
-        initComponents();
-        setLocationRelativeTo(null);
-        setSize(1280, 800);
+        
+        dim=super.getToolkit().getScreenSize();
+        super.setSize(dim);
+        super.setUndecorated(true);
+        super.setVisible(true);
 
         colores = new ArrayList<>();
         producto = new ProductoVo();
@@ -272,10 +276,11 @@ public class Productos extends javax.swing.JFrame {
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addGap(21, 21, 21)
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel1)
-                    .addComponent(txtCode, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel14, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel14, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jLabel1)
+                        .addComponent(txtCode, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(btnBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
