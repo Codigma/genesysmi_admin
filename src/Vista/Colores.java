@@ -4,8 +4,7 @@
  * and open the template in the editor.
  */
 package Vista;
-import java.awt.Dimension;
-import javax.swing.JFrame;
+
 import Controlador.Coordinador;
 import Modelo.ColorVo;
 import java.awt.Color;
@@ -20,8 +19,6 @@ import javax.swing.table.DefaultTableModel;
  * @author luism
  */
 public class Colores extends javax.swing.JFrame {
-    
-    private Dimension dim;
 
     private Coordinador miCoordinador;
   DefaultTableModel modelo = new DefaultTableModel();
@@ -35,11 +32,9 @@ imprimirColores();
     }
 
     public Colores() {
-        
-       dim=super.getToolkit().getScreenSize();
-        super.setSize(dim);
-        super.setUndecorated(true);
-        super.setVisible(true);                // Setting dimensions...
+        initComponents();
+       setLocationRelativeTo(null);        // Centering on screen...
+        setSize(1280, 800);                  // Setting dimensions...
         
         
         

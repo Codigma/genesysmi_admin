@@ -4,8 +4,7 @@
  * and open the template in the editor.
  */
 package Vista;
-import java.awt.Dimension;
-import javax.swing.JFrame;
+
 import Controlador.Coordinador;
 import Modelo.BagVo;
 import Modelo.VentaVo;
@@ -20,8 +19,6 @@ import javax.swing.table.DefaultTableModel;
  * @author luism
  */
 public class Ventas extends javax.swing.JFrame {
-    
-    private Dimension dim;
     
     
  DefaultTableModel modelo = new DefaultTableModel();
@@ -51,11 +48,9 @@ public class Ventas extends javax.swing.JFrame {
      * Creates new form Ventas
      */
     public Ventas() {
-        dim=super.getToolkit().getScreenSize();
-        super.setSize(dim);
-        super.setUndecorated(true);
-        super.setVisible(true);
-        
+        initComponents();
+        setLocationRelativeTo(null);        // Centering on screen...
+        setSize(1280, 800); 
         modelo.setColumnIdentifiers(columnas);
         tbSale.setModel(modelo);
         modelo2.setColumnIdentifiers(columnas2);
