@@ -2,6 +2,7 @@ package Vista;
 
 
 import Controlador.Coordinador;
+import Vista.Prueba.Color;
 import java.awt.Dimension;
 import java.awt.Toolkit;
 
@@ -47,7 +48,7 @@ public class Inicio extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabel2 = new javax.swing.JLabel();
+        escritorio = new javax.swing.JDesktopPane();
         jMenuBar1 = new javax.swing.JMenuBar();
         menuProduct = new javax.swing.JMenu();
         addProduct = new javax.swing.JMenuItem();
@@ -67,7 +68,16 @@ public class Inicio extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/int-tarjetacredito6.jpg"))); // NOI18N
+        javax.swing.GroupLayout escritorioLayout = new javax.swing.GroupLayout(escritorio);
+        escritorio.setLayout(escritorioLayout);
+        escritorioLayout.setHorizontalGroup(
+            escritorioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 784, Short.MAX_VALUE)
+        );
+        escritorioLayout.setVerticalGroup(
+            escritorioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 434, Short.MAX_VALUE)
+        );
 
         jMenuBar1.setBackground(new java.awt.Color(51, 51, 51));
         jMenuBar1.setBorder(null);
@@ -195,11 +205,15 @@ public class Inicio extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabel2, javax.swing.GroupLayout.Alignment.TRAILING)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(escritorio))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 445, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(escritorio)
+                .addContainerGap())
         );
 
         pack();
@@ -217,9 +231,16 @@ miCoordinador.getDetalle().setVisible(true);
     private void inventarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_inventarioActionPerformed
 miCoordinador.getReporte().setVisible(true);        // TODO add your handling code here:
     }//GEN-LAST:event_inventarioActionPerformed
-
+Vista.Total us;
     private void addProductActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addProductActionPerformed
-miCoordinador.getProductos().setVisible(true); 
+
+        
+
+
+
+
+
+//miCoordinador.getProductos().setVisible(true); 
     }//GEN-LAST:event_addProductActionPerformed
 
     private void addProductMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_addProductMouseClicked
@@ -239,7 +260,14 @@ miCoordinador.getProductos().setVisible(true);         // TODO add your handling
     }//GEN-LAST:event_searchProductActionPerformed
 
     private void itemViewColorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itemViewColorActionPerformed
-miCoordinador.getColor().setVisible(true);
+us = new Total();
+            escritorio.add(us).setLocation(250, 3);
+            us.show(true);
+
+
+
+
+//miCoordinador.getColor().setVisible(true);
     }//GEN-LAST:event_itemViewColorActionPerformed
 
     private void itemAddColorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itemAddColorActionPerformed
@@ -301,12 +329,12 @@ System.out.println("Tu resolución es de " + screenSize.width + "x" + screenSize
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JMenuItem addProduct;
+    private javax.swing.JDesktopPane escritorio;
     private javax.swing.JMenuItem inventario;
     private javax.swing.JMenuItem itemAddColor;
     private javax.swing.JMenuItem itemCredit;
     private javax.swing.JMenuItem itemSale;
     private javax.swing.JMenuItem itemViewColor;
-    private javax.swing.JLabel jLabel2;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuItem jMenuItem1;
