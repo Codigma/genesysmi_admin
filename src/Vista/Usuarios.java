@@ -62,7 +62,7 @@ asignarTamaño();
     }
     
       public void asignarTamaño(){
-    tbUsers.getColumnModel().getColumn(0).setPreferredWidth(25);
+    tbUsers.getColumnModel().getColumn(0).setPreferredWidth(50);
     tbUsers.getColumnModel().getColumn(1).setPreferredWidth(150);
     tbUsers.getColumnModel().getColumn(2).setPreferredWidth(150);
     tbUsers.getColumnModel().getColumn(3).setPreferredWidth(200);

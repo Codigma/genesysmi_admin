@@ -47,7 +47,7 @@ public class Conectarse {
             // This will load the MySQL driver, each DB has its own driver
             Class.forName("com.mysql.jdbc.Driver");
             // Setup the connection with the DB
-            conn = DriverManager.getConnection("jdbc:mysql://"+host+"/"+db,user,pass);
+            conn = DriverManager.getConnection("jdbc:mysql://"+hostremoto+"/"+dbremoto,userremoto,passremoto);
             // Check the state of connection
             if (conn!=null){
             System.out.println("Conexión exitosa");
