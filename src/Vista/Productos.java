@@ -26,7 +26,7 @@ import javax.swing.JList;
 import javax.swing.JOptionPane;
 import javax.swing.ListCellRenderer;
 
-public class Productos extends javax.swing.JFrame {
+public class Productos extends javax.swing.JInternalFrame {
 
     private Coordinador miCoordinador;
     DefaultComboBoxModel modeloColor;
@@ -51,8 +51,8 @@ public class Productos extends javax.swing.JFrame {
 
     public Productos() {
         initComponents();
-        setLocationRelativeTo(null);
-        setSize(1280, 800);
+        //setLocationRelativeTo(null);
+       // setSize(1280, 800);
 
         colores = new ArrayList<>();
         producto = new ProductoVo();

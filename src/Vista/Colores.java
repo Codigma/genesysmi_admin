@@ -18,7 +18,7 @@ import javax.swing.table.DefaultTableModel;
  *
  * @author luism
  */
-public class Colores extends javax.swing.JFrame {
+public class Colores extends javax.swing.JInternalFrame {
 
     private Coordinador miCoordinador;
   DefaultTableModel modelo = new DefaultTableModel();
@@ -33,8 +33,8 @@ imprimirColores();
 
     public Colores() {
         initComponents();
-       setLocationRelativeTo(null);        // Centering on screen...
-        setSize(1280, 800);                  // Setting dimensions...
+       //setLocationRelativeTo(null);        // Centering on screen...
+       // setSize(1280, 800);                  // Setting dimensions...
         
         
         

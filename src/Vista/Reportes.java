@@ -30,7 +30,7 @@ import net.sf.jasperreports.view.JasperViewer;
  *
  * @author bryan
  */
-public class Reportes extends javax.swing.JFrame {
+public class Reportes extends javax.swing.JInternalFrame {
    private Coordinador miCoordinador;
    DefaultComboBoxModel modeloSubcategory, modeloYears;
    private ProductoVo producto;

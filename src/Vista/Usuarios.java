@@ -20,7 +20,7 @@ import javax.swing.table.DefaultTableModel;
  *
  * @author luism
  */
-public class Usuarios extends javax.swing.JFrame {
+public class Usuarios extends javax.swing.JInternalFrame {
   private Coordinador miCoordinador;
   DefaultTableModel modelo = new DefaultTableModel();
       String[] columnas = {"ID","Nombre(s)","Apellidos","Email","Estado","Localidad","Codigo Postal","Direccion","Telefono","RFC","Registro","Dinero"};
@@ -37,8 +37,8 @@ asignarTamaño();
      */
     public Usuarios() {
         initComponents();
-        setLocationRelativeTo(null);        // Centering on screen...
-        setSize(1300, 800); 
+       // setLocationRelativeTo(null);        // Centering on screen...
+       // setSize(1300, 800); 
           modelo.setColumnIdentifiers(columnas);
         tbUsers.setModel(modelo);
         

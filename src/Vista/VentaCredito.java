@@ -19,7 +19,7 @@ import javax.swing.table.DefaultTableModel;
  *
  * @author luism
  */
-public class VentaCredito extends javax.swing.JFrame {
+public class VentaCredito extends javax.swing.JInternalFrame {
     
     
  DefaultTableModel modelo = new DefaultTableModel();
@@ -50,8 +50,8 @@ public class VentaCredito extends javax.swing.JFrame {
      */
     public VentaCredito() {
         initComponents();
-        setLocationRelativeTo(null);        // Centering on screen...
-        setSize(1280, 800); 
+        //setLocationRelativeTo(null);        // Centering on screen...
+        //setSize(1280, 800); 
         modelo.setColumnIdentifiers(columnas);
         tbSale.setModel(modelo);
         modelo2.setColumnIdentifiers(columnas2);

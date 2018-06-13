@@ -234,11 +234,6 @@ miCoordinador.getReporte().setVisible(true);        // TODO add your handling co
 Vista.Total us;
     private void addProductActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addProductActionPerformed
 
-        
-
-
-
-
 
 //miCoordinador.getProductos().setVisible(true); 
     }//GEN-LAST:event_addProductActionPerformed
@@ -259,10 +254,11 @@ Vista.Total us;
 miCoordinador.getProductos().setVisible(true);         // TODO add your handling code here:
     }//GEN-LAST:event_searchProductActionPerformed
 
+    Vista.Colores cl;
     private void itemViewColorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itemViewColorActionPerformed
-us = new Total();
-            escritorio.add(us).setLocation(250, 3);
-            us.show(true);
+cl = new Colores();
+            escritorio.add(cl).setLocation(250, 3);
+            cl.show(true);
 
 
 

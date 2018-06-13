@@ -61,7 +61,7 @@ ProductoVo registro = new ProductoVo();
         btnAceptar = new javax.swing.JButton();
         btnCancelar = new javax.swing.JButton();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setClosable(true);
 
         jLabel2.setBackground(new java.awt.Color(204, 204, 204));
         jLabel2.setFont(new java.awt.Font("Apple SD Gothic Neo", 0, 14)); // NOI18N
