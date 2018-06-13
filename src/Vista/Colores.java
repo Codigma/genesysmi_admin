@@ -28,16 +28,16 @@ public class Colores extends javax.swing.JInternalFrame {
     public void setCoordinador(Coordinador miCoordinador) {
         this.miCoordinador = miCoordinador;
         System.out.print("busca colores");
-//imprimirColores();
+imprimirColores();
         
     }
 
     public Colores() {
-        imprimirColores();
+        
         initComponents();
        //setLocationRelativeTo(null);        // Centering on screen...
         setSize(956, 614);                  // Setting dimensions...
-        
+      //  imprimirColores();
         
         
     }

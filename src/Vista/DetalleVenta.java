@@ -5,7 +5,7 @@
  */
 package Vista;
 
-import java.awt.Dimension;
+
 
 import Controlador.Coordinador;
 import Modelo.BagDao;
@@ -34,7 +34,7 @@ import javax.swing.table.TableModel;
  */
 public class DetalleVenta extends javax.swing.JFrame {
     
-    private Dimension dim;
+    
     
 Date date = new Date();
 DateFormat hourdateFormat = new SimpleDateFormat("dd/MM/yyyy HH:mm ");
@@ -66,11 +66,6 @@ txtCode.requestFocus();
     }
     
     public DetalleVenta() {
-        
-        dim=super.getToolkit().getScreenSize();
-        super.setSize(dim);
-        super.setUndecorated(true);
-        super.setVisible(true);
         
         initComponents();
         txtFecha.setText(hourdateFormat.format(date));
