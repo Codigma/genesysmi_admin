@@ -27,7 +27,7 @@ public class Colores extends javax.swing.JInternalFrame {
 
     public void setCoordinador(Coordinador miCoordinador) {
         this.miCoordinador = miCoordinador;
-        System.out.print("busca colores");
+        
 imprimirColores();
         
     }
