@@ -32,7 +32,7 @@ import javax.swing.table.TableModel;
  *
  * @author bryan
  */
-public class DetalleVenta extends javax.swing.JFrame {
+public class DetalleVenta extends javax.swing.JInternalFrame {
     
     
     
@@ -230,6 +230,7 @@ modelo.removeRow(0);
         jLabel6 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setPreferredSize(new java.awt.Dimension(856, 514));
 
         jPanel1.setBackground(new java.awt.Color(242, 242, 242));
 
@@ -274,10 +275,10 @@ modelo.removeRow(0);
             }
         });
         tbVenta.addInputMethodListener(new java.awt.event.InputMethodListener() {
+            public void caretPositionChanged(java.awt.event.InputMethodEvent evt) {
+            }
             public void inputMethodTextChanged(java.awt.event.InputMethodEvent evt) {
                 tbVentaInputMethodTextChanged(evt);
-            }
-            public void caretPositionChanged(java.awt.event.InputMethodEvent evt) {
             }
         });
         tbVenta.addKeyListener(new java.awt.event.KeyAdapter() {

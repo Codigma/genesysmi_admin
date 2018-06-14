@@ -100,7 +100,8 @@ tbProducts.setModel(modelo2);
         btnGenerate = new javax.swing.JButton();
         btnDeuda = new javax.swing.JButton();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setClosable(true);
+        setMaximizable(true);
 
         jPanel3.setBackground(new java.awt.Color(237, 237, 237));
 

@@ -23,7 +23,7 @@ public class Inicio extends javax.swing.JFrame {
         this.miCoordinador = miCoordinador;
         //this.getUsuario(1);
         // miCoordinador.getProductos().setExtendedState(MAXIMIZED_BOTH);
-        miCoordinador.getDetalle().setExtendedState(MAXIMIZED_BOTH);
+       // miCoordinador.getDetalle().setExtendedState(MAXIMIZED_BOTH);
         //    miCoordinador.getUsuario().setExtendedState(MAXIMIZED_BOTH);
         //   
     }
@@ -254,33 +254,39 @@ public class Inicio extends javax.swing.JFrame {
 
 
     private void itemViewColorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itemViewColorActionPerformed
-Colores cl = new Colores(); 
-cl.setCoordinador(miCoordinador);
+        Colores cl = new Colores();
+        cl.setCoordinador(miCoordinador);
         escritorio.add(cl).setLocation(25, 3);
         cl.show(true);
     }//GEN-LAST:event_itemViewColorActionPerformed
 
     private void itemAddColorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itemAddColorActionPerformed
-//cl = new Colores();
-        //escritorio.add(cl).setLocation(250, 3);
-        //cl.show(true);
+        Colores cl = new Colores();
+        cl.setCoordinador(miCoordinador);
+        escritorio.add(cl).setLocation(25, 3);
+        cl.show(true);
     }//GEN-LAST:event_itemAddColorActionPerformed
     private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
         Vista.Usuarios us = new Usuarios();
-        escritorio.add(us).setLocation(250, 3);
-        us.show(true);        // TODO add your handling code here:
+        us.setCoordinador(miCoordinador);
+        escritorio.add(us).setLocation(25, 3);
+        us.show(true);
+
+// TODO add your handling code here:
     }//GEN-LAST:event_jMenuItem1ActionPerformed
-    Vista.Ventas vt;
     private void itemSaleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itemSaleActionPerformed
-        vt = new Ventas();
-        escritorio.add(vt).setLocation(250, 3);
-        vt.show(true);         // TODO add your handling code here:
+        Ventas vt = new Ventas();
+        vt.setCoordinador(miCoordinador);
+        escritorio.add(vt).setLocation(25, 3);
+        vt.show(true);
+
+        // TODO add your handling code here:
     }//GEN-LAST:event_itemSaleActionPerformed
-    Vista.VentaCredito ct;
     private void itemCreditActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itemCreditActionPerformed
-        ct = new VentaCredito();
-        escritorio.add(ct).setLocation(250, 3);
-        ct.show(true);        // TODO add your handling code here:
+        VentaCredito vc = new VentaCredito();
+        vc.setCoordinador(miCoordinador);
+        escritorio.add(vc).setLocation(25, 3);
+        vc.show(true);        // TODO add your handling code here:
     }//GEN-LAST:event_itemCreditActionPerformed
 
     /**
