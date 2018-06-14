@@ -4,6 +4,9 @@ import Controlador.Coordinador;
 import Vista.Prueba.Color;
 import java.awt.Dimension;
 import java.awt.Toolkit;
+import java.beans.PropertyVetoException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JFrame;
 
 /*
@@ -219,8 +222,18 @@ public class Inicio extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void updateProductActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_updateProductActionPerformed
-
-        miCoordinador.getProductos().setVisible(true);
+        Productos pt = new Productos();
+        pt.setCoordinador(miCoordinador);
+        escritorio.add(pt).setLocation(25, 3);
+        pt.show(true);
+        
+                try {
+            pt.setMaximum(true);
+            
+            // TODO add your handling code here:
+        } catch (PropertyVetoException ex) {
+            Logger.getLogger(Inicio.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }//GEN-LAST:event_updateProductActionPerformed
 
     private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
@@ -232,7 +245,18 @@ public class Inicio extends javax.swing.JFrame {
     }//GEN-LAST:event_inventarioActionPerformed
     Vista.Total t;
     private void addProductActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addProductActionPerformed
-
+        Productos pt = new Productos();
+        pt.setCoordinador(miCoordinador);
+        escritorio.add(pt).setLocation(25, 3);
+        pt.show(true);
+        
+                try {
+            pt.setMaximum(true);
+            
+            // TODO add your handling code here:
+        } catch (PropertyVetoException ex) {
+            Logger.getLogger(Inicio.class.getName()).log(Level.SEVERE, null, ex);
+        }
 //miCoordinador.getProductos().setVisible(true); 
     }//GEN-LAST:event_addProductActionPerformed
 
@@ -249,7 +273,19 @@ public class Inicio extends javax.swing.JFrame {
     }//GEN-LAST:event_updateProductMouseClicked
 
     private void searchProductActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_searchProductActionPerformed
-        miCoordinador.getProductos().setVisible(true);         // TODO add your handling code here:
+                Productos pt = new Productos();
+        pt.setCoordinador(miCoordinador);
+        escritorio.add(pt).setLocation(25, 3);
+        pt.show(true);  
+                try {
+            pt.setMaximum(true);
+            
+            // TODO add your handling code here:
+        } catch (PropertyVetoException ex) {
+            Logger.getLogger(Inicio.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+// TODO add your handling code here:
     }//GEN-LAST:event_searchProductActionPerformed
 
 
@@ -280,7 +316,13 @@ public class Inicio extends javax.swing.JFrame {
         escritorio.add(vt).setLocation(25, 3);
         vt.show(true);
 
-        // TODO add your handling code here:
+        try {
+            vt.setMaximum(true);
+            
+            // TODO add your handling code here:
+        } catch (PropertyVetoException ex) {
+            Logger.getLogger(Inicio.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }//GEN-LAST:event_itemSaleActionPerformed
     private void itemCreditActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itemCreditActionPerformed
         VentaCredito vc = new VentaCredito();

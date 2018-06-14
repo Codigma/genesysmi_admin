@@ -212,7 +212,8 @@ public class Productos extends javax.swing.JInternalFrame {
         comboColor = new javax.swing.JComboBox<>();
         jLabel15 = new javax.swing.JLabel();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setClosable(true);
+        setIconifiable(true);
 
         jPanel2.setBackground(new java.awt.Color(237, 237, 237));
 
