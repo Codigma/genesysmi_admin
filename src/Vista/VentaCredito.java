@@ -334,6 +334,8 @@ tbProducts.setModel(modelo2);
             double descuento = 0.00;
     String valor = JOptionPane.showInputDialog(null, "Registre el pago");
     
+if(valor != null ){    
+    
     if(Double.parseDouble(valor) <= venta.get(seleccion).getTotal()){
     descuento = venta.get(seleccion).getTotal() - Double.parseDouble(valor) ;
     
@@ -348,10 +350,14 @@ tbProducts.setModel(modelo2);
     else{
         JOptionPane.showMessageDialog(null, "Ingrese una cantidad válida");
     }
+} else{
+        System.out.print("");
+                }
         }
         else{
         JOptionPane.showMessageDialog(null, "Seleccione una cuenta pendiente");
-    }
+                } 
+     
      }//GEN-LAST:event_btnDeudaActionPerformed
 
     private void btnGenerateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGenerateActionPerformed
