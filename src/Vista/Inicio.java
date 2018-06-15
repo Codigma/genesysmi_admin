@@ -19,7 +19,7 @@ import javax.swing.JFrame;
  * @author luism
  */
 public class Inicio extends javax.swing.JFrame {
-
+Texto remoto = new Texto();
     private Coordinador miCoordinador;
             private Dimension dim;
     public void setCoordinador(Coordinador miCoordinador) {
@@ -39,6 +39,7 @@ public class Inicio extends javax.swing.JFrame {
         initComponents();
         this.setExtendedState(this.getExtendedState() | JFrame.MAXIMIZED_BOTH);
         setLocationRelativeTo(null);
+        remoto.Leer();
     }
 
     /**

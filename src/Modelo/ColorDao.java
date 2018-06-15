@@ -5,7 +5,7 @@
  */
 package Modelo;
 
-import Vista.Escribir;
+import Vista.Texto;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -18,7 +18,7 @@ import javax.swing.JOptionPane;
  * @author luism
  */
 public class ColorDao {
-    Escribir escrib = new Escribir();
+    Texto escrib = new Texto();
     public ColorVo getColor(String id){
             Conectarse conn = new Conectarse();
   
@@ -100,7 +100,7 @@ public class ColorDao {
             preparedStatement.setString(3, color.getColor_hex_code());
         
             String consulta = " insert into colors (color_art, color_name, color_hex_code)"
-        + " values ('"+color.getColor_art()+"', '"+color.getColor_name()+"', '"+color.getColor_hex_code()+"';)";
+        + " values ('"+color.getColor_art()+"', '"+color.getColor_name()+"', '"+color.getColor_hex_code()+"');";
             escrib.escribir(consulta);
             preparedStatement.execute();
           
