@@ -88,6 +88,7 @@ public class Reportes extends javax.swing.JInternalFrame {
         cbxSubcategoria = new javax.swing.JComboBox<>();
 
         setClosable(true);
+        setIconifiable(true);
 
         lbano.setText("Año");
 

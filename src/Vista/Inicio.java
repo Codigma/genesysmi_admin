@@ -421,7 +421,7 @@ public class Inicio extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JMenuItem addProduct;
-    private javax.swing.JDesktopPane escritorio;
+    public static javax.swing.JDesktopPane escritorio;
     private javax.swing.JMenuItem inventario;
     private javax.swing.JMenuItem itemAddColor;
     private javax.swing.JMenuItem itemCredit;
