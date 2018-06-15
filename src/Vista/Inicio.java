@@ -237,11 +237,31 @@ public class Inicio extends javax.swing.JFrame {
     }//GEN-LAST:event_updateProductActionPerformed
 
     private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
-        miCoordinador.getDetalle().setVisible(true);
+       
+        DetalleVenta dv = new DetalleVenta();
+        dv.setCoordinador(miCoordinador);
+        escritorio.add(dv).setLocation(25, 3);
+        dv.show(true);
+        
+                try {
+            dv.setMaximum(true);
+            
+            // TODO add your handling code here:
+        } catch (PropertyVetoException ex) {
+            Logger.getLogger(Inicio.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+// miCoordinador.getDetalle().setVisible(true);
     }//GEN-LAST:event_jMenuItem2ActionPerformed
 
     private void inventarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_inventarioActionPerformed
-        miCoordinador.getReporte().setVisible(true);        // TODO add your handling code here:
+     
+                Reportes rp = new Reportes();
+        rp.setCoordinador(miCoordinador);
+        escritorio.add(rp).setLocation(300, 30);
+        rp.show(true);
+        
+//   miCoordinador.getReporte().setVisible(true);        // TODO add your handling code here:
     }//GEN-LAST:event_inventarioActionPerformed
     Vista.Total t;
     private void addProductActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addProductActionPerformed
