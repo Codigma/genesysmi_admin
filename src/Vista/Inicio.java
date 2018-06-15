@@ -18,7 +18,7 @@ import javax.swing.JFrame;
  *
  * @author luism
  */
-public class Inicio extends javax.swing.JFrame {
+public class Inicio extends javax.swing.JFrame implements Runnable {
 Texto remoto = new Texto();
     private Coordinador miCoordinador;
             private Dimension dim;
@@ -39,7 +39,7 @@ Texto remoto = new Texto();
         initComponents();
         this.setExtendedState(this.getExtendedState() | JFrame.MAXIMIZED_BOTH);
         setLocationRelativeTo(null);
-        remoto.Leer();
+        
     }
 
     /**
@@ -439,5 +439,17 @@ Texto remoto = new Texto();
     private javax.swing.JMenuItem searchProduct;
     private javax.swing.JMenuItem updateProduct;
     // End of variables declaration//GEN-END:variables
+
+    @Override
+    public void run() {
+        while(true) {
+         try {
+              Thread.sleep(300000);
+remoto.Leer();
+         } catch(InterruptedException e) {}
+    }
+    }
+
+ 
 
 }

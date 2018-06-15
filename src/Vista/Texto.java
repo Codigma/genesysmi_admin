@@ -8,6 +8,7 @@ package Vista;
 import Modelo.ConecRemoto;
 import java.io.*;
 import java.sql.PreparedStatement;
+import java.util.Vector;
 
 /**
  *
@@ -15,7 +16,7 @@ import java.sql.PreparedStatement;
  */
 public class Texto {
   
-    public void escribir(String nombreArchivo)
+    public void escribir(String consulta)
 
     {
 
@@ -25,7 +26,7 @@ try{
 FileWriter w = new FileWriter(f,true);
 BufferedWriter bw = new BufferedWriter(w);
 PrintWriter wr = new PrintWriter(bw); 
-wr.write(nombreArchivo);//escribimos en el archivo
+wr.write(consulta);//escribimos en el archivo
 wr.append("\r\n"); //concatenamos en el archivo sin borrar lo existente
 wr.close();
 bw.close();
@@ -47,9 +48,14 @@ bw.close();
 
          // Lectura del fichero
          String linea;
+         int pos =0;
          while((linea=br.readLine())!=null){
+             pos++;
           PreparedStatement preparedStatement = conex.getConn().prepareStatement(linea);
           preparedStatement.execute();
+          BorrarLinea(pos);
+          Leer();
+          
          }
             
       }
@@ -68,6 +74,43 @@ bw.close();
          }
       }
    }
+    
+    public static void BorrarLinea(int n){
+Vector lineas=new Vector();
+try { 
+File archivo = new File ("C:\\Users\\luism\\Desktop\\Consultas.txt");
+      FileReader  fr = new FileReader (archivo);
+       BufferedReader br = new BufferedReader(fr);
+        String linea; int cont=0;
+        while((linea=br.readLine())!=null){
+        cont++;
+        if(cont!=n){
+        lineas.addElement(linea);//AGREGAR LINEAS A UN VECTOR
+        }
+        }
+        br.close(); 
+        fr.close();
+        //Se guarda de nuevo el archivo
+        GuardarArchivo(lineas);
+        lineas.clear();
+      } catch (Exception e) { 
+          System.out.println(e); 
+      } 
+}
+    
+    public static void GuardarArchivo(Vector ln){
+try
+        {
+        FileWriter    fichero = new FileWriter("C:\\Users\\luism\\Desktop\\Consultas.txt");
+         PrintWriter   escribe = new PrintWriter(fichero);
+            for(int i=0;i<ln.size();i++){
+            escribe.println(ln.elementAt(i));
+            }
+            fichero.close();
+        } catch (Exception e) {
+            e.printStackTrace();
+        } 
+}
     }
     
 
