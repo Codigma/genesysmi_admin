@@ -212,7 +212,8 @@ public class Productos extends javax.swing.JInternalFrame {
         comboColor = new javax.swing.JComboBox<>();
         jLabel15 = new javax.swing.JLabel();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setClosable(true);
+        setIconifiable(true);
 
         jPanel2.setBackground(new java.awt.Color(237, 237, 237));
 
@@ -432,6 +433,7 @@ public class Productos extends javax.swing.JInternalFrame {
         btnmas.setFont(new java.awt.Font("Lucida Grande", 1, 13)); // NOI18N
         btnmas.setForeground(new java.awt.Color(255, 255, 255));
         btnmas.setText("+");
+        btnmas.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnmas.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnmasActionPerformed(evt);
@@ -442,6 +444,7 @@ public class Productos extends javax.swing.JInternalFrame {
         btnmenos.setFont(new java.awt.Font("Lucida Grande", 1, 13)); // NOI18N
         btnmenos.setForeground(new java.awt.Color(255, 255, 255));
         btnmenos.setText("-");
+        btnmenos.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnmenos.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnmenosActionPerformed(evt);
@@ -654,15 +657,14 @@ public class Productos extends javax.swing.JInternalFrame {
                         .addComponent(comboColor, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
                         .addComponent(txtBackColor, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel5Layout.createSequentialGroup()
-                                .addGap(42, 42, 42)
-                                .addComponent(btnImage1)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                            .addGroup(jPanel5Layout.createSequentialGroup()
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel5Layout.createSequentialGroup()
                                 .addComponent(jLabel10)
-                                .addGap(23, 23, 23)))))
+                                .addGap(23, 23, 23))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel5Layout.createSequentialGroup()
+                                .addComponent(btnImage1)
+                                .addGap(18, 18, 18)))))
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(btnImage2)
                     .addGroup(jPanel5Layout.createSequentialGroup()

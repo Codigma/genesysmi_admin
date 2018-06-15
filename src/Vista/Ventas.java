@@ -9,7 +9,11 @@ import Controlador.Coordinador;
 import Modelo.BagVo;
 import Modelo.VentaVo;
 import java.awt.Color;
+import java.beans.PropertyVetoException;
 import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JInternalFrame;
 import javax.swing.JOptionPane;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
@@ -48,6 +52,7 @@ public class Ventas extends javax.swing.JInternalFrame {
      * Creates new form Ventas
      */
     public Ventas() {
+      
         initComponents();
        // setLocationRelativeTo(null);        // Centering on screen...
         //setSize(1280, 800); 
