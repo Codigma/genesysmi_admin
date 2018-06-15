@@ -15,6 +15,7 @@ import java.awt.Color;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
+import Vista.DetalleVenta;
 
 /**
  *
@@ -99,6 +100,9 @@ modelo.removeRow(0);
         btnSearch = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
 
+        setClosable(true);
+        setIconifiable(true);
+
         jPanel1.setBackground(new java.awt.Color(237, 237, 237));
 
         jPanel2.setBackground(new java.awt.Color(242, 242, 242));
@@ -107,6 +111,11 @@ modelo.removeRow(0);
         tbUsers.setFont(new java.awt.Font("Apple SD Gothic Neo", 0, 15)); // NOI18N
         tbUsers.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
+                {null, null, null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null, null, null},
                 {null, null, null, null, null, null, null, null, null, null, null, null},
                 {null, null, null, null, null, null, null, null, null, null, null, null},
                 {null, null, null, null, null, null, null, null, null, null, null, null},
@@ -208,7 +217,7 @@ modelo.removeRow(0);
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGap(33, 33, 33)
                 .addComponent(jLabel2)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 17, Short.MAX_VALUE)
+                .addGap(17, 17, 17)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1)
                     .addComponent(txtSearch, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -279,7 +288,8 @@ limpiarTable();
 
     private void tbUsersMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tbUsersMouseClicked
      int fila = tbUsers.getSelectedRow();
-      DetalleVenta venta = new DetalleVenta(); 
+      //DetalleVenta venta = new DetalleVenta(); 
+
                if ((fila > -1)){
           int id = (int) modelo.getValueAt(fila, 0);
                    String cliente = (String) modelo.getValueAt(fila, 1) + " " + (String)(String) modelo.getValueAt(fila, 2) ;
@@ -289,6 +299,8 @@ limpiarTable();
              miCoordinador.getDetalle().txtCliente.setText(cliente);
              miCoordinador.getDetalle().txtDireccion.setText(direccion);
              miCoordinador.getDetalle().txtMonedero.setText(Double.toString(electronico));
+             
+             
             
              
           
@@ -310,7 +322,7 @@ imprimirUsuarios();
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable tbUsers;
+    public static javax.swing.JTable tbUsers;
     private javax.swing.JTextField txtSearch;
     // End of variables declaration//GEN-END:variables
 }

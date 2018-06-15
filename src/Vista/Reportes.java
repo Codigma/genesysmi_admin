@@ -87,7 +87,8 @@ public class Reportes extends javax.swing.JInternalFrame {
         cbxCategoria = new javax.swing.JComboBox<>();
         cbxSubcategoria = new javax.swing.JComboBox<>();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setClosable(true);
+        setIconifiable(true);
 
         lbano.setText("Año");
 
