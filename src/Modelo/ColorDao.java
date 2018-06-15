@@ -5,6 +5,7 @@
  */
 package Modelo;
 
+import Vista.Escribir;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -17,7 +18,7 @@ import javax.swing.JOptionPane;
  * @author luism
  */
 public class ColorDao {
-    
+    Escribir escrib = new Escribir();
     public ColorVo getColor(String id){
             Conectarse conn = new Conectarse();
   
@@ -30,7 +31,7 @@ public class ColorDao {
 
             preparedStatement.setString(1, id);
             ResultSet resultSet = preparedStatement.executeQuery();
-
+            
             //Muestra resultados de la consulta SQL
             while (resultSet.next()) {
                 color.setColor_art(resultSet.getString(1));
@@ -92,10 +93,15 @@ public class ColorDao {
 			   try {
                                 String query = " insert into colors (color_art, color_name, color_hex_code)"
         + " values (?, ?, ?)";
+                                
             PreparedStatement preparedStatement = conex.getConn().prepareStatement(query);
             preparedStatement.setString(1, color.getColor_art());
             preparedStatement.setString(2, color.getColor_name());
             preparedStatement.setString(3, color.getColor_hex_code());
+        
+            String consulta = " insert into colors (color_art, color_name, color_hex_code)"
+        + " values ('"+color.getColor_art()+"', '"+color.getColor_name()+"', '"+color.getColor_hex_code()+"';)";
+            escrib.escribir(consulta);
             preparedStatement.execute();
           
           //JOptionPane.showMessageDialog(null, "Se ha registrado Exitosamente","Informacion",JOptionPane.INFORMATION_MESSAGE);
