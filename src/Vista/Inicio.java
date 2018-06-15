@@ -21,7 +21,7 @@ import javax.swing.JFrame;
 public class Inicio extends javax.swing.JFrame {
 
     private Coordinador miCoordinador;
-
+            private Dimension dim;
     public void setCoordinador(Coordinador miCoordinador) {
         this.miCoordinador = miCoordinador;
         //this.getUsuario(1);
@@ -293,7 +293,16 @@ public class Inicio extends javax.swing.JFrame {
         Colores cl = new Colores();
         cl.setCoordinador(miCoordinador);
         escritorio.add(cl).setLocation(25, 3);
+        dim=super.getToolkit().getScreenSize();
+        super.setSize(dim);
         cl.show(true);
+                        try {
+            cl.setMaximum(true);
+            
+            // TODO add your handling code here:
+        } catch (PropertyVetoException ex) {
+            Logger.getLogger(Inicio.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }//GEN-LAST:event_itemViewColorActionPerformed
 
     private void itemAddColorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itemAddColorActionPerformed
@@ -301,13 +310,26 @@ public class Inicio extends javax.swing.JFrame {
         cl.setCoordinador(miCoordinador);
         escritorio.add(cl).setLocation(25, 3);
         cl.show(true);
+                        try {
+            cl.setMaximum(true);
+            
+            // TODO add your handling code here:
+        } catch (PropertyVetoException ex) {
+            Logger.getLogger(Inicio.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }//GEN-LAST:event_itemAddColorActionPerformed
     private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
         Vista.Usuarios us = new Usuarios();
         us.setCoordinador(miCoordinador);
         escritorio.add(us).setLocation(25, 3);
         us.show(true);
-
+                try {
+            us.setMaximum(true);
+            
+            // TODO add your handling code here:
+        } catch (PropertyVetoException ex) {
+            Logger.getLogger(Inicio.class.getName()).log(Level.SEVERE, null, ex);
+        }
 // TODO add your handling code here:
     }//GEN-LAST:event_jMenuItem1ActionPerformed
     private void itemSaleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itemSaleActionPerformed
@@ -328,7 +350,14 @@ public class Inicio extends javax.swing.JFrame {
         VentaCredito vc = new VentaCredito();
         vc.setCoordinador(miCoordinador);
         escritorio.add(vc).setLocation(25, 3);
-        vc.show(true);        // TODO add your handling code here:
+        vc.show(true);
+                        try {
+            vc.setMaximum(true);
+            
+            // TODO add your handling code here:
+        } catch (PropertyVetoException ex) {
+            Logger.getLogger(Inicio.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }//GEN-LAST:event_itemCreditActionPerformed
 
     /**

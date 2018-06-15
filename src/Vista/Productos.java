@@ -433,6 +433,7 @@ public class Productos extends javax.swing.JInternalFrame {
         btnmas.setFont(new java.awt.Font("Lucida Grande", 1, 13)); // NOI18N
         btnmas.setForeground(new java.awt.Color(255, 255, 255));
         btnmas.setText("+");
+        btnmas.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnmas.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnmasActionPerformed(evt);
