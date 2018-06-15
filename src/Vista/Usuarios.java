@@ -15,6 +15,7 @@ import java.awt.Color;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
+import Vista.DetalleVenta;
 
 /**
  *
@@ -287,7 +288,8 @@ limpiarTable();
 
     private void tbUsersMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tbUsersMouseClicked
      int fila = tbUsers.getSelectedRow();
-      DetalleVenta venta = new DetalleVenta(); 
+      //DetalleVenta venta = new DetalleVenta(); 
+
                if ((fila > -1)){
           int id = (int) modelo.getValueAt(fila, 0);
                    String cliente = (String) modelo.getValueAt(fila, 1) + " " + (String)(String) modelo.getValueAt(fila, 2) ;
@@ -297,6 +299,8 @@ limpiarTable();
              miCoordinador.getDetalle().txtCliente.setText(cliente);
              miCoordinador.getDetalle().txtDireccion.setText(direccion);
              miCoordinador.getDetalle().txtMonedero.setText(Double.toString(electronico));
+             
+             
             
              
           
@@ -318,7 +322,7 @@ imprimirUsuarios();
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable tbUsers;
+    public static javax.swing.JTable tbUsers;
     private javax.swing.JTextField txtSearch;
     // End of variables declaration//GEN-END:variables
 }

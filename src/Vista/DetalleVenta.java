@@ -1149,7 +1149,7 @@ break;
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnBuscar;
+    public javax.swing.JButton btnBuscar;
     private javax.swing.JButton btnCredit;
     private javax.swing.JButton btnDescuento;
     private javax.swing.JButton btnPagar;
@@ -1188,11 +1188,11 @@ break;
     private javax.swing.JLabel lblTalla;
     private javax.swing.JLabel lblTotal;
     private javax.swing.JTable tbVenta;
-    public javax.swing.JTextField txtCliente;
+    public static javax.swing.JTextField txtCliente;
     private javax.swing.JTextField txtCode;
-    public javax.swing.JTextField txtDireccion;
+    public static javax.swing.JTextField txtDireccion;
     private javax.swing.JTextField txtFecha;
-    public javax.swing.JTextField txtMonedero;
+    public static javax.swing.JTextField txtMonedero;
     private javax.swing.JTextField txtPorcen;
     private javax.swing.JTextField txtVendedor;
     // End of variables declaration//GEN-END:variables
