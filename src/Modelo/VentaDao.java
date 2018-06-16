@@ -5,6 +5,7 @@
  */
 package Modelo;
 
+import Vista.Texto;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -16,7 +17,7 @@ import java.util.ArrayList;
  */
 public class VentaDao {
 int aux=0;
-
+Texto tex = new Texto();
     public int getLastId() {
         Conectarse conn = new Conectarse();
 
@@ -52,7 +53,7 @@ int aux=0;
         try {
             PreparedStatement preparedStatement = conn.getConn().prepareStatement(
                     "INSERT INTO sales (id_user, subtotal, ship, total, credito ) "                         
-                    + "VALUES (?, ?, ?, ?)");
+                    + "VALUES (?, ?, ?, ?, ?)");
             
             
             preparedStatement.setInt(1, venta.getId_user());
@@ -61,6 +62,9 @@ int aux=0;
             preparedStatement.setDouble(4, venta.getTotal());
             preparedStatement.setInt(5, 0);
             
+String consulta = "INSERT INTO sales (id_user, subtotal, ship, total, credito ) "                         
++ "VALUES ('"+venta.getId_user()+"', '"+venta.getSubtotal()+"', '"+venta.getShip()+"', '"+venta.getTotal()+"','"+0+"');";
+      tex.escribir(consulta);
             preparedStatement.executeUpdate();
             
             //Cierra todo
@@ -210,6 +214,10 @@ int aux=0;
             preparedStatement.setDouble(3, venta.getShip());
             preparedStatement.setDouble(4, venta.getTotal());
             preparedStatement.setInt(5, 1);
+            
+String consulta = "INSERT INTO sales (id_user, subtotal, ship, total, credito ) "                         
++ "VALUES ('"+venta.getId_user()+"', '"+venta.getSubtotal()+"', '"+venta.getShip()+"', '"+venta.getTotal()+"', '"+1+"');";
+  tex.escribir(consulta);
             preparedStatement.executeUpdate();
             
             //Cierra todo

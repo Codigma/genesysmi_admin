@@ -1,12 +1,13 @@
 package Modelo;
 
+import Vista.Texto;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
 public class UsuarioDao {
-
+Texto aux = new Texto();
     public UsuarioVo getUsuario(Integer id) {
         Conectarse conn = new Conectarse();
 
@@ -115,8 +116,9 @@ public class UsuarioDao {
             preparedStatement.setDouble(1, usuario.getMoney());
             preparedStatement.setInt(2, usuario.getId_user());
             
-            
-            
+String consulta = "UPDATE users SET money='"+usuario.getMoney()+"' "
+                    + "WHERE id_user = '"+usuario.getId_user()+"';";
+ aux.escribir(consulta);
             preparedStatement.executeUpdate();
             
             //Cierra todo

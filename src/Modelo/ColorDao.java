@@ -99,7 +99,7 @@ public class ColorDao {
             preparedStatement.setString(2, color.getColor_name());
             preparedStatement.setString(3, color.getColor_hex_code());
         
-            String consulta = " insert into colors (color_art, color_name, color_hex_code)"
+            String consulta = "insert into colors (color_art, color_name, color_hex_code)"
         + " values ('"+color.getColor_art()+"', '"+color.getColor_name()+"', '"+color.getColor_hex_code()+"');";
             escrib.escribir(consulta);
             preparedStatement.execute();

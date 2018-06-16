@@ -7,6 +7,7 @@ package Vista;
 
 import Modelo.ConecRemoto;
 import java.io.*;
+import java.net.URL;
 import java.sql.PreparedStatement;
 import java.util.Vector;
 import java.util.Timer;
@@ -21,9 +22,10 @@ public class Texto {
     public void escribir(String consulta)
 
     {
-
+  
 File f;
-f = new File("C:\\Users\\luism\\Desktop\\Consultas.txt");
+f = new File("src/Modelo/Consulta.txt");
+if(f.exists()){
 try{
 FileWriter w = new FileWriter(f,true);
 BufferedWriter bw = new BufferedWriter(w);
@@ -33,6 +35,10 @@ wr.append("\r\n"); //concatenamos en el archivo sin borrar lo existente
 wr.close();
 bw.close();
 }catch(IOException e){};
+}
+else{
+System.out.println("No se encontro");
+}
  }
 
     public void Leer(){
@@ -44,7 +50,7 @@ bw.close();
           ConecRemoto conex= new ConecRemoto();
          // Apertura del fichero y creacion de BufferedReader para poder
          // hacer una lectura comoda (disponer del metodo readLine()).
-         archivo = new File ("C:\\Users\\luism\\Desktop\\Consultas.txt");
+         archivo = new File ("src/Modelo/Consulta.txt");
          fr = new FileReader (archivo);
          br = new BufferedReader(fr);
 
@@ -77,10 +83,10 @@ bw.close();
       }
    }
     
-    public static void BorrarLinea(int n){
+    public void BorrarLinea(int n){
 Vector lineas=new Vector();
 try { 
-File archivo = new File ("C:\\Users\\luism\\Desktop\\Consultas.txt");
+File archivo = new File ("src/Modelo/Consulta.txt");
       FileReader  fr = new FileReader (archivo);
        BufferedReader br = new BufferedReader(fr);
         String linea; int cont=0;
@@ -100,10 +106,10 @@ File archivo = new File ("C:\\Users\\luism\\Desktop\\Consultas.txt");
       } 
 }
     
-    public static void GuardarArchivo(Vector ln){
+    public  void GuardarArchivo(Vector ln){
 try
         {
-        FileWriter    fichero = new FileWriter("C:\\Users\\luism\\Desktop\\Consultas.txt");
+        FileWriter    fichero = new FileWriter("src/Modelo/Consulta.txt");
          PrintWriter   escribe = new PrintWriter(fichero);
             for(int i=0;i<ln.size();i++){
             escribe.println(ln.elementAt(i));

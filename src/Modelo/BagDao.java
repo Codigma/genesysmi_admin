@@ -5,6 +5,7 @@
  */
 package Modelo;
 
+import Vista.Texto;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -15,7 +16,7 @@ import java.util.ArrayList;
  * @author luism
  */
 public class BagDao {
-    
+Texto escrib = new Texto();    
     
     public void InsertBag(BagVo bag){
         Conectarse conn = new Conectarse();
@@ -38,6 +39,12 @@ public class BagDao {
             preparedStatement.setInt(9, bag.getQuantity());
             preparedStatement.setInt(10, bag.getId_sale());
             
+            String consulta ="INSERT INTO bag (id_user, art, art_name, color_art, color_name, "
+                            + "id_size, size_name, price, quantity, id_sale) "
+                    + "VALUES ('"+bag.getId_user()+"','"+bag.getArt()+"' , '"+bag.getArt_name()+"',"
+                    + " '"+bag.getColor_art()+"', '"+bag.getColor_name()+"', '"+bag.getId_size()+"',"
+                    + " '"+bag.getSize_name()+"', '"+bag.getPrice()+"', '"+bag.getQuantity()+"', '"+bag.getId_sale()+"');";
+            escrib.escribir(consulta);
             
             preparedStatement.executeUpdate();
             

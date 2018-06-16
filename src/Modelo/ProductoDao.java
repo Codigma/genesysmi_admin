@@ -1,10 +1,12 @@
 package Modelo;
 
+import Vista.Texto;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
 public class ProductoDao {
+    Texto aux = new Texto();
     public ProductoVo getDetallesProducto(String art) {
         Conectarse conn = new Conectarse();
 
@@ -131,6 +133,12 @@ public class ProductoDao {
             preparedStatement.setString(7, producto.getComposition());
             preparedStatement.setInt(8, producto.getId_type_product());
             
+            String consulta = "INSERT INTO product_details (art, name, price, id_category, id_subcategory, "
+                            + "description, composition, id_type_product) "
+                    + "VALUES ('"+producto.getArt()+"', '"+producto.getArt_name()+"', '"+producto.getPrice()+"',"
+                    + " '"+producto.getId_category()+"', '"+producto.getId_subcategory()+"', '"+producto.getDescription()+"',"
+                    + " '"+producto.getComposition()+"', '"+producto.getId_type_product()+"');";
+            aux.escribir(consulta);
             preparedStatement.executeUpdate();
             
             //Cierra todo
@@ -162,6 +170,13 @@ public class ProductoDao {
             preparedStatement.setInt(8, producto.getId_type_product());
             preparedStatement.setString(9, producto.getArt());
             
+            String consulta ="UPDATE product_details SET art = '"+producto.getArt()+"', name = '"+producto.getArt_name()+"',"
+                    + " price = '"+producto.getPrice()+"', id_category = '"+producto.getId_category()+"',"
+                    + " id_subcategory = '"+producto.getId_subcategory()+"', "
+                            + "description = '"+producto.getDescription()+"', composition = '"+producto.getComposition()+"',"
+                    + " id_type_product = '"+producto.getArt()+"' "
+                    + "WHERE art = '"+producto.getArt()+"';";
+            aux.escribir(consulta);
             preparedStatement.executeUpdate();
             
             //Cierra todo
@@ -189,6 +204,10 @@ public class ProductoDao {
             preparedStatement.setString(6, null);
             preparedStatement.setString(7, null);
             
+            String consulta = "INSERT INTO products (art, color_art, src1, src2, src3, src4, src5) "
+                    + "VALUES ('"+producto.getArt()+"', '"+producto.getColor_art()+"', '"+producto.getSrc1()+"',"
+                    + " '"+producto.getSrc2()+"', '"+producto.getSrc3()+"', '"+null+"', '"+null+"');";
+            aux.escribir(consulta);
             preparedStatement.executeUpdate();
             
             //Cierra todo
@@ -217,6 +236,10 @@ public class ProductoDao {
             preparedStatement.setString(6, producto.getArt());
             preparedStatement.setString(7, producto.getColor_art());
             
+            String consulta ="UPDATE products SET art = '"+producto.getArt()+"', color_art = '"+producto.getColor_art()+"',"
+                    + " src1 = '"+producto.getSrc1()+"', src2 = '"+producto.getSrc2()+"', src3 = '"+producto.getSrc3()+"' "
+                    + "WHERE art = '"+producto.getArt()+"' AND color_art = '"+producto.getColor_art()+"';";
+            aux.escribir(consulta);
             preparedStatement.executeUpdate();
             
             //Cierra todo
@@ -241,6 +264,9 @@ public class ProductoDao {
             preparedStatement.setInt(3, producto.getId_size());
             preparedStatement.setInt(4, producto.getAmount());
             
+            String consulta = "INSERT INTO product_sizes (art, color_art, id_size, amount) "
++ "VALUES ('"+producto.getArt()+"', '"+producto.getColor_art()+"', '"+producto.getId_size()+"', '"+producto.getAmount()+"');";
+            aux.escribir(consulta);
             preparedStatement.executeUpdate();
             
             //Cierra todo
@@ -270,6 +296,10 @@ public class ProductoDao {
             preparedStatement.setString(6, producto.getColor_art());
             preparedStatement.setInt(7, producto.getId_size());
             
+String consulta = "UPDATE product_sizes SET art = '"+producto.getArt()+"', color_art = '"+producto.getColor_art()+"', "
++ "id_size = '"+producto.getId_size()+"', amount= '"+producto.getAmount()+"' "
++ "WHERE art = '"+producto.getArt()+"' AND color_art = '"+producto.getColor_art()+"' AND id_size = '"+producto.getId_size()+"';";
+   aux.escribir(consulta);
             preparedStatement.executeUpdate();
             
             //Cierra todo
@@ -294,7 +324,8 @@ public class ProductoDao {
             preparedStatement.setString(3, producto.getColor_art());
             preparedStatement.setInt(4, producto.getId_size());
             
-            
+String consulta = "UPDATE product_sizes SET amount=amount-'"+producto.getAmount()+"' "
++ "WHERE art = '"+producto.getArt()+"' AND color_art = '"+producto.getColor_art()+"' AND id_size = '"+producto.getId_size()+"';";
             
             preparedStatement.executeUpdate();
             
