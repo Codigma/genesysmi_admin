@@ -8,6 +8,7 @@ import java.beans.PropertyVetoException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JFrame;
+import javax.swing.Timer;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -22,6 +23,9 @@ public class Inicio extends javax.swing.JFrame implements Runnable {
 Texto remoto = new Texto();
     private Coordinador miCoordinador;
             private Dimension dim;
+            
+   
+               
     public void setCoordinador(Coordinador miCoordinador) {
         this.miCoordinador = miCoordinador;
         //this.getUsuario(1);
@@ -39,7 +43,7 @@ Texto remoto = new Texto();
         initComponents();
         this.setExtendedState(this.getExtendedState() | JFrame.MAXIMIZED_BOTH);
         setLocationRelativeTo(null);
-        
+        remoto.Leer();
     }
 
     /**
@@ -407,6 +411,7 @@ Texto remoto = new Texto();
             java.util.logging.Logger.getLogger(Inicio.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
+        
         Toolkit t = Toolkit.getDefaultToolkit();
         Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
         System.out.println("Tu resolución es de " + screenSize.width + "x" + screenSize.height);
@@ -445,7 +450,7 @@ Texto remoto = new Texto();
         while(true) {
          try {
               Thread.sleep(300000);
-remoto.Leer();
+
          } catch(InterruptedException e) {}
     }
     }
