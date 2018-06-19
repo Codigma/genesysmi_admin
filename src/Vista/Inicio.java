@@ -13,23 +13,11 @@ import javax.swing.JInternalFrame;
 import javax.swing.JOptionPane;
 import javax.swing.Timer;
 
-<<<<<<< HEAD
-public class Inicio extends javax.swing.JFrame implements Runnable {
 
-    Texto remoto = new Texto();
-=======
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-/**
- *
- * @author luism
- */
+
 public class Inicio extends javax.swing.JFrame {
 Texto remoto = new Texto();
->>>>>>> fca8832f3323b6185e383c99870936e8a1ad8334
+
     private Coordinador miCoordinador;
     private Dimension dim;
 
@@ -291,11 +279,7 @@ Productos pt;
 
         }
     }//GEN-LAST:event_inventarioActionPerformed
-<<<<<<< HEAD
 
-=======
-   // Vista.Total t;
->>>>>>> fca8832f3323b6185e383c99870936e8a1ad8334
     private void addProductActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addProductActionPerformed
         if (estacerrado(pt)) {
 
@@ -500,21 +484,6 @@ Productos pt;
     private javax.swing.JMenuItem updateProduct;
     // End of variables declaration//GEN-END:variables
 
-<<<<<<< HEAD
-    @Override
-    public void run() {
-        while (true) {
-            try {
-                Thread.sleep(300000);
 
-            } catch (InterruptedException e) {
-            }
-        }
-    }
-=======
-  
-  
- 
->>>>>>> fca8832f3323b6185e383c99870936e8a1ad8334
 
 }
