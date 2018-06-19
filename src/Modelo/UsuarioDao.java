@@ -116,8 +116,7 @@ Texto aux = new Texto();
             preparedStatement.setDouble(1, usuario.getMoney());
             preparedStatement.setInt(2, usuario.getId_user());
             
-String consulta = "UPDATE users SET money='"+usuario.getMoney()+"' "
-                    + "WHERE id_user = '"+usuario.getId_user()+"';";
+String consulta = "UPDATE users SET money='"+usuario.getMoney()+"' "+ "WHERE id_user = '"+usuario.getId_user()+"';";
  aux.escribir(consulta);
             preparedStatement.executeUpdate();
             
