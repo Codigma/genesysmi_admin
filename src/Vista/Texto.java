@@ -54,19 +54,29 @@ System.out.println("No se encontro");
          fr = new FileReader (archivo);
          br = new BufferedReader(fr);
 
+         
+         if(archivo.length()>0){
          // Lectura del fichero
-         String linea;
+         String linea,aux = "";
          int pos =0;
          while((linea=br.readLine())!=null){
+             aux.concat(linea+" ");
              pos++;
-          PreparedStatement preparedStatement = conex.getConn().prepareStatement(linea);
-          preparedStatement.execute();
+             
+          if(aux.contains(";")){
+          PreparedStatement preparedStatement = conex.getConn().prepareStatement(aux);
+          preparedStatement.executeQuery();   
+          aux="";
+          }    
+          else{
+          System.out.println("Continua consulta");
+          }
           BorrarLinea(pos);
-          Leer();
+          
           
          }
             
-      }
+      }}
       catch(Exception e){
          e.printStackTrace();
       }finally{

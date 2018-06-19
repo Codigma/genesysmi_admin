@@ -1,2 +1,0 @@
-select * from colors ;
-    select * from bag;
