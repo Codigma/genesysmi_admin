@@ -37,7 +37,7 @@ public class ConecRemoto {
             }
           
         } catch (ClassNotFoundException | SQLException e) {
-            MySQLAcceso();
+            
             //JOptionPane.showMessageDialog(null,"Error en al conexión"+" "+ e.getMessage(),"ERROR",JOptionPane.INFORMATION_MESSAGE);
             //System.out.println(e);  
         }}

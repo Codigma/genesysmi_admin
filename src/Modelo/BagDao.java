@@ -39,11 +39,7 @@ Texto escrib = new Texto();
             preparedStatement.setInt(9, bag.getQuantity());
             preparedStatement.setInt(10, bag.getId_sale());
             
-            String consulta ="INSERT INTO bag (id_user, art, art_name, color_art, color_name, "
-                            + "id_size, size_name, price, quantity, id_sale) "
-                    + "VALUES ('"+bag.getId_user()+"','"+bag.getArt()+"' , '"+bag.getArt_name()+"',"
-                    + " '"+bag.getColor_art()+"', '"+bag.getColor_name()+"', '"+bag.getId_size()+"',"
-                    + " '"+bag.getSize_name()+"', '"+bag.getPrice()+"', '"+bag.getQuantity()+"', '"+bag.getId_sale()+"');";
+String consulta ="INSERT INTO bag (id_user, art, art_name, color_art, color_name, id_size, size_name, price, quantity, id_sale) VALUES ('"+bag.getId_user()+"','"+bag.getArt()+"' , '"+bag.getArt_name()+"', '"+bag.getColor_art()+"', '"+bag.getColor_name()+"', '"+bag.getId_size()+"', '"+bag.getSize_name()+"', '"+bag.getPrice()+"', '"+bag.getQuantity()+"', '"+bag.getId_sale()+"');";
             escrib.escribir(consulta);
             
             preparedStatement.executeUpdate();

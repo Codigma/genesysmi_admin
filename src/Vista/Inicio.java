@@ -19,7 +19,7 @@ import javax.swing.Timer;
  *
  * @author luism
  */
-public class Inicio extends javax.swing.JFrame implements Runnable {
+public class Inicio extends javax.swing.JFrame {
 Texto remoto = new Texto();
     private Coordinador miCoordinador;
             private Dimension dim;
@@ -268,7 +268,7 @@ Texto remoto = new Texto();
         
 //   miCoordinador.getReporte().setVisible(true);        // TODO add your handling code here:
     }//GEN-LAST:event_inventarioActionPerformed
-    Vista.Total t;
+   // Vista.Total t;
     private void addProductActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addProductActionPerformed
         Productos pt = new Productos();
         pt.setCoordinador(miCoordinador);
@@ -445,16 +445,8 @@ Texto remoto = new Texto();
     private javax.swing.JMenuItem updateProduct;
     // End of variables declaration//GEN-END:variables
 
-    @Override
-    public void run() {
-        while(true) {
-         try {
-              Thread.sleep(300000);
-
-         } catch(InterruptedException e) {}
-    }
-    }
-
+  
+  
  
 
 }

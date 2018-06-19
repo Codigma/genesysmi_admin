@@ -62,8 +62,7 @@ Texto tex = new Texto();
             preparedStatement.setDouble(4, venta.getTotal());
             preparedStatement.setInt(5, 0);
             
-String consulta = "INSERT INTO sales (id_user, subtotal, ship, total, credito ) "                         
-+ "VALUES ('"+venta.getId_user()+"', '"+venta.getSubtotal()+"', '"+venta.getShip()+"', '"+venta.getTotal()+"','"+0+"');";
+String consulta = "INSERT INTO sales (id_user, subtotal, ship, total, credito ) "+ "VALUES ('"+venta.getId_user()+"', '"+venta.getSubtotal()+"', '"+venta.getShip()+"', '"+venta.getTotal()+"','"+0+"');";
       tex.escribir(consulta);
             preparedStatement.executeUpdate();
             
@@ -215,8 +214,7 @@ String consulta = "INSERT INTO sales (id_user, subtotal, ship, total, credito ) 
             preparedStatement.setDouble(4, venta.getTotal());
             preparedStatement.setInt(5, 1);
             
-String consulta = "INSERT INTO sales (id_user, subtotal, ship, total, credito ) "                         
-+ "VALUES ('"+venta.getId_user()+"', '"+venta.getSubtotal()+"', '"+venta.getShip()+"', '"+venta.getTotal()+"', '"+1+"');";
+String consulta = "INSERT INTO sales (id_user, subtotal, ship, total, credito ) "+ "VALUES ('"+venta.getId_user()+"', '"+venta.getSubtotal()+"', '"+venta.getShip()+"', '"+venta.getTotal()+"', '"+1+"');";
   tex.escribir(consulta);
             preparedStatement.executeUpdate();
             
@@ -291,7 +289,7 @@ String consulta = "INSERT INTO sales (id_user, subtotal, ship, total, credito ) 
             preparedStatement.setInt(2, venta.getId_user());
             preparedStatement.setInt(3, venta.getId_sale());
             
-            
+String consulta = "UPDATE sales SET total='"+venta.getTotal()+"' "+ "WHERE id_user = '"+venta.getId_user()+"' AND  id_sale = '"+venta.getId_sale() +"';";            
             
             preparedStatement.executeUpdate();
             
