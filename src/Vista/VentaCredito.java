@@ -22,8 +22,11 @@ import javax.swing.table.DefaultTableModel;
 public class VentaCredito extends javax.swing.JInternalFrame {
     
     
- DefaultTableModel modelo = new DefaultTableModel();
- DefaultTableModel modelo2 = new DefaultTableModel();
+ DefaultTableModel modelo = new DefaultTableModel(){
+ public boolean isCellEditable(int rowIndex,int columnIndex){return false;}
+ };
+ DefaultTableModel modelo2 = new DefaultTableModel(){
+ public boolean isCellEditable(int rowIndex,int columnIndex){return false;}};
       String[] columnas = {"ID Venta","ID Cliente","Cliente","Subtotal","Envio","Total","Fecha"};
   String[] columnas2 = {"Cod. Artículo","Artículo","Color","Talla","Precio","Cantidad"};
       private Coordinador miCoordinador;
