@@ -80,17 +80,18 @@ Texto remoto = new Texto();
         escritorio.setLayout(escritorioLayout);
         escritorioLayout.setHorizontalGroup(
             escritorioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 784, Short.MAX_VALUE)
+            .addGap(0, 794, Short.MAX_VALUE)
         );
         escritorioLayout.setVerticalGroup(
             escritorioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 434, Short.MAX_VALUE)
         );
 
-        jMenuBar1.setBackground(new java.awt.Color(51, 51, 51));
         jMenuBar1.setBorder(null);
         jMenuBar1.setForeground(new java.awt.Color(153, 153, 153));
-        jMenuBar1.setFont(new java.awt.Font("Apple SD Gothic Neo", 0, 14)); // NOI18N
+        jMenuBar1.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        jMenuBar1.setName(""); // NOI18N
+        jMenuBar1.setPreferredSize(new java.awt.Dimension(263, 30));
 
         menuProduct.setText("Productos");
 
@@ -213,15 +214,11 @@ Texto remoto = new Texto();
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(escritorio))
+            .addComponent(escritorio, javax.swing.GroupLayout.Alignment.TRAILING)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(escritorio)
-                .addContainerGap())
+            .addComponent(escritorio)
         );
 
         pack();
