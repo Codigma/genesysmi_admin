@@ -75,7 +75,7 @@ System.out.println("No se encontro");
           
           
          }
-           Leer(); 
+           
       }}
       catch(Exception e){
          e.printStackTrace();
@@ -129,23 +129,9 @@ try
             e.printStackTrace();
         } 
 }
+    
+    
     public static void main(String args[]) {
-    Timer timer;
-    timer = new Timer();
-    final String str = new String("REACHED TEN TICS");
-
-    TimerTask task = new TimerTask() {
-        int tic = 0;
-
-        @Override
-        public void run()
-        {
-           Texto cliente = new Texto();
-           cliente.Leer();
-        }
-        };
-
-    timer.schedule(task, 0, 10000);
     }
 
 }
