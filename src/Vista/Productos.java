@@ -797,7 +797,7 @@ public class Productos extends javax.swing.JInternalFrame {
                 && !producto.getDescription().equals("") && producto.getId_category() != null
                 && producto.getId_size() != null && producto.getId_subcategory() != null
                 && producto.getId_type_product() != null && producto.getPrice() != null
-                 /* producto.getSrc1() != null*/ && amount >= 0) {
+                 /* producto.getSrc1() != null*/ && amount != null) {
 
             //Rutas para el src
             String category = comboCategory.getItemAt(comboCategory.getSelectedIndex());
