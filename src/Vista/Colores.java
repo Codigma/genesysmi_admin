@@ -21,7 +21,11 @@ import javax.swing.table.DefaultTableModel;
 public class Colores extends javax.swing.JInternalFrame {
 
     private Coordinador miCoordinador;
-  DefaultTableModel modelo = new DefaultTableModel();
+  DefaultTableModel modelo = new DefaultTableModel(){
+  
+  public boolean isCellEditable(int rowIndex,int columnIndex){return false;}
+  
+  };
       String[] columnas = {"Codigo Color","Nombre","Codigo Hex"};
       
 

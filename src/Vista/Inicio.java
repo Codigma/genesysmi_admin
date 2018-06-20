@@ -13,8 +13,6 @@ import javax.swing.JInternalFrame;
 import javax.swing.JOptionPane;
 import javax.swing.Timer;
 
-
-
 public class Inicio extends javax.swing.JFrame {
 Texto remoto = new Texto();
 
@@ -26,9 +24,6 @@ Texto remoto = new Texto();
 
     }
 
-    /**
-     * Creates new form Principal
-     */
     public Inicio() {
         this.setResizable(false);
         initComponents();

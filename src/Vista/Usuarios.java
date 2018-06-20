@@ -23,7 +23,9 @@ import Vista.DetalleVenta;
  */
 public class Usuarios extends javax.swing.JInternalFrame {
   private Coordinador miCoordinador;
-  DefaultTableModel modelo = new DefaultTableModel();
+  DefaultTableModel modelo = new DefaultTableModel(){
+  public boolean isCellEditable(int rowIndex,int columnIndex){return false;}
+  };
       String[] columnas = {"ID","Nombre(s)","Apellidos","Email","Estado","Localidad","Codigo Postal","Direccion","Telefono","RFC","Registro","Dinero"};
      
     public void setCoordinador(Coordinador miCoordinador) {

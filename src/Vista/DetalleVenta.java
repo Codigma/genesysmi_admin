@@ -42,7 +42,9 @@ public class DetalleVenta extends javax.swing.JInternalFrame {
 Date date = new Date();
 DateFormat hourdateFormat = new SimpleDateFormat("dd/MM/yyyy HH:mm ");
     
-DefaultTableModel modelo = new DefaultTableModel();
+DefaultTableModel modelo = new DefaultTableModel(){
+public boolean isCellEditable(int rowIndex,int columnIndex){return false;}
+};
   String[] columnas = {"Codigo","Articulo","Color","Talla","Precio Unitario","Cantidad","Importe"};
   
     private Coordinador miCoordinador;
