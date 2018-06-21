@@ -1,6 +1,7 @@
 package Vista;
 
 import Controlador.Coordinador;
+import Modelo.ConecRemoto;
 import Vista.Prueba.Color;
 import java.awt.Dimension;
 import java.awt.Toolkit;
@@ -12,16 +13,18 @@ import javax.swing.JFrame;
 import javax.swing.JInternalFrame;
 import javax.swing.JOptionPane;
 import javax.swing.Timer;
-
+import java.io.*;
 public class Inicio extends javax.swing.JFrame {
-Texto remoto = new Texto();
 
-    private Coordinador miCoordinador;
+    ConecRemoto servidor = new ConecRemoto();
+File f = new File("src/Modelo/Consulta.txt");
+    
+private Coordinador miCoordinador;
     private Dimension dim;
 
     public void setCoordinador(Coordinador miCoordinador) {
         this.miCoordinador = miCoordinador;
-
+ConecRemoto.importarQuery(f);
     }
 
     public Inicio() {
@@ -29,7 +32,7 @@ Texto remoto = new Texto();
         initComponents();
         this.setExtendedState(this.getExtendedState() | JFrame.MAXIMIZED_BOTH);
         setLocationRelativeTo(null);
-        remoto.Leer();
+        
     }
 
     public boolean estacerrado(Object obj) {

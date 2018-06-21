@@ -1,8 +1,14 @@
  package Modelo;
 
+import java.io.BufferedReader;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.PreparedStatement;
 import java.sql.SQLException;
+import java.sql.Statement;
 import javax.swing.JOptionPane;
 
 public class ConecRemoto {
@@ -12,7 +18,7 @@ public class ConecRemoto {
     private final String dbremoto = "codigmac_genesysmi";
     private final String userremoto = "codigmac_codigma";
     private final String passremoto = "departamento03";
-
+    private final String error = "";
     
         private final String host = "localhost";
     private final String db = "genesysmi";
@@ -58,10 +64,80 @@ public class ConecRemoto {
             System.out.println(e);  
         }
 }
-        
+          public boolean hasError(){ 
+        if(this.error.length() > 0) 
+            return true; 
+        return false; 
+    } 
+
+    public String getError(){ 
+        return this.error; 
+    } 
+
+  
     
 
     public Connection getConn() {
         return conn;
     }
+    
+    public static boolean executeQuery(String query){ 
+
+        Statement sentencias = null; 
+        ConecRemoto connector = new ConecRemoto(); 
+
+        Connection con = connector.getConn(); 
+
+        if(connector.hasError()){ 
+            return false; 
+        } 
+
+        try{ 
+            //sentencias = con.createStatement(); 
+            //sentencias.executeUpdate(query); 
+            String [] lista = query.split(";");
+            for(int i =0;i<=lista.length;i++){
+             PreparedStatement preparedStatement = connector.getConn().prepareStatement(lista[i]);
+             System.out.println(lista[i]);
+             preparedStatement.executeUpdate();
+            System.out.println("Exito");
+            }
+            //sentencias.close(); 
+            con.close(); 
+            
+        }catch(Exception e){ 
+            return false; 
+        } 
+System.out.println("ejecuta");
+        return true; 
+
+    } 
+
+ public  static  String obtenerContenido(java.io.File documento){ 
+        String sCadena = ""; 
+        String retorno = ""; 
+
+        if(!documento.exists()){ 
+            return null; 
+        } 
+
+        try{ 
+
+            BufferedReader bf = new BufferedReader(new FileReader(documento)); 
+            while ((sCadena = bf.readLine()) != null) { 
+                retorno += sCadena; 
+            } 
+
+        }catch(FileNotFoundException fnfe){ 
+            return null ;
+        }catch(IOException ioe){ 
+            return null; 
+        } 
+System.out.println("Lee archivo");
+        return retorno; 
+    } 
+public static  boolean importarQuery(java.io.File documento){ 
+        String query = obtenerContenido(documento);
+        return executeQuery(query); 
+    } 
 }
