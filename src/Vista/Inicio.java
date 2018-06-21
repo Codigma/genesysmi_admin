@@ -94,6 +94,7 @@ Texto remoto = new Texto();
         jMenuBar1.setPreferredSize(new java.awt.Dimension(263, 30));
 
         menuProduct.setText("Productos");
+        menuProduct.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
 
         addProduct.setText("Añadir nuevo");
         addProduct.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -137,6 +138,7 @@ Texto remoto = new Texto();
         jMenuBar1.add(menuProduct);
 
         menuColors.setText("Colores");
+        menuColors.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
 
         itemViewColor.setText("Ver Lista");
         itemViewColor.addActionListener(new java.awt.event.ActionListener() {
@@ -157,6 +159,7 @@ Texto remoto = new Texto();
         jMenuBar1.add(menuColors);
 
         menuUsers.setText("Usuarios");
+        menuUsers.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
 
         jMenuItem1.setText("Lista Clientes");
         jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
@@ -169,6 +172,7 @@ Texto remoto = new Texto();
         jMenuBar1.add(menuUsers);
 
         menuSale.setText("Ventas");
+        menuSale.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
 
         jMenuItem2.setText("Realizar Venta");
         jMenuItem2.addActionListener(new java.awt.event.ActionListener() {
@@ -197,6 +201,7 @@ Texto remoto = new Texto();
         jMenuBar1.add(menuSale);
 
         jMenu1.setText("Reportes");
+        jMenu1.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
 
         inventario.setText("Inventarios");
         inventario.addActionListener(new java.awt.event.ActionListener() {
