@@ -49,6 +49,7 @@ public class Productos extends javax.swing.JInternalFrame {
     private File src3File;
     private String src3Name;
 
+    private FTPUploader  ftpUploader;
     public Productos() {
         initComponents();
         //setLocationRelativeTo(null);
@@ -790,7 +791,12 @@ public class Productos extends javax.swing.JInternalFrame {
         if (!textCant.equals("")) {
             amount = Integer.parseInt(textCant);
         }
-
+        
+        //Comprobar src vacíos
+        String srcFile1 = producto.getSrc1();
+        String srcFile2 = producto.getSrc2();
+        String srcFile3 = producto.getSrc3();
+        
           //Rutas para el src
             String category = comboCategory.getItemAt(comboCategory.getSelectedIndex());
             String subcategory = comboSub.getItemAt(comboSub.getSelectedIndex());
@@ -800,13 +806,13 @@ public class Productos extends javax.swing.JInternalFrame {
             String src = producto.getArt_name() + " " + color + " " ;
             
           
-            if (src1File != null) {
+            if (srcFile1 == null) {
 
                 try {
             String value = new String(src.getBytes("UTF-8"), "ISO-8859-1");
             String value2 = new String(path.getBytes("UTF-8"), "ISO-8859-1");
             
-                  FTPUploader  ftpUploader = new FTPUploader("www.genesysmi.com", "genesysmi@genesysmi.com", "65i1r3WqQd",src1File.getPath(),value+src1Name,"/img/products/" + value2+"/");
+                    ftpUploader = new FTPUploader("www.genesysmi.com", "genesysmi@genesysmi.com", "65i1r3WqQd",src1File.getPath(),value+src1Name,"/img/products/" + value2+"/");
                 } catch (Exception ex) {
                     Logger.getLogger(Productos.class.getName()).log(Level.SEVERE, null, ex);
                 }
@@ -814,27 +820,28 @@ public class Productos extends javax.swing.JInternalFrame {
                 producto.setSrc1(path + "/" + src + src1Name);
 
             }
-            if (src2File != null) {
+            if (srcFile2 == null) {
                  try {
             String value = new String(src.getBytes("UTF-8"), "ISO-8859-1");
             String value2 = new String(path.getBytes("UTF-8"), "ISO-8859-1");
             
-                  FTPUploader  ftpUploader = new FTPUploader("www.genesysmi.com", "genesysmi@genesysmi.com", "65i1r3WqQd",src2File.getPath(),value+src2Name,"/img/products/" + value2+"/");
+                    ftpUploader = new FTPUploader("www.genesysmi.com", "genesysmi@genesysmi.com", "65i1r3WqQd",src2File.getPath(),value+src2Name,"/img/products/" + value2+"/");
                 } catch (Exception ex) {
                     Logger.getLogger(Productos.class.getName()).log(Level.SEVERE, null, ex);
                 }
                 producto.setSrc2(path + "/" + src + src2Name);
             }
-            if (src3File != null) {
+            if (srcFile3 == null) {
                try {
             String value = new String(src.getBytes("UTF-8"), "ISO-8859-1");
             String value2 = new String(path.getBytes("UTF-8"), "ISO-8859-1");
             
-                  FTPUploader  ftpUploader = new FTPUploader("www.genesysmi.com", "genesysmi@genesysmi.com", "65i1r3WqQd",src3File.getPath(),value+src3Name,"/img/products/" + value2+"/");
+                    ftpUploader = new FTPUploader("www.genesysmi.com", "genesysmi@genesysmi.com", "65i1r3WqQd",src3File.getPath(),value+src3Name,"/img/products/" + value2+"/");
                 } catch (Exception ex) {
                     Logger.getLogger(Productos.class.getName()).log(Level.SEVERE, null, ex);
                 }    producto.setSrc3(path + "/" + src + src3Name);
             }
+            
         //Aquí ocurre la magia
         if (producto.getArt() != null && !producto.getArt_name().equals("")
                 && producto.getColor_art() != null && !producto.getComposition().equals("")
