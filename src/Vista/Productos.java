@@ -791,15 +791,7 @@ public class Productos extends javax.swing.JInternalFrame {
             amount = Integer.parseInt(textCant);
         }
 
-        //Aquí ocurre la magia
-        if (producto.getArt() != null && !producto.getArt_name().equals("")
-                && producto.getColor_art() != null && !producto.getComposition().equals("")
-                && !producto.getDescription().equals("") && producto.getId_category() != null
-                && producto.getId_size() != null && producto.getId_subcategory() != null
-                && producto.getId_type_product() != null && producto.getPrice() != null
-                 /* producto.getSrc1() != null*/ && amount >= 0) {
-
-            //Rutas para el src
+          //Rutas para el src
             String category = comboCategory.getItemAt(comboCategory.getSelectedIndex());
             String subcategory = comboSub.getItemAt(comboSub.getSelectedIndex());
             String color = colores.get(comboColor.getSelectedIndex() - 1).getColor_name();
@@ -843,6 +835,15 @@ public class Productos extends javax.swing.JInternalFrame {
                     Logger.getLogger(Productos.class.getName()).log(Level.SEVERE, null, ex);
                 }    producto.setSrc3(path + "/" + src + src3Name);
             }
+        //Aquí ocurre la magia
+        if (producto.getArt() != null && !producto.getArt_name().equals("")
+                && producto.getColor_art() != null && !producto.getComposition().equals("")
+                && !producto.getDescription().equals("") && producto.getId_category() != null
+                && producto.getId_size() != null && producto.getId_subcategory() != null
+                && producto.getId_type_product() != null && producto.getPrice() != null
+                 && producto.getSrc1() != null ) {
+
+          
 
             if (isArt) {
                 miCoordinador.UpdateProductDetails(producto);
@@ -856,10 +857,12 @@ public class Productos extends javax.swing.JInternalFrame {
                         miCoordinador.InsertProductSizes(producto);
                     }
                 } else {
+                    producto.setAmount(amount);
                     miCoordinador.InsertProduct(producto);
                     miCoordinador.InsertProductSizes(producto);
                 }
             } else {
+                producto.setAmount(amount);
                 miCoordinador.InsertProductDetails(producto);
                 miCoordinador.InsertProduct(producto);
                 miCoordinador.InsertProductSizes(producto);
@@ -867,7 +870,7 @@ public class Productos extends javax.swing.JInternalFrame {
 
             txtCode.setText("");
             btnBuscar.doClick();
-
+JOptionPane.showMessageDialog(null, "Producto Agregado Satisfactoriamente", "Completo", JOptionPane.INFORMATION_MESSAGE);
         } else {
             JOptionPane.showMessageDialog(null, "Completa todos los campos", "ERROR", JOptionPane.INFORMATION_MESSAGE);
         }
