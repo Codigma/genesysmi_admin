@@ -236,7 +236,7 @@ modelo.removeRow(0);
 
         setClosable(true);
         setIconifiable(true);
-        setPreferredSize(new java.awt.Dimension(856, 514));
+        setPreferredSize(new java.awt.Dimension(1308, 774));
 
         jPanel1.setBackground(new java.awt.Color(242, 242, 242));
 
@@ -307,8 +307,8 @@ modelo.removeRow(0);
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 457, Short.MAX_VALUE)
-                .addContainerGap())
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 405, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         jPanel3.setBorder(javax.swing.BorderFactory.createEtchedBorder());
@@ -344,15 +344,14 @@ modelo.removeRow(0);
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
-                .addContainerGap()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel5, javax.swing.GroupLayout.DEFAULT_SIZE, 28, Short.MAX_VALUE)
+                    .addComponent(jLabel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jLabel7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(lblTotal, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(20, 20, 20))
+                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)))
         );
 
         jPanel4.setBackground(new java.awt.Color(242, 242, 242));
@@ -413,6 +412,7 @@ modelo.removeRow(0);
         btnBuscar.setForeground(new java.awt.Color(255, 255, 255));
         btnBuscar.setText("Buscar");
         btnBuscar.setBorder(null);
+        btnBuscar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnBuscar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnBuscarActionPerformed(evt);
@@ -539,18 +539,18 @@ modelo.removeRow(0);
             .addGroup(jPanel5Layout.createSequentialGroup()
                 .addGap(18, 18, 18)
                 .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jTextField2, javax.swing.GroupLayout.DEFAULT_SIZE, 693, Short.MAX_VALUE)
-                .addContainerGap())
+                .addGap(18, 18, 18))
         );
         jPanel5Layout.setVerticalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel5Layout.createSequentialGroup()
-                .addContainerGap()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, 41, Short.MAX_VALUE)
-                    .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap())
+                    .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 74, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         jPanel6.setBackground(new java.awt.Color(242, 242, 242));
@@ -565,6 +565,7 @@ modelo.removeRow(0);
         txtCode.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
         lblBuscar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/IconSearch.png"))); // NOI18N
+        lblBuscar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         lblBuscar.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 lblBuscarMouseClicked(evt);
@@ -735,10 +736,6 @@ modelo.removeRow(0);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel6)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -752,33 +749,38 @@ modelo.removeRow(0);
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(jPanel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))))
-                .addGap(28, 28, 28))
+                .addContainerGap(18, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel6)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jLabel6)
-                .addGap(18, 18, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 11, Short.MAX_VALUE)
-                        .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addComponent(jPanel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(12, 12, 12))
+                    .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jPanel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jPanel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -790,317 +792,274 @@ modelo.removeRow(0);
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void btnCreditActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCreditActionPerformed
+        VentaVo credito = new VentaVo();
+
+        BagVo aux = new BagVo();
+        for (int t = 0; t < bag.size(); t++){
+            aux.setId_user(bag.get(t).getId_user());
+            aux.setArt(bag.get(t).getArt());
+            aux.setArt_name(bag.get(t).getArt_name());
+            aux.setColor_art(bag.get(t).getColor_art());
+            aux.setColor_name(bag.get(t).getColor_name());
+            aux.setId_size(bag.get(t).getId_size());
+            aux.setSize_name(bag.get(t).getSize_name());
+            aux.setPrice(bag.get(t).getPrice());
+            aux.setQuantity(bag.get(t).getQuantity());
+            aux.setId_sale(bag.get(t).getId_sale());
+            miCoordinador.InsertBag(aux);
+        }
+
+        ArrayList<ProductoVo> registro = new ArrayList<>();
+
+        for(int c = 0; c <bag.size();c++){
+            ProductoVo aux1 = new ProductoVo();
+
+            aux1.setAmount(bag.get(c).getQuantity());
+            aux1.setArt(bag.get(c).getArt());
+            aux1.setColor_art(bag.get(c).getColor_art());
+            aux1.setId_size(bag.get(c).getId_size());
+
+            registro.add(aux1);
+
+        }
+
+        int confirmado = JOptionPane.showConfirmDialog(null,
+            "Su pago total es de:"+" "+lblTotal.getText()+ " " + "¿Desea dar un adelanto?");
+
+        switch(confirmado){
+            case 0:
+            String adelanto = JOptionPane.showInputDialog(null,"Adelanto $$",JOptionPane.QUESTION_MESSAGE);
+
+            if(Double.parseDouble(lblTotal.getText()) >= Double.parseDouble(adelanto)){
+                double total = Double.parseDouble(lblTotal.getText()) - Double.parseDouble(adelanto);
+
+                credito.setId_user(id_usuario);
+                credito.setSubtotal(Double.parseDouble(lblTotal.getText()));
+                credito.setShip(0);
+                credito.setTotal(total);
+                credito.setCredito(1);
+
+                if(credito.getId_user()!=0){
+                    miCoordinador.ingresarCredito(credito);
+
+                    for(int v = 0; v < registro.size(); v++){
+                        miCoordinador.UpdateProductSizesSales(registro.get(v));
+                    }
+                    JOptionPane.showMessageDialog(null, "Operación realizada correctamente");
+
+                    limpiarTable();
+                    limpiarCamposVenta();
+                    lblTotal.setText("0.00");
+
+                }
+                else{
+                    JOptionPane.showMessageDialog(null, "Seleccione un usuario válido");
+                }
+
+            }
+
+            else{
+                JOptionPane.showMessageDialog(null, "Ingrese una cantidad válida, menor al total");
+            }
+
+            break;
+
+            case 1:
+
+            credito.setId_user(id_usuario);
+            credito.setSubtotal(Double.parseDouble(lblTotal.getText()));
+            credito.setShip(0);
+            credito.setTotal(Double.parseDouble(lblTotal.getText()));
+            credito.setCredito(1);
+
+            if(credito.getId_user()!=0){
+                miCoordinador.ingresarCredito(credito);
+                for(int v = 0; v < registro.size(); v++){
+                    miCoordinador.UpdateProductSizesSales(registro.get(v));
+                }
+                JOptionPane.showMessageDialog(null, "Operación realizada correctamente");
+
+                limpiarTable();
+                limpiarCamposVenta();
+                lblTotal.setText("0.00");
+            }
+            else{
+                JOptionPane.showMessageDialog(null, "Seleccione un usuario válido");
+            }
+
+            break;
+            case 2:
+            System.out.println("Cancelado");
+            break;
+        }
+
+    }//GEN-LAST:event_btnCreditActionPerformed
+
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
 
         String codigo = txtCode.getText();
-codigo = codigo.replaceAll(" ", "");
+        codigo = codigo.replaceAll(" ", "");
         if(codigo.length()==0){
-         JOptionPane.showMessageDialog(null, "Ingrese un articulo valido", "Venta", JOptionPane.WARNING_MESSAGE);
+            JOptionPane.showMessageDialog(null, "Ingrese un articulo valido", "Venta", JOptionPane.WARNING_MESSAGE);
         }
         else{
-        limpiarCamposProducto();
-limpiarTable();
-agregarProducto();
-calcularTotal();
-//calcularImporte();
+            limpiarCamposProducto();
+            limpiarTable();
+            agregarProducto();
+            calcularTotal();
+            //calcularImporte();
         }
     }//GEN-LAST:event_jButton2ActionPerformed
 
+    private void btnPagarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPagarActionPerformed
+
+        BagVo aux = new BagVo();
+        for (int t = 0; t < bag.size(); t++){
+            aux.setId_user(bag.get(t).getId_user());
+            aux.setArt(bag.get(t).getArt());
+            aux.setArt_name(bag.get(t).getArt_name());
+            aux.setColor_art(bag.get(t).getColor_art());
+            aux.setColor_name(bag.get(t).getColor_name());
+            aux.setId_size(bag.get(t).getId_size());
+            aux.setSize_name(bag.get(t).getSize_name());
+            aux.setPrice(bag.get(t).getPrice());
+            aux.setQuantity(bag.get(t).getQuantity());
+            aux.setId_sale(bag.get(t).getId_sale());
+            //   miCoordinador.InsertBag(aux);
+        }
+
+        ArrayList<ProductoVo> registro = new ArrayList<>();
+
+        for(int c = 0; c <bag.size();c++){
+            ProductoVo aux1 = new ProductoVo();
+
+            aux1.setAmount(bag.get(c).getQuantity());
+            aux1.setArt(bag.get(c).getArt());
+            aux1.setColor_art(bag.get(c).getColor_art());
+            aux1.setId_size(bag.get(c).getId_size());
+
+            registro.add(aux1);
+
+        }
+
+        if(id_usuario != 0){
+            miCoordinador.getTotal().dineroelectronico = dineroElectronicoVenta();
+        }
+
+        miCoordinador.getTotal().bolsa = (ArrayList) bag.clone();
+        miCoordinador.getTotal().product =  (ArrayList) registro.clone();
+        miCoordinador.getTotal().lblCliente.setText(txtCliente.getText());
+        miCoordinador.getTotal().lblVendedor.setText(txtVendedor.getText());
+        miCoordinador.getTotal().lblPagar.setText(lblTotal.getText());
+        miCoordinador.getTotal().lblDinero.setText(txtMonedero.getText());
+        miCoordinador.getTotal().comprador.setId_user(id_usuario);
+        miCoordinador.getTotal().venta.setId_user(id_usuario);
+
+        miCoordinador.getTotal().setVisible(true);
+        miCoordinador.getTotal().venta.setSubtotal(Double.parseDouble(lblTotal.getText()));
+
+        limpiarTable();
+        limpiarCamposVenta();
+        lblTotal.setText("0.00");
+    }//GEN-LAST:event_btnPagarActionPerformed
+
+    private void btnDescuentoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDescuentoActionPerformed
+
+        int seleccion = tbVenta.getSelectedRow();
+
+        if(seleccion >=0 ){
+            String descuento;
+            descuento = JOptionPane.showInputDialog(null, "Registre el nuevo costo");
+
+            bag.get(seleccion).setImporte(Double.valueOf(descuento));
+
+            limpiarTable();
+            agregarProducto();
+            calcularTotal();
+        }
+        else{
+            JOptionPane.showMessageDialog(null, "Seleccione un producto de la tabla");
+        }
+
+    }//GEN-LAST:event_btnDescuentoActionPerformed
+
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-int seleccion = tbVenta.getSelectedRow();
+        int seleccion = tbVenta.getSelectedRow();
         bag.remove(seleccion);
-limpiarTable();
-agregarProducto();
-calcularTotal();
+        limpiarTable();
+        agregarProducto();
+        calcularTotal();
     }//GEN-LAST:event_jButton3ActionPerformed
-
-    private void lblBuscarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblBuscarMouseClicked
-      if(txtCode.getText().trim().equals("")){
-      JOptionPane.showMessageDialog(null,"Ingrese un codigo válido","ERROR",JOptionPane.INFORMATION_MESSAGE);
-      }
-      else{ 
-          
-          
-        BagVo bagg = new BagVo();
-       ArrayList<TallaVo> medida = miCoordinador.obtenerTallasProducto(codigoArt(txtCode.getText()));
-       String [] medidas = new String[medida.size()];
-       
-       for(int i =0 ; i<medida.size();i++){
-       medidas[i]=(medida.get(i).getSize_name());
-       }
-       
-     String resp = (String) JOptionPane.showInputDialog(null, "Seleccione la talla disponible", "Talla", JOptionPane.DEFAULT_OPTION, null, medidas, "Selecciona");
-     int auxtalla=0;
-     for(int i =0 ; i<medida.size();i++){
-       if(medidas[i]==resp){
-       auxtalla= medida.get(i).getId_size();
-       }
-         
-       }
-     
-     ProductoVo product = miCoordinador.getDetallesProducto(codigoArtCadena(txtCode.getText()));
-     ArrayList <ColorVo> color = miCoordinador.obtenerColorProducto(codigoArtCadena(txtCode.getText()), auxtalla);
-     String [] colores = new String[color.size()];
-     
-      for(int i =0 ; i<color.size();i++){
-       colores[i]=(color.get(i).getColor_name());
-       }
-       
-     String resp1 = (String) JOptionPane.showInputDialog(null, "Seleccione un color disponible", "Color", JOptionPane.DEFAULT_OPTION, null, colores, "Selecciona");
-     String auxcolor=""; 
-     for(int i =0 ; i<color.size();i++){
-       if(colores[i]==resp1){
-       auxcolor= color.get(i).getColor_art();
-       }
-         
-       }
-     
-   
-    
-   String cantidades = (String) JOptionPane.showInputDialog(null, "Seleccione la cantidad del articulo",
-  "Cantidad", JOptionPane.YES_NO_CANCEL_OPTION, null, new String [] {"1","2","3","4","5","6","7","8","9","10"}, "1");
-
-  
-  
-     lblArt.setText(product.getArt_name());
-     lblColor.setText(resp1);
-     lblTalla.setText(resp);
-     lblPrecio.setText(Double.toString(product.getPrice()));
-     
-     bagg.setId_user(id_usuario);
-     bagg.setArt(codigoArtCadena(txtCode.getText()));
-     bagg.setArt_name(product.getArt_name());
-     bagg.setColor_art(auxcolor);
-     bagg.setColor_name(resp1);
-     bagg.setId_size(auxtalla);
-     bagg.setSize_name(resp);
-     bagg.setPrice(product.getPrice());
-     bagg.setQuantity(Integer.parseInt(cantidades.trim()));
-     bagg.setImporte(calcularImporte(Integer.parseInt(cantidades.trim()),product.getPrice()));
-     bagg.setId_sale(miCoordinador.obtenerSiguienteId());
-     
-     
-     
-     
-     
-     bag.add(bagg);
-     
-      }
-    }//GEN-LAST:event_lblBuscarMouseClicked
 
     private void lblBuscarMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblBuscarMousePressed
         // TODO add your handling code here:
     }//GEN-LAST:event_lblBuscarMousePressed
 
-    private void tbVentaInputMethodTextChanged(java.awt.event.InputMethodEvent evt) {//GEN-FIRST:event_tbVentaInputMethodTextChanged
-   
-    }//GEN-LAST:event_tbVentaInputMethodTextChanged
-
-    private void tbVentaKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tbVentaKeyTyped
-  
-        // TODO add your handling code here:
-    }//GEN-LAST:event_tbVentaKeyTyped
-
-    private void tbVentaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tbVentaMouseClicked
-    
-    }//GEN-LAST:event_tbVentaMouseClicked
-
-    private void btnDescuentoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDescuentoActionPerformed
-
-        int seleccion = tbVenta.getSelectedRow();
-        
-        if(seleccion >=0 ){
-        String descuento;
-    descuento = JOptionPane.showInputDialog(null, "Registre el nuevo costo");
-    
-    bag.get(seleccion).setImporte(Double.valueOf(descuento));
-    
-    limpiarTable();
-    agregarProducto();
-    calcularTotal();
+    private void lblBuscarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblBuscarMouseClicked
+        if(txtCode.getText().trim().equals("")){
+            JOptionPane.showMessageDialog(null,"Ingrese un codigo válido","ERROR",JOptionPane.INFORMATION_MESSAGE);
         }
         else{
-        JOptionPane.showMessageDialog(null, "Seleccione un producto de la tabla");
-    }
- 
 
+            BagVo bagg = new BagVo();
+            ArrayList<TallaVo> medida = miCoordinador.obtenerTallasProducto(codigoArt(txtCode.getText()));
+            String [] medidas = new String[medida.size()];
 
-       
-    }//GEN-LAST:event_btnDescuentoActionPerformed
+            for(int i =0 ; i<medida.size();i++){
+                medidas[i]=(medida.get(i).getSize_name());
+            }
 
-    private void btnPagarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPagarActionPerformed
+            String resp = (String) JOptionPane.showInputDialog(null, "Seleccione la talla disponible", "Talla", JOptionPane.DEFAULT_OPTION, null, medidas, "Selecciona");
+            int auxtalla=0;
+            for(int i =0 ; i<medida.size();i++){
+                if(medidas[i]==resp){
+                    auxtalla= medida.get(i).getId_size();
+                }
 
-BagVo aux = new BagVo();
-        for (int t = 0; t < bag.size(); t++){
-        aux.setId_user(bag.get(t).getId_user());
-        aux.setArt(bag.get(t).getArt());
-        aux.setArt_name(bag.get(t).getArt_name());
-        aux.setColor_art(bag.get(t).getColor_art());
-        aux.setColor_name(bag.get(t).getColor_name());
-        aux.setId_size(bag.get(t).getId_size());
-        aux.setSize_name(bag.get(t).getSize_name());
-        aux.setPrice(bag.get(t).getPrice());
-        aux.setQuantity(bag.get(t).getQuantity());
-        aux.setId_sale(bag.get(t).getId_sale());
-      //   miCoordinador.InsertBag(aux);
+            }
+
+            ProductoVo product = miCoordinador.getDetallesProducto(codigoArtCadena(txtCode.getText()));
+            ArrayList <ColorVo> color = miCoordinador.obtenerColorProducto(codigoArtCadena(txtCode.getText()), auxtalla);
+            String [] colores = new String[color.size()];
+
+            for(int i =0 ; i<color.size();i++){
+                colores[i]=(color.get(i).getColor_name());
+            }
+
+            String resp1 = (String) JOptionPane.showInputDialog(null, "Seleccione un color disponible", "Color", JOptionPane.DEFAULT_OPTION, null, colores, "Selecciona");
+            String auxcolor="";
+            for(int i =0 ; i<color.size();i++){
+                if(colores[i]==resp1){
+                    auxcolor= color.get(i).getColor_art();
+                }
+
+            }
+
+            String cantidades = (String) JOptionPane.showInputDialog(null, "Seleccione la cantidad del articulo",
+                "Cantidad", JOptionPane.YES_NO_CANCEL_OPTION, null, new String [] {"1","2","3","4","5","6","7","8","9","10"}, "1");
+
+            lblArt.setText(product.getArt_name());
+            lblColor.setText(resp1);
+            lblTalla.setText(resp);
+            lblPrecio.setText(Double.toString(product.getPrice()));
+
+            bagg.setId_user(id_usuario);
+            bagg.setArt(codigoArtCadena(txtCode.getText()));
+            bagg.setArt_name(product.getArt_name());
+            bagg.setColor_art(auxcolor);
+            bagg.setColor_name(resp1);
+            bagg.setId_size(auxtalla);
+            bagg.setSize_name(resp);
+            bagg.setPrice(product.getPrice());
+            bagg.setQuantity(Integer.parseInt(cantidades.trim()));
+            bagg.setImporte(calcularImporte(Integer.parseInt(cantidades.trim()),product.getPrice()));
+            bagg.setId_sale(miCoordinador.obtenerSiguienteId());
+
+            bag.add(bagg);
+
         }
-
-        
-ArrayList<ProductoVo> registro = new ArrayList<>();  
-
-
-for(int c = 0; c <bag.size();c++){
-ProductoVo aux1 = new ProductoVo();
-
-aux1.setAmount(bag.get(c).getQuantity());
-aux1.setArt(bag.get(c).getArt());
-aux1.setColor_art(bag.get(c).getColor_art());
-aux1.setId_size(bag.get(c).getId_size());
-
-registro.add(aux1);
- 
-}
-        
- 
-if(id_usuario != 0){
-miCoordinador.getTotal().dineroelectronico = dineroElectronicoVenta();
-} 
-  
-        
-miCoordinador.getTotal().bolsa = (ArrayList) bag.clone();
-miCoordinador.getTotal().product =  (ArrayList) registro.clone();
-miCoordinador.getTotal().lblCliente.setText(txtCliente.getText());
-miCoordinador.getTotal().lblVendedor.setText(txtVendedor.getText());
-miCoordinador.getTotal().lblPagar.setText(lblTotal.getText());
-miCoordinador.getTotal().lblDinero.setText(txtMonedero.getText());
-miCoordinador.getTotal().comprador.setId_user(id_usuario);
-miCoordinador.getTotal().venta.setId_user(id_usuario);
-
- 
-
-
-        miCoordinador.getTotal().setVisible(true);     
-miCoordinador.getTotal().venta.setSubtotal(Double.parseDouble(lblTotal.getText()));
-
-
-limpiarTable();
-limpiarCamposVenta();
-lblTotal.setText("0.00");
-    }//GEN-LAST:event_btnPagarActionPerformed
-
-    private void btnCreditActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCreditActionPerformed
-VentaVo credito = new VentaVo();
-
-        BagVo aux = new BagVo();
-        for (int t = 0; t < bag.size(); t++){
-        aux.setId_user(bag.get(t).getId_user());
-        aux.setArt(bag.get(t).getArt());
-        aux.setArt_name(bag.get(t).getArt_name());
-        aux.setColor_art(bag.get(t).getColor_art());
-        aux.setColor_name(bag.get(t).getColor_name());
-        aux.setId_size(bag.get(t).getId_size());
-        aux.setSize_name(bag.get(t).getSize_name());
-        aux.setPrice(bag.get(t).getPrice());
-        aux.setQuantity(bag.get(t).getQuantity());
-        aux.setId_sale(bag.get(t).getId_sale());
-        miCoordinador.InsertBag(aux);
-        }
-
-        
-ArrayList<ProductoVo> registro = new ArrayList<>();  
-
-
-for(int c = 0; c <bag.size();c++){
-ProductoVo aux1 = new ProductoVo();
-
-aux1.setAmount(bag.get(c).getQuantity());
-aux1.setArt(bag.get(c).getArt());
-aux1.setColor_art(bag.get(c).getColor_art());
-aux1.setId_size(bag.get(c).getId_size());
-
-registro.add(aux1);
- 
-}
-
-        int confirmado = JOptionPane.showConfirmDialog(null,
-   "Su pago total es de:"+" "+lblTotal.getText()+ " " + "¿Desea dar un adelanto?");
-        
-switch(confirmado){
-    case 0:
-    String adelanto = JOptionPane.showInputDialog(null,"Adelanto $$",JOptionPane.QUESTION_MESSAGE);    
-    
-    if(Double.parseDouble(lblTotal.getText()) >= Double.parseDouble(adelanto)){
-    double total = Double.parseDouble(lblTotal.getText()) - Double.parseDouble(adelanto);
-    
-    
-    credito.setId_user(id_usuario);
-    credito.setSubtotal(Double.parseDouble(lblTotal.getText()));
-    credito.setShip(0);
-    credito.setTotal(total);
-    credito.setCredito(1);
-    
-    if(credito.getId_user()!=0){
-    miCoordinador.ingresarCredito(credito);
-      
-    for(int v = 0; v < registro.size(); v++){
-        miCoordinador.UpdateProductSizesSales(registro.get(v));
-        }
-    JOptionPane.showMessageDialog(null, "Operación realizada correctamente");
-    
-    
-   limpiarTable();
-limpiarCamposVenta();
-lblTotal.setText("0.00");
-
-    }
-    else{
-    JOptionPane.showMessageDialog(null, "Seleccione un usuario válido"); 
-    }
-     
-    }
-    
-    else{
-    JOptionPane.showMessageDialog(null, "Ingrese una cantidad válida, menor al total");
-    }
-    
-           
-
-   break;
-   
-    case 1:
-   
-   credito.setId_user(id_usuario);
-    credito.setSubtotal(Double.parseDouble(lblTotal.getText()));
-    credito.setShip(0);
-    credito.setTotal(Double.parseDouble(lblTotal.getText()));
-    credito.setCredito(1);
-    
-    if(credito.getId_user()!=0){
-    miCoordinador.ingresarCredito(credito);
-    for(int v = 0; v < registro.size(); v++){
-        miCoordinador.UpdateProductSizesSales(registro.get(v));
-        }
-    JOptionPane.showMessageDialog(null, "Operación realizada correctamente");
-    
-    
-     limpiarTable();
-limpiarCamposVenta();
-lblTotal.setText("0.00");
-    }
-    else{
-    JOptionPane.showMessageDialog(null, "Seleccione un usuario válido"); 
-    }
-   
-    
-     
-    
-break;
-    case 2:
-        System.out.println("Cancelado");
-        break;
-}    
- 
-    }//GEN-LAST:event_btnCreditActionPerformed
+    }//GEN-LAST:event_lblBuscarMouseClicked
 
     private void txtPorcenKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtPorcenKeyTyped
         char c=evt.getKeyChar();
@@ -1126,13 +1085,13 @@ break;
     }//GEN-LAST:event_txtPorcenActionPerformed
 
     private void btnBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarActionPerformed
-                Vista.Usuarios us = new Usuarios();
+        Vista.Usuarios us = new Usuarios();
         us.setCoordinador(miCoordinador);
         Inicio.escritorio.add(us).setLocation(25, 3);
         us.show(true);
-                try {
+        try {
             us.setMaximum(true);
-            
+
             // TODO add your handling code here:
         } catch (PropertyVetoException ex) {
             Logger.getLogger(Inicio.class.getName()).log(Level.SEVERE, null, ex);
@@ -1146,12 +1105,25 @@ break;
     private void txtFechaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtFechaActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtFechaActionPerformed
+
+    private void tbVentaKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tbVentaKeyTyped
+
+        // TODO add your handling code here:
+    }//GEN-LAST:event_tbVentaKeyTyped
+
+    private void tbVentaInputMethodTextChanged(java.awt.event.InputMethodEvent evt) {//GEN-FIRST:event_tbVentaInputMethodTextChanged
+
+    }//GEN-LAST:event_tbVentaInputMethodTextChanged
+
+    private void tbVentaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tbVentaMouseClicked
+
+    }//GEN-LAST:event_tbVentaMouseClicked
    
    
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    public javax.swing.JButton btnBuscar;
+    private javax.swing.JButton btnBuscar;
     private javax.swing.JButton btnCredit;
     private javax.swing.JButton btnDescuento;
     private javax.swing.JButton btnPagar;
