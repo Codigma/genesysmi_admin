@@ -132,6 +132,13 @@ try
     
     
     public static void main(String args[]) {
+   Integer amount;
+        String textCant = "2";
+        if (!textCant.equals("")) {
+            System.out.print("No tiene nada");
+           amount = Integer.parseInt(textCant);
+           System.out.print(amount);
+        }
     }
 
 }

@@ -785,7 +785,8 @@ public class Productos extends javax.swing.JInternalFrame {
         }
 
         String textCant = txtCant.getText();
-        Integer amount = 0;
+        
+        int amount = 0;
         if (!textCant.equals("")) {
             amount = Integer.parseInt(textCant);
         }
@@ -796,7 +797,7 @@ public class Productos extends javax.swing.JInternalFrame {
                 && !producto.getDescription().equals("") && producto.getId_category() != null
                 && producto.getId_size() != null && producto.getId_subcategory() != null
                 && producto.getId_type_product() != null && producto.getPrice() != null
-                 /* producto.getSrc1() != null*/ && amount != null) {
+                 /* producto.getSrc1() != null*/ && amount >= 0) {
 
             //Rutas para el src
             String category = comboCategory.getItemAt(comboCategory.getSelectedIndex());
