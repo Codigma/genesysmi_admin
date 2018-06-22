@@ -15,9 +15,16 @@ import javax.swing.JInternalFrame;
 import javax.swing.JOptionPane;
 
 import java.io.*;
+<<<<<<< HEAD
 import java.util.Timer;
 import java.util.TimerTask;
 public class Inicio extends javax.swing.JFrame  {
+=======
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
+public class Inicio extends javax.swing.JFrame {
+>>>>>>> c06392106d2d0586cb05d5156c3f02e3ebb5b8a6
 
    
   static ConecRemoto remoto = new ConecRemoto();
@@ -80,25 +87,32 @@ File documento = new File("src/Modelo/Consulta.txt");
             public void windowClosing(java.awt.event.WindowEvent evt) {
                 formWindowClosing(evt);
             }
+            public void windowOpened(java.awt.event.WindowEvent evt) {
+                formWindowOpened(evt);
+            }
         });
 
         javax.swing.GroupLayout escritorioLayout = new javax.swing.GroupLayout(escritorio);
         escritorio.setLayout(escritorioLayout);
         escritorioLayout.setHorizontalGroup(
             escritorioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 784, Short.MAX_VALUE)
+            .addGap(0, 794, Short.MAX_VALUE)
         );
         escritorioLayout.setVerticalGroup(
             escritorioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 434, Short.MAX_VALUE)
+            .addGap(0, 439, Short.MAX_VALUE)
         );
 
         jMenuBar1.setBackground(new java.awt.Color(51, 51, 51));
         jMenuBar1.setBorder(null);
         jMenuBar1.setForeground(new java.awt.Color(153, 153, 153));
         jMenuBar1.setFont(new java.awt.Font("Apple SD Gothic Neo", 0, 14)); // NOI18N
+        jMenuBar1.setName(""); // NOI18N
+        jMenuBar1.setPreferredSize(new java.awt.Dimension(263, 25));
 
         menuProduct.setText("Productos");
+        menuProduct.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        menuProduct.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
 
         addProduct.setText("Añadir nuevo");
         addProduct.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -140,8 +154,11 @@ File documento = new File("src/Modelo/Consulta.txt");
         menuProduct.add(updateProduct);
 
         jMenuBar1.add(menuProduct);
+        menuProduct.getAccessibleContext().setAccessibleDescription("");
 
         menuColors.setText("Colores");
+        menuColors.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        menuColors.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
 
         itemViewColor.setText("Ver Lista");
         itemViewColor.addActionListener(new java.awt.event.ActionListener() {
@@ -162,6 +179,8 @@ File documento = new File("src/Modelo/Consulta.txt");
         jMenuBar1.add(menuColors);
 
         menuUsers.setText("Usuarios");
+        menuUsers.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        menuUsers.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
 
         jMenuItem1.setText("Lista Clientes");
         jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
@@ -174,6 +193,8 @@ File documento = new File("src/Modelo/Consulta.txt");
         jMenuBar1.add(menuUsers);
 
         menuSale.setText("Ventas");
+        menuSale.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        menuSale.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
 
         jMenuItem2.setText("Realizar Venta");
         jMenuItem2.addActionListener(new java.awt.event.ActionListener() {
@@ -202,6 +223,8 @@ File documento = new File("src/Modelo/Consulta.txt");
         jMenuBar1.add(menuSale);
 
         jMenu1.setText("Reportes");
+        jMenu1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jMenu1.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
 
         inventario.setText("Inventarios");
         inventario.addActionListener(new java.awt.event.ActionListener() {
@@ -219,15 +242,11 @@ File documento = new File("src/Modelo/Consulta.txt");
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(escritorio))
+            .addComponent(escritorio, javax.swing.GroupLayout.Alignment.TRAILING)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(escritorio)
-                .addContainerGap())
+            .addComponent(escritorio)
         );
 
         pack();
@@ -416,6 +435,12 @@ Productos pt;
         }
     }//GEN-LAST:event_itemCreditActionPerformed
 
+    
+   
+    
+    
+    
+    
     private void formWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosing
         if (JOptionPane.showConfirmDialog(this, "Esta a punto de salir\nde la aplicación.\n¿Desea continuar?", "Cerrar", JOptionPane.YES_NO_OPTION, 0,
                 new ImageIcon(getClass().getResource("/Imagenes/adver1.png"))) == JOptionPane.YES_OPTION) {
@@ -424,6 +449,14 @@ Productos pt;
             this.setDefaultCloseOperation(0);
         }
     }//GEN-LAST:event_formWindowClosing
+<<<<<<< HEAD
+=======
+
+    private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
+        ProgramadorDeTareas.ejecutaTareaCadaXTiempo(1, ProgramadorDeTareas.MINUTOS);
+    }//GEN-LAST:event_formWindowOpened
+
+>>>>>>> c06392106d2d0586cb05d5156c3f02e3ebb5b8a6
     /**
      * @param args the command line arguments
      */
