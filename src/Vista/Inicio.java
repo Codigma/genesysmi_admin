@@ -2,8 +2,6 @@ package Vista;
 
 import Controlador.Coordinador;
 import Modelo.ConecRemoto;
-import Modelo.HiloSync;
-import Vista.Prueba.Color;
 import java.awt.Dimension;
 import java.awt.Toolkit;
 import java.beans.PropertyVetoException;
@@ -13,25 +11,16 @@ import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JInternalFrame;
 import javax.swing.JOptionPane;
-
 import java.io.*;
-<<<<<<< HEAD
-import java.util.Timer;
-import java.util.TimerTask;
-public class Inicio extends javax.swing.JFrame  {
-=======
-import java.text.SimpleDateFormat;
-import java.util.Calendar;
-import java.util.Date;
-public class Inicio extends javax.swing.JFrame {
->>>>>>> c06392106d2d0586cb05d5156c3f02e3ebb5b8a6
 
-   
-  static ConecRemoto remoto = new ConecRemoto();
-    
-private Coordinador miCoordinador;
+public class Inicio extends javax.swing.JFrame {
+
+    static ConecRemoto remoto = new ConecRemoto();
+
+    private Coordinador miCoordinador;
     private Dimension dim;
-File documento = new File("src/Modelo/Consulta.txt");
+    File documento = new File("src/Modelo/Consulta.txt");
+
     public void setCoordinador(Coordinador miCoordinador) {
         this.miCoordinador = miCoordinador;
 
@@ -42,9 +31,9 @@ File documento = new File("src/Modelo/Consulta.txt");
         initComponents();
         this.setExtendedState(this.getExtendedState() | JFrame.MAXIMIZED_BOTH);
         setLocationRelativeTo(null);
-        
+
     }
- 
+
     public boolean estacerrado(Object obj) {
         JInternalFrame[] activos = escritorio.getAllFrames();
         boolean cerrado = true;
@@ -258,7 +247,7 @@ Productos pt;
 
             pt = new Productos();
             pt.setCoordinador(miCoordinador);
-            
+
             escritorio.add(pt).setLocation(25, 3);
             pt.show(true);
 
@@ -435,12 +424,6 @@ Productos pt;
         }
     }//GEN-LAST:event_itemCreditActionPerformed
 
-    
-   
-    
-    
-    
-    
     private void formWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosing
         if (JOptionPane.showConfirmDialog(this, "Esta a punto de salir\nde la aplicación.\n¿Desea continuar?", "Cerrar", JOptionPane.YES_NO_OPTION, 0,
                 new ImageIcon(getClass().getResource("/Imagenes/adver1.png"))) == JOptionPane.YES_OPTION) {
@@ -449,21 +432,13 @@ Productos pt;
             this.setDefaultCloseOperation(0);
         }
     }//GEN-LAST:event_formWindowClosing
-<<<<<<< HEAD
-=======
-
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
         ProgramadorDeTareas.ejecutaTareaCadaXTiempo(1, ProgramadorDeTareas.MINUTOS);
     }//GEN-LAST:event_formWindowOpened
 
->>>>>>> c06392106d2d0586cb05d5156c3f02e3ebb5b8a6
     /**
      * @param args the command line arguments
      */
-  
-   
-
-    
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
@@ -487,19 +462,19 @@ Productos pt;
             java.util.logging.Logger.getLogger(Inicio.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
-        
+
         Toolkit t = Toolkit.getDefaultToolkit();
         Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
         System.out.println("Tu resolución es de " + screenSize.width + "x" + screenSize.height);
-       /* Create and display the form */
-        
+        /* Create and display the form */
+
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new Inicio().setVisible(true);
 
             }
         });
-         
+
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -522,6 +497,4 @@ Productos pt;
     private javax.swing.JMenuItem updateProduct;
     // End of variables declaration//GEN-END:variables
 
- 
-  
 }
