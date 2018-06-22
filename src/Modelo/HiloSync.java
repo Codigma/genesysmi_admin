@@ -6,6 +6,7 @@
 package Modelo;
 
 import java.io.File;
+import java.util.Calendar;
 import java.util.TimerTask;
 import java.util.Timer;
 
@@ -15,16 +16,25 @@ import java.util.Timer;
  */
 public class HiloSync {
     
- File documento = new File("src/Modelo/Consulta.txt");
-ConecRemoto remoto = new ConecRemoto();
-Timer exe = new Timer();
-    TimerTask timerTask = new TimerTask() 
-     { 
-         @Override
-         public void run()  
-         { 
-                 remoto.importarQuery(documento);
-         } 
-     }; 
+static File documento = new File("src/Modelo/Consulta.txt");
+static ConecRemoto remoto = new ConecRemoto();
+static Timer tiempo = new Timer();  
+   
+public static void ejecutaTareaCadaXTiempo(){
+             AccionProgramada accionProgramada = new AccionProgramada();  //La programamos
+             
+             tiempo.scheduleAtFixedRate(accionProgramada,0,60000);
+         }
 
-}
+    
+static class AccionProgramada extends TimerTask{
+ 
+    @Override
+   public void run() {
+         remoto.importarQuery(documento);
+  
+   }
+   
+    
+
+}}

@@ -15,24 +15,21 @@ import javax.swing.JInternalFrame;
 import javax.swing.JOptionPane;
 
 import java.io.*;
-<<<<<<< HEAD
 import java.util.Timer;
 import java.util.TimerTask;
-public class Inicio extends javax.swing.JFrame  {
-=======
+
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 public class Inicio extends javax.swing.JFrame {
->>>>>>> c06392106d2d0586cb05d5156c3f02e3ebb5b8a6
 
-   
-  static ConecRemoto remoto = new ConecRemoto();
+    ConecRemoto remoto = new ConecRemoto();
     
 private Coordinador miCoordinador;
     private Dimension dim;
 File documento = new File("src/Modelo/Consulta.txt");
-    public void setCoordinador(Coordinador miCoordinador) {
+    
+public void setCoordinador(Coordinador miCoordinador) {
         this.miCoordinador = miCoordinador;
 
     }
@@ -449,14 +446,13 @@ Productos pt;
             this.setDefaultCloseOperation(0);
         }
     }//GEN-LAST:event_formWindowClosing
-<<<<<<< HEAD
-=======
 
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
-        ProgramadorDeTareas.ejecutaTareaCadaXTiempo(1, ProgramadorDeTareas.MINUTOS);
+        //ProgramadorDeTareas.ejecutaTareaCadaXTiempo(1, ProgramadorDeTareas.MINUTOS);
+        HiloSync.ejecutaTareaCadaXTiempo();
     }//GEN-LAST:event_formWindowOpened
 
->>>>>>> c06392106d2d0586cb05d5156c3f02e3ebb5b8a6
+
     /**
      * @param args the command line arguments
      */

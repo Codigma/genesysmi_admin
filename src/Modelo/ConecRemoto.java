@@ -150,7 +150,7 @@ public  void borrarContenido(java.io.File documento){
 
 if(documento.exists()){
 try{
-FileWriter w = new FileWriter(documento,true);
+FileWriter w = new FileWriter(documento);
 BufferedWriter bw = new BufferedWriter(w);
 PrintWriter wr = new PrintWriter(bw); 
 //escribimos en el archivo una línea vacía
