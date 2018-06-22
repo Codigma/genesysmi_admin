@@ -2,6 +2,7 @@ package Vista;
 
 import Controlador.Coordinador;
 import Modelo.ConecRemoto;
+import Modelo.HiloSync;
 import java.awt.Dimension;
 import java.awt.Toolkit;
 import java.beans.PropertyVetoException;
@@ -12,24 +13,7 @@ import javax.swing.JFrame;
 import javax.swing.JInternalFrame;
 import javax.swing.JOptionPane;
 import java.io.*;
-<<<<<<< HEAD
 
-public class Inicio extends javax.swing.JFrame {
-
-    static ConecRemoto remoto = new ConecRemoto();
-
-    private Coordinador miCoordinador;
-    private Dimension dim;
-    File documento = new File("src/Modelo/Consulta.txt");
-
-    public void setCoordinador(Coordinador miCoordinador) {
-=======
-import java.util.Timer;
-import java.util.TimerTask;
-
-import java.text.SimpleDateFormat;
-import java.util.Calendar;
-import java.util.Date;
 public class Inicio extends javax.swing.JFrame {
 
     ConecRemoto remoto = new ConecRemoto();
@@ -39,8 +23,7 @@ private Coordinador miCoordinador;
 File documento = new File("src/Modelo/Consulta.txt");
     
 public void setCoordinador(Coordinador miCoordinador) {
->>>>>>> e5e2c5556cec87069d2f5cb66578d60dc660379e
-        this.miCoordinador = miCoordinador;
+       this.miCoordinador = miCoordinador;
 
     }
 
@@ -450,19 +433,11 @@ Productos pt;
             this.setDefaultCloseOperation(0);
         }
     }//GEN-LAST:event_formWindowClosing
-<<<<<<< HEAD
-=======
-
->>>>>>> e5e2c5556cec87069d2f5cb66578d60dc660379e
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
-        //ProgramadorDeTareas.ejecutaTareaCadaXTiempo(1, ProgramadorDeTareas.MINUTOS);
+      
         HiloSync.ejecutaTareaCadaXTiempo();
     }//GEN-LAST:event_formWindowOpened
 
-<<<<<<< HEAD
-=======
-
->>>>>>> e5e2c5556cec87069d2f5cb66578d60dc660379e
     /**
      * @param args the command line arguments
      */
