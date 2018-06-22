@@ -83,19 +83,23 @@ ConecRemoto.importarQuery(f);
         escritorio.setLayout(escritorioLayout);
         escritorioLayout.setHorizontalGroup(
             escritorioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 784, Short.MAX_VALUE)
+            .addGap(0, 794, Short.MAX_VALUE)
         );
         escritorioLayout.setVerticalGroup(
             escritorioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 434, Short.MAX_VALUE)
+            .addGap(0, 428, Short.MAX_VALUE)
         );
 
         jMenuBar1.setBackground(new java.awt.Color(51, 51, 51));
         jMenuBar1.setBorder(null);
         jMenuBar1.setForeground(new java.awt.Color(153, 153, 153));
         jMenuBar1.setFont(new java.awt.Font("Apple SD Gothic Neo", 0, 14)); // NOI18N
+        jMenuBar1.setName(""); // NOI18N
+        jMenuBar1.setPreferredSize(new java.awt.Dimension(263, 25));
 
         menuProduct.setText("Productos");
+        menuProduct.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        menuProduct.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
 
         addProduct.setText("Añadir nuevo");
         addProduct.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -137,8 +141,11 @@ ConecRemoto.importarQuery(f);
         menuProduct.add(updateProduct);
 
         jMenuBar1.add(menuProduct);
+        menuProduct.getAccessibleContext().setAccessibleDescription("");
 
         menuColors.setText("Colores");
+        menuColors.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        menuColors.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
 
         itemViewColor.setText("Ver Lista");
         itemViewColor.addActionListener(new java.awt.event.ActionListener() {
@@ -159,6 +166,8 @@ ConecRemoto.importarQuery(f);
         jMenuBar1.add(menuColors);
 
         menuUsers.setText("Usuarios");
+        menuUsers.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        menuUsers.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
 
         jMenuItem1.setText("Lista Clientes");
         jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
@@ -171,6 +180,8 @@ ConecRemoto.importarQuery(f);
         jMenuBar1.add(menuUsers);
 
         menuSale.setText("Ventas");
+        menuSale.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        menuSale.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
 
         jMenuItem2.setText("Realizar Venta");
         jMenuItem2.addActionListener(new java.awt.event.ActionListener() {
@@ -199,6 +210,8 @@ ConecRemoto.importarQuery(f);
         jMenuBar1.add(menuSale);
 
         jMenu1.setText("Reportes");
+        jMenu1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jMenu1.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
 
         inventario.setText("Inventarios");
         inventario.addActionListener(new java.awt.event.ActionListener() {
@@ -216,9 +229,7 @@ ConecRemoto.importarQuery(f);
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(escritorio))
+            .addComponent(escritorio, javax.swing.GroupLayout.Alignment.TRAILING)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
