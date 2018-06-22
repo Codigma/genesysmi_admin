@@ -298,6 +298,7 @@ limpiarTable();
           String direccion = (String)modelo.getValueAt(fila, 7);
           double electronico = (double)modelo.getValueAt(fila, 11);
              miCoordinador.getDetalle().id_usuario = id;
+             
              miCoordinador.getDetalle().txtCliente.setText(cliente);
              miCoordinador.getDetalle().txtDireccion.setText(direccion);
              miCoordinador.getDetalle().txtMonedero.setText(Double.toString(electronico));
