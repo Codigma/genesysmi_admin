@@ -2,6 +2,7 @@ package Vista;
 
 import Controlador.Coordinador;
 import Modelo.ConecRemoto;
+import Modelo.HiloSync;
 import Vista.Prueba.Color;
 import java.awt.Dimension;
 import java.awt.Toolkit;
@@ -12,19 +13,21 @@ import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JInternalFrame;
 import javax.swing.JOptionPane;
-import javax.swing.Timer;
-import java.io.*;
-public class Inicio extends javax.swing.JFrame {
 
-    ConecRemoto servidor = new ConecRemoto();
-File f = new File("src/Modelo/Consulta.txt");
+import java.io.*;
+import java.util.Timer;
+import java.util.TimerTask;
+public class Inicio extends javax.swing.JFrame  {
+
+   
+  static ConecRemoto remoto = new ConecRemoto();
     
 private Coordinador miCoordinador;
     private Dimension dim;
-
+File documento = new File("src/Modelo/Consulta.txt");
     public void setCoordinador(Coordinador miCoordinador) {
         this.miCoordinador = miCoordinador;
-ConecRemoto.importarQuery(f);
+
     }
 
     public Inicio() {
@@ -34,7 +37,7 @@ ConecRemoto.importarQuery(f);
         setLocationRelativeTo(null);
         
     }
-
+ 
     public boolean estacerrado(Object obj) {
         JInternalFrame[] activos = escritorio.getAllFrames();
         boolean cerrado = true;
@@ -421,10 +424,13 @@ Productos pt;
             this.setDefaultCloseOperation(0);
         }
     }//GEN-LAST:event_formWindowClosing
-
     /**
      * @param args the command line arguments
      */
+  
+   
+
+    
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
@@ -448,18 +454,19 @@ Productos pt;
             java.util.logging.Logger.getLogger(Inicio.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
-
+        
         Toolkit t = Toolkit.getDefaultToolkit();
         Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
         System.out.println("Tu resolución es de " + screenSize.width + "x" + screenSize.height);
-
-        /* Create and display the form */
+       /* Create and display the form */
+        
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new Inicio().setVisible(true);
 
             }
         });
+         
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -482,6 +489,6 @@ Productos pt;
     private javax.swing.JMenuItem updateProduct;
     // End of variables declaration//GEN-END:variables
 
-
-
+ 
+  
 }

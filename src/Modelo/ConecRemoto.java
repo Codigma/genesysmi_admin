@@ -1,9 +1,13 @@
  package Modelo;
 
 import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
+import java.io.FileWriter;
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
@@ -81,7 +85,7 @@ public class ConecRemoto {
         return conn;
     }
     
-    public static boolean executeQuery(String query){ 
+    public  boolean executeQuery(String query){ 
 
         Statement sentencias = null; 
         ConecRemoto connector = new ConecRemoto(); 
@@ -113,7 +117,7 @@ System.out.println("ejecuta");
 
     } 
 
- public  static  String obtenerContenido(java.io.File documento){ 
+ public    String obtenerContenido(java.io.File documento){ 
         String sCadena = ""; 
         String retorno = ""; 
 
@@ -136,8 +140,28 @@ System.out.println("ejecuta");
 System.out.println("Lee archivo");
         return retorno; 
     } 
-public static  boolean importarQuery(java.io.File documento){ 
+public   boolean importarQuery(java.io.File documento){ 
         String query = obtenerContenido(documento);
+        borrarContenido(documento);
         return executeQuery(query); 
     } 
+
+public  void borrarContenido(java.io.File documento){
+
+if(documento.exists()){
+try{
+FileWriter w = new FileWriter(documento,true);
+BufferedWriter bw = new BufferedWriter(w);
+PrintWriter wr = new PrintWriter(bw); 
+//escribimos en el archivo una línea vacía
+wr.write("");
+
+wr.close();
+bw.close();
+}catch(IOException e){};
+}
+else{
+System.out.println("No se encontro");
+}
+}
 }
