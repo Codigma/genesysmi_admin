@@ -20,6 +20,15 @@ public class ProductoVo {
     private String src1;
     private String src2;
     private String src3;
+    private int id_local;
+
+    public int getId_local() {
+        return id_local;
+    }
+
+    public void setId_local(int id_local) {
+        this.id_local = id_local;
+    }
 
     public String getArt() {
         return art;

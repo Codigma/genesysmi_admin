@@ -9,6 +9,8 @@ import Modelo.ColorDao;
 import Modelo.ColorVo;
 import Modelo.CreditoDao;
 import Modelo.CreditoVo;
+import Modelo.LocalDao;
+import Modelo.LocalVo;
 import Modelo.SubcategoryDao;
 import Modelo.SubcategoryVo;
 import Modelo.SystemDao;
@@ -294,4 +296,9 @@ return dao.getSales();
     VentaDao cred = new VentaDao();
     cred.UpdateDeuda(venta);
     }
+    
+       public ArrayList<LocalVo> obtenerLocales (){
+LocalDao dao = new LocalDao();
+return dao.getLocales();
+}
 }

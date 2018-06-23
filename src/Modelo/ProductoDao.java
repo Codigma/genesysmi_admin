@@ -91,7 +91,7 @@ public class ProductoDao {
         ProductoVo producto = new ProductoVo();
         try {
             PreparedStatement preparedStatement = conn.getConn().prepareStatement(
-                    "SELECT art, color_art, id_size, amount "
+                    "SELECT art, color_art, id_size, amount, id_local "
                     + "FROM product_sizes "
                     + "WHERE art = ? AND color_art = ? AND id_size = ?");
 
@@ -103,6 +103,7 @@ public class ProductoDao {
             //Muestra resultados de la consulta SQL
             while (resultSet.next()) {
                 producto.setAmount(resultSet.getInt(4));
+                producto.setId_local(resultSet.getInt(5));
             }
             //Cierra todo
             conn.getConn().close();
@@ -243,15 +244,16 @@ String consulta ="UPDATE products SET art = '"+producto.getArt()+"', color_art =
         
         try {
             PreparedStatement preparedStatement = conn.getConn().prepareStatement(
-                    "INSERT INTO product_sizes (art, color_art, id_size, amount) "
-                    + "VALUES (?, ?, ?, ?)");
+                    "INSERT INTO product_sizes (art, color_art, id_size, amount, id_local) "
+                    + "VALUES (?, ?, ?, ?, ?)");
             
             preparedStatement.setString(1, producto.getArt());
             preparedStatement.setString(2, producto.getColor_art());
             preparedStatement.setInt(3, producto.getId_size());
             preparedStatement.setInt(4, producto.getAmount());
+            preparedStatement.setInt(5, producto.getId_local());
             
-String consulta = "INSERT INTO product_sizes (art, color_art, id_size, amount) VALUES ('"+producto.getArt()+"', '"+producto.getColor_art()+"', '"+producto.getId_size()+"', '"+producto.getAmount()+"');";
+String consulta = "INSERT INTO product_sizes (art, color_art, id_size, amount, id_local) VALUES ('"+producto.getArt()+"', '"+producto.getColor_art()+"', '"+producto.getId_size()+"', '"+producto.getAmount()+"', '"+producto.getId_local()+"');";
             aux.escribir(consulta);
             preparedStatement.executeUpdate();
             
@@ -270,19 +272,19 @@ String consulta = "INSERT INTO product_sizes (art, color_art, id_size, amount) V
         try {
             PreparedStatement preparedStatement = conn.getConn().prepareStatement(
                     "UPDATE product_sizes SET art = ?, color_art = ?, "
-                            + "id_size = ?, amount= ? "
+                            + "id_size = ?, amount= ?, id_local=? "
                     + "WHERE art = ? AND color_art = ? AND id_size = ?");
             
             preparedStatement.setString(1, producto.getArt());
             preparedStatement.setString(2, producto.getColor_art());
             preparedStatement.setInt(3, producto.getId_size());
             preparedStatement.setInt(4, producto.getAmount());
+            preparedStatement.setInt(5, producto.getId_local());
+            preparedStatement.setString(6, producto.getArt());
+            preparedStatement.setString(7, producto.getColor_art());
+            preparedStatement.setInt(8, producto.getId_size());
             
-            preparedStatement.setString(5, producto.getArt());
-            preparedStatement.setString(6, producto.getColor_art());
-            preparedStatement.setInt(7, producto.getId_size());
-            
-String consulta = "UPDATE product_sizes SET art = '"+producto.getArt()+"', color_art = '"+producto.getColor_art()+"', id_size = '"+producto.getId_size()+"', amount= '"+producto.getAmount()+"' WHERE art = '"+producto.getArt()+"' AND color_art = '"+producto.getColor_art()+"' AND id_size = '"+producto.getId_size()+"';";
+String consulta = "UPDATE product_sizes SET art = '"+producto.getArt()+"', color_art = '"+producto.getColor_art()+"', id_size = '"+producto.getId_size()+"', amount= '"+producto.getAmount()+"', id_local='"+producto.getId_local()+"' WHERE art = '"+producto.getArt()+"' AND color_art = '"+producto.getColor_art()+"' AND id_size = '"+producto.getId_size()+"';";
    aux.escribir(consulta);
             preparedStatement.executeUpdate();
             

@@ -3,8 +3,12 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/F:/Codigma/Prueba/genesysmi_admin/src/Vista/DetalleVenta.java</file>
-            <file>file:/F:/Codigma/Prueba/genesysmi_admin/src/Vista/Inicio.java</file>
+            <file>file:/C:/Users/luism/Documents/GitHub/genesysmi_admin/src/Modelo/LocalDao.java</file>
+            <file>file:/C:/Users/luism/Documents/GitHub/genesysmi_admin/src/Vista/Productos.java</file>
+            <file>file:/C:/Users/luism/Documents/GitHub/genesysmi_admin/src/Modelo/LocalVo.java</file>
+            <file>file:/C:/Users/luism/Documents/GitHub/genesysmi_admin/src/Vista/DetalleVenta.java</file>
+            <file>file:/C:/Users/luism/Documents/GitHub/genesysmi_admin/src/Vista/Inicio.java</file>
+            <file>file:/C:/Users/luism/Documents/GitHub/genesysmi_admin/src/Modelo/ProductoDao.java</file>
         </group>
     </open-files>
 </project-private>
