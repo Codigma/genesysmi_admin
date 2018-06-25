@@ -183,6 +183,61 @@ public class Productos extends javax.swing.JInternalFrame {
         comboSize.setModel(modeloTalla);
     }
 
+    public void cargarImagenes(int opc){
+         //Comprobar src vacíos
+        String srcFile1 = producto.getSrc1();
+        String srcFile2 = producto.getSrc2();
+        String srcFile3 = producto.getSrc3();
+        
+          //Rutas para el src
+            String category = comboCategory.getItemAt(comboCategory.getSelectedIndex());
+            String subcategory = comboSub.getItemAt(comboSub.getSelectedIndex());
+            String color = colores.get(comboColor.getSelectedIndex() - 1).getColor_name();
+
+            String path = category + "/" + subcategory;
+            String src = producto.getArt_name() + " " + color + " " ;
+            
+            
+          switch(opc){
+              case 1:
+                try {
+            String value = new String(src.getBytes("UTF-8"), "ISO-8859-1");
+            String value2 = new String(path.getBytes("UTF-8"), "ISO-8859-1");
+            
+                    ftpUploader = new FTPUploader("www.genesysmi.com", "genesysmi@genesysmi.com", "65i1r3WqQd",src1File.getPath(),value+src1Name,"/img/products/" + value2+"/");
+                } catch (Exception ex) {
+                    Logger.getLogger(Productos.class.getName()).log(Level.SEVERE, null, ex);
+                }
+                
+                producto.setSrc1(path + "/" + src + src1Name);    
+          break;
+              case 2:
+                try {
+            String value = new String(src.getBytes("UTF-8"), "ISO-8859-1");
+            String value2 = new String(path.getBytes("UTF-8"), "ISO-8859-1");
+            
+                    ftpUploader = new FTPUploader("www.genesysmi.com", "genesysmi@genesysmi.com", "65i1r3WqQd",src2File.getPath(),value+src2Name,"/img/products/" + value2+"/");
+                } catch (Exception ex) {
+                    Logger.getLogger(Productos.class.getName()).log(Level.SEVERE, null, ex);
+                }
+                producto.setSrc2(path + "/" + src + src2Name);
+                break;
+              case 3:
+                 try {
+            String value = new String(src.getBytes("UTF-8"), "ISO-8859-1");
+            String value2 = new String(path.getBytes("UTF-8"), "ISO-8859-1");
+            
+                    ftpUploader = new FTPUploader("www.genesysmi.com", "genesysmi@genesysmi.com", "65i1r3WqQd",src3File.getPath(),value+src3Name,"/img/products/" + value2+"/");
+                } catch (Exception ex) {
+                    Logger.getLogger(Productos.class.getName()).log(Level.SEVERE, null, ex);
+                }    producto.setSrc3(path + "/" + src + src3Name);
+                break;
+          
+          }
+            
+           
+    }
+    
     
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -846,56 +901,7 @@ public class Productos extends javax.swing.JInternalFrame {
             amount = Integer.parseInt(textCant);
         }
         
-        //Comprobar src vacíos
-        String srcFile1 = producto.getSrc1();
-        String srcFile2 = producto.getSrc2();
-        String srcFile3 = producto.getSrc3();
-        
-          //Rutas para el src
-            String category = comboCategory.getItemAt(comboCategory.getSelectedIndex());
-            String subcategory = comboSub.getItemAt(comboSub.getSelectedIndex());
-            String color = colores.get(comboColor.getSelectedIndex() - 1).getColor_name();
-
-            String path = category + "/" + subcategory;
-            String src = producto.getArt_name() + " " + color + " " ;
-            
-            
-          
-            if (srcFile1 == null) {
-
-                try {
-            String value = new String(src.getBytes("UTF-8"), "ISO-8859-1");
-            String value2 = new String(path.getBytes("UTF-8"), "ISO-8859-1");
-            
-                    ftpUploader = new FTPUploader("www.genesysmi.com", "genesysmi@genesysmi.com", "65i1r3WqQd",src1File.getPath(),value+src1Name,"/img/products/" + value2+"/");
-                } catch (Exception ex) {
-                    Logger.getLogger(Productos.class.getName()).log(Level.SEVERE, null, ex);
-                }
-                
-                producto.setSrc1(path + "/" + src + src1Name);
-
-            }
-            if (srcFile2 == null) {
-                 try {
-            String value = new String(src.getBytes("UTF-8"), "ISO-8859-1");
-            String value2 = new String(path.getBytes("UTF-8"), "ISO-8859-1");
-            
-                    ftpUploader = new FTPUploader("www.genesysmi.com", "genesysmi@genesysmi.com", "65i1r3WqQd",src2File.getPath(),value+src2Name,"/img/products/" + value2+"/");
-                } catch (Exception ex) {
-                    Logger.getLogger(Productos.class.getName()).log(Level.SEVERE, null, ex);
-                }
-                producto.setSrc2(path + "/" + src + src2Name);
-            }
-            if (srcFile3 == null) {
-               try {
-            String value = new String(src.getBytes("UTF-8"), "ISO-8859-1");
-            String value2 = new String(path.getBytes("UTF-8"), "ISO-8859-1");
-            
-                    ftpUploader = new FTPUploader("www.genesysmi.com", "genesysmi@genesysmi.com", "65i1r3WqQd",src3File.getPath(),value+src3Name,"/img/products/" + value2+"/");
-                } catch (Exception ex) {
-                    Logger.getLogger(Productos.class.getName()).log(Level.SEVERE, null, ex);
-                }    producto.setSrc3(path + "/" + src + src3Name);
-            }
+   
             
         //Aquí ocurre la magia
         if (producto.getArt() != null && !producto.getArt_name().equals("")
@@ -1094,7 +1100,7 @@ JOptionPane.showMessageDialog(null, "Producto Agregado Satisfactoriamente", "Com
     }//GEN-LAST:event_comboSubActionPerformed
 
     private void btnImage1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnImage1ActionPerformed
-        // TODO add your handling code here:
+if(txtName.getText()!=null && comboCategory.getSelectedIndex()>0 && comboSub.getSelectedIndex()>0){        
         JFileChooser dir = new JFileChooser();
         int option = dir.showOpenDialog(this);
         if (option == JFileChooser.APPROVE_OPTION) {
@@ -1103,13 +1109,18 @@ JOptionPane.showMessageDialog(null, "Producto Agregado Satisfactoriamente", "Com
 
             src1Name = fileName;
             checkSrc1.setSelected(true);
+            cargarImagenes(1);
         } else {
             checkSrc1.setSelected(false);
         }
+        
     }//GEN-LAST:event_btnImage1ActionPerformed
-
+else{
+JOptionPane.showMessageDialog(null, "Completa los campos correspondientes faltantes", "ERROR", JOptionPane.INFORMATION_MESSAGE);
+}
+    }
     private void btnImage2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnImage2ActionPerformed
-        // TODO add your handling code here:
+        if(txtName.getText()!=null && comboCategory.getSelectedIndex()>0 && comboSub.getSelectedIndex()>0){
         JFileChooser dir = new JFileChooser();
         int option = dir.showOpenDialog(this);
         if (option == JFileChooser.APPROVE_OPTION) {
@@ -1118,13 +1129,17 @@ JOptionPane.showMessageDialog(null, "Producto Agregado Satisfactoriamente", "Com
 
             src2Name = fileName;
             checkSrc2.setSelected(true);
+               cargarImagenes(2);
         } else {
             checkSrc2.setSelected(false);
-        }
+        }     
     }//GEN-LAST:event_btnImage2ActionPerformed
-
+else{
+JOptionPane.showMessageDialog(null, "Completa los campos correspondientes faltantes", "ERROR", JOptionPane.INFORMATION_MESSAGE);
+}
+    }
     private void btnImage3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnImage3ActionPerformed
-        // TODO add your handling code here:
+        if(txtName.getText()!=null && comboCategory.getSelectedIndex()>0 && comboSub.getSelectedIndex()>0){
         JFileChooser dir = new JFileChooser();
         int option = dir.showOpenDialog(this);
         if (option == JFileChooser.APPROVE_OPTION) {
@@ -1133,11 +1148,15 @@ JOptionPane.showMessageDialog(null, "Producto Agregado Satisfactoriamente", "Com
 
             src3Name = fileName;
             checkSrc3.setSelected(true);
+               cargarImagenes(3);
         } else {
             checkSrc3.setSelected(false);
-        }
+        } 
     }//GEN-LAST:event_btnImage3ActionPerformed
-
+    else{
+JOptionPane.showMessageDialog(null, "Completa los campos correspondientes faltantes", "ERROR", JOptionPane.INFORMATION_MESSAGE);
+}
+    }
     private void btnmasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnmasActionPerformed
 int cantidad = Integer.parseInt(txtCant.getText());
 cantidad += 1;

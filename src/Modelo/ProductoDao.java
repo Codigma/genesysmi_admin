@@ -167,7 +167,7 @@ String consulta = "INSERT INTO product_details (art, name, price, id_category, i
             preparedStatement.setInt(8, producto.getId_type_product());
             preparedStatement.setString(9, producto.getArt());
             
-String consulta ="UPDATE product_details SET art = '"+producto.getArt()+"', name = '"+producto.getArt_name()+"', price = '"+producto.getPrice()+"', id_category = '"+producto.getId_category()+"', id_subcategory = '"+producto.getId_subcategory()+"', description = '"+producto.getDescription()+"', composition = '"+producto.getComposition()+"', id_type_product = '"+producto.getArt()+"' WHERE art = '"+producto.getArt()+"';";
+String consulta ="UPDATE product_details SET art = '"+producto.getArt()+"', name = '"+producto.getArt_name()+"', price = '"+producto.getPrice()+"', id_category = '"+producto.getId_category()+"', id_subcategory = '"+producto.getId_subcategory()+"', description = '"+producto.getDescription()+"', composition = '"+producto.getComposition()+"', id_type_product = '"+producto.getId_type_product()+"' WHERE art = '"+producto.getArt()+"';";
             aux.escribir(consulta);
             preparedStatement.executeUpdate();
             

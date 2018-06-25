@@ -1003,22 +1003,29 @@ modelo.removeRow(0);
     }//GEN-LAST:event_lblBuscarMousePressed
 
     private void lblBuscarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblBuscarMouseClicked
+        boolean producto_cancelado = false;
         lblBuscar.setCursor(new java.awt.Cursor(java.awt.Cursor.WAIT_CURSOR));
+        
+            BagVo bagg = new BagVo();
+            ArrayList<TallaVo> medida = miCoordinador.obtenerTallasProducto(codigoArt(txtCode.getText()));
+            String [] medidas = new String[medida.size()];
         if(txtCode.getText().trim().equals("")){
             JOptionPane.showMessageDialog(null,"Ingrese un codigo válido","ERROR",JOptionPane.INFORMATION_MESSAGE);
         }
         else{
 
-            BagVo bagg = new BagVo();
-            ArrayList<TallaVo> medida = miCoordinador.obtenerTallasProducto(codigoArt(txtCode.getText()));
-            String [] medidas = new String[medida.size()];
-
+if(medidas.length>0){
             for(int i =0 ; i<medida.size();i++){
                 medidas[i]=(medida.get(i).getSize_name());
             }
-
+}
+else{
+           JOptionPane.showMessageDialog(null,"No cuenta con tallas registradas","Inventario",JOptionPane.INFORMATION_MESSAGE);
+}
             String resp = (String) JOptionPane.showInputDialog(null, "Seleccione la talla disponible", "Talla", JOptionPane.DEFAULT_OPTION, null, medidas, "Selecciona");
             int auxtalla=0;
+            
+            
             for(int i =0 ; i<medida.size();i++){
                 if(medidas[i]==resp){
                     auxtalla= medida.get(i).getId_size();
