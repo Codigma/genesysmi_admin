@@ -103,7 +103,12 @@ public class Coordinador {
         ProductoDao producto = new ProductoDao();
         return producto.getDetallesProducto(art);
     }
-
+    
+ public ProductoVo getDetallesProductoColor(String art, String color){
+        ProductoDao producto = new ProductoDao();
+        return producto.getDetallesProductoColor(art,color);
+    }
+ 
     public Productos getProductos() {
         return productos;
     }
@@ -222,7 +227,7 @@ public class Coordinador {
     return usuario.getUsuarios();
     }
       
-      public ArrayList<TallaVo> obtenerTallasProducto (int talla){
+      public ArrayList<TallaVo> obtenerTallasProducto (String talla){
       TallaDao tall = new TallaDao();
       return tall.obtener_tallas(talla);
       

@@ -391,7 +391,9 @@ txtHex.setText("");
         JColorChooser selector=new JColorChooser();
         Color c=selector.showDialog(null, "Seleccione el color", Color.CYAN);
         String t = String.valueOf(c);
+        if(c!=null){
         txtHex.setText("#"+Integer.toHexString( c.getRGB() & 0x00ffffff ));
+        }
     }//GEN-LAST:event_btnSelectActionPerformed
 
     private void txtCodActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCodActionPerformed

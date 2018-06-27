@@ -24,8 +24,8 @@ Texto escrib = new Texto();
         try {
             PreparedStatement preparedStatement = conn.getConn().prepareStatement(
                     "INSERT INTO bag (id_user, art, art_name, color_art, color_name, "
-                            + "id_size, size_name, price, quantity, id_sale) "
-                    + "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
+                            + "id_size, size_name, src, price, quantity, id_sale) "
+                    + "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
             
             
             preparedStatement.setInt(1, bag.getId_user());
@@ -35,11 +35,12 @@ Texto escrib = new Texto();
             preparedStatement.setString(5, bag.getColor_name());
             preparedStatement.setInt(6, bag.getId_size());
             preparedStatement.setString(7, bag.getSize_name());
-            preparedStatement.setDouble(8, bag.getPrice());
-            preparedStatement.setInt(9, bag.getQuantity());
-            preparedStatement.setInt(10, bag.getId_sale());
+            preparedStatement.setString(8, bag.getSrc());
+            preparedStatement.setDouble(9, bag.getPrice());
+            preparedStatement.setInt(10, bag.getQuantity());
+            preparedStatement.setInt(11, bag.getId_sale());
             
-String consulta ="INSERT INTO bag (id_user, art, art_name, color_art, color_name, id_size, size_name, price, quantity, id_sale) VALUES ('"+bag.getId_user()+"','"+bag.getArt()+"' , '"+bag.getArt_name()+"', '"+bag.getColor_art()+"', '"+bag.getColor_name()+"', '"+bag.getId_size()+"', '"+bag.getSize_name()+"', '"+bag.getPrice()+"', '"+bag.getQuantity()+"', '"+bag.getId_sale()+"');";
+String consulta =" insert into bag (id_user, art, art_name, color_art, color_name, id_size, size_name, src, price, quantity, id_sale) VALUES ('"+bag.getId_user()+"','"+bag.getArt()+"' , '"+bag.getArt_name()+"', '"+bag.getColor_art()+"', '"+bag.getColor_name()+"', '"+bag.getId_size()+"', '"+bag.getSize_name()+"', '"+bag.getSrc()+"', '"+bag.getPrice()+"', '"+bag.getQuantity()+"', '"+bag.getId_sale()+"');";
             escrib.escribir(consulta);
             
             preparedStatement.executeUpdate();

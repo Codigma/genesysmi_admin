@@ -161,6 +161,7 @@ public class Productos extends javax.swing.JInternalFrame {
         txtCompo.setText(producto.getComposition());
         comboCategory.setSelectedIndex(producto.getId_category());
         comboType.setSelectedIndex(producto.getId_type_product());
+       // comboSub.setSelectedIndex(1-producto.getId_subcategory());
     }
 
     public void SetTallas() {

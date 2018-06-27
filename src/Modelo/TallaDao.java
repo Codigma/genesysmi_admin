@@ -42,7 +42,7 @@ public class TallaDao {
      return tallas;
     }
     
-    public ArrayList<TallaVo> obtener_tallas(int art){
+    public ArrayList<TallaVo> obtener_tallas(String art){
      Conectarse conn = new Conectarse();
             
            ArrayList<TallaVo> tallas = new ArrayList<TallaVo>();
@@ -53,7 +53,7 @@ public class TallaDao {
                     + "INNER JOIN sizes as sz on sz.id_size = pd.id_size "
                     + "WHERE art =? and amount >0");
 
-            preparedStatement.setInt(1, art);
+            preparedStatement.setString(1, art);
             
             ResultSet resultSet = preparedStatement.executeQuery();
 
