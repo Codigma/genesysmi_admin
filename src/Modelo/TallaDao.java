@@ -77,4 +77,40 @@ public class TallaDao {
      return tallas;
     }
     
+    public ArrayList<TallaVo> getTallasColor(String art, String color){
+     Conectarse conn = new Conectarse();
+            
+           ArrayList<TallaVo> tallas = new ArrayList<TallaVo>();
+        try {
+            PreparedStatement preparedStatement = conn.getConn().prepareStatement(
+                    "SELECT pd.id_size,sz.name "
+                  + "from product_sizes as pd "
+                  + "INNER JOIN sizes as sz on sz.id_size = pd.id_size "
+                  + "WHERE art =? and color_art = ? ");
+
+            preparedStatement.setString(1, art);
+            preparedStatement.setString(2, color);
+            
+            ResultSet resultSet = preparedStatement.executeQuery();
+
+            //Muestra resultados de la consulta SQL
+            while (resultSet.next()) {
+                
+                TallaVo talla = new TallaVo();
+                talla.setId_size(resultSet.getInt(1));
+                talla.setSize_name(resultSet.getString(2));
+                
+                tallas.add(talla);
+            }
+            //Cierra todo
+            conn.getConn().close();
+            resultSet.close();
+            preparedStatement.close();
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
+        //Retorna el color
+     return tallas;
+    }
+    
 }

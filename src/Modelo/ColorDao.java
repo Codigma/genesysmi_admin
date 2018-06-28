@@ -147,4 +147,39 @@ String consulta = "insert into colors (color_art, color_name, color_hex_code)"+ 
         //Retorna el color
      return colores;
     }
+       
+       public ArrayList<ColorVo> getColorsArt(String art){
+     Conectarse conn = new Conectarse();
+            
+           ArrayList<ColorVo> colores = new ArrayList<ColorVo>();
+        try {
+            PreparedStatement preparedStatement = conn.getConn().prepareStatement(
+                    "SELECT DISTINCT ps.color_art, c.color_name "
+                    + "from product_sizes as ps "
+                    + "INNER JOIN colors as c on c.color_art = ps.color_art "
+                    + "WHERE ps.art = ? ");
+
+            preparedStatement.setString(1, art);
+            
+            
+            ResultSet resultSet = preparedStatement.executeQuery();
+
+            //Muestra resultados de la consulta SQL
+            while (resultSet.next()) {
+                
+                ColorVo color = new ColorVo();
+                color.setColor_art(resultSet.getString(1));
+                color.setColor_name(resultSet.getString(2));
+                colores.add(color);
+            }
+            //Cierra todo
+            conn.getConn().close();
+            resultSet.close();
+            preparedStatement.close();
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
+        //Retorna el color
+     return colores;
+    }
 }

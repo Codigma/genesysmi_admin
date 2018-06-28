@@ -317,4 +317,14 @@ return dao.getLocales();
        ProductoDao pro = new ProductoDao();
        return pro.getProductoTiendaCategory(local, categoria, subcategoria);
                      }
+       
+       public ArrayList<ColorVo> getColorsArt (String art){
+ColorDao dao = new ColorDao();
+return dao.getColorsArt(art);
+}
+       
+       public ArrayList<TallaVo> getTallasColor(String art, String color){
+       TallaDao talla = new TallaDao();
+       return talla.getTallasColor(art, color);
+       }
 }

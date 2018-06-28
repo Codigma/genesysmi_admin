@@ -1117,7 +1117,7 @@ modelo.removeRow(0);
         // TODO add your handling code here:
     }//GEN-LAST:event_lblBuscarMousePressed
 
-    public void llenarComboColor(int auxtalla){
+    public void llenarComboTalla(int auxtalla){
       
             ArrayList <ColorVo> color = miCoordinador.obtenerColorProducto(codigoArtCadena(txtCode.getText()), auxtalla);
             String [] colores = new String[color.size()];
@@ -1141,21 +1141,21 @@ modelo.removeRow(0);
         }
         else{
            
-            ArrayList<TallaVo> medida = miCoordinador.obtenerTallasProducto(codigoArtCadena(txtCode.getText().trim()));
-            String [] medidas = new String[medida.size()];
+            ArrayList<ColorVo> color = miCoordinador.getColorsArt(codigoArtCadena(txtCode.getText()));
+            String [] medidas = new String[color.size()];
 
-            if(medida.size()>0 ){
-                modeloTalla = new DefaultComboBoxModel();
-        modeloTalla.addElement("Seleccionar...");
+            if(color.size()>0 ){
+                modeloColor = new DefaultComboBoxModel();
+        modeloColor.addElement("Seleccionar...");
 
-            for (int i = 0; i < medida.size(); i++) {
-                modeloTalla.addElement(medida.get(i).getSize_name());
+            for (int i = 0; i < color.size(); i++) {
+                modeloColor.addElement(color.get(i).getColor_name());
             }
-            comboTalla.setModel(modeloTalla);
+            comboColor.setModel(modeloColor);
                 
             }
             else{
-                JOptionPane.showMessageDialog(null,"No cuenta con tallas registradas","Inventario",JOptionPane.INFORMATION_MESSAGE);
+                JOptionPane.showMessageDialog(null,"No cuenta con colores registrados","Inventario",JOptionPane.INFORMATION_MESSAGE);
             }
             
             
@@ -1177,8 +1177,10 @@ ProductoVo product = miCoordinador.getDetallesProducto(codigoArtCadena(txtCode.g
     }//GEN-LAST:event_lblBuscarMouseClicked
 
     private void comboColorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comboColorActionPerformed
-   
-     ArrayList<TallaVo> medida = miCoordinador.obtenerTallasProducto(codigoArtCadena(txtCode.getText()));
+ ArrayList<TallaVo> medida = miCoordinador.obtenerTallasProducto(codigoArtCadena(txtCode.getText()));
+ 
+ 
+    
      ArrayList <ColorVo> color = miCoordinador.obtenerColorProducto(codigoArtCadena(txtCode.getText()), medida.get(comboTalla.getSelectedIndex()).getId_size());
         System.out.println(color.get(comboColor.getSelectedIndex()-1).getColor_art());
    
@@ -1187,10 +1189,10 @@ ProductoVo product = miCoordinador.getDetallesProducto(codigoArtCadena(txtCode.g
 
     private void comboTallaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comboTallaActionPerformed
      
-        ArrayList<TallaVo> medida = miCoordinador.obtenerTallasProducto(codigoArtCadena(txtCode.getText()));
+       
 
 
-      llenarComboColor(medida.get(comboTalla.getSelectedIndex()-1).getId_size());
+     // llenarComboColor(medida.get(comboTalla.getSelectedIndex()-1).getId_size());
         
     }//GEN-LAST:event_comboTallaActionPerformed
 
