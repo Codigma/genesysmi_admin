@@ -731,6 +731,11 @@ public class Productos extends javax.swing.JInternalFrame {
         txtBackColor.setEditable(false);
         txtBackColor.setAutoscrolls(false);
         txtBackColor.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 2));
+        txtBackColor.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtBackColorActionPerformed(evt);
+            }
+        });
 
         comboColor.setBackground(new java.awt.Color(242, 242, 242));
         comboColor.setFont(new java.awt.Font("Apple SD Gothic Neo", 0, 14)); // NOI18N
@@ -810,10 +815,11 @@ public class Productos extends javax.swing.JInternalFrame {
                                     .addComponent(jLabel11)
                                     .addComponent(btnImage2))
                                 .addGap(18, 18, 18)
-                                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(btnImage3)
-                                    .addComponent(jLabel12)
-                                    .addComponent(checkSrc3))))))
+                                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(checkSrc3, javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                        .addComponent(btnImage3)
+                                        .addComponent(jLabel12)))))))
                 .addGap(0, 27, Short.MAX_VALUE))
         );
 
@@ -1209,6 +1215,10 @@ txtCant.setText(Integer.toString(cantidad));
 
         }        // TODO add your handling code here:
     }//GEN-LAST:event_txtCodeKeyTyped
+
+    private void txtBackColorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtBackColorActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtBackColorActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

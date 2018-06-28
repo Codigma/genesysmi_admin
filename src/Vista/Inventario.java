@@ -206,6 +206,11 @@ modelo.removeRow(0);
                 txtSearchActionPerformed(evt);
             }
         });
+        txtSearch.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtSearchKeyTyped(evt);
+            }
+        });
 
         jLabel4.setFont(new java.awt.Font("Apple SD Gothic Neo", 0, 15)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(51, 51, 51));
@@ -481,6 +486,17 @@ Integer cat_index = comboCategory.getSelectedIndex();
             comboSub.setModel(modeloSubcategory);
         }        // TODO add your handling code here:
     }//GEN-LAST:event_comboCategoryActionPerformed
+
+    private void txtSearchKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtSearchKeyTyped
+  char c=evt.getKeyChar();
+   int ascii = (int)c;
+        if(ascii<48 || ascii>57) {
+            getToolkit().beep();
+
+            evt.consume();
+
+        }        // TODO add your handling code here:
+    }//GEN-LAST:event_txtSearchKeyTyped
     
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

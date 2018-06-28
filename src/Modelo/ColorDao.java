@@ -154,7 +154,7 @@ String consulta = "insert into colors (color_art, color_name, color_hex_code)"+ 
            ArrayList<ColorVo> colores = new ArrayList<ColorVo>();
         try {
             PreparedStatement preparedStatement = conn.getConn().prepareStatement(
-                    "SELECT DISTINCT ps.color_art, c.color_name "
+                    "SELECT DISTINCT ps.color_art, c.color_name, c.color_hex_code "
                     + "from product_sizes as ps "
                     + "INNER JOIN colors as c on c.color_art = ps.color_art "
                     + "WHERE ps.art = ? ");
@@ -170,6 +170,7 @@ String consulta = "insert into colors (color_art, color_name, color_hex_code)"+ 
                 ColorVo color = new ColorVo();
                 color.setColor_art(resultSet.getString(1));
                 color.setColor_name(resultSet.getString(2));
+                color.setColor_hex_code(resultSet.getString(3));
                 colores.add(color);
             }
             //Cierra todo

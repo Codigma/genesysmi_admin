@@ -15,6 +15,8 @@ import Modelo.CreditoVo;
 import Modelo.ProductoVo;
 import Modelo.TallaVo;
 import Modelo.VentaVo;
+import java.awt.Color;
+import java.awt.Component;
 import java.awt.Dimension;
 import java.beans.PropertyVetoException;
 
@@ -26,8 +28,11 @@ import java.util.Date;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.DefaultComboBoxModel;
+import javax.swing.JLabel;
+import javax.swing.JList;
 import javax.swing.JOptionPane;
 import javax.swing.JTable;
+import javax.swing.ListCellRenderer;
 import javax.swing.event.TableModelEvent;
 import javax.swing.event.TableModelListener;
 import javax.swing.table.DefaultTableModel;
@@ -40,7 +45,7 @@ import javax.swing.table.TableModel;
 public class DetalleVenta extends javax.swing.JInternalFrame {
 DefaultComboBoxModel modeloTalla;
 DefaultComboBoxModel modeloColor;
-    
+private ArrayList<ColorVo> colores;    
     
 Date date = new Date();
 DateFormat hourdateFormat = new SimpleDateFormat("dd/MM/yyyy HH:mm ");
@@ -185,6 +190,7 @@ modelo.removeRow(0);
        System.out.print(obtenido);
        return obtenido;
    }
+ 
    
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -237,6 +243,7 @@ modelo.removeRow(0);
         comboCant = new javax.swing.JComboBox<>();
         jLabel20 = new javax.swing.JLabel();
         comboColor = new javax.swing.JComboBox<>();
+        txtBackColor = new javax.swing.JTextField();
         jLabel6 = new javax.swing.JLabel();
 
         setClosable(true);
@@ -313,7 +320,7 @@ modelo.removeRow(0);
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 405, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(37, Short.MAX_VALUE))
+                .addContainerGap(59, Short.MAX_VALUE))
         );
 
         jPanel3.setBorder(javax.swing.BorderFactory.createEtchedBorder());
@@ -692,6 +699,8 @@ modelo.removeRow(0);
             }
         });
 
+        txtBackColor.setEditable(false);
+
         javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
         jPanel6.setLayout(jPanel6Layout);
         jPanel6Layout.setHorizontalGroup(
@@ -716,7 +725,9 @@ modelo.removeRow(0);
                             .addGroup(jPanel6Layout.createSequentialGroup()
                                 .addComponent(jLabel20, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(comboColor, javax.swing.GroupLayout.PREFERRED_SIZE, 174, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(comboColor, javax.swing.GroupLayout.PREFERRED_SIZE, 174, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(txtBackColor, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(jPanel6Layout.createSequentialGroup()
                                 .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                                     .addComponent(jLabel18, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -750,10 +761,11 @@ modelo.removeRow(0);
                     .addComponent(lblArt, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel20, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(comboColor, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(13, 13, 13)
+                    .addComponent(comboColor, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtBackColor, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(20, 20, 20)
                 .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel21, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(comboTalla, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -761,7 +773,7 @@ modelo.removeRow(0);
                 .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel18, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(comboCant, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 10, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(lblPrecio, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel12, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -1168,6 +1180,7 @@ if(descuento.isEmpty()|| !descuento.matches("[0-9]*")){
             for (int i = 0; i < color.size(); i++) {
                 modeloColor.addElement(color.get(i).getColor_name());
             }
+            
             comboColor.setModel(modeloColor);
                 
             }
@@ -1175,6 +1188,7 @@ if(descuento.isEmpty()|| !descuento.matches("[0-9]*")){
                 JOptionPane.showMessageDialog(null,"No cuenta con colores registrados","Inventario",JOptionPane.INFORMATION_MESSAGE);
             }
             
+             
             
            
 ProductoVo product = miCoordinador.getDetallesProducto(codigoArtCadena(txtCode.getText().trim()));
@@ -1195,12 +1209,26 @@ ProductoVo product = miCoordinador.getDetallesProducto(codigoArtCadena(txtCode.g
 
     private void comboColorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comboColorActionPerformed
 ArrayList<ColorVo> color = miCoordinador.getColorsArt(codigoArtCadena(txtCode.getText())); 
- 
+
+
 llenarComboTalla(codigoArtCadena(txtCode.getText()),color.get(comboColor.getSelectedIndex()-1).getColor_art());
     
    // ArrayList <ColorVo> color = miCoordinador.obtenerColorProducto(codigoArtCadena(txtCode.getText()), medida.get(comboTalla.getSelectedIndex()).getId_size());
         System.out.println(color.get(comboColor.getSelectedIndex()-1).getColor_art());
-   
+
+        if (color.size()>0 && comboColor.getSelectedIndex() > 0) {
+                Color col = Color.decode(color.get(comboColor.getSelectedIndex()-1).getColor_hex_code());
+                setBackground(Color.WHITE);
+                setForeground(col);
+
+                if (isSelected) {
+                    setBackground(col);
+                    setForeground(Color.WHITE);
+                    txtBackColor.setBackground(col);
+                }
+            } else {
+                setForeground(Color.BLACK);
+            }  
      
     }//GEN-LAST:event_comboColorActionPerformed
 
@@ -1308,6 +1336,7 @@ llenarComboTalla(codigoArtCadena(txtCode.getText()),color.get(comboColor.getSele
     private javax.swing.JLabel lblPrecio;
     private javax.swing.JLabel lblTotal;
     private javax.swing.JTable tbVenta;
+    private javax.swing.JTextField txtBackColor;
     public static javax.swing.JTextField txtCliente;
     private javax.swing.JTextField txtCode;
     public static javax.swing.JTextField txtDireccion;
