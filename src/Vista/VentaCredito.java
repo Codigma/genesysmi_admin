@@ -104,7 +104,7 @@ tbProducts.setModel(modelo2);
         btnDeuda = new javax.swing.JButton();
 
         setClosable(true);
-        setMaximizable(true);
+        setIconifiable(true);
 
         jPanel3.setBackground(new java.awt.Color(237, 237, 237));
 

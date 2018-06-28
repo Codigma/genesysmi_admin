@@ -590,14 +590,12 @@ modelo.removeRow(0);
         jLabel10.setText("Articulo:");
 
         lblArt.setFont(new java.awt.Font("Apple SD Gothic Neo", 0, 15)); // NOI18N
-        lblArt.setForeground(new java.awt.Color(255, 51, 51));
 
         jLabel12.setFont(new java.awt.Font("Apple SD Gothic Neo", 0, 15)); // NOI18N
         jLabel12.setForeground(new java.awt.Color(51, 51, 51));
         jLabel12.setText("Precio  $");
 
         lblPrecio.setFont(new java.awt.Font("Apple SD Gothic Neo", 0, 15)); // NOI18N
-        lblPrecio.setForeground(new java.awt.Color(255, 51, 51));
 
         jButton3.setBackground(new java.awt.Color(192, 57, 43));
         jButton3.setFont(new java.awt.Font("GT Walsheim Bold", 0, 14)); // NOI18N
