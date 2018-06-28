@@ -324,13 +324,13 @@ Productos pt;
     private void searchProductActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_searchProductActionPerformed
         if (estacerrado(pt)) {
 
-            pt = new Productos();
-            pt.setCoordinador(miCoordinador);
-            escritorio.add(pt).setLocation(25, 3);
-            pt.show(true);
+            Inventario in = new Inventario();
+            in.setCoordinador(miCoordinador);
+            escritorio.add(in).setLocation(25, 3);
+            in.show(true);
 
             try {
-                pt.setMaximum(true);
+                in.setMaximum(true);
 
                 // TODO add your handling code here:
             } catch (PropertyVetoException ex) {

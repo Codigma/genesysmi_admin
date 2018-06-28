@@ -306,4 +306,15 @@ return dao.getSales();
 LocalDao dao = new LocalDao();
 return dao.getLocales();
 }
+       
+       public ArrayList<ProductoVo> getProductoTienda(int local, String art){
+       ProductoDao pro = new ProductoDao();
+       return pro.getProductoTienda(local, art);
+       
+       }
+       
+       public ArrayList<ProductoVo> getProductoTiendaCategory(int local, int categoria, int subcategoria){
+       ProductoDao pro = new ProductoDao();
+       return pro.getProductoTiendaCategory(local, categoria, subcategoria);
+                     }
 }
