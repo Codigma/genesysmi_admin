@@ -216,7 +216,7 @@ public void setCoordinador(Coordinador miCoordinador) {
         jMenu1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jMenu1.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
 
-        inventario.setText("Inventarios");
+        inventario.setText("Generar Reportes");
         inventario.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 inventarioActionPerformed(evt);

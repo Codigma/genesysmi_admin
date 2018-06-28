@@ -224,6 +224,11 @@ txtHex.setText("");
                 txtCodActionPerformed(evt);
             }
         });
+        txtCod.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtCodKeyTyped(evt);
+            }
+        });
 
         jLabel4.setFont(new java.awt.Font("Apple SD Gothic Neo", 0, 16)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(51, 51, 51));
@@ -414,6 +419,17 @@ txtHex.setText("");
             // System.out.println(modelo.getValueAt(fila,2));
         }
     }//GEN-LAST:event_tbColorsMouseClicked
+
+    private void txtCodKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtCodKeyTyped
+  char c=evt.getKeyChar();
+   int ascii = (int)c;
+        if(ascii<48 || ascii>57) {
+            getToolkit().beep();
+
+            evt.consume();
+
+        }        // TODO add your handling code here:
+    }//GEN-LAST:event_txtCodKeyTyped
 
  
 
