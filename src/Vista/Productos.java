@@ -981,36 +981,45 @@ JOptionPane.showMessageDialog(null, "Producto Agregado Satisfactoriamente", "Com
     }//GEN-LAST:event_btnBuscarActionPerformed
 
     private void comboCategoryActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comboCategoryActionPerformed
-        // TODO add your handling code here:
+        
         Integer cat_index = comboCategory.getSelectedIndex();
 
         modeloSubcategory = new DefaultComboBoxModel();
         modeloSubcategory.addElement("Seleccionar...");
 
-        Integer sub_index = 0;
+        Integer sub_index = -1;
 
         if (cat_index > 0) {
+            
             producto.setId_category(cat_index);
 
             subcategories = miCoordinador.getSubcategories(cat_index);
 
             for (int i = 0; i < subcategories.size(); i++) {
+                
+                System.out.println(subcategories.get(i).getId_subcategory());
                 modeloSubcategory.addElement(subcategories.get(i).getSucategory_name());
                 if (subcategories.get(i).getId_subcategory().equals(producto.getId_subcategory())) {
                     sub_index = i;
+                    
                 }
+                
             }
         } else {
             producto.setId_category(null);
         }
         SetTallas();
-
+System.out.println(sub_index);
         comboSub.setModel(modeloSubcategory);
-        if (sub_index > 0) {
+        if ((sub_index+1) > 0) {
             comboSub.setSelectedIndex(sub_index + 1);
-        } else {
+        
+        }
+        else {
+            
             comboSub.setSelectedIndex(0);
         }
+      
     }//GEN-LAST:event_comboCategoryActionPerformed
 
     private void comboColorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comboColorActionPerformed
