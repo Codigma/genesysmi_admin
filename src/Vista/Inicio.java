@@ -320,11 +320,11 @@ Productos pt;
     private void updateProductMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_updateProductMouseClicked
 
     }//GEN-LAST:event_updateProductMouseClicked
-
+Inventario in;
     private void searchProductActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_searchProductActionPerformed
-        if (estacerrado(pt)) {
+        if (estacerrado(in)) {
 
-            Inventario in = new Inventario();
+             in = new Inventario();
             in.setCoordinador(miCoordinador);
             escritorio.add(in).setLocation(25, 3);
             in.show(true);
