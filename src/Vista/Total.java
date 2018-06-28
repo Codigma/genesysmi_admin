@@ -251,9 +251,7 @@ ProductoVo registro = new ProductoVo();
 
     private void btnCanjearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCanjearActionPerformed
 
-       
-        
-        double monedero = Double.parseDouble(lblDinero.getText());
+double monedero = Double.parseDouble(lblDinero.getText());
 double total = Double.parseDouble(lblPagar.getText());
 
 
@@ -304,8 +302,8 @@ JOptionPane.showMessageDialog(null, "No cuentas con fondos", "Dinero Electrónic
         String captura = txtPago.getText();
         captura = captura.replaceAll(" ", "");
         
-        if (captura.length()==0){
-        JOptionPane.showMessageDialog(null, "Ingresa el pago faltante", "Pago total", JOptionPane.WARNING_MESSAGE);
+        if (captura.length()==0 || Double.parseDouble(captura) < Double.parseDouble(lblPagar.getText())){
+        JOptionPane.showMessageDialog(null, "Ingresa un pago válido", "Pago total", JOptionPane.WARNING_MESSAGE);
         }
         
         else{
@@ -322,7 +320,8 @@ comprador.setMoney(comprador.getMoney()+ dineroelectronico);
 for(int b = 0; b < bolsa.size(); b++){
         miCoordinador.InsertBag(bolsa.get(b));
         }
-  
+
+miCoordinador.getDetalle().bag.clear();
 dispose();
 txtPago.setText("");
 

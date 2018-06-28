@@ -293,7 +293,7 @@ limpiarTable();
       //DetalleVenta venta = new DetalleVenta(); 
 
                if ((fila > -1)){
-          int id = (int) modelo.getValueAt(fila, 0);
+          int id = (int) tbUsers.getValueAt(fila, 0);
                    String cliente = (String) modelo.getValueAt(fila, 1) + " " + (String)(String) modelo.getValueAt(fila, 2) ;
           String direccion = (String)modelo.getValueAt(fila, 7);
           double electronico = (double)modelo.getValueAt(fila, 11);
@@ -302,6 +302,7 @@ limpiarTable();
              miCoordinador.getDetalle().txtCliente.setText(cliente);
              miCoordinador.getDetalle().txtDireccion.setText(direccion);
              miCoordinador.getDetalle().txtMonedero.setText(Double.toString(electronico));
+             miCoordinador.getDetalle().btnCredit.setEnabled(true);
              
              
             
