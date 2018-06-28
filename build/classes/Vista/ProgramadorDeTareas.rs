@@ -1,2 +1,0 @@
-Vista.ProgramadorDeTareas
-Vista.AccionProgramada

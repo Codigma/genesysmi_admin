@@ -43,7 +43,7 @@ public class ConecRemoto {
             conn = DriverManager.getConnection("jdbc:mysql://"+hostremoto+"/"+dbremoto,userremoto,passremoto);
             // Check the state of connection
             if (conn!=null){
-            System.out.println("Conexión exitosa");
+            System.out.println("Conexión remota exitosa");
             }
           
         } catch (ClassNotFoundException | SQLException e) {
