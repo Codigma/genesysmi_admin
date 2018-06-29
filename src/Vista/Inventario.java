@@ -181,6 +181,7 @@ modelo.removeRow(0);
         });
         tbInvent.setAutoResizeMode(javax.swing.JTable.AUTO_RESIZE_ALL_COLUMNS);
         tbInvent.setGridColor(new java.awt.Color(204, 204, 204));
+        tbInvent.setRowHeight(20);
         tbInvent.setSelectionBackground(new java.awt.Color(253, 175, 200));
         tbInvent.setSelectionForeground(new java.awt.Color(0, 0, 0));
         tbInvent.addMouseListener(new java.awt.event.MouseAdapter() {

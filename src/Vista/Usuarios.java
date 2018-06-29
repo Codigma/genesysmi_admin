@@ -78,6 +78,8 @@ asignarTamaño();
     tbUsers.getColumnModel().getColumn(10).setPreferredWidth(150);
     tbUsers.getColumnModel().getColumn(11).setPreferredWidth(80);
     
+    
+    
    
     
     }
@@ -140,6 +142,7 @@ modelo.removeRow(0);
         ));
         tbUsers.setAutoResizeMode(javax.swing.JTable.AUTO_RESIZE_OFF);
         tbUsers.setGridColor(new java.awt.Color(204, 204, 204));
+        tbUsers.setRowHeight(20);
         tbUsers.setSelectionBackground(new java.awt.Color(253, 175, 200));
         tbUsers.setSelectionForeground(new java.awt.Color(0, 0, 0));
         tbUsers.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -161,6 +164,11 @@ modelo.removeRow(0);
         txtSearch.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtSearchActionPerformed(evt);
+            }
+        });
+        txtSearch.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtSearchKeyTyped(evt);
             }
         });
 
@@ -316,6 +324,17 @@ limpiarTable();
 limpiarTable();        
 imprimirUsuarios();
     }//GEN-LAST:event_btnGenerateActionPerformed
+
+    private void txtSearchKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtSearchKeyTyped
+  char c=evt.getKeyChar();
+   int ascii = (int)c;
+        if(ascii<48 || ascii>57) {
+            getToolkit().beep();
+
+            evt.consume();
+
+        }        // TODO add your handling code here:
+    }//GEN-LAST:event_txtSearchKeyTyped
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

@@ -337,7 +337,7 @@ tbProducts.setModel(modelo2);
             double descuento = 0.00;
     String valor = JOptionPane.showInputDialog(null, "Registre el pago");
     
-if(valor != null ){    
+if(!valor.isEmpty() ){    
     
     if(Double.parseDouble(valor) <= venta.get(seleccion).getTotal()){
     descuento = venta.get(seleccion).getTotal() - Double.parseDouble(valor) ;
@@ -354,7 +354,7 @@ if(valor != null ){
         JOptionPane.showMessageDialog(null, "Ingrese una cantidad válida");
     }
 } else{
-        System.out.print("");
+        JOptionPane.showMessageDialog(null, "Ingrese una cantidad válida");
                 }
         }
         else{
