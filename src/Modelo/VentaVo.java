@@ -20,6 +20,15 @@ public class VentaVo {
     private String lastname;
     private String date;
     private int credito;
+    private int online;
+
+    public int getOnline() {
+        return online;
+    }
+
+    public void setOnline(int online) {
+        this.online = online;
+    }
 
     public int getCredito() {
         return credito;

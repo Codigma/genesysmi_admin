@@ -223,8 +223,8 @@ public class Coordinador {
     }
     
       public ArrayList<UsuarioVo> buscarUsuarios(){
-    UsuarioDao usuario = new UsuarioDao();
-    return usuario.getUsuarios();
+    UsuarioDao usuarios = new UsuarioDao();
+    return usuarios.getUsuarios();
     }
       
       public ArrayList<TallaVo> obtenerTallasProducto (String talla){
@@ -327,4 +327,46 @@ return dao.getColorsArt(art);
        TallaDao talla = new TallaDao();
        return talla.getTallasColor(art, color);
        }
+       
+       public ArrayList<VentaVo> getSalesOnline(){
+       VentaDao vent = new VentaDao();
+       return vent.getSalesOnline();
+       }
+       
+       public ArrayList<BagVo> getProductsSaleOnline(int id){
+    BagDao dao = new BagDao();
+    return dao.getProductsSaleOnline(id);
+    }
+       
+       public VentaVo getSalesOnlineId(int id){
+       VentaDao vent = new VentaDao();
+       return vent.getSalesOnlineId(id);
+       }
+       
+       public ArrayList<UsuarioVo> getEstados(){
+       UsuarioDao user = new UsuarioDao();
+       return user.getEstados();
+       }
+       
+        public ArrayList<UsuarioVo> getLocalidadesPorEstado(int id){
+       UsuarioDao user = new UsuarioDao();
+       return user.getLocalidadesPorEstado(id);
+       
+       
+       }
+        
+         public void agregarUsuario(UsuarioVo usuario){
+    UsuarioDao usu = new UsuarioDao();
+    usu.agregarUsuario(usuario);
+    }
+         public ArrayList<UsuarioVo> getUsuariosBusqueda(String name){
+       UsuarioDao user = new UsuarioDao();
+       return user.getUsuariosBusqueda(name);
+         }
+         
+         public ArrayList<VentaVo> salesCreditId(int id){
+           VentaDao credi = new VentaDao();
+    return credi.getSalesCreditId(id);
+                     
+                 }
 }

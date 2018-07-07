@@ -13,6 +13,7 @@ import javax.swing.JFrame;
 import javax.swing.JInternalFrame;
 import javax.swing.JOptionPane;
 import java.io.*;
+import javax.swing.UIManager;
 
 public class Inicio extends javax.swing.JFrame {
 
@@ -60,17 +61,21 @@ public void setCoordinador(Coordinador miCoordinador) {
         addProduct = new javax.swing.JMenuItem();
         searchProduct = new javax.swing.JMenuItem();
         updateProduct = new javax.swing.JMenuItem();
+        jSeparator1 = new javax.swing.JPopupMenu.Separator();
         menuColors = new javax.swing.JMenu();
         itemViewColor = new javax.swing.JMenuItem();
         itemAddColor = new javax.swing.JMenuItem();
         menuUsers = new javax.swing.JMenu();
         jMenuItem1 = new javax.swing.JMenuItem();
+        jMenuItem3 = new javax.swing.JMenuItem();
         menuSale = new javax.swing.JMenu();
         jMenuItem2 = new javax.swing.JMenuItem();
         itemSale = new javax.swing.JMenuItem();
         itemCredit = new javax.swing.JMenuItem();
+        jMenuItem5 = new javax.swing.JMenuItem();
         jMenu1 = new javax.swing.JMenu();
         inventario = new javax.swing.JMenuItem();
+        jMenuItem4 = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         addWindowListener(new java.awt.event.WindowAdapter() {
@@ -86,11 +91,11 @@ public void setCoordinador(Coordinador miCoordinador) {
         escritorio.setLayout(escritorioLayout);
         escritorioLayout.setHorizontalGroup(
             escritorioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 794, Short.MAX_VALUE)
+            .addGap(0, 793, Short.MAX_VALUE)
         );
         escritorioLayout.setVerticalGroup(
             escritorioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 439, Short.MAX_VALUE)
+            .addGap(0, 414, Short.MAX_VALUE)
         );
 
         jMenuBar1.setBackground(new java.awt.Color(51, 51, 51));
@@ -98,12 +103,16 @@ public void setCoordinador(Coordinador miCoordinador) {
         jMenuBar1.setForeground(new java.awt.Color(153, 153, 153));
         jMenuBar1.setFont(new java.awt.Font("Apple SD Gothic Neo", 0, 14)); // NOI18N
         jMenuBar1.setName(""); // NOI18N
-        jMenuBar1.setPreferredSize(new java.awt.Dimension(263, 25));
+        jMenuBar1.setOpaque(false);
+        jMenuBar1.setPreferredSize(new java.awt.Dimension(263, 50));
 
+        menuProduct.setBorder(null);
+        menuProduct.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/icon_producto.png"))); // NOI18N
         menuProduct.setText("Productos");
         menuProduct.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         menuProduct.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
 
+        addProduct.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/icon_add.png"))); // NOI18N
         addProduct.setText("Añadir nuevo");
         addProduct.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -117,6 +126,7 @@ public void setCoordinador(Coordinador miCoordinador) {
         });
         menuProduct.add(addProduct);
 
+        searchProduct.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/icon_busqueda.png"))); // NOI18N
         searchProduct.setText("Buscar producto");
         searchProduct.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -130,7 +140,8 @@ public void setCoordinador(Coordinador miCoordinador) {
         });
         menuProduct.add(searchProduct);
 
-        updateProduct.setText("Actulizar producto");
+        updateProduct.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/icon_actualizar.png"))); // NOI18N
+        updateProduct.setText("Actualizar producto");
         updateProduct.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 updateProductMouseClicked(evt);
@@ -142,14 +153,17 @@ public void setCoordinador(Coordinador miCoordinador) {
             }
         });
         menuProduct.add(updateProduct);
+        menuProduct.add(jSeparator1);
 
         jMenuBar1.add(menuProduct);
         menuProduct.getAccessibleContext().setAccessibleDescription("");
 
+        menuColors.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/icon_color.png"))); // NOI18N
         menuColors.setText("Colores");
         menuColors.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         menuColors.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
 
+        itemViewColor.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/icon_colores.png"))); // NOI18N
         itemViewColor.setText("Ver Lista");
         itemViewColor.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -158,6 +172,7 @@ public void setCoordinador(Coordinador miCoordinador) {
         });
         menuColors.add(itemViewColor);
 
+        itemAddColor.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/icon_addcolor.png"))); // NOI18N
         itemAddColor.setText("Agregar Color");
         itemAddColor.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -168,10 +183,13 @@ public void setCoordinador(Coordinador miCoordinador) {
 
         jMenuBar1.add(menuColors);
 
+        menuUsers.setBorder(null);
+        menuUsers.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/icon_usuario.png"))); // NOI18N
         menuUsers.setText("Usuarios");
         menuUsers.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         menuUsers.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
 
+        jMenuItem1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/icon_usuarios.png"))); // NOI18N
         jMenuItem1.setText("Lista Clientes");
         jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -180,12 +198,23 @@ public void setCoordinador(Coordinador miCoordinador) {
         });
         menuUsers.add(jMenuItem1);
 
+        jMenuItem3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/icon_agregar.png"))); // NOI18N
+        jMenuItem3.setText("Agregar Usuario");
+        jMenuItem3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem3ActionPerformed(evt);
+            }
+        });
+        menuUsers.add(jMenuItem3);
+
         jMenuBar1.add(menuUsers);
 
+        menuSale.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/icon_venta.png"))); // NOI18N
         menuSale.setText("Ventas");
         menuSale.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         menuSale.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
 
+        jMenuItem2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/icon_pago.png"))); // NOI18N
         jMenuItem2.setText("Realizar Venta");
         jMenuItem2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -194,6 +223,7 @@ public void setCoordinador(Coordinador miCoordinador) {
         });
         menuSale.add(jMenuItem2);
 
+        itemSale.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/icon_ventas.png"))); // NOI18N
         itemSale.setText("Lista de Ventas");
         itemSale.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -202,6 +232,7 @@ public void setCoordinador(Coordinador miCoordinador) {
         });
         menuSale.add(itemSale);
 
+        itemCredit.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/icon_credito.png"))); // NOI18N
         itemCredit.setText("Lista de Créditos");
         itemCredit.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -210,12 +241,22 @@ public void setCoordinador(Coordinador miCoordinador) {
         });
         menuSale.add(itemCredit);
 
+        jMenuItem5.setText("Creditos");
+        jMenuItem5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem5ActionPerformed(evt);
+            }
+        });
+        menuSale.add(jMenuItem5);
+
         jMenuBar1.add(menuSale);
 
+        jMenu1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/icon_reporte.png"))); // NOI18N
         jMenu1.setText("Reportes");
         jMenu1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jMenu1.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
 
+        inventario.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/icon_reportes.png"))); // NOI18N
         inventario.setText("Generar Reportes");
         inventario.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -223,6 +264,14 @@ public void setCoordinador(Coordinador miCoordinador) {
             }
         });
         jMenu1.add(inventario);
+
+        jMenuItem4.setText("Traspasos");
+        jMenuItem4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem4ActionPerformed(evt);
+            }
+        });
+        jMenu1.add(jMenuItem4);
 
         jMenuBar1.add(jMenu1);
 
@@ -236,7 +285,7 @@ public void setCoordinador(Coordinador miCoordinador) {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(escritorio)
+            .addComponent(escritorio, javax.swing.GroupLayout.Alignment.TRAILING)
         );
 
         pack();
@@ -410,7 +459,7 @@ Inventario in;
         }
     }//GEN-LAST:event_itemSaleActionPerformed
     private void itemCreditActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itemCreditActionPerformed
-        if (estacerrado(vc)) {
+         if (estacerrado(vc)) {
             vc = new VentaCredito();
             vc.setCoordinador(miCoordinador);
             escritorio.add(vc).setLocation(25, 3);
@@ -437,6 +486,29 @@ Inventario in;
       
         HiloSync.ejecutaTareaCadaXTiempo();
     }//GEN-LAST:event_formWindowOpened
+Usuario usua;
+    private void jMenuItem3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem3ActionPerformed
+  if (estacerrado(usua)) {
+            usua = new Usuario();
+            usua.setCoordinador(miCoordinador);
+            escritorio.add(usua).setLocation(25, 3);
+            usua.show(true);
+           
+        }
+    }//GEN-LAST:event_jMenuItem3ActionPerformed
+
+    private void jMenuItem4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem4ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jMenuItem4ActionPerformed
+UsuariosCredito usu;
+    private void jMenuItem5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem5ActionPerformed
+   if (estacerrado(usu)) {
+            usu = new UsuariosCredito();
+            usu.setCoordinador(miCoordinador);
+            escritorio.add(usu).setLocation(25, 3);
+            usu.show(true);
+   }// TODO add your handling code here:
+    }//GEN-LAST:event_jMenuItem5ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -448,12 +520,8 @@ Inventario in;
          * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
          */
         try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
+            UIManager.setLookAndFeel("com.birosoft.liquid.LiquidLookAndFeel");
+            
         } catch (ClassNotFoundException ex) {
             java.util.logging.Logger.getLogger(Inicio.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
@@ -491,6 +559,10 @@ Inventario in;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JMenuItem jMenuItem2;
+    private javax.swing.JMenuItem jMenuItem3;
+    private javax.swing.JMenuItem jMenuItem4;
+    private javax.swing.JMenuItem jMenuItem5;
+    private javax.swing.JPopupMenu.Separator jSeparator1;
     private javax.swing.JMenu menuColors;
     private javax.swing.JMenu menuProduct;
     private javax.swing.JMenu menuSale;

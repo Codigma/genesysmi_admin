@@ -57,12 +57,17 @@ public class Inventario extends javax.swing.JInternalFrame {
     
     producto = miCoordinador.getProductoTienda(local, art);
     
+    if(!producto.isEmpty()){
      for (int i =0; i<producto.size();i++){
 modelo.addRow(new Object[] {producto.get(i).getArt(),producto.get(i).getArt_name(),producto.get(i).getColor_name(),
 producto.get(i).getSize_name(),producto.get(i).getAmount()});
       }
       //Asignamos los datos del Modelo a la tabla
       tbInvent.setModel(modelo);
+    }
+    else{
+    JOptionPane.showMessageDialog(null,"No existen productos registrados");
+    }
     }
     public void imprimirUsuarios(){
       modelo.setColumnIdentifiers(columnas);
@@ -87,6 +92,7 @@ producto.get(i).getSize_name(),producto.get(i).getAmount()});
     
     productocat = miCoordinador.getProductoTiendaCategory(local, cat, sub);
     
+    if(productocat.size()>0){
      for (int i =0; i<productocat.size();i++){
 modelo.addRow(new Object[] {productocat.get(i).getArt(),productocat.get(i).getArt_name(),productocat.get(i).getColor_name(),
 productocat.get(i).getSize_name(),productocat.get(i).getAmount()});
@@ -94,6 +100,10 @@ productocat.get(i).getSize_name(),productocat.get(i).getAmount()});
       //Asignamos los datos del Modelo a la tabla
       tbInvent.setModel(modelo);
     }
+    else{
+    JOptionPane.showMessageDialog(null,"No existen productos registrados");
+    }
+     }
     
      public void setLocales() {
         
@@ -208,6 +218,9 @@ modelo.removeRow(0);
             }
         });
         txtSearch.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                txtSearchKeyReleased(evt);
+            }
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 txtSearchKeyTyped(evt);
             }
@@ -418,6 +431,7 @@ modelo.removeRow(0);
 
     private void btnSearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSearchActionPerformed
         limpiarTable();
+        btnSearch.setCursor(new java.awt.Cursor(java.awt.Cursor.WAIT_CURSOR));
         String aux = txtSearch.getText();
         int index = comboLocal.getSelectedIndex();
 
@@ -429,7 +443,7 @@ modelo.removeRow(0);
         else{
             JOptionPane.showMessageDialog(null,"Llene los campos correspondientes");
         }
-
+btnSearch.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
     }//GEN-LAST:event_btnSearchActionPerformed
 
     private void txtSearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtSearchActionPerformed
@@ -443,6 +457,7 @@ modelo.removeRow(0);
     private void btnBusquedaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBusquedaActionPerformed
 
         limpiarTable();
+        btnBusqueda.setCursor(new java.awt.Cursor(java.awt.Cursor.WAIT_CURSOR));
         int index_cat = comboCategory.getSelectedIndex();
         subcategories = miCoordinador.getSubcategories(index_cat);
         int index_sub = subcategories.get(comboSub.getSelectedIndex()-1).getId_subcategory();
@@ -456,7 +471,8 @@ modelo.removeRow(0);
         }
         else{
             JOptionPane.showMessageDialog(null,"Llene los campos correspondientes");
-        }        // TODO add your handling code here:
+        }      
+        btnBusqueda.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));// TODO add your handling code here:
     }//GEN-LAST:event_btnBusquedaActionPerformed
 
     private void comboSubActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comboSubActionPerformed
@@ -498,6 +514,10 @@ Integer cat_index = comboCategory.getSelectedIndex();
 
         }        // TODO add your handling code here:
     }//GEN-LAST:event_txtSearchKeyTyped
+
+    private void txtSearchKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtSearchKeyReleased
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtSearchKeyReleased
     
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

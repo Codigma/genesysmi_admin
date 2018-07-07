@@ -301,4 +301,96 @@ String consulta = "UPDATE sales SET total='"+venta.getTotal()+"' "+ "WHERE id_us
             System.out.println(e.getMessage());
         }
     }
+          
+        public ArrayList<VentaVo> getSalesOnline() {
+        ConecRemoto conn = new ConecRemoto();
+        ArrayList<VentaVo> sales = new ArrayList<>();
+        
+        
+        try{
+            PreparedStatement preparedStatement = conn.getConn().prepareStatement(
+              "SELECT sales.*,u.firstname,u.lastname "
+            +"FROM sales "
+            +"INNER JOIN users as u on u.id_user = sales.id_user "
+            +"where online = 1");
+
+        
+            ResultSet resultSet = preparedStatement.executeQuery();
+            while (resultSet.next()) {
+                //Objeto de tipo sucategory
+                VentaVo sale = new VentaVo();
+                sale.setId_sale(resultSet.getInt(1));
+                sale.setId_user(resultSet.getInt(2));
+                sale.setSubtotal(resultSet.getDouble(3));
+                sale.setShip(resultSet.getDouble(4));
+                sale.setTotal(resultSet.getDouble(5));
+                sale.setDate(resultSet.getString(6));
+                sale.setCredito(resultSet.getInt(7));
+                sale.setOnline(resultSet.getInt(8));
+                sale.setFirstname(resultSet.getString(9));
+                sale.setLastname(resultSet.getString(10));
+                
+                
+                
+                
+                sales.add(sale);
+                
+
+            }
+
+           
+            conn.getConn().close();
+            resultSet.close();
+            preparedStatement.close();
+            
+        }catch(SQLException e){
+            System.out.println(e.getMessage());
+            
+        }
+        return sales;
+        
+    }
+        
+        public VentaVo getSalesOnlineId(int id) {
+        ConecRemoto conn = new ConecRemoto();
+        ArrayList<VentaVo> sales = new ArrayList<>();
+        
+        VentaVo sale = new VentaVo();
+        try{
+            PreparedStatement preparedStatement = conn.getConn().prepareStatement(
+              "SELECT sales.*,u.firstname,u.lastname "
+            +"FROM sales "
+            +"INNER JOIN users as u on u.id_user = sales.id_user "
+            +"where online = 1 and id_sale=? ");
+
+            preparedStatement.setInt(1, id);
+            ResultSet resultSet = preparedStatement.executeQuery();
+            while (resultSet.next()) {
+                //Objeto de tipo sucategory
+                
+                sale.setId_sale(resultSet.getInt(1));
+                sale.setId_user(resultSet.getInt(2));
+                sale.setSubtotal(resultSet.getDouble(3));
+                sale.setShip(resultSet.getDouble(4));
+                sale.setTotal(resultSet.getDouble(5));
+                sale.setDate(resultSet.getString(6));
+                sale.setCredito(resultSet.getInt(7));
+                sale.setOnline(resultSet.getInt(8));
+                sale.setFirstname(resultSet.getString(9));
+                sale.setLastname(resultSet.getString(10));
+                 
+                
+            }
+
+            conn.getConn().close();
+            resultSet.close();
+            preparedStatement.close();
+            
+        }catch(SQLException e){
+            System.out.println(e.getMessage());
+            
+        }
+        return sale;
+        
+    }
 }

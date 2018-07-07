@@ -259,7 +259,7 @@ if(monedero > 0 && monedero >= total){
 String monto = JOptionPane.showInputDialog("Monto a utilizar", monedero);
 
 if(Double.parseDouble(monto) <= monedero){
-total = Double.parseDouble(monto) - total;
+total = Math.abs(Double.parseDouble(monto) - total);
 monedero = monedero - Double.parseDouble(monto);
 comprador.setMoney(monedero);
 }
@@ -276,7 +276,7 @@ else if (monedero > 0 && total > monedero){
 total = total - Double.parseDouble(monto) ;    
 monedero = monedero - Double.parseDouble(monto);
 comprador.setMoney(monedero);
-
+System.out.println("Total:"+total);
     }
     else{
     JOptionPane.showMessageDialog(null, "Fondos insuficientes", "Dinero Electrónico", JOptionPane.WARNING_MESSAGE);
@@ -284,7 +284,7 @@ comprador.setMoney(monedero);
     
     }
 
-else if (monedero == 0) {
+else{
 JOptionPane.showMessageDialog(null, "No cuentas con fondos", "Dinero Electrónico", JOptionPane.WARNING_MESSAGE);
 
 }
